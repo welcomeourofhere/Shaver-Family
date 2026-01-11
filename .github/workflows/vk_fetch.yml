@@ -2,7 +2,7 @@ name: VK Feed Build
 
 on:
   schedule:
-    - cron: "*/15 * * * *"   # каждые 15 минут
+    - cron: "0 3 * * *"   # каждый день в 03:00 UTC
   workflow_dispatch:
 
 permissions:
