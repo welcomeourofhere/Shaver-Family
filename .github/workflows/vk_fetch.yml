@@ -1,0 +1,38 @@
+name: VK Feed Build
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # каждые 15 минут
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vkfeed-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch & Build feed.json
+        env:
+          VK_TOKEN: ${{ secrets.VK_TOKEN }}
+        run: node scripts/vk_fetch.mjs
+
+      - name: Commit changes
+        run: |
+          git config user.name "vkfeed-bot"
+          git config user.email "vkfeed-bot@users.noreply.github.com"
+          git add data/feed.json
+          git commit -m "update feed.json" || exit 0
+          git push
