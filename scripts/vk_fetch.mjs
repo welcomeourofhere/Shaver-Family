@@ -1,17 +1,26 @@
 // scripts/vk_fetch.mjs
 // Node 20+
-// Забираем фото-посты из VK и сохраняем как /data/feed.json
+// Генерирует /data/feed.json для GitHub Pages
 
 const VK_API_VERSION = "5.131";
 const GROUP_SCREEN_NAME = "shaver_family";
 
-// Настройки выдачи (под твою схему)
-const MAX_POOL = 12;            // сколько хотим на сайте
-const SCAN = 80;                // сколько постов сканируем вглубь (чтобы отфильтровать видео/пин/мусор)
-const LIMIT_OUT = 36;           // сколько вернем в feed.json (с запасом для рандома на клиенте)
-const MAX_AGE_DAYS = 365;       // старые не берем
-const TEXTLEN = 220;            // обрезка текста
+// Сколько фото хотим на клиенте
+const MAX_POOL = 12;
 
+// Сколько постов сканируем вглубь (чтобы отфильтровать видео/закреп/старье/blacklist)
+const SCAN = 90;
+
+// Сколько фото отдаём в feed.json (с запасом под рандом)
+const LIMIT_OUT = 36;
+
+// Возраст (дней). Старше — не берем
+const MAX_AGE_DAYS = 365;
+
+// Обрезка текста
+const TEXTLEN = 220;
+
+// Черный список хранится ТОЛЬКО здесь
 const BLACKLIST_INPUT = [
   "https://vk.com/wall-115375700_7141",
   "https://vk.com/wall-221312879_10970",
@@ -40,8 +49,7 @@ function getWallIdFromUrl(u){
 const BLACKLIST = new Set(BLACKLIST_INPUT.map(getWallIdFromUrl).filter(Boolean));
 
 function cleanText(s){
-  s = String(s || "").replace(/\s+/g, " ").trim();
-  return s;
+  return String(s || "").replace(/\s+/g, " ").trim();
 }
 function cutText(s, maxLen){
   s = cleanText(s);
@@ -128,10 +136,8 @@ function pickPrimaryMedia(item) {
       };
     }
 
-    // видео пропускаем целиком (под твой кейс)
-    if (att.type === "video") {
-      return { type: "video" };
-    }
+    // видео не берем в ленту
+    if (att.type === "video") return { type: "video" };
   }
   return null;
 }
@@ -148,9 +154,7 @@ async function vkCall(method, params, token) {
   const r = await fetch(url.toString(), { method: "GET" });
   const data = await r.json();
 
-  if (data && data.error) {
-    throw new Error(data.error.error_msg || "VK API error");
-  }
+  if (data && data.error) throw new Error(data.error.error_msg || "VK API error");
   return data.response;
 }
 
@@ -207,6 +211,13 @@ async function main(){
     group: GROUP_SCREEN_NAME,
     generated_at: new Date().toISOString(),
     items: out,
+    meta: {
+      max_pool: MAX_POOL,
+      scan: SCAN,
+      limit_out: LIMIT_OUT,
+      max_age_days: MAX_AGE_DAYS,
+      textlen: TEXTLEN
+    }
   };
 
   const fs = await import("node:fs/promises");
