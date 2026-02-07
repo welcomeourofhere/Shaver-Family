@@ -16,7 +16,7 @@ const PAGE_SIZE = 100;
 const MAX_PAGES = 6;
 
 // ОБРЕЗКА ТЕКСТА ДЛЯ ОВЕРЛЕЯ
-const TEXT_LEN = 220;
+const TEXT_LEN = 5000;
 
 // ТВОЙ BLACKLIST (в одном месте — здесь)
 const BLACKLIST_INPUT = [
