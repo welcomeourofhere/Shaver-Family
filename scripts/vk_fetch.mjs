@@ -46,11 +46,16 @@ function getWallIdFromUrl(u) {
 }
 const BLACKLIST = new Set(BLACKLIST_INPUT.map(getWallIdFromUrl).filter(Boolean));
 
-function cleanText(s) {
-  return String(s || "").replace(/\s+/g, " ").trim();
+function normalizeNewlines(s) {
+  return String(s || "").replace(/\r\n?/g, "\n");
 }
-function cutText(s, maxLen) {
-  s = cleanText(s);
+
+/**
+ * Важно: НЕ схлопываем пробелы и переносы строк.
+ * Оставляем пустые строки.
+ */
+function cutTextKeepLines(s, maxLen) {
+  s = normalizeNewlines(s);
   maxLen = Math.max(0, Math.floor(Number(maxLen || 0)));
   if (!maxLen) return s;
   if (s.length <= maxLen) return s;
@@ -92,7 +97,8 @@ function pickImageByTargetWidth(sizes, targetW) {
  * Важно:
  * - ссылку делаем на САМ пост в группе (raw.owner_id/raw.id)
  * - медиа берём из copy_history[0], если это репост, чтобы было фото
- * - дату берём raw.date (это дата поста в группе), чтобы не подтягивались “старые” оригиналы
+ * - дату берём raw.date (это дата поста в группе)
+ * - текст берём так, чтобы сохранить переносы/пустые строки
  */
 function normalizeWallItem(raw) {
   const rawOwner = Number(raw?.owner_id || 0);
@@ -101,14 +107,29 @@ function normalizeWallItem(raw) {
 
   const src = (raw && Array.isArray(raw.copy_history) && raw.copy_history[0]) ? raw.copy_history[0] : raw;
 
-  const text = raw?.text ? String(raw.text) : String(src?.text || "");
+  // Текст: если в посте группы пусто, берём из src, но переносы сохраняем
+  const textRaw = (raw?.text && String(raw.text).length) ? String(raw.text) : String(src?.text || "");
+  const text = normalizeNewlines(textRaw);
+
   const likes = raw?.likes && typeof raw.likes.count === "number" ? raw.likes.count : 0;
   const views = raw?.views && typeof raw.views.count === "number" ? raw.views.count : 0;
   const date = Number(raw?.date || 0);
 
-  const attachments = Array.isArray(src?.attachments) ? src.attachments : (Array.isArray(raw?.attachments) ? raw.attachments : []);
+  const attachments = Array.isArray(src?.attachments)
+    ? src.attachments
+    : (Array.isArray(raw?.attachments) ? raw.attachments : []);
 
-  return { owner_id: rawOwner, id: rawId, link, text, likes, views, date, attachments, is_pinned: raw?.is_pinned ? 1 : 0 };
+  return {
+    owner_id: rawOwner,
+    id: rawId,
+    link,
+    text,
+    likes,
+    views,
+    date,
+    attachments,
+    is_pinned: raw?.is_pinned ? 1 : 0
+  };
 }
 
 function pickFirstPhotoMedia(attachments) {
@@ -197,7 +218,7 @@ async function fetchLatest12Photos() {
     for (const raw of items) {
       const it = normalizeWallItem(raw);
 
-      // pinned пропускаем (обычно он “старый” и портит “последние”)
+      // pinned пропускаем
       if (it.is_pinned) continue;
 
       const wallId = `wall${it.owner_id}_${it.id}`.toLowerCase();
@@ -208,13 +229,13 @@ async function fetchLatest12Photos() {
       seen.add(k);
 
       const media = pickFirstPhotoMedia(it.attachments);
-      if (!media) continue; // нет фото — пропускаем
+      if (!media) continue;
 
       out.push({
         owner_id: it.owner_id,
         id: it.id,
         date: it.date,
-        text: cutText(it.text, TEXT_LEN),
+        text: cutTextKeepLines(it.text, TEXT_LEN), // переносы/пустые строки сохраняем
         likes: it.likes,
         views: it.views,
         link: it.link,
