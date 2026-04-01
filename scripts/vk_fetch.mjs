@@ -37,6 +37,11 @@ const BLACKLIST_INPUT = [
   "https://vk.com/wall-115375700_7061",
   "https://vk.com/wall-115375700_6873",
   "https://vk.com/wall-115375700_6875",
+  "https://vk.com/wall-115375700_7781",
+  "https://vk.com/wall-115375700_7284",
+  "https://vk.com/wall-115375700_7795",
+  "https://vk.com/wall-115375700_7271",
+  "https://vk.com/wall-115375700_7282",  
   "https://vk.com/wall-115375700_6990",
 ];
 
