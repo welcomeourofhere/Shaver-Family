@@ -92,3 +92,11 @@ test('all original image and first-frame candidates survive API enrichment for a
  assert.ok(r.items[0].media._poster_candidates.some(x=>x.url.includes('large-frame')));
  assert.equal(r.items[0].media.video_height,1920);
 });
+
+test('five bento pages contain 35 distinct eligible posts with the pinned record first',async()=>{
+ const wall=[post(1,{is_pinned:1}),...Array.from({length:70},(_,n)=>post(100-n))];
+ const items=await collectPosts(async()=>({items:wall}),{ownerId:-42,limit:35,blacklist:new Set(['wall-42_99'])});
+ assert.equal(items.length,35);assert.equal(items[0].id,1);
+ assert.equal(new Set(items.map(x=>x.id)).size,35);
+ assert.ok(!items.some(x=>x.id===99));
+});

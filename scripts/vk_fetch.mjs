@@ -10,7 +10,7 @@ const VK_API_VERSION = "5.131";
 const GROUP_SCREEN_NAME = "shaver_family";
 
 // СКОЛЬКО ПОКАЗЫВАЕМ
-const OUT_LIMIT = 12;
+const OUT_LIMIT = 35;
 
 // СКОЛЬКО БЕРЁМ СТЕНОЙ ЗА РАЗ (макс для wall.get = 100)
 const PAGE_SIZE = 100;
