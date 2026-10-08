@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {collectPosts,enrichPosts,normalizePost,pickMedia,playerUrl} from './news_posts.mjs';
+import {collectPosts,enrichPosts,normalizePost,pickMedia,playerUrl,oembedPlayer} from './news_posts.mjs';
 const image={url:'https://sun9-1.userapi.com/test.jpg',width:1280,height:720};
 const photo={type:'photo',photo:{sizes:[image]}};
 const video={type:'video',video:{owner_id:-42,id:3,title:'Видео',image:[image],duration:10,access_key:'private-test-key'}};
@@ -34,4 +34,35 @@ test('reach exports only exact aggregate while preserving public views',async()=
  const r=await enrichPosts([input],async()=>[{post_id:9,reach_total:4555,sex_age:[{private:'never export'}]}],'now');
  assert.equal(r.reachStatus,'available');assert.equal(r.items[0].reach,4555);assert.equal(r.items[0].views,9121);assert.ok(!JSON.stringify(r).includes('sex_age'));
  assert.equal(pickMedia([{...video,video:{...video.video,can_view:0}},photo]).type,'photo');
+});
+
+test('open oEmbed recovers a clip player when the authenticated video API omits it',async()=>{
+ const item={...normalizePost(post(12)),media:pickMedia([video])};delete item.attachments;
+ const calls=[];
+ const r=await enrichPosts([item],async(method,params)=>{
+  calls.push(method);
+  if(method==='video.get')return {items:[{can_view:1}]};
+  if(method==='video.getOembed'){
+   assert.equal(params.url,'https://vk.com/video-42_3');assert.equal(params.v,'5.199');
+   return {html:'<iframe width="640" src="https://vk.com/video_ext.php?oid=-42&amp;id=3&amp;hash=public-embed" allowfullscreen></iframe>'};
+  }
+  throw new Error('no statistics permission');
+ },'now');
+ assert.deepEqual(calls,['video.get','video.getOembed','stats.getPostReach']);
+ assert.equal(r.items[0].media.player_url,'https://vk.com/video_ext.php?oid=-42&id=3&hash=public-embed');
+ assert.ok(!JSON.stringify(r).includes('private-test-key'));assert.equal(r.items[0].reach,null);
+});
+
+test('oEmbed accepts only the requested VK video, discards provider HTML and fails safely',async()=>{
+ const media=pickMedia([video]);
+ for(const html of [
+  '<script src="https://vk.com/video_ext.php?oid=-42&id=3"></script>',
+  '<iframe src="https://evil.example/video_ext.php?oid=-42&id=3"></iframe>',
+  '<iframe src="https://vk.com/video_ext.php?oid=-42&id=4"></iframe>',
+  '<iframe src="https://vk.com@evil.example/video_ext.php?oid=-42&id=3"></iframe>'
+ ])assert.equal(oembedPlayer(html,media),'');
+ const item={...normalizePost(post(12)),media};delete item.attachments;
+ const r=await enrichPosts([item],async()=>{throw new Error('unavailable');},'now');
+ assert.equal(r.items[0].media.player_url,'');assert.equal(r.items[0].media.video_url,'https://vk.com/video-42_3');
+ assert.ok(!JSON.stringify(r).includes('private-test-key'));
 });

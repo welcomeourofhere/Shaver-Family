@@ -52,11 +52,12 @@ function getWallIdFromUrl(u) {
 const BLACKLIST = new Set(BLACKLIST_INPUT.map(getWallIdFromUrl).filter(Boolean));
 
 async function vkCall(method, params) {
+  const publicEmbed=method === 'video.getOembed';
   const token = process.env.VK_TOKEN;
-  if (!token) throw new Error("VK_TOKEN is not set");
+  if (!token && !publicEmbed) throw new Error("VK_TOKEN is not set");
 
   const url = new URL(`https://api.vk.com/method/${method}`);
-  url.searchParams.set("access_token", token);
+  if (!publicEmbed) url.searchParams.set("access_token", token);
   url.searchParams.set("v", VK_API_VERSION);
 
   for (const [k, v] of Object.entries(params || {})) {
