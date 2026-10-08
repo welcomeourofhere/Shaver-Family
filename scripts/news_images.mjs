@@ -12,7 +12,8 @@ export async function prepareMedia(media,{root='.',download=downloadImage}={}) {
   if(!media.full_url&&!media.thumb_url)return media;
   const source=media.full_url||media.thumb_url;
   const sourceUrl=new URL(source);
-  if(sourceUrl.protocol!=='https:'||!/(^|\.)(userapi\.com|vk\.com|vkuserphoto\.ru|vk-cdn\.net)$/.test(sourceUrl.hostname))throw new Error('Unexpected photo origin');
+  const allowedOrigin=/(^|\.)(userapi\.com|vk\.com|vkuserphoto\.ru|vk-cdn\.net)$/.test(sourceUrl.hostname) || sourceUrl.hostname==='iv.okcdn.ru';
+  if(sourceUrl.protocol!=='https:'||!allowedOrigin)throw new Error('Unexpected photo origin');
   // A source URL can contain an expiring signature. Its hash is only a cache
   // lookup; derivative filenames are bound to the actual encoded image bytes.
   const cacheFile=path.join(root,'data/media',digest(source)+'.json');

@@ -29,6 +29,18 @@ test('a failed video cover keeps the actual post, poster URL and player instead 
  const result=await prepareFeed({ok:true,items:[item]},{download:async()=>{throw new Error('CDN unavailable');}});
  assert.equal(result.items[0].media.player_url,item.media.player_url);assert.equal(result.items[0].media.thumb_url,source.thumb_url);assert.equal(result.items[0].media.optimization_status,'original-source');
 });
+
+test('VK clip posters on the exact OK CDN host are optimised without enlargement',async()=>{
+ const root=await fs.mkdtemp(path.join(os.tmpdir(),'news-clip-'));
+ try {
+  const raw=await sharp({create:{width:130,height:96,channels:3,background:'#777777'}}).jpeg().toBuffer();
+  const item={...source,type:'video',full_url:'https://iv.okcdn.ru/clip.jpg'};
+  const r=await prepareMedia(item,{root,download:async()=>raw});
+  assert.deepEqual(r.variants.map(v=>v.width),[130]);assert.equal(r.variants[0].height,96);
+  await assert.rejects(prepareMedia({...item,full_url:'https://evil.iv.okcdn.ru/clip.jpg'},{root,download:async()=>raw}));
+  await assert.rejects(prepareMedia({...item,full_url:'https://iv.okcdn.ru.evil.example/clip.jpg'},{root,download:async()=>raw}));
+ } finally {await fs.rm(root,{recursive:true,force:true});}
+});
 test('feed keeps text, counts and URLs; reruns use original images; failures propagate',async()=>{
  const root=await fs.mkdtemp(path.join(os.tmpdir(),'news-feed-'));
  try {

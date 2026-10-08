@@ -20,6 +20,17 @@ export function playerUrl(value) {
   } catch { return ''; }
 }
 
+export function oembedPlayer(html,media) {
+  // Export only the validated iframe URL, never executable provider HTML.
+  const match=String(html || '').match(/<iframe\b[^>]*\ssrc\s*=\s*(["'])(.*?)\1/i);
+  const value=match?.[2]?.replace(/&amp;|&#0*38;|&#x0*26;/gi,'&');
+  const safe=playerUrl(value);
+  if (!safe) return '';
+  const url=new URL(safe);
+  return url.searchParams.get('oid')===String(media.owner_id) &&
+    url.searchParams.get('id')===String(media.id) ? safe : '';
+}
+
 export function normalizePost(raw) {
   const source = raw.copy_history?.[0] || raw;
   const attachments = raw.attachments?.length ? raw.attachments : source.attachments || [];
@@ -96,6 +107,17 @@ export async function enrichPosts(items,call,updatedAt) {
           if (!media.full_url && poster) Object.assign(media,{thumb_url:poster.url,full_url:poster.url,width:Number(poster.width),height:Number(poster.height)});
         }
       } catch { /* The original public VK link remains usable if embedding is unavailable. */ }
+    }
+    if (!media.player_url) {
+      try {
+        // Public clips may omit `player` in video.get. VK's open oEmbed method
+        // supplies the actual embed hash without extra token permissions.
+        const embed=await call('video.getOembed',{url:media.video_url,v:'5.199'});
+        media.player_url=oembedPlayer(embed?.html,media);
+        if (!media.full_url && /^https:\/\//.test(embed?.thumbnail_url || ''))
+          Object.assign(media,{thumb_url:embed.thumbnail_url,full_url:embed.thumbnail_url,
+            width:Number(embed.thumbnail_width || 0),height:Number(embed.thumbnail_height || 0)});
+      } catch { /* A private/non-embeddable video retains its original public link. */ }
     }
     delete media._access_key;
   }
