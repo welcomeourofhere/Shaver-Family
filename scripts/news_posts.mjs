@@ -47,7 +47,7 @@ export function pickMedia(attachments) {
   for (const att of attachments) {
     const video = att.type === 'video' && att.video;
     if (!video || video.can_view === 0 || !Number.isSafeInteger(video.owner_id) || !Number.isSafeInteger(video.id)) continue;
-    const images = video.image || video.first_frame || [];
+    const images = [...(video.image || []),...(video.first_frame || [])];
     const thumb = pickImage(images,640), full = pickImage(images,1280);
     return {
       type: 'video', owner_id: video.owner_id, id: video.id,
@@ -55,6 +55,7 @@ export function pickMedia(attachments) {
       player_url: playerUrl(video.player), title: String(video.title || ''),
       duration: count(video.duration), thumb_url: thumb?.url || '', full_url: full?.url || thumb?.url || '',
       width: Number(full?.width || thumb?.width || 0), height: Number(full?.height || thumb?.height || 0),
+      _poster_candidates: images,
       // Used only for the authenticated API call, removed before serialization.
       _access_key: video.access_key || ''
     };
@@ -103,7 +104,9 @@ export async function enrichPosts(items,call,updatedAt) {
         const video=response?.items?.[0];
         if (video && video.can_view !== 0) {
           media.player_url=playerUrl(video.player)||media.player_url;
-          const poster=pickImage(video.image || video.first_frame,1280);
+          const images=[...(video.image || []),...(video.first_frame || [])];
+          media._poster_candidates=[...(media._poster_candidates || []),...images];
+          const poster=pickImage(images,1280);
           if (poster && (!media.full_url || Number(poster.width)>Number(media.width||0)))
             Object.assign(media,{thumb_url:poster.url,full_url:poster.url,width:Number(poster.width),height:Number(poster.height)});
           if(count(video.width)&&count(video.height))Object.assign(media,{video_width:count(video.width),video_height:count(video.height)});

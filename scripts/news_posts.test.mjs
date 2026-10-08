@@ -82,3 +82,13 @@ test('oEmbed accepts only the requested VK video, discards provider HTML and fai
  assert.equal(r.items[0].media.player_url,'');assert.equal(r.items[0].media.video_url,'https://vk.com/video-42_3');
  assert.ok(!JSON.stringify(r).includes('private-test-key'));
 });
+test('all original image and first-frame candidates survive API enrichment for actual-pixel selection',async()=>{
+ const frame={url:'https://iv.okcdn.ru/portrait.jpg',width:270,height:480};
+ const media=pickMedia([{...video,video:{...video.video,first_frame:[frame]}}]);
+ const input={...normalizePost(post(9)),media};delete input.attachments;
+ const r=await enrichPosts([input],async method=>method==='video.get'?{items:[{can_view:1,width:1080,height:1920,
+  image:[{url:'https://iv.okcdn.ru/boxed.jpg',width:800,height:450}],first_frame:[{url:'https://iv.okcdn.ru/large-frame.jpg',width:1080,height:1920}]}]}:[],'now');
+ assert.ok(r.items[0].media._poster_candidates.some(x=>x.url===frame.url));
+ assert.ok(r.items[0].media._poster_candidates.some(x=>x.url.includes('large-frame')));
+ assert.equal(r.items[0].media.video_height,1920);
+});

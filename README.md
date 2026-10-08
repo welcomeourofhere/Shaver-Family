@@ -2,7 +2,11 @@
 
 The existing daily VK job publishes `data/feed.json`. It now prepares WebP images
 at 160, 320, 640, 960 and 1280 px, capped at the source width, with the original
-aspect ratio. No resizing up, cropping or visual placeholders are introduced.
+aspect ratio. No resizing up or visual placeholders are introduced. Video covers
+also compare decoded pixels of up to six official API image/first-frame candidates,
+because the declared dimensions can exceed the real file dimensions. Only certified
+near-black outer bars matching the actual video ratio are trimmed; photo posts and
+textured/coloured edges are preserved. The largest usable original frame is chosen.
 
 `media.variants` contains HTTPS URL, width, height and byte size. The compatible
 `thumb_url` and `full_url` fields point to the generated files on this GitHub Pages
