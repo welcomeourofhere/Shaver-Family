@@ -1,10 +1,10 @@
 {
   "ok": true,
   "group": "shaver_family",
-  "generated_at": "2026-10-08T16:38:37.815Z",
+  "generated_at": "2026-10-08T16:55:29.955Z",
   "count": 12,
   "statistics": {
-    "updated_at": "2026-10-08T16:38:37.815Z",
+    "updated_at": "2026-10-08T16:55:29.955Z",
     "likes_source": "wall.likes.count",
     "views_source": "wall.views.count",
     "reach_source": "stats.getPostReach",
@@ -17,7 +17,7 @@
       "date": 1790531435,
       "text": "NEW! Каталог мужских стрижек и бород: shaverfamily.ru/lookbook\n\nМы собрали большой каталог мужских стрижек, бород и отдельных элементов стрижек, чтобы перед походом к барберу можно было разобраться в вариантах и понять, что хочется сделать.\n\nСейчас в каталоге:\n\n— 45 мужских стрижек и причесок;\n— 21 отдельный элемент стрижки;\n— 33 варианта бороды и усов;\n— подробные описания каждого варианта;\n— рекомендации по укладке и уходу;\n— поиск и фильтры для быстрого выбора;\n— инструменты подбора стрижек и бород;\n— словарь стрижек, техник и профессиональных терминов.\n\nЛукбук можно использовать как каталог идей перед следующей стрижкой, как источник референсов или просто открыть, если хочется лучше разобраться в названиях и отличиях разных вариантов.",
       "likes": 23,
-      "views": 8300,
+      "views": 8302,
       "is_pinned": 1,
       "link": "https://vk.com/wall-115375700_8235",
       "media": {
@@ -61,7 +61,7 @@
           }
         ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     },
     {
@@ -114,7 +114,7 @@
           }
         ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     },
     {
@@ -167,7 +167,7 @@
           }
         ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     },
     {
@@ -220,7 +220,7 @@
           }
         ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     },
     {
@@ -237,7 +237,7 @@
         "owner_id": -115375700,
         "id": 456239636,
         "video_url": "https://vk.com/video-115375700_456239636",
-        "player_url": "",
+        "player_url": "https://vk.com/video_ext.php?oid=-115375700&id=456239636&hash=e2807dc7b4415a3d&__ref=vk.web2",
         "title": "Clip by @shaver_family",
         "duration": 33,
         "thumb_url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-4790bc48ccef3db2b8ed.webp",
@@ -261,7 +261,7 @@
           }
         ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     },
     {
@@ -314,7 +314,7 @@
           }
         ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     },
     {
@@ -367,7 +367,7 @@
           }
         ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     },
     {
@@ -420,7 +420,7 @@
           }
         ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     },
     {
@@ -473,7 +473,7 @@
           }
         ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     },
     {
@@ -490,16 +490,43 @@
         "owner_id": -115375700,
         "id": 456239633,
         "video_url": "https://vk.com/video-115375700_456239633",
-        "player_url": "",
+        "player_url": "https://vk.com/video_ext.php?oid=-115375700&id=456239633&hash=911e7450972b8a58&__ref=vk.web2",
         "title": "Clip by @shaver_family",
         "duration": 8,
-        "thumb_url": "https://iv.okcdn.ru/getVideoPreview?id=18759176358584&idx=1&type=39&tkn=YZCtY8G2WEJwBVLBIsWwEGFsWmU&fn=vid_u",
-        "full_url": "https://iv.okcdn.ru/getVideoPreview?id=18759176358584&idx=1&type=39&tkn=YZCtY8G2WEJwBVLBIsWwEGFsWmU&fn=vid_x",
+        "thumb_url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-d3fcc7837a3d48f6c58a.webp",
+        "full_url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-9e82ac4546f3777573b8.webp",
         "width": 800,
         "height": 450,
-        "optimization_status": "original-source"
+        "original_thumb_url": "https://iv.okcdn.ru/getVideoPreview?id=18759176358584&idx=1&type=39&tkn=YZCtY8G2WEJwBVLBIsWwEGFsWmU&fn=vid_u",
+        "original_full_url": "https://iv.okcdn.ru/getVideoPreview?id=18759176358584&idx=1&type=39&tkn=YZCtY8G2WEJwBVLBIsWwEGFsWmU&fn=vid_x",
+        "variants": [
+          {
+            "url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-11bbf96c90dca44866fc.webp",
+            "width": 160,
+            "height": 90,
+            "bytes": 910
+          },
+          {
+            "url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-59dcde33da38c9682f62.webp",
+            "width": 320,
+            "height": 180,
+            "bytes": 2884
+          },
+          {
+            "url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-d3fcc7837a3d48f6c58a.webp",
+            "width": 640,
+            "height": 360,
+            "bytes": 9636
+          },
+          {
+            "url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-9e82ac4546f3777573b8.webp",
+            "width": 800,
+            "height": 450,
+            "bytes": 14564
+          }
+        ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     },
     {
@@ -552,7 +579,7 @@
           }
         ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     },
     {
@@ -605,7 +632,7 @@
           }
         ]
       },
-      "stats_updated_at": "2026-10-08T16:38:37.815Z",
+      "stats_updated_at": "2026-10-08T16:55:29.955Z",
       "reach": null
     }
   ],
