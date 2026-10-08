@@ -1,0 +1,20 @@
+{
+  "profile": "webp-v1",
+  "source": "https://sun9-61.userapi.com/impg/wAevwzwkCZzsMwkOOgOl_JXg_ay_-uzPiX50ZQ/I9QrJGM0DqU.jpg?size=800x450&quality=95&keep_aspect_ratio=1&background=000000&sign=4ac1da3a874049d435b52133f19c0606&c_uniq_tag=1JzfGiZ1T_IhtLVrhVgsYjSMW8kPYYOgVzUHU6oZRE4&type=video_thumb",
+  "variants": [
+    {
+      "url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-de4d9667bcacc4fd3da9.webp",
+      "path": "data/media/news-de4d9667bcacc4fd3da9.webp",
+      "width": 160,
+      "height": 90,
+      "bytes": 1898
+    },
+    {
+      "url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-4790bc48ccef3db2b8ed.webp",
+      "path": "data/media/news-4790bc48ccef3db2b8ed.webp",
+      "width": 270,
+      "height": 152,
+      "bytes": 4136
+    }
+  ]
+}
