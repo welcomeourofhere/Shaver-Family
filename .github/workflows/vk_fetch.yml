@@ -23,6 +23,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: npm
+
+      - name: Install image encoder
+        run: npm ci --ignore-scripts
+
+      - name: Test image pipeline
+        run: npm test
 
       - name: Fetch & Build feed.json
         env:
@@ -33,6 +40,6 @@ jobs:
         run: |
           git config user.name "vkfeed-bot"
           git config user.email "vkfeed-bot@users.noreply.github.com"
-          git add data/feed.json
+          git add data/feed.json data/media
           git commit -m "update feed.json" || exit 0
           git push
