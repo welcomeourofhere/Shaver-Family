@@ -8,7 +8,8 @@ const base='https://welcomeourofhere.github.io/Shaver-Family/';
 const digest=raw=>createHash('sha256').update(raw).digest('hex');
 
 export async function prepareMedia(media,{root='.',download=downloadImage}={}) {
-  if(media?.type!=='photo')return media;
+  if(!['photo','video'].includes(media?.type))return media;
+  if(!media.full_url&&!media.thumb_url)return media;
   const source=media.full_url||media.thumb_url;
   const sourceUrl=new URL(source);
   if(sourceUrl.protocol!=='https:'||!/(^|\.)(userapi\.com|vk\.com|vkuserphoto\.ru|vk-cdn\.net)$/.test(sourceUrl.hostname))throw new Error('Unexpected photo origin');
