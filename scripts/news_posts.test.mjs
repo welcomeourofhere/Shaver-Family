@@ -1,4 +1,20 @@
 import test from 'node:test';
+test('newer video metadata replaces a small cover and preserves an already valid player',async()=>{
+ const item={...normalizePost(post(12)),media:{...pickMedia([video]),width:270,height:480,
+   player_url:'https://vk.com/video_ext.php?oid=-42&id=3&hash=public'}};
+ delete item.attachments;
+ const r=await enrichPosts([item],async(method,params)=>{
+  if(method==='video.get'){
+   assert.equal(params.v,'5.199');
+   return {items:[{can_view:1,width:1080,height:1920,image:[{url:'https://iv.okcdn.ru/cover.jpg',width:1080,height:1920}]}]};
+  }
+  if(method==='video.getOembed')throw new Error('Should not request an embed already present');
+  throw new Error('no statistics permission');
+ },'now');
+ assert.equal(r.items[0].media.full_url,'https://iv.okcdn.ru/cover.jpg');
+ assert.equal(r.items[0].media.width,1080);assert.equal(r.items[0].media.video_height,1920);
+ assert.equal(r.items[0].media.player_url,item.media.player_url);
+});
 import assert from 'node:assert/strict';
 import {collectPosts,enrichPosts,normalizePost,pickMedia,playerUrl,oembedPlayer} from './news_posts.mjs';
 const image={url:'https://sun9-1.userapi.com/test.jpg',width:1280,height:720};
