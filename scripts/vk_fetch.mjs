@@ -2,6 +2,7 @@
 // Node 20+ (GitHub Actions). Env: VK_TOKEN
 
 import fs from "node:fs/promises";
+import {prepareFeed} from './news_images.mjs';
 
 const VK_API_VERSION = "5.131";
 const GROUP_SCREEN_NAME = "shaver_family";
@@ -262,32 +263,22 @@ async function main() {
   try {
     const r = await fetchLatest12Photos();
 
-    const payload = {
+    const payload = await prepareFeed({
       ok: true,
       group: GROUP_SCREEN_NAME,
       generated_at: generatedAt,
       count: r.items.length,
       items: r.items,
-    };
+    });
 
     await fs.mkdir("data", { recursive: true });
-    await fs.writeFile("data/feed.json", JSON.stringify(payload, null, 2), "utf8");
+    await fs.writeFile("data/feed.json.tmp", JSON.stringify(payload, null, 2), "utf8");
+    await fs.rename("data/feed.json.tmp", "data/feed.json");
     console.log(`OK: wrote data/feed.json (${payload.count} items)`);
   } catch (e) {
-    const payload = {
-      ok: false,
-      group: GROUP_SCREEN_NAME,
-      generated_at: generatedAt,
-      count: 0,
-      items: [],
-      error: String(e && e.message ? e.message : e),
-    };
-
-    await fs.mkdir("data", { recursive: true });
-    await fs.writeFile("data/feed.json", JSON.stringify(payload, null, 2), "utf8");
-    console.log(`FAIL: wrote data/feed.json with error`);
-    console.error(e);
-    process.exitCode = 0;
+    // An API/image failure must never replace working news with an empty feed.
+    console.error('Feed update failed; the previous feed was retained.');
+    process.exitCode = 1;
   }
 }
 
