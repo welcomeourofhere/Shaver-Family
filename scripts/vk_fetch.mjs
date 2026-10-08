@@ -113,7 +113,8 @@ async function main() {
     console.log(`OK: wrote data/feed.json (${payload.count} items)`);
   } catch (e) {
     // An API/image failure must never replace working news with an empty feed.
-    console.error('Feed update failed; the previous feed was retained.');
+    const diagnostic=String(e?.message||'unknown error').replaceAll(process.env.VK_TOKEN||'__absent_token__','[redacted]').replace(/access_token=[^&\s]+/gi,'access_token=[redacted]').slice(0,300);
+    console.error('Feed update failed; the previous feed was retained. Reason: '+diagnostic);
     process.exitCode = 1;
   }
 }

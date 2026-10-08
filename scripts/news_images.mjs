@@ -65,7 +65,14 @@ export async function prepareFeed(feed,options={}) {
     const prepared=[];
     for(const photo of media) {
       const original=photo?.original_full_url?{...photo,full_url:photo.original_full_url,thumb_url:photo.original_thumb_url||photo.thumb_url}:photo;
-      prepared.push(await prepareMedia(original,options));
+      try {prepared.push(await prepareMedia(original,options));}
+      catch(error) {
+        // A new video cover/CDN outage must not remove an otherwise valid post
+        // or erase the whole working feed. Preserve its actual API image.
+        const origin=(()=>{try{return new URL(original?.full_url||original?.thumb_url).hostname;}catch{return 'no-image';}})();
+        console.warn(`Media optimisation unavailable: post ${item.owner_id}_${item.id}, ${original?.type}, origin ${origin}. Original API image retained.`);
+        prepared.push({...original,optimization_status:'original-source'});
+      }
     }
     items.push({...item,media:many?prepared:prepared[0]});
   }

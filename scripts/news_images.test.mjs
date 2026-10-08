@@ -24,6 +24,11 @@ test('responsive widths, aspect ratio, bounded pixels and cache recovery',async(
   assert.deepEqual(await prepareMedia(source,{root,download}),result);assert.equal(calls,2);
  } finally {await fs.rm(root,{recursive:true,force:true});}
 });
+test('a failed video cover keeps the actual post, poster URL and player instead of failing the whole feed',async()=>{
+ const item={id:5,owner_id:-42,media:{...source,type:'video',player_url:'https://vk.com/video_ext.php?oid=-42&id=3'}};
+ const result=await prepareFeed({ok:true,items:[item]},{download:async()=>{throw new Error('CDN unavailable');}});
+ assert.equal(result.items[0].media.player_url,item.media.player_url);assert.equal(result.items[0].media.thumb_url,source.thumb_url);assert.equal(result.items[0].media.optimization_status,'original-source');
+});
 test('feed keeps text, counts and URLs; reruns use original images; failures propagate',async()=>{
  const root=await fs.mkdtemp(path.join(os.tmpdir(),'news-feed-'));
  try {
