@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "engines": {"node": ">=20.19.0"},
-  "scripts": {"test": "node --test scripts/news_images.test.mjs", "images": "node scripts/prepare_feed_images.mjs"},
+  "scripts": {"test": "node --test scripts/*.test.mjs", "images": "node scripts/prepare_feed_images.mjs"},
   "dependencies": {"sharp": "0.35.5"}
 }

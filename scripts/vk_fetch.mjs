@@ -3,6 +3,8 @@
 
 import fs from "node:fs/promises";
 import {prepareFeed} from './news_images.mjs';
+import {collectPosts,enrichPosts} from './news_posts.mjs';
+import {retainFeedVersions} from './news_retention.mjs';
 
 const VK_API_VERSION = "5.131";
 const GROUP_SCREEN_NAME = "shaver_family";
@@ -13,11 +15,8 @@ const OUT_LIMIT = 12;
 // СКОЛЬКО БЕРЁМ СТЕНОЙ ЗА РАЗ (макс для wall.get = 100)
 const PAGE_SIZE = 100;
 
-// СКОЛЬКО СТРАНИЦ СТЕНЫ МАКСИМУМ ПРОСМАТРИВАЕМ, ЕСЛИ МАЛО ФОТО
+// СКОЛЬКО СТРАНИЦ СТЕНЫ МАКСИМУМ ПРОСМАТРИВАЕМ, ЕСЛИ МАЛО МЕДИА
 const MAX_PAGES = 6;
-
-// ОБРЕЗКА ТЕКСТА ДЛЯ ОВЕРЛЕЯ
-const TEXT_LEN = 5000;
 
 // ТВОЙ BLACKLIST (в одном месте — здесь)
 const BLACKLIST_INPUT = [
@@ -52,121 +51,6 @@ function getWallIdFromUrl(u) {
 }
 const BLACKLIST = new Set(BLACKLIST_INPUT.map(getWallIdFromUrl).filter(Boolean));
 
-function normalizeNewlines(s) {
-  return String(s || "").replace(/\r\n?/g, "\n");
-}
-
-/**
- * Важно: НЕ схлопываем пробелы и переносы строк.
- * Оставляем пустые строки.
- */
-function cutTextKeepLines(s, maxLen) {
-  s = normalizeNewlines(s);
-  maxLen = Math.max(0, Math.floor(Number(maxLen || 0)));
-  if (!maxLen) return s;
-  if (s.length <= maxLen) return s;
-  return s.slice(0, Math.max(0, maxLen - 1)).trimEnd() + "…";
-}
-
-function pickImageByTargetWidth(sizes, targetW) {
-  if (!Array.isArray(sizes) || sizes.length === 0) return null;
-
-  let best = null;
-  let bestDelta = Infinity;
-  let fallbackLargest = null;
-  let fallbackArea = -1;
-
-  for (const s of sizes) {
-    if (!s || !s.url) continue;
-    const w = Number(s.width || 0);
-    const h = Number(s.height || 0);
-    const area = w * h;
-
-    if (area > fallbackArea) {
-      fallbackArea = area;
-      fallbackLargest = { url: s.url, width: w, height: h };
-    }
-
-    if (w > 0) {
-      const delta = Math.abs(w - targetW);
-      if (delta < bestDelta) {
-        bestDelta = delta;
-        best = { url: s.url, width: w, height: h };
-      }
-    }
-  }
-
-  return best || fallbackLargest;
-}
-
-/**
- * Важно:
- * - ссылку делаем на САМ пост в группе (raw.owner_id/raw.id)
- * - медиа берём из copy_history[0], если это репост, чтобы было фото
- * - дату берём raw.date (это дата поста в группе)
- * - текст берём так, чтобы сохранить переносы/пустые строки
- */
-function normalizeWallItem(raw) {
-  const rawOwner = Number(raw?.owner_id || 0);
-  const rawId = Number(raw?.id || 0);
-  const link = rawOwner && rawId ? `https://vk.com/wall${rawOwner}_${rawId}` : "";
-
-  const src = (raw && Array.isArray(raw.copy_history) && raw.copy_history[0]) ? raw.copy_history[0] : raw;
-
-  // Текст: если в посте группы пусто, берём из src, но переносы сохраняем
-  const textRaw = (raw?.text && String(raw.text).length) ? String(raw.text) : String(src?.text || "");
-  const text = normalizeNewlines(textRaw);
-
-  const likes = raw?.likes && typeof raw.likes.count === "number" ? raw.likes.count : 0;
-  const views = raw?.views && typeof raw.views.count === "number" ? raw.views.count : 0;
-  const date = Number(raw?.date || 0);
-
-  const attachments = Array.isArray(src?.attachments)
-    ? src.attachments
-    : (Array.isArray(raw?.attachments) ? raw.attachments : []);
-
-  return {
-    owner_id: rawOwner,
-    id: rawId,
-    link,
-    text,
-    likes,
-    views,
-    date,
-    attachments,
-    is_pinned: raw?.is_pinned ? 1 : 0
-  };
-}
-
-function pickFirstPhotoMedia(attachments) {
-  if (!Array.isArray(attachments)) return null;
-
-  for (const att of attachments) {
-    if (!att || !att.type) continue;
-    if (att.type !== "photo") continue;
-
-    const p = att.photo;
-    if (!p || !Array.isArray(p.sizes)) continue;
-
-    const thumb = pickImageByTargetWidth(p.sizes, 600);
-    const full = pickImageByTargetWidth(p.sizes, 1280);
-    if (!thumb) continue;
-
-    const w = Number((full && full.width) ? full.width : thumb.width) || 0;
-    const h = Number((full && full.height) ? full.height : thumb.height) || 0;
-
-    return {
-      type: "photo",
-      thumb_url: thumb.url,
-      full_url: (full && full.url) ? full.url : thumb.url,
-      width: w,
-      height: h,
-    };
-  }
-
-  return null;
-}
-
 async function vkCall(method, params) {
   const token = process.env.VK_TOKEN;
   if (!token) throw new Error("VK_TOKEN is not set");
@@ -185,8 +69,10 @@ async function vkCall(method, params) {
     try { ctrl.abort(); } catch (e) {}
   }, 15000);
 
-  const r = await fetch(url.toString(), { method: "GET", signal: ctrl.signal });
-  clearTimeout(tid);
+  let r;
+  try {r = await fetch(url.toString(), { method: "GET", signal: ctrl.signal });}
+  finally {clearTimeout(tid);}
+  if (!r.ok) throw new Error("VK API request failed");
 
   const data = await r.json().catch(() => null);
   if (!data) throw new Error("VK API bad JSON");
@@ -201,79 +87,29 @@ async function getGroupId() {
   return id;
 }
 
-async function fetchLatest12Photos() {
-  const groupId = await getGroupId();
-  const owner_id = -groupId;
-
-  const out = [];
-  const seen = new Set();
-
-  let offset = 0;
-
-  for (let page = 0; page < MAX_PAGES && out.length < OUT_LIMIT; page++) {
-    const wall = await vkCall("wall.get", {
-      owner_id,
-      count: PAGE_SIZE,
-      offset,
-      filter: "owner",
-    });
-
-    const items = Array.isArray(wall?.items) ? wall.items : [];
-    if (!items.length) break;
-
-    for (const raw of items) {
-      const it = normalizeWallItem(raw);
-
-      // pinned пропускаем
-      if (it.is_pinned) continue;
-
-      const wallId = `wall${it.owner_id}_${it.id}`.toLowerCase();
-      if (BLACKLIST.has(wallId)) continue;
-
-      const k = `${it.owner_id}_${it.id}`;
-      if (seen.has(k)) continue;
-      seen.add(k);
-
-      const media = pickFirstPhotoMedia(it.attachments);
-      if (!media) continue;
-
-      out.push({
-        owner_id: it.owner_id,
-        id: it.id,
-        date: it.date,
-        text: cutTextKeepLines(it.text, TEXT_LEN), // переносы/пустые строки сохраняем
-        likes: it.likes,
-        views: it.views,
-        link: it.link,
-        media,
-      });
-
-      if (out.length >= OUT_LIMIT) break;
-    }
-
-    offset += items.length;
-  }
-
-  return { owner_id: -groupId, items: out };
-}
-
 async function main() {
   const generatedAt = new Date().toISOString();
 
   try {
-    const r = await fetchLatest12Photos();
+    let previous=null;
+    try {previous=JSON.parse(await fs.readFile('data/feed.json','utf8'));}catch(e){if(e.code!=='ENOENT')throw e;}
+    const groupId = await getGroupId();
+    const posts = await collectPosts(vkCall,{ownerId:-groupId,limit:OUT_LIMIT,pageSize:PAGE_SIZE,maxPages:MAX_PAGES,blacklist:BLACKLIST});
+    const r = await enrichPosts(posts,vkCall,generatedAt);
 
     const payload = await prepareFeed({
       ok: true,
       group: GROUP_SCREEN_NAME,
       generated_at: generatedAt,
       count: r.items.length,
+      statistics: {updated_at:generatedAt,likes_source:"wall.likes.count",views_source:"wall.views.count",reach_source:"stats.getPostReach",reach_status:r.reachStatus},
       items: r.items,
     });
 
     await fs.mkdir("data", { recursive: true });
     await fs.writeFile("data/feed.json.tmp", JSON.stringify(payload, null, 2), "utf8");
     await fs.rename("data/feed.json.tmp", "data/feed.json");
+    await retainFeedVersions(payload,{previous});
     console.log(`OK: wrote data/feed.json (${payload.count} items)`);
   } catch (e) {
     // An API/image failure must never replace working news with an empty feed.

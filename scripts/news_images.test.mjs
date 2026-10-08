@@ -17,6 +17,8 @@ test('responsive widths, aspect ratio, bounded pixels and cache recovery',async(
   assert.ok(result.variants.every(v=>Math.abs(v.height-v.width*4/3)<=.5&&v.bytes>0&&v.url.endsWith('.webp')));
   for(const v of result.variants){const file=path.join(root,new URL(v.url).pathname.replace('/Shaver-Family/',''));const meta=await sharp(await fs.readFile(file)).metadata();assert.equal(meta.width,v.width);assert.equal(meta.format,'webp');}
   assert.equal(result.original_full_url,source.full_url);
+  const video=await prepareMedia({...source,type:'video',player_url:'https://vk.com/video_ext.php?oid=-42&id=3'},{root,download});
+  assert.equal(video.type,'video');assert.equal(video.player_url,'https://vk.com/video_ext.php?oid=-42&id=3');assert.deepEqual(video.variants,result.variants);
   assert.deepEqual(await prepareMedia(source,{root,download}),result);assert.equal(calls,1);
   await fs.unlink(path.join(root,new URL(result.variants[0].url).pathname.replace('/Shaver-Family/','')));
   assert.deepEqual(await prepareMedia(source,{root,download}),result);assert.equal(calls,2);
