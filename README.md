@@ -30,6 +30,9 @@ For public clips that omit a player in `video.get`, the job calls VK's open
 `video.getOembed` method without a token. It extracts only an HTTPS VK iframe URL
 for the requested owner/video ID; provider HTML is never included in the feed.
 Clip posters from the exact `iv.okcdn.ru` host use the same bounded WebP pipeline.
+The job also requests current video metadata (API 5.199), chooses a larger actual
+cover when available, and carries original video dimensions separately from a
+possibly square poster. Existing embed URLs are preserved.
 
 Likes and views belong to the community post, including reposts. Missing counts
 are null, not fabricated zero. Each item records stats_updated_at: this is a daily

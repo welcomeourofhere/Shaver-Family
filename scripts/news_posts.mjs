@@ -97,14 +97,16 @@ export async function enrichPosts(items,call,updatedAt) {
   for (const item of out) {
     const media=item.media;
     if (media?.type !== 'video') continue;
-    if (!media.player_url) {
+    {
       try {
-        const response=await call('video.get',{videos:`${media.owner_id}_${media.id}${media._access_key?'_'+media._access_key:''}`});
+        const response=await call('video.get',{videos:`${media.owner_id}_${media.id}${media._access_key?'_'+media._access_key:''}`,v:'5.199'});
         const video=response?.items?.[0];
         if (video && video.can_view !== 0) {
-          media.player_url=playerUrl(video.player);
+          media.player_url=playerUrl(video.player)||media.player_url;
           const poster=pickImage(video.image || video.first_frame,1280);
-          if (!media.full_url && poster) Object.assign(media,{thumb_url:poster.url,full_url:poster.url,width:Number(poster.width),height:Number(poster.height)});
+          if (poster && (!media.full_url || Number(poster.width)>Number(media.width||0)))
+            Object.assign(media,{thumb_url:poster.url,full_url:poster.url,width:Number(poster.width),height:Number(poster.height)});
+          if(count(video.width)&&count(video.height))Object.assign(media,{video_width:count(video.width),video_height:count(video.height)});
         }
       } catch { /* The original public VK link remains usable if embedding is unavailable. */ }
     }
