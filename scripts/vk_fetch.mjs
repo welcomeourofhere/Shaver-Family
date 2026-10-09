@@ -11,6 +11,8 @@ const GROUP_SCREEN_NAME = "shaver_family";
 
 // СКОЛЬКО ПОКАЗЫВАЕМ
 const OUT_LIMIT = 35;
+// Reversible rollout switch: retain video support without exporting video posts.
+const VIDEOS_ENABLED = false;
 
 // СКОЛЬКО БЕРЁМ СТЕНОЙ ЗА РАЗ (макс для wall.get = 100)
 const PAGE_SIZE = 100;
@@ -95,7 +97,7 @@ async function main() {
     let previous=null;
     try {previous=JSON.parse(await fs.readFile('data/feed.json','utf8'));}catch(e){if(e.code!=='ENOENT')throw e;}
     const groupId = await getGroupId();
-    const posts = await collectPosts(vkCall,{ownerId:-groupId,limit:OUT_LIMIT,pageSize:PAGE_SIZE,maxPages:MAX_PAGES,blacklist:BLACKLIST});
+    const posts = await collectPosts(vkCall,{ownerId:-groupId,limit:OUT_LIMIT,pageSize:PAGE_SIZE,maxPages:MAX_PAGES,blacklist:BLACKLIST,videosEnabled:VIDEOS_ENABLED});
     const r = await enrichPosts(posts,vkCall,generatedAt);
 
     const payload = await prepareFeed({

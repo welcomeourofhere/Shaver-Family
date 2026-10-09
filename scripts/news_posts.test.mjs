@@ -100,3 +100,23 @@ test('five bento pages contain 35 distinct eligible posts with the pinned record
  assert.equal(new Set(items.map(x=>x.id)).size,35);
  assert.ok(!items.some(x=>x.id===99));
 });
+
+test('disabled videos are skipped before the limit, including pinned and mixed posts; paragraph breaks survive',async()=>{
+ const pages=[
+  [post(999,{is_pinned:1,attachments:[video]}),post(998,{attachments:[photo,video]}),...Array.from({length:25},(_,n)=>post(100-n))],
+  Array.from({length:20},(_,n)=>post(50-n))
+ ];
+ let calls=0;
+ const items=await collectPosts(async()=>({items:pages[calls++]||[]}),{ownerId:-42,limit:35,videosEnabled:false});
+ assert.equal(calls,2);assert.equal(items.length,35);
+ assert.ok(items.every(x=>x.media?.type==='photo'));
+ assert.ok(!items.some(x=>[999,998].includes(x.id)));
+ assert.equal(items[0].text,'Текст\n\nАбзац');
+});
+test('video functionality remains available when explicitly enabled',async()=>{
+ const items=await collectPosts(async()=>({items:[post(1,{is_pinned:1,attachments:[video]})]}),{ownerId:-42,limit:1,videosEnabled:true});
+ assert.equal(items[0].media.type,'video');assert.equal(items[0].is_pinned,1);
+});
+test('VK CRLF and multiple blank lines are preserved by normalization',()=>{
+ assert.equal(normalizePost(post(1,{text:'Заголовок\r\n\r\nАбзац\r\n\r\n\r\nЕще'})).text,'Заголовок\n\nАбзац\n\n\nЕще');
+});
