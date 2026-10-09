@@ -69,7 +69,7 @@ export function pickMedia(attachments) {
   return null;
 }
 
-export async function collectPosts(call,{ownerId,limit=12,pageSize=100,maxPages=6,blacklist=new Set()}={}) {
+export async function collectPosts(call,{ownerId,limit=12,pageSize=100,maxPages=6,blacklist=new Set(),videosEnabled=true}={}) {
   const result = [], seen = new Set(); let offset = 0;
   for (let page=0;page<maxPages && result.length<limit;page++) {
     const wall = await call('wall.get',{owner_id:ownerId,count:pageSize,offset,filter:'owner'});
@@ -79,6 +79,8 @@ export async function collectPosts(call,{ownerId,limit=12,pageSize=100,maxPages=
       const item = normalizePost(raw), key = `${item.owner_id}_${item.id}`;
       if (!item.owner_id || !item.id || seen.has(key) || blacklist.has(`wall${key}`)) continue;
       seen.add(key);
+      // Exclude the whole video post, even when it also has a photo or is pinned.
+      if (!videosEnabled && item.attachments.some(att=>att.type==='video')) continue;
       const media = pickMedia(item.attachments);
       // A pinned text-only announcement is still a valid news item.
       if (!media && !item.is_pinned) continue;
