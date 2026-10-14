@@ -9,19 +9,22 @@ import {retainFeedVersions} from './news_retention.mjs';
 const VK_API_VERSION = "5.131";
 const GROUP_SCREEN_NAME = "shaver_family";
 
-// СКОЛЬКО ПОКАЗЫВАЕМ
+// ������� ����������
 const OUT_LIMIT = 35;
 // Reversible rollout switch: retain video support without exporting video posts.
 const VIDEOS_ENABLED = false;
 
-// СКОЛЬКО БЕРЁМ СТЕНОЙ ЗА РАЗ (макс для wall.get = 100)
+// ������� ��Ш� ������ �� ��� (���� ��� wall.get = 100)
 const PAGE_SIZE = 100;
 
-// СКОЛЬКО СТРАНИЦ СТЕНЫ МАКСИМУМ ПРОСМАТРИВАЕМ, ЕСЛИ МАЛО МЕДИА
+// ������� ������� ����� �������� �������������, ���� ���� �����
 const MAX_PAGES = 6;
 
-// ТВОЙ BLACKLIST (в одном месте — здесь)
+// ���� BLACKLIST (� ����� ����� � �����)
 const BLACKLIST_INPUT = [
+  // Generated from the website's canonical news exclusions for each export.
+  ...JSON.parse(await fs.readFile(new URL('./site-news-policy.json',import.meta.url),'utf8')).excludedPosts
+    .map(({ownerId,postId})=>`https://vk.ru/wall${ownerId}_${postId}`),
   "https://vk.com/wall-115375700_7141",
   "https://vk.com/wall-221312879_10970",
   "https://vk.com/wall-115375700_7100",

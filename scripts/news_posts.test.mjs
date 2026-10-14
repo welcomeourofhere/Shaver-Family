@@ -1,4 +1,21 @@
 import test from 'node:test';
+test('all distinct photo attachments keep their source order and survive enrichment',async()=>{
+ const attachments=[photo,{type:'photo',photo:{sizes:[{...image,url:'https://sun9-1.userapi.com/second.jpg'}]}},photo];
+ const gallery=pickMedia(attachments);
+ assert.equal(gallery.length,2);assert.equal(gallery[0].full_url,image.url);assert.match(gallery[1].full_url,/second/);
+ const items=await collectPosts(async()=>({items:[post(100,{attachments})]}),{ownerId:-42,limit:1,videosEnabled:false});
+ const before=JSON.stringify(items);
+ const enriched=await enrichPosts(items,async()=>{throw new Error('no statistics permission');},'now');
+ assert.ok(Array.isArray(enriched.items[0].media));assert.deepEqual(enriched.items[0].media,gallery);
+ assert.ok(!JSON.stringify(enriched).includes('attachments'));
+ assert.equal(JSON.stringify(items),before);
+ enriched.items[0].media[0].width=42;assert.equal(items[0].media[0].width,1280);
+ assert.equal(pickMedia([photo]).type,'photo');
+});
+test('the excluded wall ID is skipped before applying the feed limit',async()=>{
+ const items=await collectPosts(async()=>({items:[post(8255),post(8254)]}),{ownerId:-42,limit:1,blacklist:new Set(['wall-42_8255'])});
+ assert.deepEqual(items.map(item=>item.id),[8254]);
+});
 test('newer video metadata replaces a small cover and preserves an already valid player',async()=>{
  const item={...normalizePost(post(12)),media:{...pickMedia([video]),width:270,height:480,
    player_url:'https://vk.com/video_ext.php?oid=-42&id=3&hash=public'}};
@@ -17,14 +34,24 @@ test('newer video metadata replaces a small cover and preserves an already valid
 });
 import assert from 'node:assert/strict';
 import {collectPosts,enrichPosts,normalizePost,pickMedia,playerUrl,oembedPlayer} from './news_posts.mjs';
+import {readFile} from 'node:fs/promises';
 const image={url:'https://sun9-1.userapi.com/test.jpg',width:1280,height:720};
 const photo={type:'photo',photo:{sizes:[image]}};
-const video={type:'video',video:{owner_id:-42,id:3,title:'Видео',image:[image],duration:10,access_key:'private-test-key'}};
-const post=(id,more={})=>({owner_id:-42,id,date:id,text:'Текст\n\nАбзац',likes:{count:1234},views:{count:9121},attachments:[photo],...more});
+const video={type:'video',video:{owner_id:-42,id:3,title:'�����',image:[image],duration:10,access_key:'private-test-key'}};
+const post=(id,more={})=>({owner_id:-42,id,date:id,text:'�����\n\n�����',likes:{count:1234},views:{count:9121},attachments:[photo],...more});
+
+test('website policy excludes both requested posts before the news limit',async()=>{
+ const policy=JSON.parse(await readFile(new URL('./site-news-policy.json',import.meta.url),'utf8'));
+ assert.deepEqual(policy.excludedPosts,[{ownerId:-115375700,postId:8235},{ownerId:-115375700,postId:8255}]);
+ const blacklist=new Set(policy.excludedPosts.map(x=>`wall${x.ownerId}_${x.postId}`));
+ const wall=[post(8255,{owner_id:-115375700}),post(8235,{owner_id:-115375700}),post(8234,{owner_id:-115375700})];
+ const items=await collectPosts(async()=>({items:wall}),{ownerId:-115375700,blacklist,limit:1});
+ assert.deepEqual(items.map(x=>x.id),[8234]);
+});
 
 test('group post counters and URL stay separate from repost counters; absent data is unknown',()=>{
- const item=normalizePost(post(7,{text:'',views:undefined,copy_history:[post(2,{owner_id:-100,likes:{count:1},text:'Репост'})]}));
- assert.equal(item.likes,1234);assert.equal(item.views,null);assert.equal(item.text,'Репост');assert.equal(item.link,'https://vk.com/wall-42_7');
+ const item=normalizePost(post(7,{text:'',views:undefined,copy_history:[post(2,{owner_id:-100,likes:{count:1},text:'������'})]}));
+ assert.equal(item.likes,1234);assert.equal(item.views,null);assert.equal(item.text,'������');assert.equal(item.link,'https://vk.com/wall-42_7');
  assert.equal(normalizePost(post(8,{likes:{count:0}})).likes,0);
 });
 test('pinned text/video posts are first, deduplicated and respect the existing blacklist',async()=>{
@@ -111,12 +138,12 @@ test('disabled videos are skipped before the limit, including pinned and mixed p
  assert.equal(calls,2);assert.equal(items.length,35);
  assert.ok(items.every(x=>x.media?.type==='photo'));
  assert.ok(!items.some(x=>[999,998].includes(x.id)));
- assert.equal(items[0].text,'Текст\n\nАбзац');
+ assert.equal(items[0].text,'�����\n\n�����');
 });
 test('video functionality remains available when explicitly enabled',async()=>{
  const items=await collectPosts(async()=>({items:[post(1,{is_pinned:1,attachments:[video]})]}),{ownerId:-42,limit:1,videosEnabled:true});
  assert.equal(items[0].media.type,'video');assert.equal(items[0].is_pinned,1);
 });
 test('VK CRLF and multiple blank lines are preserved by normalization',()=>{
- assert.equal(normalizePost(post(1,{text:'Заголовок\r\n\r\nАбзац\r\n\r\n\r\nЕще'})).text,'Заголовок\n\nАбзац\n\n\nЕще');
+ assert.equal(normalizePost(post(1,{text:'���������\r\n\r\n�����\r\n\r\n\r\n���'})).text,'���������\n\n�����\n\n\n���');
 });

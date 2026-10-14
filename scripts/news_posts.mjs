@@ -60,13 +60,14 @@ export function pickMedia(attachments) {
       _access_key: video.access_key || ''
     };
   }
+  const photos=[];
   for (const att of attachments) {
     if (att.type !== 'photo') continue;
     const thumb = pickImage(att.photo?.sizes,640), full = pickImage(att.photo?.sizes,1280);
-    if (thumb) return {type:'photo',thumb_url:thumb.url,full_url:full?.url || thumb.url,
-      width:Number(full?.width || thumb.width),height:Number(full?.height || thumb.height)};
+    if (thumb && !photos.some(photo=>photo.full_url===(full?.url || thumb.url))) photos.push({type:'photo',thumb_url:thumb.url,full_url:full?.url || thumb.url,
+      width:Number(full?.width || thumb.width),height:Number(full?.height || thumb.height)});
   }
-  return null;
+  return photos.length>1?photos:photos[0]||null;
 }
 
 export async function collectPosts(call,{ownerId,limit=12,pageSize=100,maxPages=6,blacklist=new Set(),videosEnabled=true}={}) {
@@ -85,7 +86,7 @@ export async function collectPosts(call,{ownerId,limit=12,pageSize=100,maxPages=
       // A pinned text-only announcement is still a valid news item.
       if (!media && !item.is_pinned) continue;
       delete item.attachments;
-      result.push({...item,text:item.text.length>5000?item.text.slice(0,4999).trimEnd()+'…':item.text,media});
+      result.push({...item,text:item.text.length>5000?item.text.slice(0,4999).trimEnd()+'�':item.text,media});
       if (result.length>=limit) break;
     }
     offset += rawItems.length;
@@ -96,7 +97,7 @@ export async function collectPosts(call,{ownerId,limit=12,pageSize=100,maxPages=
 
 export async function enrichPosts(items,call,updatedAt) {
   const out=items.map(item=>({...item,stats_updated_at:updatedAt,reach:null,
-    media:item.media ? {...item.media} : null}));
+    media:Array.isArray(item.media)?item.media.map(photo=>({...photo})):item.media ? {...item.media} : null}));
   for (const item of out) {
     const media=item.media;
     if (media?.type !== 'video') continue;
