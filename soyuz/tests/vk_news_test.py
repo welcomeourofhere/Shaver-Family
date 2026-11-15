@@ -11,6 +11,13 @@ module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
 class PublicNews(unittest.TestCase):
+    def test_public_widget_cannot_replace_an_official_api_snapshot(self):
+        with TemporaryDirectory()as directory:
+            root=Path(directory);path=root/'content/news.json';path.parent.mkdir();path.write_text(json.dumps({'source':'official-vk-api'}),encoding='utf-8')
+            live=root/'public/data/news.json';live.parent.mkdir(parents=True);live.write_text('previous API runtime',encoding='utf-8')
+            with patch.object(module,'ROOT',root),patch.dict(module.os.environ,{'VK_TOKEN':'','SOYUZ_VK_TOKEN':''}),patch.object(module,'read')as request:
+                module.update(public_only=True)
+            request.assert_not_called();self.assertEqual(live.read_text(encoding='utf-8'),'previous API runtime')
     def test_multi_photo_cover_prefers_available_full_resolution_over_first_thumbnail(self):
         html = '''<div class="wcommunity_post"><a class="wcommunity_post_date" href="/wall-210007626_5">3 ноя 2026</a><div class="wall_post_text">Новость</div><img src="https://sun1.userapi.com/first.jpg?size=97x130"><img src="https://sun2.userapi.com/second.jpg?as=160x213,640x853,1280x1707&amp;cs=160x0"></div>'''
         post = module.normalize(html, datetime(2026, 11, 5, tzinfo=module.MOSCOW))[0]
@@ -40,6 +47,16 @@ class PublicNews(unittest.TestCase):
             live = json.loads((root / 'public/data/news.json').read_text(encoding='utf-8'))
             self.assertEqual(len(live['items']), 10)
             self.assertEqual(live['items'][0]['id'], '10')
+
+    def test_exclusions_are_applied_before_selecting_the_ten_latest_posts(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            posts = [{'id': str(i), 'publishedAt': f'2026-11-{n:02}T10:00:00+03:00', 'text': f'Post {i}', 'url': f'https://vk.ru/wall-210007626_{i}', 'photo': None} for n, i in enumerate([*range(1, 11), 1941, 1950], 1)]
+            with patch.object(module, 'ROOT', root), patch.dict('os.environ', {}, clear=True), patch.object(module, 'read', side_effect=[b'', json.dumps({'payload': [0, ['']]}).encode()]), patch.object(module, 'normalize', return_value=posts), patch.object(module, 'export_photo', return_value=None) as export:
+                module.update(public_only=True)
+            items = json.loads((root / 'public/data/news.json').read_text(encoding='utf-8'))['items']
+            self.assertEqual([item['id'] for item in items], [str(i) for i in range(10, 0, -1)])
+            self.assertEqual(export.call_count, 10)
 
     def test_localized_dates(self):
         now = datetime(2026, 11, 5, 1, 0, tzinfo=module.MOSCOW)
