@@ -22,6 +22,7 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parents[1]
 GROUP_ID = 210007626
 LIMIT = 10
+EXCLUDED_POST_IDS = frozenset(json.loads((ROOT / 'content/news-policy.json').read_text(encoding='utf-8'))['excludedPostIds'])
 MOSCOW = timezone(timedelta(hours=3))
 WIDGET = 'https://vk.ru/widget_community.php'
 MONTHS = ['янв', 'фев', 'мар', 'апр', 'ма', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек']
@@ -214,6 +215,13 @@ def export_photo(post, directory):
 def update(public_only=False):
     now = datetime.now(MOSCOW)
     token=os.environ.get('SOYUZ_VK_TOKEN')or os.environ.get('VK_TOKEN')
+    if not token:
+        for path in [ROOT/'content/news.json',ROOT/'public/data/news.json']:
+            try: previous_source=json.loads(path.read_text(encoding='utf-8')).get('source')
+            except (OSError,ValueError):continue
+            if previous_source=='official-vk-api':
+                print('Official API snapshot retained; the public widget cannot replace it.')
+                return
     if token:
         spec=importlib.util.spec_from_file_location('vk_news_api',Path(__file__).with_name('vk-news-api.py'));api=importlib.util.module_from_spec(spec);spec.loader.exec_module(api)
         posts=api.fetch_posts(token,GROUP_ID,MOSCOW,public_image)
@@ -226,7 +234,7 @@ def update(public_only=False):
         if response.get('payload', [1])[0] != 0:
             raise ValueError('Public widget did not return posts')
         posts.extend(normalize(response['payload'][1][0], now))
-    unique = {p['id']: p for p in posts}
+    unique = {p['id']: p for p in posts if p['id'] not in EXCLUDED_POST_IDS}
     latest = sorted(unique.values(), key=lambda p: (p['publishedAt'], int(p['id'])), reverse=True)[:LIMIT]
     if len(latest) != LIMIT:
         raise ValueError('Fewer than ten public posts; retaining previous snapshot')
