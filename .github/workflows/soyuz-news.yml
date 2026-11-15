@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - 'soyuz/scripts/**'
+      - 'soyuz/content/news-policy.json'
       - 'soyuz/tests/**'
       - '.github/workflows/soyuz-news.yml'
 permissions:
