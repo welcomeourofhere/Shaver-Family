@@ -63,6 +63,22 @@ class WorkAlbums(unittest.TestCase):
             self.assertEqual(api.request_api(TOKEN, 'photos.get', {})['count'], 0)
             self.assertEqual(opener.return_value.open.call_count, 2)
 
+    def test_actual_album_denial_1051_is_not_retried_or_expanded(self):
+        with patch.object(api, 'build_opener') as opener, patch.object(api.time, 'sleep'):
+            opener.return_value.open.return_value = Response({'error': {'error_code':1051, 'error_msg':TOKEN, 'request_params':[{'value':TOKEN}]}})
+            with self.assertRaises(api.ReadError) as error: api.request_api(TOKEN, 'photos.getAlbums', {})
+            self.assertEqual(error.exception.code, 1051)
+            self.assertEqual(error.exception.category, 'api_error')
+            self.assertEqual(opener.return_value.open.call_count, 1)
+            self.assertNotIn(TOKEN, str(error.exception))
+
+    def test_missing_photo_key_never_falls_back_to_the_news_key(self):
+        with TemporaryDirectory() as directory, patch.dict(api.os.environ, {'SOYUZ_VK_TOKEN':'','VK_TOKEN':TOKEN}), patch.object(api, 'collect') as collect, contextlib.redirect_stdout(StringIO()) as output:
+            self.assertEqual(api.main(['--output',str(Path(directory)/'snapshot.json')]), 1)
+            collect.assert_not_called()
+            self.assertIn('missing_token', output.getvalue())
+            self.assertNotIn(TOKEN, output.getvalue())
+
     def test_response_size_and_invalid_json_fail_closed(self):
         for body in [b'x' * (api.MAX_RESPONSE_BYTES + 1), b'not JSON']:
             response = Response({}); response.body = body
@@ -133,9 +149,9 @@ class WorkAlbums(unittest.TestCase):
             with self.assertRaises(api.ReadError): api.save_snapshot({'title':TOKEN}, path, TOKEN)
             self.assertFalse(path.exists())
 
-    def test_catalog_log_contains_metadata_only_and_fallback_secret_is_used(self):
+    def test_catalog_log_contains_metadata_only_and_the_configured_photo_key_is_used(self):
         snapshot={'albums':[{'id':10,'title':'Соня Кид','description':'Описание','size':1,'photos':[{'image':{'url':'https://sun1.userapi.com/private-sized-photo'}}]}], 'requestedAlbumIds':[10]}
-        with TemporaryDirectory() as directory, patch.dict(api.os.environ, {'SOYUZ_VK_TOKEN':'','VK_TOKEN':TOKEN}), patch.object(api, 'collect', return_value=snapshot) as collect, contextlib.redirect_stdout(StringIO()) as output:
+        with TemporaryDirectory() as directory, patch.dict(api.os.environ, {'SOYUZ_VK_TOKEN':TOKEN,'VK_TOKEN':'unrelated-news-key'}), patch.object(api, 'collect', return_value=snapshot) as collect, contextlib.redirect_stdout(StringIO()) as output:
             self.assertEqual(api.main(['--output',str(Path(directory)/'snapshot.json')]), 0)
             self.assertEqual(collect.call_args.args[0], TOKEN)
             catalog=output.getvalue().splitlines()[0]

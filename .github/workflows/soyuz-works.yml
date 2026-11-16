@@ -36,7 +36,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'vk_work_albums_test.py'
       - name: Read public SOYUZ photo metadata
         env:
-          SOYUZ_VK_TOKEN: ${{ secrets.SOYUZ_VK_TOKEN || secrets.VK_TOKEN }}
+          SOYUZ_VK_TOKEN: ${{ secrets.SOYUZ_VK_PHOTOS_TOKEN }}
           ALBUM_IDS: ${{ inputs.album_ids || env.SOYUZ_WORK_ALBUM_IDS }}
         shell: bash
         run: python scripts/vk-work-albums.py --album-ids "$ALBUM_IDS" --output artifacts/vk-works.json

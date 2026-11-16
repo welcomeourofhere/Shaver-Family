@@ -203,7 +203,9 @@ def main(argv=None):
     parser.add_argument('--album-ids', default='', help='Explicit positive IDs from the discovery catalog, comma-separated')
     parser.add_argument('--output', type=Path, default=Path('artifacts/vk-works.json'))
     args = parser.parse_args(argv)
-    token = os.environ.get('SOYUZ_VK_TOKEN') or os.environ.get('VK_TOKEN')
+    # The workflow binds this variable only to SOYUZ_VK_PHOTOS_TOKEN.
+    # Never borrow the wall/news or Shaver Family key for photo reads.
+    token = os.environ.get('SOYUZ_VK_TOKEN')
     try:
         if not token:
             raise ReadError('missing_token')
