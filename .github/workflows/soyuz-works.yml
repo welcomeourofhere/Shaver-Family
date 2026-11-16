@@ -1,24 +1,18 @@
-name: SOYUZ VK Work Albums
+name: SOYUZ VK Public Work Photos
 on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'Read app metadata or explicitly selected SOYUZ albums'
+        description: 'Read public work-photo candidates from the permitted SOYUZ wall'
         type: choice
-        options: ['app-metadata', 'albums']
+        options: ['wall-works']
         required: true
-        default: 'app-metadata'
-      album_ids:
-        description: 'Explicit album IDs from the discovery catalog; empty lists albums only'
-        required: false
-        default: ''
+        default: 'wall-works'
   push:
     branches: ['codex/soyuz-photos-read']
     paths:
-      - 'soyuz/scripts/vk-work-albums.py'
-      - 'soyuz/scripts/vk-app-metadata.py'
-      - 'soyuz/tests/vk_work_albums_test.py'
-      - 'soyuz/tests/vk_app_metadata_test.py'
+      - 'soyuz/scripts/vk-public-work-photos.py'
+      - 'soyuz/tests/vk_public_work_photos_test.py'
       - '.github/workflows/soyuz-works.yml'
 permissions:
   contents: read
@@ -26,10 +20,7 @@ concurrency:
   group: soyuz-vk-work-albums
   cancel-in-progress: false
 env:
-  # Push on the read branch performs ONLY the approved app metadata read.
-  SOYUZ_WORK_MODE: 'app-metadata'
-  # Stage 2: set only album IDs verified from the stage-1 catalog.
-  SOYUZ_WORK_ALBUM_IDS: ''
+  SOYUZ_WORK_MODE: 'wall-works'
 defaults:
   run:
     working-directory: soyuz
@@ -42,28 +33,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Verify the read-only API boundary
-        run: |
-          python -m unittest discover -s tests -p 'vk_work_albums_test.py'
-          python -m unittest discover -s tests -p 'vk_app_metadata_test.py'
-      - name: Read public metadata of the existing Shaver Family app
-        if: ${{ (inputs.mode || env.SOYUZ_WORK_MODE) == 'app-metadata' }}
+      - name: Verify the public-wall read boundary
+        run: python -m unittest discover -s tests -p 'vk_public_work_photos_test.py'
+      - name: Read public work-photo candidates from SOYUZ wall
+        if: ${{ (inputs.mode || env.SOYUZ_WORK_MODE) == 'wall-works' }}
         env:
           VK_TOKEN: ${{ secrets.VK_TOKEN }}
-        run: python scripts/vk-app-metadata.py
-      - name: Read public SOYUZ photo metadata
-        if: ${{ (inputs.mode || env.SOYUZ_WORK_MODE) == 'albums' }}
-        env:
-          SOYUZ_VK_TOKEN: ${{ secrets.SOYUZ_VK_PHOTOS_TOKEN }}
-          ALBUM_IDS: ${{ inputs.album_ids || env.SOYUZ_WORK_ALBUM_IDS }}
-        shell: bash
-        run: python scripts/vk-work-albums.py --album-ids "$ALBUM_IDS" --output artifacts/vk-works.json
+        run: python scripts/vk-public-work-photos.py --output artifacts/vk-public-work-photos.json
       - uses: actions/upload-artifact@v4
-        if: ${{ always() && (inputs.mode || env.SOYUZ_WORK_MODE) == 'albums' }}
+        if: ${{ always() && (inputs.mode || env.SOYUZ_WORK_MODE) == 'wall-works' }}
         with:
-          name: soyuz-vk-work-albums
+          name: soyuz-vk-public-work-photos
           retention-days: 7
           if-no-files-found: warn
           path: |
-            soyuz/artifacts/vk-works.json
-            soyuz/artifacts/vk-works.error.json
+            soyuz/artifacts/vk-public-work-photos.json
+            soyuz/artifacts/vk-public-work-photos.error.json
