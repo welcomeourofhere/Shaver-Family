@@ -2,6 +2,12 @@ name: SOYUZ VK Work Albums
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: 'Read app metadata or explicitly selected SOYUZ albums'
+        type: choice
+        options: ['app-metadata', 'albums']
+        required: true
+        default: 'app-metadata'
       album_ids:
         description: 'Explicit album IDs from the discovery catalog; empty lists albums only'
         required: false
@@ -10,7 +16,9 @@ on:
     branches: ['codex/soyuz-photos-read']
     paths:
       - 'soyuz/scripts/vk-work-albums.py'
+      - 'soyuz/scripts/vk-app-metadata.py'
       - 'soyuz/tests/vk_work_albums_test.py'
+      - 'soyuz/tests/vk_app_metadata_test.py'
       - '.github/workflows/soyuz-works.yml'
 permissions:
   contents: read
@@ -18,6 +26,8 @@ concurrency:
   group: soyuz-vk-work-albums
   cancel-in-progress: false
 env:
+  # Push on the read branch performs ONLY the approved app metadata read.
+  SOYUZ_WORK_MODE: 'app-metadata'
   # Stage 2: set only album IDs verified from the stage-1 catalog.
   SOYUZ_WORK_ALBUM_IDS: ''
 defaults:
@@ -33,15 +43,23 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify the read-only API boundary
-        run: python -m unittest discover -s tests -p 'vk_work_albums_test.py'
+        run: |
+          python -m unittest discover -s tests -p 'vk_work_albums_test.py'
+          python -m unittest discover -s tests -p 'vk_app_metadata_test.py'
+      - name: Read public metadata of the existing Shaver Family app
+        if: ${{ (inputs.mode || env.SOYUZ_WORK_MODE) == 'app-metadata' }}
+        env:
+          VK_TOKEN: ${{ secrets.VK_TOKEN }}
+        run: python scripts/vk-app-metadata.py
       - name: Read public SOYUZ photo metadata
+        if: ${{ (inputs.mode || env.SOYUZ_WORK_MODE) == 'albums' }}
         env:
           SOYUZ_VK_TOKEN: ${{ secrets.SOYUZ_VK_PHOTOS_TOKEN }}
           ALBUM_IDS: ${{ inputs.album_ids || env.SOYUZ_WORK_ALBUM_IDS }}
         shell: bash
         run: python scripts/vk-work-albums.py --album-ids "$ALBUM_IDS" --output artifacts/vk-works.json
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: ${{ always() && (inputs.mode || env.SOYUZ_WORK_MODE) == 'albums' }}
         with:
           name: soyuz-vk-work-albums
           retention-days: 7
