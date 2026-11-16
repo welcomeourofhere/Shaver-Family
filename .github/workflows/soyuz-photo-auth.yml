@@ -1,0 +1,22 @@
+name: SOYUZ VK authorization diagnosis
+on:
+  push:
+    branches: ['codex/soyuz-photos-read']
+    paths: ['soyuz/scripts/vk-photo-auth-diagnostic.py', '.github/workflows/soyuz-photo-auth.yml']
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python soyuz/scripts/vk-photo-auth-diagnostic.py --selfcheck
+      - name: Read existing VK authorization metadata without exposing keys
+        env:
+          VK_TOKEN: ${{ secrets.VK_TOKEN }}
+          SOYUZ_VK_PHOTOS_TOKEN: ${{ secrets.SOYUZ_VK_PHOTOS_TOKEN }}
+        run: python soyuz/scripts/vk-photo-auth-diagnostic.py
