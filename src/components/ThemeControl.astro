@@ -1,0 +1,5 @@
+---
+import '../styles/theme.css';
+import SelectControl from './SelectControl.astro';
+---
+<div class="theme-control"><SelectControl label="Тема оформления" nativeAttributes={{'data-theme-select':true}} options={[{value:'auto',label:'Как в системе'},{value:'light',label:'Светлая'},{value:'dark',label:'Тёмная'}]} /></div>

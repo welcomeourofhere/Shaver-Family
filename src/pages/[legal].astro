@@ -1,0 +1,9 @@
+---
+import SiteFrame from '../layouts/SiteFrame.astro';
+import LegalDocument from '../components/LegalDocument.astro';
+import {legalDocuments,type LegalDocument as Legal} from '../content/legal';
+export function getStaticPaths(){return legalDocuments.map(document=>({params:{legal:document.slug},props:{document}}));}
+interface Props {document:Legal;}
+const {document}=Astro.props;
+---
+<SiteFrame title={`${document.title} — Барбершоп СОЮЗ, Киров`} description={document.description}><LegalDocument document={document}/></SiteFrame>

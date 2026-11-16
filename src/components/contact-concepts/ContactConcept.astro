@@ -1,0 +1,82 @@
+---
+import type {ContactConcept} from '../../content/contact-concepts';
+import site from '../../../content/site.json';
+import ConceptMap from './ConceptMap.astro';
+import ConceptFacts from './ConceptFacts.astro';
+import ConceptActions from './ConceptActions.astro';
+import ConceptPerson from './ConceptPerson.astro';
+import ContactChannels from '../ContactChannels.astro';
+import Icon from '../Icon.astro';
+interface Props {concept:ContactConcept;}
+const {concept}=Astro.props,{id}=concept;
+const [street,house]=site.address.split(',').map(part=>part.trim());
+const phoneParts=site.phone.split(' '),phoneArea=phoneParts.slice(0,-1).join(' '),phoneLocal=phoneParts.at(-1);
+---
+<section class={`contact-concept cp-${id}`} id={`contact-${id}`} role="tabpanel" data-contact-concept={id} aria-labelledby={`choice-${id}`} hidden={id!=='01'}>
+ <div class="cp-frame">
+ {id==='01'&&<>
+  <div class="cp-address-plate"><h2 class="cp-title" id={`cp-title-${id}`}>СОЮЗ рядом</h2><p class="cp-house">{house}</p><p class="cp-street">{site.city}<br />{street}</p><ConceptActions route /></div>
+  <ConceptMap id={id} />
+  <div class="cp-address-strip"><ConceptFacts /><div class="cp-social"><ContactChannels compact iconsOnly showPhone={false} /></div></div>
+  <ConceptPerson class="cp-address-person" />
+ </>}
+ {id==='02'&&<>
+  <ConceptMap id={id} />
+  <div class="cp-floating-sheet"><h2 class="cp-title" id={`cp-title-${id}`}>Встречаемся<br />в СОЮЗе</h2><ConceptFacts /><ConceptActions call /><div class="cp-social"><ContactChannels compact iconsOnly showPhone={false} /></div></div>
+  <ConceptPerson class="cp-floating-person" />
+ </>}
+ {id==='03'&&<>
+  <div class="cp-ticket-stub"><h2 class="cp-title" id={`cp-title-${id}`}>Твой билет<br />в СОЮЗ</h2><p class="cp-ticket-city">{site.city}</p><p class="cp-ticket-house">{house}</p><p>{street}</p></div>
+  <div class="cp-ticket-main"><ConceptMap id={id} /><div class="cp-ticket-info"><ConceptFacts /><ConceptActions /><div class="cp-social"><ContactChannels compact iconsOnly showPhone={false} /></div></div></div>
+  <div class="cp-ticket-contact"><ConceptPerson /></div>
+ </>}
+ {id==='04'&&<>
+  <div class="cp-human"><h2 class="cp-title" id={`cp-title-${id}`}>СОЮЗ на связи</h2><ConceptPerson class="cp-person-portrait" /></div>
+  <div class="cp-human-visit"><div class="cp-human-number"><p>Телефон барбершопа</p><p class="cp-large-phone"><span>{phoneArea}</span>{' '}<span>{phoneLocal}</span></p><ConceptActions call /></div><ConceptFacts /><div class="cp-social"><ContactChannels compact iconsOnly showPhone={false} /></div></div>
+  <ConceptMap id={id} />
+ </>}
+ {id==='05'&&<>
+  <header class="cp-console-head"><h2 class="cp-title" id={`cp-title-${id}`}>Есть контакт</h2><p>{site.hours}<span>каждый день</span></p></header>
+  <ConceptMap id={id} />
+  <div class="cp-console-desk" data-switch-group>
+   <div class="cp-switch" role="tablist" aria-label="Кому написать"><button type="button" role="tab" data-contact-switch="shop" aria-selected="true" aria-controls="cp-05-shop" id="cp-05-shop-tab">Барбершоп</button><button type="button" role="tab" data-contact-switch="manager" aria-selected="false" aria-controls="cp-05-manager" id="cp-05-manager-tab" tabindex="-1">Управляющая</button></div>
+   <div class="cp-console-pane" id="cp-05-shop" data-contact-pane="shop" role="tabpanel" aria-labelledby="cp-05-shop-tab"><ConceptFacts /><ConceptActions call /><div class="cp-social cp-social-labels"><ContactChannels compact showPhone={false} /></div></div>
+   <div class="cp-console-pane" id="cp-05-manager" data-contact-pane="manager" role="tabpanel" aria-labelledby="cp-05-manager-tab" hidden><ConceptPerson class="cp-person-portrait" /><p class="cp-person-note">Связаться с управляющей</p></div>
+  </div>
+ </>}
+ {id==='06'&&<>
+  <div class="cp-editorial-type"><h2 class="cp-title" id={`cp-title-${id}`}>Увидимся<br />в СОЮЗе</h2><p class="cp-editorial-address">{site.city}.<br />{site.address}.</p><ConceptFacts /><ConceptActions call /></div>
+  <div class="cp-editorial-map"><ConceptMap id={id} /></div>
+  <ConceptPerson class="cp-editorial-person" /><div class="cp-social cp-editorial-social"><ContactChannels compact showPhone={false} /></div>
+ </>}
+ {id==='07'&&<>
+  <h2 class="cp-title" id={`cp-title-${id}`}>Путь в СОЮЗ</h2>
+  <div class="cp-steps" data-switch-group>
+   <div class="cp-step-tabs" role="tablist" aria-label="Перед визитом в СОЮЗ"><button type="button" role="tab" data-contact-switch="book" aria-selected="true" aria-controls="cp-07-book" id="cp-07-book-tab"><span aria-hidden="true">01</span>Запись</button><button type="button" role="tab" data-contact-switch="route" aria-selected="false" aria-controls="cp-07-route" id="cp-07-route-tab" tabindex="-1"><span aria-hidden="true">02</span>Адрес</button><button type="button" role="tab" data-contact-switch="talk" aria-selected="false" aria-controls="cp-07-talk" id="cp-07-talk-tab" tabindex="-1"><span aria-hidden="true">03</span>Связь</button></div>
+   <div class="cp-step-pane" id="cp-07-book" data-contact-pane="book" role="tabpanel" aria-labelledby="cp-07-book-tab"><h3>Выбери время</h3><p>Выбирай услугу, барбера и удобное время в онлайн-записи.</p><ConceptActions call /></div>
+   <div class="cp-step-pane" id="cp-07-route" data-contact-pane="route" role="tabpanel" aria-labelledby="cp-07-route-tab" hidden><h3>{site.address}</h3><p>{site.city}. Ждём каждый день, {site.hours}.</p><ConceptActions route booking={false} /></div>
+   <div class="cp-step-pane" id="cp-07-talk" data-contact-pane="talk" role="tabpanel" aria-labelledby="cp-07-talk-tab" hidden><h3>Поговорим?</h3><div class="cp-social cp-social-labels"><ContactChannels compact showPhone={false} /></div><ConceptPerson portrait={false} /></div>
+  </div>
+  <ConceptMap id={id} /><div class="cp-step-facts"><ConceptFacts /></div>
+ </>}
+ {id==='08'&&<>
+  <div class="cp-sign"><h2 class="cp-title" id={`cp-title-${id}`}>Заходи<br />на стрижку</h2><p class="cp-sign-address">{site.address}</p><div class="cp-sign-arrow" aria-hidden="true"><Icon name="right" /></div><ConceptActions route /></div>
+  <div class="cp-round-map-wrap"><ConceptMap id={id} class="cp-round-map" /><a class="cp-round-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a></div>
+  <div class="cp-sign-footer"><ConceptFacts /><div class="cp-social"><ContactChannels compact iconsOnly showPhone={false} /></div><ConceptPerson /></div>
+ </>}
+ {id==='09'&&<>
+  <header class="cp-panorama-head"><h2 class="cp-title" id={`cp-title-${id}`}>СОЮЗ ждёт</h2><p>{site.hours}<span>Ежедневно</span></p></header>
+  <ConceptMap id={id} />
+  <div class="cp-panorama-business"><ConceptFacts /><ConceptActions call route /><div class="cp-social"><ContactChannels compact iconsOnly showPhone={false} /></div></div>
+  <ConceptPerson class="cp-panorama-person" />
+ </>}
+ {id==='10'&&<>
+  <h2 class="cp-title" id={`cp-title-${id}`}>Все пути в СОЮЗ</h2>
+  <div class="cp-cross-phone"><p>Телефон барбершопа</p><p class="cp-cross-number"><span>{phoneArea}</span>{' '}<span>{phoneLocal}</span></p><ConceptActions booking={false} call /></div>
+  <ConceptMap id={id} />
+  <div class="cp-cross-social"><h3>Напиши нам</h3><div class="cp-social cp-social-labels"><ContactChannels compact showPhone={false} /></div></div>
+  <div class="cp-cross-address"><h3>{site.city}</h3><p>{site.address}</p><p>{site.hours}<br />каждый день</p><ConceptActions /></div>
+  <ConceptPerson class="cp-cross-person" />
+ </>}
+ </div>
+</section>

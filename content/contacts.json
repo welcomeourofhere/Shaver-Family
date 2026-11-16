@@ -1,0 +1,42 @@
+{
+  "people": [
+    {
+      "name": "Кристина Владимирская",
+      "role": "Управляющая",
+      "phoneDisplay": "+7 (999) 225-27-17",
+      "phoneTel": "+79992252717",
+      "telegram": "@vladmrskaya",
+      "telegramUrl": "https://t.me/vladmrskaya",
+      "image": "/media/contact-examples/kristina.webp",
+      "id": "kristina",
+      "tone": "blue",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "id": "evgeny",
+      "name": "Евгений Бухарин",
+      "role": "Основатель",
+      "phoneDisplay": "+7 (962) 894-42-26",
+      "phoneTel": "+79628944226",
+      "telegram": "@buziness1337",
+      "telegramUrl": "https://t.me/buziness1337",
+      "image": "/media/contact-examples/evgeny.webp",
+      "width": 600,
+      "height": 800,
+      "tone": "blue",
+      "imageSource": {
+        "path": "J:\\Projects\\Shaver Family (CRM)\\app\\course_r28\\assets\\team\\evgeny-bukharin.webp",
+        "sha256": "856913774a67f94919039ef5c27985fc3b2b7f14476a5b52e756317fc6da7e45",
+        "identity": "Named evgeny-bukharin profile in the SOUZ leadership lesson, app/course_r28/team-data.js.",
+        "authorization": "Owner requested photo reuse; role, phone and Telegram supplied by owner on 2026-11-09."
+      }
+    }
+  ],
+  "source": {
+    "path": "J:\\Projects\\Shaver Family (Website)\\src\\data\\static\\business-info.json",
+    "sha256": "d7269bda473ca1b3b4e10bc2ff14d3ad3fc9b841a10b0a9c393d0600fc82eb85",
+    "date": "2026-11-09",
+    "authorization": "Owner requested Kristina contact reuse and removal of Anastasia; role supplied by owner."
+  }
+}

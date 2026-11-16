@@ -1,0 +1,31 @@
+---
+import site from '../../content/site.json';
+import BusinessHours from './BusinessHours.astro';
+import ContactChannels from './ContactChannels.astro';
+import '../styles/footer.css';
+import {footerNavigation} from '../config/navigation';
+import legal from '../../content/legal/pages.json';
+import operator from '../../content/legal/operator.json';
+const links=footerNavigation.map(link=>[`#${link.id}`,link.id==='gifts'?'Подарки за визиты':link.label]);
+const columns=[[0,3,6],[1,4,7],[2,5,8]];
+const {homeHref=''}=Astro.props;
+---
+<footer data-selection-surface="ink" class="footer shell" id="footer"><div class="footer-card">
+  <div class="footer-panel">
+    <div class="footer-intro">
+      <a class="footer-logo" href={`${homeHref}#top`} aria-label="СОЮЗ — главная"><span class="footer-brand-mark" aria-hidden="true"></span></a>
+      <div class="footer-location"><a class="footer-address" href={`${homeHref}#contacts`}>{site.city},<br />{site.address}</a><p>Ежедневно <BusinessHours /></p></div>
+    </div>
+    <nav class="footer-groups" aria-label="Навигация подвала">{columns.map(column=><div class="footer-nav-column">{column.map(index=>{const [url,label]=links[index];return <a href={`${homeHref}${url}`} aria-label={label}><span class="footer-nav-full">{label}</span><span class="footer-nav-short">{footerNavigation[index].short}</span></a>})}</div>)}</nav>
+    <div class="footer-contact">
+      <button class="footer-phone" type="button" data-contact aria-label={`Связаться с СОЮЗом, телефон ${site.phone}`}><span class="mobile-action-full">{site.phone}</span><span class="mobile-action-short">Связаться</span></button>
+      <ContactChannels compact showPhone={false} iconsOnly />
+      <div class="footer-booking"><button class="btn btn-yellow" type="button" data-booking aria-label="Записаться онлайн"><span class="footer-book-full">Записаться онлайн</span><span class="footer-book-short">Записаться</span></button></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© {new Date().getFullYear()} СОЮЗ Барбершоп</p>
+    <p class="footer-identity">{operator.legalName}<br />ИНН {operator.inn} · ОГРНИП {operator.ogrnip}</p>
+    <nav class="footer-legal" aria-label="Юридическая информация">{legal.pages.map(page=><a href={`/${page.slug}`} aria-label={page.title}>{page.title}</a>)}</nav>
+  </div>
+</div></footer>

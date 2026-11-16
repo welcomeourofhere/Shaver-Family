@@ -1,0 +1,150 @@
+.about-heading-track {
+  display: flow-root;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.about-heading-track .section-title {
+  transform: translate3d(0,0,0);
+  position: relative;
+  background: var(--surface);
+}
+@media (min-width:961px) and (prefers-reduced-motion: no-preference) {
+  .about-section[data-stack-mode="stack"] .about-heading-track {
+    position: absolute;
+    inset: var(--section-space) 0 var(--about-heading-tail);
+  }
+  .about-section[data-stack-mode="stack"] .section-title {
+    position: sticky;
+    top: var(--about-heading-top);
+    margin-bottom: 0;
+  }
+  .about-section[data-stack-mode="stack"] .about-stack {
+    padding-top: calc(var(--about-heading-height) + var(--size-36));
+  }
+}
+.about-stack {
+  --about-stack-gap: var(--size-24);
+  --about-stack-step: var(--size-12);
+  --about-safe-gap: var(--size-16);
+  display: grid;
+  gap: var(--about-stack-gap);
+  isolation: isolate;
+}
+.about-card {
+  --about-card-bg: var(--blue);
+  --about-card-fg: var(--paper);
+  display: grid;
+  grid-template-columns: var(--story-columns);
+  position: relative;
+  align-self: start;
+  min-width: 0;
+  padding: var(--size-12);
+  border-radius: var(--radius-card);
+  background: var(--about-card-bg);
+  color: var(--about-card-fg);
+  transform-origin: center top;
+  transform: translate3d(0,0,0) scale(1);
+}
+.about-layer { min-width: 0; }
+@media (min-width:961px) {
+  .about-stack { grid-template-rows:repeat(var(--about-card-count),1fr); }
+  /* Keep offscreen sticky cards from expanding document paint bounds. */
+  .about-layer { display:grid; contain:paint; }
+  .about-layer>.about-card { align-self:stretch; }
+}
+@media (min-width:961px) and (prefers-reduced-motion: no-preference) {
+  .about-stack { --about-stack-tail:var(--section-space); grid-template-rows:repeat(var(--about-card-count),1fr) auto; }
+  .about-stack::after { content:""; height:max(var(--size-0),calc(var(--about-stack-tail,var(--about-stack-gap)) - var(--about-stack-gap))); }
+  .about-section[data-stack-mode="stack"] .about-stack[data-stack-ready] {
+    grid-template-rows: repeat(var(--about-card-count), var(--about-card-height)) auto;
+  }
+  .about-section[data-stack-mode="stack"] .about-stack[data-stack-ready] > .about-layer {
+    display:block;
+    position: sticky;
+    top: var(--about-sticky-top);
+    align-self: start;
+    height: calc(var(--about-card-height) + var(--about-layer-remaining) * var(--about-stack-step));
+    pointer-events: none;
+  }
+  .about-stack[data-stack-ready] .about-card { align-self:start; }
+  .about-layer > .about-card { pointer-events: auto; }
+}
+.about-card-red {
+  --about-card-bg: var(--red);
+}
+.about-card-yellow {
+  --about-card-bg: var(--yellow);
+  --about-card-fg: var(--ink);
+}
+.about-card-ink {
+  --about-card-bg: var(--ink);
+}
+.about-media {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  min-height: var(--size-400);
+  border-radius: var(--size-16);
+}
+.about-media img {
+  object-position: var(--about-image-position, center);
+}
+.about-copy {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-width: 0;
+  min-height: var(--about-copy-height, var(--size-0));
+  padding: clamp(var(--size-24), 3vw, var(--size-40));
+}
+.about-copy-inner {
+  display: grid;
+  gap: var(--size-24);
+  width: 100%;
+}
+.about-copy h3 {
+  font: 400 clamp(var(--size-30), 3.1vw, var(--size-44))/1.08
+    var(--font-display);
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+.about-prose {
+  display: grid;
+  gap: var(--size-16);
+  font-size: var(--size-16);
+  line-height: 1.7;
+}
+.about-section {
+  position: relative;
+  --about-heading-top: calc(var(--header-height) + var(--header-top) + var(--size-16));
+  --about-heading-height: calc(var(--section-title-size) * 1.08 * 2);
+  --about-heading-tail: var(--size-0);
+}
+.about-more { display: none; }
+@media (max-width:960px) {
+  .about-section { --about-heading-top:var(--size-16); }
+  .about-stack { --rail-card-width:min(90%,var(--size-400)); --about-stack-gap:var(--size-16); --about-stack-step:var(--size-8); position:relative; grid-auto-flow:column; grid-auto-columns:var(--rail-card-width); grid-template-columns:none; grid-template-rows:auto; align-items:stretch; gap:var(--size-12); overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
+  .about-layer { position:relative; display:flex; align-items:stretch; height:auto; scroll-snap-align:start; }
+  .about-layer > .about-card { flex:1; align-self:stretch; height:var(--about-compact-height,auto); overflow:hidden; transform:none; grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(0,var(--about-preview-media-height,auto)) minmax(0,1fr); transition:grid-template-rows var(--motion-context) var(--ease-out); }
+  .about-card[data-expanded="true"] { grid-template-rows:minmax(0,0fr) minmax(0,1fr); }
+  .about-media { grid-column:1; grid-row:1; min-height:0; aspect-ratio:1; transition:opacity var(--motion-ui) var(--ease-out); }
+  .about-media img { object-position:var(--about-image-position-mobile,center 35%); }
+  .about-card[data-expanded="true"] .about-media { opacity:0; pointer-events:none; }
+  .about-copy { grid-column:1; grid-row:2; padding:var(--size-20); min-height:0; }
+  .about-copy h3 { font-size: var(--size-28); }
+  .about-prose { display:block; flex:1; min-height:0; overflow:hidden; font-size:var(--size-15); line-height:1.6; }
+  .about-prose p+p { margin-top:var(--size-12); }
+  .about-card:not([data-expanded="true"]) [data-reading-rest] { display:none; }
+  .about-card[data-expanded="true"] .about-prose { overflow:auto; scrollbar-width:none; scrollbar-color:auto; }
+  .about-prose::-webkit-scrollbar { display:none; width:0; height:0; }
+  .about-prose::-webkit-scrollbar-thumb { background:currentColor; border-radius:var(--radius-pill); }
+  .about-prose::-webkit-scrollbar-track { background:transparent; }
+  .about-copy-inner { display:flex; flex-direction:column; height:100%; min-height:0; gap:var(--size-16); }
+  .about-copy-inner>h3 { flex:none; }
+  .about-more { display:flex; flex:none; width:100%; margin-top:auto; }
+  .about-card-yellow .about-more { --action-bg:var(--red); --action-fg:var(--paper); --action-hover-bg:var(--blue); --action-hover-fg:var(--paper); }
+}
+@media (prefers-reduced-motion:reduce) { .about-layer>.about-card,.about-media { transition:none; } }

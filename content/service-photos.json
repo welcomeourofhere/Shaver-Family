@@ -1,0 +1,820 @@
+{
+  "asOf": "2026-11-10",
+  "status": "owner-selected-service-posters",
+  "sourceManifest": "artifacts\\service-posters-2026-11-10\\manifest.json",
+  "images": {
+    "main-28485114": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\face-massage.png",
+      "sourceSha256": "9fba93ef1c1b17aef5f382b104762dda899e837c78602abe33c82ee95b885b77",
+      "alt": "Иллюстрация услуги «Классический массаж лица» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/face-massage-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "c2a3f653098f9389d275e15e72e72b0db93a777b3daf26cb8885e3f399a7fe72",
+          "bytes": 66266
+        },
+        {
+          "url": "/media/service-posters/face-massage-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "6f7bcc596e15cfd37b8dd433db4ed6020821cf67147cf40cb0a897c4d347bb1d",
+          "bytes": 342248
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "extra-28485066": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\brows-shape.png",
+      "sourceSha256": "3048b42dd14a74e9b40d798c2142e4b783fc56fa53b0721efa4c78bb13e24860",
+      "alt": "Иллюстрация услуги «Мужское оформление бровей» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/brows-shape-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "ba0382777d3f4c25733c6ad7eed5930c91ab05847b92a9d4867286e0870a6f46",
+          "bytes": 80224
+        },
+        {
+          "url": "/media/service-posters/brows-shape-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "7e8040d3f1743c448725d6b81fee91f9a3216de3ebe101f529c75a227690d6b8",
+          "bytes": 400230
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "hair-beard-4449458": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\evening-style.png",
+      "sourceSha256": "5fb03f93c359983b2b759e304074c37d9e0b15a768d49415e0dd7521f84ac838",
+      "alt": "Иллюстрация услуги «Вечерняя укладка + Мытье головы + Окантовка» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/evening-style-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "4619b445b52027f14ff629513cd99d72dc4a01a151a99a10e30807f57b68e9d5",
+          "bytes": 56848
+        },
+        {
+          "url": "/media/service-posters/evening-style-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "2d10d70ede3cdf5f7459a87f8b45b1a5b2a5f0f198e226ff86e13095f03c8b9c",
+          "bytes": 281446
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "premium-15747139": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\premium-complex.png",
+      "sourceSha256": "c1111f9a96484225e6c8c054aea9eba50fd10f82cad347da9d7d90798111f2b1",
+      "alt": "Иллюстрация услуги «[Премиум] Комплекс №1. Мужская стрижка + Моделирование бороды» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/premium-complex-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "fc48081e384af933cedfd7c71d35f68e372ceb9341ccc57c6f9ae32d3f5dca0a",
+          "bytes": 75416
+        },
+        {
+          "url": "/media/service-posters/premium-complex-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "a883c36a34c1d084b7cde43d2588e5747ad09605a7e36051e71ebee049ac0020",
+          "bytes": 348424
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "main-267602": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\mens-cut.png",
+      "sourceSha256": "a68df347cdbab8b0c2202ef3265bf0602af359a880685905d4e6e63626a72eb7",
+      "alt": "Иллюстрация услуги «Мужская стрижка» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/mens-cut-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "0ccec5840cde3ef83a2c0dd0a8974a7e5fbd743f654c84e512e65e4f1a8ce44e",
+          "bytes": 59366
+        },
+        {
+          "url": "/media/service-posters/mens-cut-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "63a280f62fe6d73736bbb31b2b55a046bc37c9491200526da792a899be53cdbc",
+          "bytes": 320618
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "hair-beard-267602": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\mens-cut.png",
+      "sourceSha256": "a68df347cdbab8b0c2202ef3265bf0602af359a880685905d4e6e63626a72eb7",
+      "alt": "Иллюстрация услуги «Мужская стрижка» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/mens-cut-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "0ccec5840cde3ef83a2c0dd0a8974a7e5fbd743f654c84e512e65e4f1a8ce44e",
+          "bytes": 59366
+        },
+        {
+          "url": "/media/service-posters/mens-cut-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "63a280f62fe6d73736bbb31b2b55a046bc37c9491200526da792a899be53cdbc",
+          "bytes": 320618
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "coloring-14360790": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\hair-color.png",
+      "sourceSha256": "4c181fdd51e85eed151982001eda8eb9aa742f657d5d97e78e64c11ab394b12c",
+      "alt": "Иллюстрация услуги «Окрашивание волос» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/hair-color-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "6612b5f2c5a29ff22e96ae275bb8465596ffdc72de695cc0386f6983f44fecfb",
+          "bytes": 60960
+        },
+        {
+          "url": "/media/service-posters/hair-color-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "b5a75335c2066b9039135cfb5aa4f9400d0909b8faeeec2905745600c422ff3c",
+          "bytes": 283290
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "main-6129311": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\express-brows-ref-v2.png",
+      "sourceSha256": "ce1464cc38504a387c9a8831a7cff3a861f15d7e1757eef16d54d034c9303471",
+      "alt": "Иллюстрация услуги «Экспресс-коррекция бровей» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/express-brows-ref-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "48254f81305ae83751e6f8c77d8c179d7293cf5ec9ebd5c29f34251e0da7446b",
+          "bytes": 76598
+        },
+        {
+          "url": "/media/service-posters/express-brows-ref-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "cec7137d2ee86640324c96e37eb7637ea0b7cd9e6e741518f574afe81363d257",
+          "bytes": 356718
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "extra-soyuz-brows-color": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\brows-color-ref-v2.png",
+      "sourceSha256": "f8e9beeea696a40b122301e3b5142d730b97809b609a11be24a8dd4143484abf",
+      "alt": "Иллюстрация услуги «Комплекс №5. Мужское оформление бровей + Окрашивание бровей» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/brows-color-ref-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "84892cbec04c2c56af318f3fea3ffc1d6626386eacb1a1b3d989e5507842149b",
+          "bytes": 69050
+        },
+        {
+          "url": "/media/service-posters/brows-color-ref-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "09c01bb500b4d67830fa6457be023de0a794cd93222313525245d3062e37dca5",
+          "bytes": 353118
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "main-5768512": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\father-son.png",
+      "sourceSha256": "8069fc7f3bc17e7107ff81be81afddbf31e0773e1447eba0d4cc2fdc94c713cb",
+      "alt": "Иллюстрация услуги «Акция. Отец + сын» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/father-son-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "221b86ad49806cc1b7c0874f9f457ac0074ed5a1ff0c92833bb8e3cede151f7f",
+          "bytes": 103750
+        },
+        {
+          "url": "/media/service-posters/father-son-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "948e5718e2ed884622eb8827a0dddcacd318527d1863028b8c2b14ed4047d903",
+          "bytes": 388990
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "extra-15747049": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\facial-spa.png",
+      "sourceSha256": "df1c20a8244b6ae0eee815ba234224a1e1fe4b72dd7b50cd2b1e25d5fff8cd44",
+      "alt": "Иллюстрация услуги «10-этапный СПА-уход за кожей лица» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/facial-spa-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "60a66f0f5e9a53011cd067dc07efcca18e95e7e005417798e07911cfae8f1f8e",
+          "bytes": 68984
+        },
+        {
+          "url": "/media/service-posters/facial-spa-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "458395bd6622b8ffe13738e13671bcbd20da225897510474fe8d303bd734f893",
+          "bytes": 325030
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "main-15270008": {
+      "source": "artifacts/service-posters-2026-11-10/selected/premium-cut-v2.png",
+      "sourceSha256": "147ed46c0d8a311ea19eb2b8b62db6be628250d190323a8523f2fe9d67bbb159",
+      "alt": "Иллюстрация услуги «[Премиум] Мужская стрижка» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/premium-cut-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "bytes": 56034,
+          "sha256": "ddab7e73ae6f0fea520d91dbb9dd445c5819c2d932ddceaa8091ac2a3ad7f9ab"
+        },
+        {
+          "url": "/media/service-posters/premium-cut-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 303284,
+          "sha256": "6ada9253258d15e16a135a2d10446bac9d860f51d83760378f8eaf60c4445b5b"
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "main-267628": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\kids-cut.png",
+      "sourceSha256": "d9ca3d4c42064cb5e5c01e9a305054b16ad99fa848e7f48e2f2c0e576ec9c0de",
+      "alt": "Иллюстрация услуги «Детская стрижка» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/kids-cut-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "3582b8ccde951a789cbb60889d6d7c6032bb69d6d4ad399fd3cfe6b081c09f81",
+          "bytes": 87386
+        },
+        {
+          "url": "/media/service-posters/kids-cut-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "5e48ee92d388b827b4d517ed18d304ad25804bb0778ccc016a0fd83203cf3e68",
+          "bytes": 410324
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "extra-28485093": {
+      "source": "artifacts/service-posters-2026-11-10/selected/express-massage-v2.png",
+      "sourceSha256": "7597ebe74c5a8195155e8c4128a005d1aae786522e1f6a3ba51e9c923bee0cb2",
+      "alt": "Иллюстрация услуги «Экспресс-массаж лица» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/express-massage-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "bytes": 64716,
+          "sha256": "6d831ad87b5a0f2eb699882f241452c5ba8f42683c5d3b2499881ec5924fa97e"
+        },
+        {
+          "url": "/media/service-posters/express-massage-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 287348,
+          "sha256": "8c7547ac55646255233daac706a3ddae80ef9416dacd8e7ba69fb185fac90942"
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "coloring-14360785": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\beard-color-ref-v2.png",
+      "sourceSha256": "da848b27d7949a1e70fc257518a6495d0d5f6276a7120b32334c61342179f7a9",
+      "alt": "Иллюстрация услуги «Окрашивание бороды» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/beard-color-ref-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "43e4c50f71bc1d6ce1b0e397e7396ecab5a3a7fa77dbc085665c6766b7089dbf",
+          "bytes": 89290
+        },
+        {
+          "url": "/media/service-posters/beard-color-ref-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "0b0ebc1f705990c8d1dee1f51a679b2227be2efbf2d8d9c76a5612ab9ab8575a",
+          "bytes": 405096
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "main-267630": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\cut-beard-spa.png",
+      "sourceSha256": "2eeb88b8d56755a74a4af374155a1b23fef5226276ba0251bc965ad458eef482",
+      "alt": "Иллюстрация услуги «Комплекс №1. Мужская стрижка + Моделирование бороды опасной бритвой + СПА» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/cut-beard-spa-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "b280e759c5ff1624dbf8e273d33328ef823251a27dc6c80152c2248890d37f06",
+          "bytes": 59978
+        },
+        {
+          "url": "/media/service-posters/cut-beard-spa-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "d4f5f6c36210a2149df33117ba8a2e07ac08053db9710be83c48923038500020",
+          "bytes": 279004
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "extra-6129311": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\express-brows-ref-v2.png",
+      "sourceSha256": "ce1464cc38504a387c9a8831a7cff3a861f15d7e1757eef16d54d034c9303471",
+      "alt": "Иллюстрация услуги «Экспресс-коррекция бровей» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/express-brows-ref-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "48254f81305ae83751e6f8c77d8c179d7293cf5ec9ebd5c29f34251e0da7446b",
+          "bytes": 76598
+        },
+        {
+          "url": "/media/service-posters/express-brows-ref-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "cec7137d2ee86640324c96e37eb7637ea0b7cd9e6e741518f574afe81363d257",
+          "bytes": 356718
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "extra-6129299": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\nose-wax-aesthetic-v3.png",
+      "sourceSha256": "8ac08ff1e87d6017baf53c0f4c5661f222f7d44bf23419609a7fc1c53a1e5199",
+      "alt": "Иллюстрация услуги «Удаление волос воском (нос)» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/nose-wax-aesthetic-v3-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "9969379616d79e885d140b08796f95c98b02e9ca8432718a7ffc0284c9295c73",
+          "bytes": 54254
+        },
+        {
+          "url": "/media/service-posters/nose-wax-aesthetic-v3-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "fcf1b92ec892f454bb42260173f0035de1d45974b65e236e02efad61f0f13702",
+          "bytes": 294734
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "extra-28485114": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\face-massage.png",
+      "sourceSha256": "9fba93ef1c1b17aef5f382b104762dda899e837c78602abe33c82ee95b885b77",
+      "alt": "Иллюстрация услуги «Классический массаж лица» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/face-massage-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "c2a3f653098f9389d275e15e72e72b0db93a777b3daf26cb8885e3f399a7fe72",
+          "bytes": 66266
+        },
+        {
+          "url": "/media/service-posters/face-massage-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "6f7bcc596e15cfd37b8dd433db4ed6020821cf67147cf40cb0a897c4d347bb1d",
+          "bytes": 342248
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "extra-4483882": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\wax-brows-complex-ref-v2.png",
+      "sourceSha256": "1a619b792ebc29b6bd06d7934a0d6bf9a926bfcf9635cbeaa17faf6a8240fba7",
+      "alt": "Иллюстрация услуги «Комплекс №4. Удаление волос из носа и ушей + Коррекция бровей» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/wax-brows-complex-ref-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "188abc99e8239811bca5c49fc71699a547d013018b26509c7205d51e6d8c0896",
+          "bytes": 87298
+        },
+        {
+          "url": "/media/service-posters/wax-brows-complex-ref-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "67297d3212082b0780c01911a27164cd562a439a639030e38e2d0d3d9c293f6e",
+          "bytes": 435856
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "coloring-267692": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\hair-tone-ref-v2.png",
+      "sourceSha256": "46995d778d0f89da3a057d1b7690ee75156fdb0f290db6dc6e957ad7bbc5850a",
+      "alt": "Иллюстрация услуги «Тонирование волос» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/hair-tone-ref-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "ecf35ade027b011baa77461e51c249d928145a8b24d599c51f66ab39318e2230",
+          "bytes": 81820
+        },
+        {
+          "url": "/media/service-posters/hair-tone-ref-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "2e12d25a365ea1b5f28b43064c6d8580bf90d6db682270eac8e1a1871276f152",
+          "bytes": 381908
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "hair-beard-267628": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\kids-cut.png",
+      "sourceSha256": "d9ca3d4c42064cb5e5c01e9a305054b16ad99fa848e7f48e2f2c0e576ec9c0de",
+      "alt": "Иллюстрация услуги «Детская стрижка» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/kids-cut-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "3582b8ccde951a789cbb60889d6d7c6032bb69d6d4ad399fd3cfe6b081c09f81",
+          "bytes": 87386
+        },
+        {
+          "url": "/media/service-posters/kids-cut-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "5e48ee92d388b827b4d517ed18d304ad25804bb0778ccc016a0fd83203cf3e68",
+          "bytes": 410324
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "coloring-11066470": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\beard-tone-ref-v2.png",
+      "sourceSha256": "cfa1e98433c189d696448af48cac2c0cddf92b3458c446e7756c87f14672f0bc",
+      "alt": "Иллюстрация услуги «Тонирование бороды» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/beard-tone-ref-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "7ae0a5abecdef734f622c90e82d86b60079d6703df163a16553d3c77675dc37f",
+          "bytes": 97990
+        },
+        {
+          "url": "/media/service-posters/beard-tone-ref-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "d9b930eca4210d8d46e8b8284a3683bc308c7de320d387235e781598c6d54ce2",
+          "bytes": 452926
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "hair-beard-12398982": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\long-cut.png",
+      "sourceSha256": "8b2d1b726b250141adf835ee86ce0dbaf0af68fcc8d772a6ab2ba7b1152dfdf5",
+      "alt": "Иллюстрация услуги «Удлиненная мужская стрижка» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/long-cut-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "8b3f92d7ecc5f881c63e8403d9512e5bf39834724d596416c50224503b5ede8a",
+          "bytes": 65572
+        },
+        {
+          "url": "/media/service-posters/long-cut-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "bf3082f2ce01bb2dcf2044fb7d6e4aa1cb4ad734b4bc97db7425196b169f267e",
+          "bytes": 314496
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "premium-15270008": {
+      "source": "artifacts/service-posters-2026-11-10/selected/premium-cut-v2.png",
+      "sourceSha256": "147ed46c0d8a311ea19eb2b8b62db6be628250d190323a8523f2fe9d67bbb159",
+      "alt": "Иллюстрация услуги «[Премиум] Мужская стрижка» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/premium-cut-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "bytes": 56034,
+          "sha256": "ddab7e73ae6f0fea520d91dbb9dd445c5819c2d932ddceaa8091ac2a3ad7f9ab"
+        },
+        {
+          "url": "/media/service-posters/premium-cut-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 303284,
+          "sha256": "6ada9253258d15e16a135a2d10446bac9d860f51d83760378f8eaf60c4445b5b"
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "premium-7171247": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\premium-beard.png",
+      "sourceSha256": "afc49e87b2d3d1429a3e7adf0c18e3e4a59474fddf58a7352d023bf3c95ba6a0",
+      "alt": "Иллюстрация услуги «[Премиум] Моделирование бороды» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/premium-beard-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "9110305c24088968a7cc3920610ebc124ac97005316ec8b8f42cbdf0e37dbe1f",
+          "bytes": 75822
+        },
+        {
+          "url": "/media/service-posters/premium-beard-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "ed0f02045d57722703dcddb93d20aca8ee0481af5a6f20daa2d72a7acb8d2006",
+          "bytes": 376338
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "extra-6129319": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\ear-wax-aesthetic-v3.png",
+      "sourceSha256": "de4e88ce2a0e93a0f8a99d8299953a7bebc8ba85b42cef90abcbd0f0aaadc958",
+      "alt": "Иллюстрация услуги «Удаление волос воском (уши)» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/ear-wax-aesthetic-v3-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "e222aae704b8eebbf3c91c5b60703babfa04298be76751a39b39132c432ead35",
+          "bytes": 58762
+        },
+        {
+          "url": "/media/service-posters/ear-wax-aesthetic-v3-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "5a19553d639816856d9754011489ebbe5ae8f14bc1575c6bcc12e44278e04b3f",
+          "bytes": 295490
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "main-honest-price": {
+      "source": "artifacts/service-posters-2026-11-10/selected/honest-price-service-v2.png",
+      "sourceSha256": "119560636c173471909a0a2949c28c649794d6b543b135d266d812eea48c5cbf",
+      "alt": "Мужчина с короткой стрижкой, иллюстрация услуги «Честная цена» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/honest-price-service-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "bytes": 58630,
+          "sha256": "517309e2562b82154a28cbf27a03d8d021d63fcd85d57e9c8a2ef0544f53afb1"
+        },
+        {
+          "url": "/media/service-posters/honest-price-service-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 298100,
+          "sha256": "590e0774c8daedacb1873b417b5b2ddc7766e19aef4b5a84a5e9160bbec7eb14"
+        }
+      ],
+      "altSource": "owner-selected service artwork, existing mens-cut reused without money per owner instruction, 2026-11-10",
+      "artwork": true
+    },
+    "hair-beard-646764": {
+      "source": "artifacts/service-posters-2026-11-10/selected/cut-beard-tone-v4.png",
+      "sourceSha256": "543a4e92b3e22af7386558082e3b39b0dbe56609c09151b4e667bcdfabbf598d",
+      "alt": "Иллюстрация услуги «Комплекс №3. Мужская стрижка + Моделирование бороды опасной бритвой + СПА + Тонирование бороды» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/cut-beard-tone-v4-600.webp",
+          "width": 600,
+          "height": 648,
+          "bytes": 71716,
+          "sha256": "d63a2a3383b1793b43e2940d0f43d846ed93fc7f2b4568472fb8077875f6c961"
+        },
+        {
+          "url": "/media/service-posters/cut-beard-tone-v4-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 369334,
+          "sha256": "7ffd70f608b11bee28f18ae621d4ccb8146c97f4842dabe543bac854ee8d1fe1"
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "hair-beard-267631": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\beard-spa.png",
+      "sourceSha256": "5e8715355c3ffb7f8c4d6c2d733482adb4b138b5a0d21d4b13e06e6718b35606",
+      "alt": "Иллюстрация услуги «Моделирование бороды опасной бритвой + СПА» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/beard-spa-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "0a81bbe5aab35aae0b8818849bdc83f7dbab848b421f3fc8021902dffe20dc08",
+          "bytes": 83320
+        },
+        {
+          "url": "/media/service-posters/beard-spa-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "6301c8a28d69b3607d1e3dc156ac558e284551cb0840cd349423892279e48068",
+          "bytes": 407638
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "extra-soyuz-peeling": {
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\scalp-peeling-ref-v2.png",
+      "sourceSha256": "7cce849f2f97d4bbb98dc4e0bb7fd0c744da2b1c9e277e9a620671b03b24eaa0",
+      "alt": "Иллюстрация услуги «Пилинг кожи головы» в советском плакатном стиле",
+      "temporary": false,
+      "variants": [
+        {
+          "url": "/media/service-posters/scalp-peeling-ref-v2-600.webp",
+          "width": 600,
+          "height": 648,
+          "sha256": "b251b0b1e53ad74f36707b33a2ecf2883e3e7c55eb975f2c42f0eae83d0c5277",
+          "bytes": 83658
+        },
+        {
+          "url": "/media/service-posters/scalp-peeling-ref-v2-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "sha256": "db347211018d9197d673125be264fd82299f20e6678f5821bf40200459f9072f",
+          "bytes": 377816
+        }
+      ],
+      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "artwork": true
+    },
+    "hair-beard-267649": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1287.jpg",
+      "sourceSha256": "c56b98ff3faf5131dd963bd322b68eb73937fded17aa99a808d18950246142cd",
+      "alt": "Оформление линии шеи триммером",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/hair-beard-267649-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "438393861d327e2b41428182948b33f68b267e2125b2b125f9e14ac537ce0180",
+          "bytes": 12234
+        },
+        {
+          "url": "/media/services/hair-beard-267649-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "1e64585ac6a9007498c05a3aff1f2e201a8f5d38dbac85ed5387b7d4305936af",
+          "bytes": 29726
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "hair-beard-soyuz-head-shave": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0756.jpg",
+      "sourceSha256": "73a6c05c491027d0583a56cdad0119fcce95a7a9c336f1639d40cfb93cc41442",
+      "alt": "Девушка-мастер готовит клиента к стрижке",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/hair-beard-267602-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "988487ce0ecd4f83cd7d55b8375f4e02a59e230ba437e14e25f58117b98f51d1",
+          "bytes": 25688
+        },
+        {
+          "url": "/media/services/hair-beard-267602-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "686de87e0481a0a850699c1013f5f87c4303201c1f57240e6bb9b09e46892ffe",
+          "bytes": 68410
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "main-soyuz-head-beard": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0121.jpg",
+      "sourceSha256": "213146b694c7a7fd2100c87712da1587adec039040fdcb67b67280d4da113003",
+      "alt": "Короткая мужская стрижка с плавным переходом, вид сбоку",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/main-267602-480.webp",
+          "width": 480,
+          "height": 720,
+          "sha256": "287e64378a87b25a588cc8fdb77139970ad45d36d1ead9f460cd75ff8c13dd3c",
+          "bytes": 21408
+        },
+        {
+          "url": "/media/services/main-267602-960.webp",
+          "width": 960,
+          "height": 1440,
+          "sha256": "aa8ee07989ecfba09f3ed49ddb622811ab41d042d57431de50ace10aae4bfa75",
+          "bytes": 60358
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    }
+  }
+}

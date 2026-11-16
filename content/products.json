@@ -1,0 +1,295 @@
+{
+  "meta": {
+    "scope": "Local prototype only; no live inventory or current price validation.",
+    "factsSource": "archive/legacy/normalized_products.json",
+    "factsSourceSha256": "f13f0e0ab5b6c5670a58dceaa76305b89484cfb0a78dac057e69d830d008f758",
+    "legacyAudit": "archive/legacy/js/products.js was inspected; images were assigned by iteration in assign_clean_product_images.py and depict haircuts. Legacy descriptions and image assignments are not used.",
+    "photoFallback": "The SOYUZ archive had no matching product packaging photos. Six exact matching manufacturer packaging photos were selectively exported from the local SHAVER FAMILY CRM course catalog. No SHAVER FAMILY prices, stock, customer data or prose copied. No CRM files changed.",
+    "selectedPhotoCount": 6,
+    "publicationStatus": "Not authorized for publication",
+    "availabilityVerified": false,
+    "currentPricesVerified": false
+  },
+  "categories": [
+    {
+      "id": "styling",
+      "name": "Укладка"
+    },
+    {
+      "id": "hair-care",
+      "name": "Уход за волосами"
+    },
+    {
+      "id": "shaving",
+      "name": "Бритьё"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-5",
+      "name": "REUZEL Pink Pomade. помада на петролатумной основе, сильная фиксация, 95 г",
+      "shortName": "Pink Pomade",
+      "brand": "REUZEL",
+      "category": "styling",
+      "type": "Помада сильной фиксации",
+      "price": 3700,
+      "currency": "RUB",
+      "volume": "95 г",
+      "availability": "unknown",
+      "specs": [
+        {
+          "label": "Основа",
+          "value": "Петролатумная"
+        },
+        {
+          "label": "Фиксация",
+          "value": "Сильная"
+        }
+      ],
+      "image": {
+        "src": "/media/products/reuzel-prod-5.webp",
+        "width": 720,
+        "height": 720,
+        "sha256": "8a2d8d4a1d771d4601b1466fc839651f013ee87e877a7b2da8c951a00f971b08"
+      },
+      "provenance": {
+        "facts": {
+          "path": "archive/legacy/normalized_products.json",
+          "recordId": "prod-5",
+          "originalName": "REUZEL Pink Pomade — помада на петролатумной основе, сильная фиксация, 95 г",
+          "originalPrice": 3700
+        },
+        "photo": {
+          "path": "J:/Projects/Shaver Family (CRM)/app/course_r28/assets/web/f0e8b01cc5109909a3f3743ee595f0008e9b831bf2da82d523c1eb5d6b1e2268.webp",
+          "sha256": "8c9cea7221dd81d2ef056173874d4e6f48944ee765f508c98be3aef35a8c8947",
+          "catalogPath": "J:/Projects/Shaver Family (CRM)/project_docs/training/catalog_2026-10-31/CATALOG.json",
+          "catalogRecordId": "DOC-DD317A66FC-G014",
+          "catalogAlt": "REUZEL Pink Pomade — помада на петролатумной основе, сильная фиксация, 95 г",
+          "match": "Visually inspected manufacturer, product line, colour/variant and package size against SOYUZ normalized record. No customer data or CRM prices copied.",
+          "transform": "Proportional resize inside 720x720, WebP quality 88, alpha quality 100; no generative edits."
+        }
+      }
+    },
+    {
+      "id": "prod-4",
+      "name": "REUZEL Green Pomade. помада на петролатумной основе, средняя фиксация, 95 г",
+      "shortName": "Green Pomade",
+      "brand": "REUZEL",
+      "category": "styling",
+      "type": "Помада средней фиксации",
+      "price": 3700,
+      "currency": "RUB",
+      "volume": "95 г",
+      "availability": "unknown",
+      "specs": [
+        {
+          "label": "Основа",
+          "value": "Петролатумная"
+        },
+        {
+          "label": "Фиксация",
+          "value": "Средняя"
+        }
+      ],
+      "image": {
+        "src": "/media/products/reuzel-prod-4.webp",
+        "width": 720,
+        "height": 720,
+        "sha256": "2bd1d31084df0f0166ce05932aeb1f1d2b19812cbb1433c302bd888f4d796440"
+      },
+      "provenance": {
+        "facts": {
+          "path": "archive/legacy/normalized_products.json",
+          "recordId": "prod-4",
+          "originalName": "REUZEL Green Pomade — помада на петролатумной основе, средняя фиксация, 95 г",
+          "originalPrice": 3700
+        },
+        "photo": {
+          "path": "J:/Projects/Shaver Family (CRM)/app/course_r28/assets/web/b218f7b7ee437d24090ccc1091fc8b31b754f8272a0697803efeeb8b936af333.webp",
+          "sha256": "63d93f67fb97d811536ceef4ec48c43b448c9c510f37e6e38731d23033c8133e",
+          "catalogPath": "J:/Projects/Shaver Family (CRM)/project_docs/training/catalog_2026-10-31/CATALOG.json",
+          "catalogRecordId": "DOC-DD317A66FC-G013",
+          "catalogAlt": "REUZEL Green Pomade — помада на петролатумной основе, средняя фиксация, 95 г",
+          "match": "Visually inspected manufacturer, product line, colour/variant and package size against SOYUZ normalized record. No customer data or CRM prices copied.",
+          "transform": "Proportional resize inside 720x720, WebP quality 88, alpha quality 100; no generative edits."
+        }
+      }
+    },
+    {
+      "id": "prod-6",
+      "name": "REUZEL Red Pomade. водорастворимая помада, средняя фиксация, 95 г",
+      "shortName": "Red Pomade",
+      "brand": "REUZEL",
+      "category": "styling",
+      "type": "Водорастворимая помада",
+      "price": 3700,
+      "currency": "RUB",
+      "volume": "95 г",
+      "availability": "unknown",
+      "specs": [
+        {
+          "label": "Основа",
+          "value": "Водорастворимая"
+        },
+        {
+          "label": "Фиксация",
+          "value": "Средняя"
+        }
+      ],
+      "image": {
+        "src": "/media/products/reuzel-prod-6.webp",
+        "width": 720,
+        "height": 720,
+        "sha256": "bfdf9073fa2ba1df3fcf03eeba01ef2c97f255bd72005401700d6a161102b209"
+      },
+      "provenance": {
+        "facts": {
+          "path": "archive/legacy/normalized_products.json",
+          "recordId": "prod-6",
+          "originalName": "REUZEL Red Pomade — водорастворимая помада, средняя фиксация, 95 г",
+          "originalPrice": 3700
+        },
+        "photo": {
+          "path": "J:/Projects/Shaver Family (CRM)/app/course_r28/assets/web/61b9f2b8d638ae41319bbfa693f8e51cd2bccf789e1e4741773f386f7a8e6e7f.webp",
+          "sha256": "9342e9539714ab11ad94215eb3fc60f41daf01d4167d8241e54692a9776bc8f9",
+          "catalogPath": "J:/Projects/Shaver Family (CRM)/project_docs/training/catalog_2026-10-31/CATALOG.json",
+          "catalogRecordId": "DOC-DD317A66FC-G015",
+          "catalogAlt": "REUZEL Red Pomade — водорастворимая помада, средняя фиксация, 95 г",
+          "match": "Visually inspected manufacturer, product line, colour/variant and package size against SOYUZ normalized record. No customer data or CRM prices copied.",
+          "transform": "Proportional resize inside 720x720, WebP quality 88, alpha quality 100; no generative edits."
+        }
+      }
+    },
+    {
+      "id": "prod-3",
+      "name": "REUZEL Daily Conditioner. ежедневный кондиционер для волос, 350 мл",
+      "shortName": "Daily Conditioner",
+      "brand": "REUZEL",
+      "category": "hair-care",
+      "type": "Ежедневный кондиционер для волос",
+      "price": 2950,
+      "currency": "RUB",
+      "volume": "350 мл",
+      "availability": "unknown",
+      "specs": [
+        {
+          "label": "Тип средства",
+          "value": "Кондиционер для волос"
+        }
+      ],
+      "image": {
+        "src": "/media/products/reuzel-prod-3.webp",
+        "width": 720,
+        "height": 720,
+        "sha256": "13018219ebb6415b446b23eedc94919a356b868a132115e23d197bf25f36ee10"
+      },
+      "provenance": {
+        "facts": {
+          "path": "archive/legacy/normalized_products.json",
+          "recordId": "prod-3",
+          "originalName": "REUZEL Daily Conditioner — ежедневный кондиционер для волос, 350 мл",
+          "originalPrice": 2950
+        },
+        "photo": {
+          "path": "J:/Projects/Shaver Family (CRM)/app/course_r28/assets/web/6b33a3cacd7984052a79f59adf19e66c9381a70cc9841fb8a0f8066fa4425fd3.webp",
+          "sha256": "078e1cab1ab7bc1e2c60e3829f0c76a3f87ef4c4916c9c7e82348543435293b8",
+          "catalogPath": "J:/Projects/Shaver Family (CRM)/project_docs/training/catalog_2026-10-31/CATALOG.json",
+          "catalogRecordId": "DOC-DD317A66FC-G012",
+          "catalogAlt": "REUZEL Daily Conditioner — ежедневный кондиционер для волос, 350 мл",
+          "match": "Visually inspected manufacturer, product line, colour/variant and package size against SOYUZ normalized record. No customer data or CRM prices copied.",
+          "transform": "Proportional resize inside 720x720, WebP quality 88, alpha quality 100; no generative edits."
+        }
+      }
+    },
+    {
+      "id": "prod-75",
+      "name": "PRORASO Мыло для бритья освежающее с ментолом, 150 мл",
+      "shortName": "Мыло с ментолом",
+      "brand": "PRORASO",
+      "category": "shaving",
+      "type": "Освежающее мыло для бритья",
+      "price": 1200,
+      "currency": "RUB",
+      "volume": "150 мл",
+      "availability": "unknown",
+      "specs": [
+        {
+          "label": "Тип средства",
+          "value": "Мыло для бритья"
+        },
+        {
+          "label": "Вариант",
+          "value": "Освежающее с ментолом"
+        }
+      ],
+      "image": {
+        "src": "/media/products/proraso-prod-75.webp",
+        "width": 596,
+        "height": 720,
+        "sha256": "723e86fbdbc93e722b73fcc1f26cdb3f4bdc5beab8266a10e2ab196bdba77880"
+      },
+      "provenance": {
+        "facts": {
+          "path": "archive/legacy/normalized_products.json",
+          "recordId": "prod-75",
+          "originalName": "PRORASO Мыло для бритья освежающее с ментолом, 150 мл",
+          "originalPrice": 1200
+        },
+        "photo": {
+          "path": "J:/Projects/Shaver Family (CRM)/app/course_r28/assets/web/b27dbd364286de58486f5160f4f93be6f63521c6c553230d34487e27bf508618.webp",
+          "sha256": "705dfb76f0c3aa0719f69a7f77ce9773da27634f4831e1428d26f360a6c32a8b",
+          "catalogPath": "J:/Projects/Shaver Family (CRM)/project_docs/training/catalog_2026-10-31/CATALOG.json",
+          "catalogRecordId": "DOC-DD317A66FC-G043",
+          "catalogAlt": "PRORASO Мыло для бритья освежающее с ментолом, 150 мл",
+          "match": "Visually inspected manufacturer, product line, colour/variant and package size against SOYUZ normalized record. No customer data or CRM prices copied.",
+          "transform": "Proportional resize inside 720x720, WebP quality 88, alpha quality 100; no generative edits."
+        }
+      }
+    },
+    {
+      "id": "prod-74",
+      "name": "PRORASO Мыло для бритья для чувствительной кожи, 150 мл",
+      "shortName": "Мыло для чувствительной кожи",
+      "brand": "PRORASO",
+      "category": "shaving",
+      "type": "Мыло для бритья",
+      "price": 1200,
+      "currency": "RUB",
+      "volume": "150 мл",
+      "availability": "unknown",
+      "specs": [
+        {
+          "label": "Тип средства",
+          "value": "Мыло для бритья"
+        },
+        {
+          "label": "Вариант",
+          "value": "Для чувствительной кожи"
+        }
+      ],
+      "image": {
+        "src": "/media/products/proraso-prod-74.webp",
+        "width": 596,
+        "height": 720,
+        "sha256": "16b26c8e8a644e6d23b8e0b3821534a2f6c4352d698c8827b707cd61de0dee64"
+      },
+      "provenance": {
+        "facts": {
+          "path": "archive/legacy/normalized_products.json",
+          "recordId": "prod-74",
+          "originalName": "PRORASO Мыло для бритья для чувствительной кожи, 150 мл",
+          "originalPrice": 1200
+        },
+        "photo": {
+          "path": "J:/Projects/Shaver Family (CRM)/app/course_r28/assets/web/6ea07411563067cbe5b3e1ecb1ffaf4daefe05cd3edb360131ccbb8eaed09503.webp",
+          "sha256": "c2cecb0c9a10c57cff0a15523cd92a48ce01914484094c7805b0efa3682d3f67",
+          "catalogPath": "J:/Projects/Shaver Family (CRM)/project_docs/training/catalog_2026-10-31/CATALOG.json",
+          "catalogRecordId": "DOC-DD317A66FC-G042",
+          "catalogAlt": "PRORASO Мыло для бритья для чувствительной кожи, 150 мл",
+          "match": "Visually inspected manufacturer, product line, colour/variant and package size against SOYUZ normalized record. No customer data or CRM prices copied.",
+          "transform": "Proportional resize inside 720x720, WebP quality 88, alpha quality 100; no generative edits."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+---
+import UtilityGlyph from './UtilityGlyph.astro';
+import PreferenceControls from './PreferenceControls.astro';
+---
+<aside class="site-settings" aria-label="Настройки сайта">
+ <button class="settings-toggle" type="button" data-site-settings aria-label="Настройки сайта" aria-controls="site-settings-panel" aria-expanded="false"><UtilityGlyph name="settings" /></button>
+ <div class="settings-panel" id="site-settings-panel" hidden><PreferenceControls /></div>
+</aside>
+<button class="back-to-top" type="button" data-back-to-top aria-label="Наверх" hidden><UtilityGlyph name="arrow-up" /></button>
+<script>import '../scripts/site-settings';</script>

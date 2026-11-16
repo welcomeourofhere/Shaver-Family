@@ -1,0 +1,186 @@
+{
+  "photo-01": {
+    "alt": "Милена Малышевская в кресле барбершопа СОЮЗ",
+    "source": "artifacts/master-articles/milena-malyshevskaya/originals/photo-01.jpg",
+    "sourceSha256": "2470f7e74582c14d1a1e8bc00cd2f5aa999b541299dec13467f8751451c66876",
+    "variants": [
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-01-640.webp",
+        "width": 640,
+        "height": 480,
+        "sha256": "b71cd1a57b459880e03565918e0c40d0073a1290b3a0fc0019309d7ebf0be01d"
+      },
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-01-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "sha256": "a0b09b00b5d6633b8c739ee2503bfd5dcc978c98a54a11306857d82dd0f2de04"
+      }
+    ]
+  },
+  "photo-02": {
+    "alt": "Фотография из детства Милены на фоне Воркуты",
+    "source": "artifacts/master-articles/milena-malyshevskaya/originals/photo-02.jpg",
+    "sourceSha256": "5a120b77f95682eaa64ac08e97808c52b7fc66c3c3adcc4ccb7284d5e2358d28",
+    "variants": [
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-02-640.webp",
+        "width": 640,
+        "height": 864,
+        "sha256": "907bb1b62df40562e98da242cf92127233229a367820e8bb62b35a23f0771dc8"
+      }
+    ]
+  },
+  "photo-03": {
+    "alt": "Милена в кадетской форме в учебные годы",
+    "source": "artifacts/master-articles/milena-malyshevskaya/originals/photo-03.jpg",
+    "sourceSha256": "678db5935347703b1ec977988e2fdbb275845b010343d82f14f9c2b930b752c6",
+    "variants": [
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-03-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "289985e6d905cfe4398d754933b6f83d52b84316da0cde355a7d4aed5499f344"
+      },
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-03-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "664580c221c75a2354aea3bb5030e762b6e2ab308dffd0e8ff99e113e54d6780"
+      }
+    ]
+  },
+  "photo-04": {
+    "alt": "Кадеты в противогазах во время занятия",
+    "source": "artifacts/master-articles/milena-malyshevskaya/originals/photo-04.jpg",
+    "sourceSha256": "88d110ec7c69b52e950a8c69868c604600ec1a7edeebb8d296fa221513841dfa",
+    "variants": [
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-04-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "c42e86954643e373cc9d4bfe098a2b13b949724bd1ae95b65782510dafd14de9"
+      },
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-04-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "8932a09f10b0c6ed6b869eb002e5eda9a36f31d7f803107a19c1792d38565ac0"
+      }
+    ]
+  },
+  "photo-05": {
+    "alt": "Портрет Милены в кадетской форме",
+    "source": "artifacts/master-articles/milena-malyshevskaya/originals/photo-05.jpg",
+    "sourceSha256": "fcfbde1a98f89675bbc6c0f2f0be28d1e4fc3c1b9ccd62a4e7935767190f08c3",
+    "variants": [
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-05-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "7de72830d4c4bddd6178cdbd319c92292d75093d41ca108f7fb0084167e9c8c2"
+      },
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-05-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "9ad5bbd03c248824e6b76a6583a749109bd4166db2b1415ff27927c164469d1f"
+      }
+    ]
+  },
+  "photo-06": {
+    "alt": "Милена на фоне панорамы города во время жизни за границей",
+    "source": "artifacts/master-articles/milena-malyshevskaya/originals/photo-06.jpg",
+    "sourceSha256": "b07db9e2d21353d7dbfb78674cd57dbe24adabeeeea26dd8cd0dc0cd910e26aa",
+    "variants": [
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-06-640.webp",
+        "width": 640,
+        "height": 800,
+        "sha256": "fdb54e6cada6182ae3de5d36597168b4fbd92ca3781fdd0077ec5a196f664fcd"
+      },
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-06-1080.webp",
+        "width": 1080,
+        "height": 1349,
+        "sha256": "af4b4b16392fcac541b6b3121de896c63632d84b9328f4e4f3fdd915fbad913c"
+      }
+    ]
+  },
+  "photo-07": {
+    "alt": "Милена за столиком уличного кафе",
+    "source": "artifacts/master-articles/milena-malyshevskaya/originals/photo-07.jpg",
+    "sourceSha256": "4d0660cb8765fc2ef80e87c5cf305a68b508e19f9609f44d83a036c22bd854db",
+    "variants": [
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-07-640.webp",
+        "width": 640,
+        "height": 854,
+        "sha256": "0f4a0cc2314892ce5c13e5ba7640ffc8cbaf87636384ce5eb2ef17560d9aa5f0"
+      },
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-07-1080.webp",
+        "width": 1080,
+        "height": 1441,
+        "sha256": "cd37ab02ed36e34e3959a14288561260b634e78b937c2e359f5df4ad734795b4"
+      }
+    ]
+  },
+  "photo-08": {
+    "alt": "Милена с сертификатом Академии мужских стрижек",
+    "source": "artifacts/master-articles/milena-malyshevskaya/originals/photo-08.jpg",
+    "sourceSha256": "ec7d8fce592d6edb58035666a537711c140bbc72a6f1aa0ecbbe1cda3590dc42",
+    "variants": [
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-08-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "f0fe13e71443c016b0041364f2d189da81983edd43248cba33f7a5d1905cc3fb"
+      },
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-08-910.webp",
+        "width": 910,
+        "height": 1213,
+        "sha256": "6040842486b13ef3f51f7524b67c920d8555148123716b763443980f9322a605"
+      }
+    ]
+  },
+  "photo-09": {
+    "alt": "Короткая мужская стрижка с плавным переходом — работа Милены",
+    "source": "artifacts/master-articles/milena-malyshevskaya/originals/photo-09.jpg",
+    "sourceSha256": "cb9ed5399f12d223c58782a64a906d202e2a71b4e8cfff2a892424ca9f6dc516",
+    "variants": [
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-09-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "7ebd7df496a83f0b8ca2289e62ae44025c35ab92f1b04020c2ea0f48718f1d5c"
+      },
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-09-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "4d44234414a8fa968279e39f04454a3e65f42f499e6d3dfeb669948081cc971b"
+      }
+    ]
+  },
+  "photo-10": {
+    "alt": "Удлинённая мужская стрижка с боковым объёмом — работа Милены",
+    "source": "artifacts/master-articles/milena-malyshevskaya/originals/photo-10.jpg",
+    "sourceSha256": "158098b189efa18ba7b9f2257421c24f56e2abfaaddf2902904fb62000047d4f",
+    "variants": [
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-10-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "5188545c51a2750a65a92f59ea6d12adc0602642f653737319c216457c1bd4ed"
+      },
+      {
+        "url": "/media/articles/milena-malyshevskaya/photo-10-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "d701bc5407771741d60fa5cf488babc09c657ce86fa8b2751e61167cb216b8e7"
+      }
+    ]
+  }
+}

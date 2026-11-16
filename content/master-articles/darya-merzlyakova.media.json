@@ -1,0 +1,458 @@
+{
+  "photo-01": {
+    "alt": "Дарья Мерзлякова в СОЮЗе",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-01.png",
+    "sourceSha256": "c4d99e9194cb6b0826b500343fbef61d1d2e068cd075cd0b095047f7a097fee6",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-01-640.webp",
+        "width": 640,
+        "height": 480,
+        "sha256": "69c71183a554488fdf44bd4f036d70ffba393f45c8789cb0a3af26e598524a87"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-01-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "sha256": "b3cd6cac88497fd586d0db7a73b1643312f99c71e105d35df34c980751d58c74"
+      }
+    ]
+  },
+  "photo-02": {
+    "alt": "Детская фотография Даши с мечтой стать парикмахером",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-02.png",
+    "sourceSha256": "d43a3718375671bcce23bcc01edd553747c3bc0bd4a390fe60aa4d41929958c6",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-02-640.webp",
+        "width": 640,
+        "height": 785,
+        "sha256": "057d3b7b681f3350be3bb1c4d7a62baaf4c477d3dc847b5c718f8956a5b0b25d"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-02-959.webp",
+        "width": 959,
+        "height": 1176,
+        "sha256": "4df122a471819693b53d6aff0bd9beae45032ed450c40f34fedf9a661322f522"
+      }
+    ]
+  },
+  "photo-03": {
+    "alt": "Даша и Софья вне работы",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-03.png",
+    "sourceSha256": "e1dbe7403c29eaa670c1208e57726b2e748f5885d033054df6b6b970aebc5714",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-03-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "658063b2195a18eaefcb814d99832409679a9435775ad7d4dd116dde77b1f711"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-03-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "d44ce33e2714dc09fe56ac0338dd84918759b8b925e18577a3b20bbbaeae6772"
+      }
+    ]
+  },
+  "photo-04": {
+    "alt": "Даша с инструментами для уборки в барбершопе",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-04.png",
+    "sourceSha256": "4e77edea1169f5abffa3c12d3c85d34dff7c632069ffc5e33cd550e734cdf4fe",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-04-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "15e939448e4d67c8966f9766b5c70d9653360cf6281555dcf3a9857b191100ea"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-04-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "c7293997eb03e21335a48a4f625f086b8d3eda5be4013c57ebcfb6fac2bc96d6"
+      }
+    ]
+  },
+  "photo-05": {
+    "alt": "Даша готовит волосы гостя к стрижке",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-05.png",
+    "sourceSha256": "7bd3b7effaa381a5e1103e0f7bbe41ba6b4778e293fc197c0ce51c9d76ca5f73",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-05-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "5544d0c590861a02f37dcd9e978b75fbcb167de6d91d58a29a39fb73defcbb36"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-05-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "e4491e248708c562d48b37768370a59d2d395559bc97f61b8bec8cfbdfaf7df5"
+      }
+    ]
+  },
+  "photo-06": {
+    "alt": "Даша моет голову гостю",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-06.png",
+    "sourceSha256": "6942734671b427d6c71164616fc3ae2e7752f26e6159641584d78bdbfe5a018f",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-06-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "5e9b7d2960dc7f9b4163aab66821b62fc3c8b06ae1b0ddf9a07a3c33a7bc8fa8"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-06-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "7acac17dcac76d99fd1dfac85b232d3eb0eff339d8dbc8110d1d826e96e7b70a"
+      }
+    ]
+  },
+  "photo-07": {
+    "alt": "Даша укладывает короткую стрижку",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-07.png",
+    "sourceSha256": "426b854026a7e731ec8e6cec8213e8c4dd54343d27d41c97973e671548472fca",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-07-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "db17515771ae63cdef612443111e03d96fbdc6d7305f657681e2872bec1d184b"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-07-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "4d5423c0c097893c9cab0e705493eb40b2f4e156a8703abc2e4f45e58e9df943"
+      }
+    ]
+  },
+  "photo-08": {
+    "alt": "Даша с гостем после стрижки",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-08.png",
+    "sourceSha256": "da2d91e7d65653b2ece25285fe4eadd5455ac48aa5bec7f88274d12214258306",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-08-640.webp",
+        "width": 640,
+        "height": 841,
+        "sha256": "9a6f9c8e27de0356bb7bb82b8b0bb0fd00eca4b968607f7b91a72ec2832b7697"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-08-1080.webp",
+        "width": 1080,
+        "height": 1420,
+        "sha256": "8d7b97906e3ca9beb2c3b753d16abc1d0080ca1bcde91be5c8db56c981f75287"
+      }
+    ]
+  },
+  "photo-09": {
+    "alt": "Даша с гостем у зеркала",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-09.png",
+    "sourceSha256": "30e7b2b98ed1a27c5f2eb4d1b885b002b68f7a988ee6c3322ffc043f001f164d",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-09-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "13c357eb0c0b95950e9de4f6c491024d332fb9968313c5eb6096f60d2fb2e109"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-09-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "8ba0bd4a4986e7ed68d33e1159d511f19a07fd338633df66adaf933a7e507483"
+      }
+    ]
+  },
+  "photo-10": {
+    "alt": "Даша проводит уход за лицом гостя",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-10.png",
+    "sourceSha256": "7b54bcabdbe36c30f60fd64b8868829032fc20c46f0fbd0c693b44b9e79d1913",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-10-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "d9008bbb9f8eabb0e00cd9232d79acb498bafa2c19000e9b5773b4fc5c90bbdb"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-10-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "ca6e3314c3258d63c971b7d4046ec533681ad3085f82a06a809b6a47781a5a99"
+      }
+    ]
+  },
+  "photo-11": {
+    "alt": "Даша в шлеме на квадроцикле",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-11.png",
+    "sourceSha256": "f356bdc4098f20653061812bf012e82d7a9073625244b6273edc875944124aba",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-11-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "cddb2f7fadb5056d795d4026e7d420043811ee7d4e279ee459b3be0a0275b730"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-11-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "da5a49c05665824987da9359450fa911f1132825adddd5406f29783a757f49c0"
+      }
+    ]
+  },
+  "photo-12": {
+    "alt": "Даша на зимней прогулке",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-12.png",
+    "sourceSha256": "f8434823a37e4e581ddb3ec826e14e5fc47326be2a5123276e62e825a5e498ac",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-12-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "1cf85262102642393a35454752a5d414cc47f196fd323575938e6606db82482f"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-12-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "5ae440082fec7fa104b61b137fe3d66bbec31d81ffab2c58155c3fbc5645a40c"
+      }
+    ]
+  },
+  "photo-13": {
+    "alt": "Даша с чёрным котом на природе",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-13.png",
+    "sourceSha256": "69ad6d8d7f23bc6202dd72bf8a9a683ea5b74b218cbdc16d93be61c9a85f8faf",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-13-640.webp",
+        "width": 640,
+        "height": 1138,
+        "sha256": "cef71e2ccec42d46bed033ac79be3004a8cc3b90f3ca1eb4ee660ff8f5d485f5"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-13-1080.webp",
+        "width": 1080,
+        "height": 1920,
+        "sha256": "66277ca83816237307137365882a2507f8a26b404d23b1cd7c20b950eaa62cc7"
+      }
+    ]
+  },
+  "photo-14": {
+    "alt": "Кофе и завтрак в выходной",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-14.png",
+    "sourceSha256": "602179485852de8757556fbf94f16f9e489dd89695a8a0466135d1dccfac67ac",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-14-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "34d829f6fd7dcc6db2fcd702737f1c2ca887696048abdddf32ff217e7394a1b8"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-14-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "43fe121baaf1bd4dc93a251b7c2df787958b291171af679851f4e95fc0a48762"
+      }
+    ]
+  },
+  "photo-15": {
+    "alt": "Кот Антон и кошка Ева дома",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-15.png",
+    "sourceSha256": "5b9dbb288c2f1faf70773c3ec5945e4057df000643f3df9a254bc0b4273fdff2",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-15-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "a42f7029877fb0e4b6868488bba1f7ec3463fb87af48b6068c4ea4d53741733b"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-15-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "b2d749a93003b77d3351f5a1009529d27b62de8fefd389ade0a38d9e0e1eafa7"
+      }
+    ]
+  },
+  "photo-16": {
+    "alt": "Кот на солнечной подушке",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-16.png",
+    "sourceSha256": "46880ad0f0bcb8416e6d4af3952bae5d3b74fb9ff0d1f8cfd3a348511be62483",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-16-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "dbdb61be6e66e3601072c2e9df679f6bdd94f6961bfa6e0da1cf4a18410238d4"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-16-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "883ec53f0979cd46c29061a85f5d52de1e85a5e84ccbd0fee988fce311d5b67c"
+      }
+    ]
+  },
+  "photo-17": {
+    "alt": "Питомцы Даши отдыхают на кровати",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-17.png",
+    "sourceSha256": "ba8248c100e1f3669fbf9746afb7db399e34793d63517a5b1eeddfb2554ccd27",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-17-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "4cd8c7eeb7a8fbe5512f2c381f5c417542edacd6fc114c9efb5dbcc4eaf41c52"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-17-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "601d55441daefb2eb2338b9dbcb5796f66760132fb62e6b5de9a619ce068805f"
+      }
+    ]
+  },
+  "photo-18": {
+    "alt": "Коты на спинке дивана",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-18.png",
+    "sourceSha256": "015f8b6753476be0cfcd63dd9b9b0a6c54ec0648f43703236c0f3e07bfe6248e",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-18-640.webp",
+        "width": 640,
+        "height": 480,
+        "sha256": "976ee8b278188227c33eb020793b97a5093e2eeb3af551e01fa6695bb341acf4"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-18-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "sha256": "27302e40f34a1b2d10e34d0a2ef22c9551ff760393cef72a43f6f376504f379f"
+      }
+    ]
+  },
+  "photo-19": {
+    "alt": "Даша на берегу моря",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-19.png",
+    "sourceSha256": "66635549aaf217f66453eed9c8e7cca453fdead5fcd4628510b5294a597f1e86",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-19-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "2cc0b9793a17b2c3bfafb75deec1d066eb27e2421568390af7b38e74e20ddb63"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-19-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "9da3c25c5efca0e78e0e76cb102b49a07aa533423989a3805eccaa00ddadf6c0"
+      }
+    ]
+  },
+  "photo-20": {
+    "alt": "Напитки на фоне канала в путешествии",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-20.png",
+    "sourceSha256": "dc1a8b250643ee1e279fc5a233f0efdfada5de1d868bb83e04e1cc1bf15356ae",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-20-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "3211188afb15c1d30b1f20697860468d7918049a5cc40c6c26cc977cd6264da3"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-20-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "48b04165c212e5eed63bbaac6128cd1768e66ab474b15c058b0d3c9f661293e8"
+      }
+    ]
+  },
+  "photo-21": {
+    "alt": "Даша у старинной крепости",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-21.png",
+    "sourceSha256": "4b8731c4a1f3db6aecbc502a9c7d63bdccce2099dc66d18ce1f958a20b9fea15",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-21-640.webp",
+        "width": 640,
+        "height": 1138,
+        "sha256": "e90adfc09738f87524c9d7d90a7831784a04027a28d650cb7877b281d346e69b"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-21-1080.webp",
+        "width": 1080,
+        "height": 1920,
+        "sha256": "4c860b123f608cdf963dc4d48bc3e46c58a6f8746c9255bc941e42bd9a1813a1"
+      }
+    ]
+  },
+  "photo-22": {
+    "alt": "Даша сплавляется по реке",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-22.png",
+    "sourceSha256": "915175d62cd9a78faf18ba61eee46057d8b9fe726c3d01c93089aebfd1ea9719",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-22-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "76cbe2197304bc91da3ea06776e64c904399a631a11f9fcf01026a7ebda99eea"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-22-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "26aec0dbb252f02e97054a230bb2e2d094dc7fdcc120abcfa836ef299e555c4c"
+      }
+    ]
+  },
+  "photo-23": {
+    "alt": "Даша на смотровой площадке с видом на город и горы",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-23.png",
+    "sourceSha256": "cf7a1216b580c8fa33bcc21cdc6781e63d0d90d9d2767992074d215ead4b8bfb",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-23-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "395823c762b4350988e52dab8cfcfff1646cf85c0f70329f72cec7b47f5aca5a"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-23-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "e848c4eb8df137fbf5055d974873f9a2548f587b1540011a20c4250fb78d3687"
+      }
+    ]
+  },
+  "photo-24": {
+    "alt": "Даша на вечерней прогулке среди пальм",
+    "source": "artifacts/master-articles/darya-merzlyakova/originals/photo-24.png",
+    "sourceSha256": "2e6af599204c12d48a5c9b3dc44849a88283b21c9f4cdf9080cce8b944fea5be",
+    "variants": [
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-24-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "fda7266d735b3fdc1824eaa90de83eb852e0516dd83bbad28796abcbc95823bb"
+      },
+      {
+        "url": "/media/articles/darya-merzlyakova/photo-24-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "223267a96a0e68c88eb000502702b0dff60e475c46917762e16b76a8ccac0c37"
+      }
+    ]
+  }
+}

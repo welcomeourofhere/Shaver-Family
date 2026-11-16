@@ -1,0 +1,192 @@
+{
+  "status": "verified-native-vector-export",
+  "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\06_Цифровое пространство\\Иконки\\Набор иконок.cdr",
+  "sourceSha256": "25487e12a42730517f97fe25ee54ff4ad5d7a9400171838d769ad1d0172bb664",
+  "nativeExport": "tmp\\vector-export-tools\\native-icons.svg",
+  "nativeExportSha256": "7c5b8ee767899fb810c3389a9f2978007b60b248e58e67ad54c4b22e6019c7fc",
+  "method": "CorelDRAW native SVG 1.1 export via UI from a writable CDR copy; original source drawings and gradients extracted without tracing",
+  "omitted": "Original tile backgrounds and Corel raster-only soft-shadow layers excluded. The complete vector object bodies, fills, gradients and geometry are retained.",
+  "icons": [
+    {
+      "id": 1,
+      "title": "Фирменный стикерпак",
+      "url": "/reference/gift-1.svg",
+      "sourceLayerChildIndices": [
+        46
+      ],
+      "sourceElementIds": [
+        "_5747824128"
+      ],
+      "viewBox": "6852.01 252.00 496 496",
+      "width": 496,
+      "height": 496,
+      "bytes": 6937,
+      "sha256": "866ce6e1263793ebc73690d45814b110658d95a2eb36193033e07e1334cf6a27",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 13,
+        "clipPath": 4,
+        "path": 9,
+        "stop": 6,
+        "g": 10,
+        "polygon": 12
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "omittedRasterShadowElementsInsideBody": 1
+    },
+    {
+      "id": 2,
+      "title": "Памятный магнит",
+      "url": "/reference/gift-2.svg",
+      "sourceLayerChildIndices": [
+        35,
+        37,
+        38,
+        40
+      ],
+      "sourceElementIds": [
+        "layer-child-35",
+        "layer-child-37",
+        "layer-child-38",
+        "_5747836272"
+      ],
+      "viewBox": "5753.01 253.00 500 502",
+      "width": 500,
+      "height": 502,
+      "bytes": 15651,
+      "sha256": "87dceea265023c8e17ca3f4a1a4562878d8df2f490efb72f05da3153b60282e2",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "radialGradient": 2,
+        "stop": 4,
+        "linearGradient": 1,
+        "g": 2,
+        "path": 8,
+        "rect": 1
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "omittedRasterShadowElementsInsideBody": 0
+    },
+    {
+      "id": 3,
+      "title": "Полезный брелок",
+      "url": "/reference/gift-3.svg",
+      "sourceLayerChildIndices": [
+        33
+      ],
+      "sourceElementIds": [
+        "_5747838240"
+      ],
+      "viewBox": "4651.01 1332.00 498 521",
+      "width": 498,
+      "height": 521,
+      "bytes": 4315,
+      "sha256": "4a75719aea6acabbfb96f1601f4868ba092a71fd91165ac7d1438611805aca94",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 5,
+        "stop": 4,
+        "radialGradient": 1,
+        "g": 2,
+        "path": 7,
+        "line": 4
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "omittedRasterShadowElementsInsideBody": 0
+    },
+    {
+      "id": 4,
+      "title": "Ароматизатор в машину",
+      "url": "/reference/gift-4.svg",
+      "sourceLayerChildIndices": [
+        31
+      ],
+      "sourceElementIds": [
+        "_5747842608"
+      ],
+      "viewBox": "3623.00 1256.00 429 648",
+      "width": 429,
+      "height": 648,
+      "bytes": 9506,
+      "sha256": "5247ecdd294200602f04d0e9ac1d2697ee7e4bf6ae37665f76a6b5a653d6a6b7",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 9,
+        "stop": 20,
+        "radialGradient": 5,
+        "g": 2,
+        "path": 12,
+        "polygon": 2
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "omittedRasterShadowElementsInsideBody": 0
+    },
+    {
+      "id": 5,
+      "title": "Секретный подарок",
+      "url": "/reference/gift-5.svg",
+      "sourceLayerChildIndices": [
+        24
+      ],
+      "sourceElementIds": [
+        "_5747849664"
+      ],
+      "viewBox": "1385.00 1354.00 430 473",
+      "width": 430,
+      "height": 473,
+      "bytes": 6313,
+      "sha256": "24e3ad6ecd8bfee522e8d2001f7ba2d415dc1ddd756abe16208b42b04d7d2291",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 9,
+        "clipPath": 3,
+        "path": 9,
+        "mask": 2,
+        "stop": 13,
+        "rect": 6,
+        "g": 9,
+        "polygon": 2
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "omittedRasterShadowElementsInsideBody": 1
+    },
+    {
+      "id": 6,
+      "title": "Укладочное средство",
+      "url": "/reference/gift-6.svg",
+      "sourceLayerChildIndices": [
+        27
+      ],
+      "sourceElementIds": [
+        "_5747846544"
+      ],
+      "viewBox": "2460.00 1390.00 573 433",
+      "width": 573,
+      "height": 433,
+      "bytes": 7852,
+      "sha256": "966672c61052833d10d70403db5b366328f5fdf8c42becfc8a59d367f7dce3c3",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 5,
+        "stop": 10,
+        "radialGradient": 3,
+        "g": 4,
+        "path": 15
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "omittedRasterShadowElementsInsideBody": 0
+    }
+  ]
+}

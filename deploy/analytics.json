@@ -1,0 +1,18 @@
+{
+  "ga4": "G-TF121LKSEQ",
+  "propertyId": "564405159",
+  "metrika": "114263185",
+  "streamId": "16345971568",
+  "googleVerification": "MmQQFIhbtKcfhtNTO_oVJJC31nq5u-oQby_P7IAPsXA",
+  "yandexVerification": "456eed219e008bca",
+  "hosts": [
+    "soyuz.hair",
+    "www.soyuz.hair"
+  ],
+  "events": [
+    "booking_open",
+    "certificate_open",
+    "contact_click"
+  ],
+  "metrikaGoalIds": {"booking_open":681854754,"certificate_open":681854960,"contact_click":681855047}
+}

@@ -1,51 +1,38 @@
-# Shaver Family news feed
+# СОЮЗ — soyuz.hair
 
-The existing daily VK job publishes `data/feed.json`. It now prepares WebP images
-at 160, 320, 640, 960 and 1280 px, capped at the source width, with the original
-aspect ratio. No resizing up or visual placeholders are introduced. Video covers
-also compare decoded pixels of up to six official API image/first-frame candidates,
-because the declared dimensions can exceed the real file dimensions. Only certified
-near-black outer bars matching the actual video ratio are trimmed; photo posts and
-textured/coloured edges are preserved. The largest usable original frame is chosen.
+Исходники сайта барбершопа СОЮЗ. Публичный сайт: https://soyuz.hair. Локальный HMR: dev.cmd → http://127.0.0.1:4321/. Исходники меняются в src/content; dist и deploy/out создаются сборкой.
 
-`media.variants` contains HTTPS URL, width, height and byte size. The compatible
-`thumb_url` and `full_url` fields point to the generated files on this GitHub Pages
-site. The main Shaver Family website consumes this array as `srcset`; older clients
-can still display the feed via those two URLs. The original VK URLs are retained.
+Тильда: проект46815509,11страниц содержимого (включая404), отдельные общие header/footer. Ресурсы: Яндекс Облако, только shaver/Soyuz/releases/. Предыдущие версии сохраняются. Новости читаются при открытии сайта из действующего GitHub JSON; worker/расписание находятся в main/soyuz существующего репозитория.
 
-Media filenames contain an image-content hash. The daily workflow reuses files for
-unchanged photos and commits the feed with its images in one commit. A wall API
-failure leaves the previous published feed intact and fails the job. If one cover
-cannot be prepared, that actual post and its original VK image/player are kept;
-other images still receive WebP variants. No additional secrets are required.
+Для выпуска предусмотрена изолированная ветка codex/soyuz-release в welcomeourofhere/Shaver-Family. Её дерево содержит только СОЮЗ; не сливать эту ветку в main Shaver Family. Факт отправки и результат CI фиксируются отдельно в docs/PROGRESS.md. Workflow проверяет сборку и сохраняет пакет; ключей Тильды/Облака и автоматической публикации в workflow нет.
 
-Run `npm ci --ignore-scripts && npm test` before changing the pipeline. To optimise
-an existing feed without a VK API call, run `npm run images`. To update posts and
-images together, run the existing VK Feed Build workflow using its existing token.
+## Восстановление и сборка
 
-The same daily task includes pinned posts (first, without duplicates) and video
-posts. Video covers use the same WebP pipeline. Only a VK embed URL, video URL,
-title and duration are exported; MP4 files are not downloaded or rehosted.
-The website creates the VK iframe only after a visitor presses Play, and removes
-it when the card closes or the feed page changes. If VK does not allow embedding,
-the public video link remains available.
+Node24, pnpm10, Python3.12. Публичные бинарные файлы восстанавливаются по deploy/media-lock.json с проверкой SHA-256. Локальные оригиналы и исторические материалы не перезаписываются.
 
-For public clips that omit a player in `video.get`, the job calls VK's open
-`video.getOembed` method without a token. It extracts only an HTTPS VK iframe URL
-for the requested owner/video ID; provider HTML is never included in the feed.
-Clip posters from the exact `iv.okcdn.ru` host use the same bounded WebP pipeline.
-The job also requests current video metadata (API 5.199), chooses a larger actual
-cover when available, and carries original video dimensions separately from a
-possibly square poster. Existing embed URLs are preserved.
+```powershell
+pnpm install --frozen-lockfile
+python -m pip install beautifulsoup4==4.14.3 tinycss2==1.5.1 fonttools==4.68.0 brotli==1.2.0 Pillow==12.3.0
+python scripts/bootstrap-public.py
+node node_modules/astro/astro.js check
+node node_modules/astro/astro.js build
+node --test tests/*.test.mjs
+```
 
-Likes and views belong to the community post, including reposts. Missing counts
-are null, not fabricated zero. Each item records stats_updated_at: this is a daily
-snapshot, not live VK counters. Views are distinct from unique reach. The task
-attempts stats.getPostReach with the existing token and exports only reach_total
-when available; denied statistics access leaves reach null and does not stop news.
-No token scopes, workflow schedule or secrets are changed.
+Полный локальный набор проверяет также оригиналы фотографий, исходные иллюстрации, захваченные статьи и исторические макеты. Эти материалы остаются в локальном рабочем каталоге. Production-дерево для GitHub исключает `src/pages/previews/`, `public/previews/`, `archive/` и `artifacts/`; исходные варианты и их проверки сохраняются локально.
 
-The media ledger keeps the current and five previous successful feed versions.
-Shared images are stored once. After a successful update, only obsolete files
-owned by this pipeline are pruned. Failed whole-feed updates never run retention.
-This does not remove anything in Yandex or the old website folder structure.
+Состав CI задан в `tests/ci-suites.json`. Все runtime-файлы выполняются полностью; в смешанных файлах только явно названные сравнения с оригиналами относятся к локальному набору. `scripts/check-ci.mjs` требует владельца для каждого нового unit/Python-теста и не принимает пустой результат фильтра. `runtime-assets.test.mjs` проверяет используемые публичные изображения, видео и полный текст всех шести интервью без доступа к архиву. Перед сборкой CI проверяет SHA-256 всех восстановленных ресурсов по `deploy/media-lock.json`, после сборки — точные production-маршруты, локальные ссылки, метаданные и полный Tilda-пакет. В полном локальном дереве сохраняются также проверки 14 маршрутов с тремя страницами просмотра; production-дерево содержит 11 маршрутов из `deploy/production.json`.
+
+Для production-клона после восстановления публичных ресурсов используются `node scripts/check-ci.mjs source`, `pnpm check`, `pnpm build` и `node scripts/check-ci.mjs runtime`. После release-сборки и подготовки пакета — `node scripts/check-ci.mjs release` и `node scripts/check-ci.mjs package`. Эти команды не публикуют сайт. Применимые браузерные проверки и границы измерений описаны в tests/README.md. Физические телефоны исключены владельцем; WebKit на Windows не доказывает Safari на iPhone.
+
+```powershell
+$env:SOYUZ_RELEASE='1'
+node node_modules/astro/astro.js build
+node --test tests/metadata.test.mjs tests/analytics.test.mjs
+python scripts/prepare-tilda-release.py
+python -m unittest discover -s tests -p '*_test.py'
+```
+
+Подготовка пакета не публикует сайт. upload-tilda-assets.py --apply пишет только разрешённый namespace существующим локальным профилем. T123 и HEAD берутся из точного manifest, затем проверяются чтением и публикуются средствами Тильды. Подробная карта настроек — docs/TILDA_SETTINGS_64.md; действующий контракт — docs/DESIGN_SYSTEM.md; состояние — docs/PROGRESS.md; план — docs/superpowers/plans/2026-11-15-soyuz-release.md.
+
+Исходное production-дерево готовится командой `python scripts/prepare-source-tree.py`. Она явно исключает локальные previews, originals и сборки, сохраняет авторские SVG и создаёт Git tree payload в `.local/release65/`; `--materialize .local/<новая папка>` дополнительно создаёт чистый каталог для CI-проверки. Команда ничего не отправляет в GitHub и не удаляет файлы.

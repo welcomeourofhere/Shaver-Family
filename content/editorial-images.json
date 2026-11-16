@@ -1,0 +1,133 @@
+{
+  "source": "User-supplied staff poster photographs, 2026-11-05; originals unchanged, identities not inferred.",
+  "images": [
+    {
+      "id": "staff-celebration",
+      "slot": "about:haircut",
+      "source": "artifacts/owner-posters/2026-11-05/staff-celebration.png",
+      "suppliedFile": "codex-clipboard-64d52faf-03ff-41fa-9a02-d7836ebdfe7c.png",
+      "alt": "Сотрудница СОЮЗа в светлом платье с розами на красном фоне",
+      "focus": {
+        "desktop": "center 15%",
+        "mobile": "center 12%"
+      },
+      "sourceSha256": "1ca11906770a8d9d66459e3dfe1748411096f38e58857d413664042513cfb4b7",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "variants": [
+        {
+          "url": "/media/editorial/staff-celebration-640.webp",
+          "width": 640,
+          "height": 853,
+          "bytes": 42714,
+          "sha256": "2068c86f1e7644b0ad988a6cabb2385dd553623f168447d2e64699bc07a340a1"
+        },
+        {
+          "url": "/media/editorial/staff-celebration-1086.webp",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 84510,
+          "sha256": "1a3e46a1a6a9b51388425d513b18d0b1fbd0b0e9a1ad0b7e310785a3233fb7e1"
+        }
+      ]
+    },
+    {
+      "id": "staff-journey",
+      "slot": "about:team",
+      "source": "artifacts/owner-posters/2026-11-05/staff-journey.png",
+      "suppliedFile": "codex-clipboard-c7301a54-0794-456d-bb4a-4d008b4ae0d9.png",
+      "alt": "Сотрудница СОЮЗа у автомобиля на фоне пшеничного поля и реки",
+      "focus": {
+        "desktop": "center 15%",
+        "mobile": "center 10%"
+      },
+      "sourceSha256": "46a856de85e5c4b968fb98e15bffaaf5e3ec02f74b0e64c44ac3714ce014f0b0",
+      "sourceSize": [
+        1920,
+        2560
+      ],
+      "variants": [
+        {
+          "url": "/media/editorial/staff-journey-640.webp",
+          "width": 640,
+          "height": 853,
+          "bytes": 56490,
+          "sha256": "daa8032c9f2a2064c4b5dc4fda2e8a3725281a0503e47f48e781c3d455f4b911"
+        },
+        {
+          "url": "/media/editorial/staff-journey-1440.webp",
+          "width": 1440,
+          "height": 1920,
+          "bytes": 158592,
+          "sha256": "a8a981bdbe6708367020646b3dce8fcb5a280cba3b0bb68bcc36782a57f884e0"
+        }
+      ]
+    },
+    {
+      "id": "staff-harvest",
+      "slot": "about:beard",
+      "source": "artifacts/owner-posters/2026-11-05/staff-harvest.png",
+      "suppliedFile": "codex-clipboard-827a0225-0044-43f2-9f90-1905f8b0c1f2.png",
+      "alt": "Сотрудница СОЮЗа в красном платке среди золотых колосьев",
+      "focus": {
+        "desktop": "center 15%",
+        "mobile": "center 8%"
+      },
+      "sourceSha256": "338a813f2e4c97517f3998559e114f8d7672cbbcc4fa5b7266ae4682915da1bd",
+      "sourceSize": [
+        1792,
+        2389
+      ],
+      "variants": [
+        {
+          "url": "/media/editorial/staff-harvest-640.webp",
+          "width": 640,
+          "height": 853,
+          "bytes": 78582,
+          "sha256": "9051b6b399cda78fa2f8b63d2475e1c8fb7e74a4533f1ce9904213dcd79aa1aa"
+        },
+        {
+          "url": "/media/editorial/staff-harvest-1440.webp",
+          "width": 1440,
+          "height": 1920,
+          "bytes": 265650,
+          "sha256": "f8631172fe891f2cde979f5c8d1f09ce55cf279285e0bfd79a8dbdd7b123b9b6"
+        }
+      ]
+    },
+    {
+      "id": "staff-aspiration",
+      "slot": "about:place",
+      "source": "artifacts/owner-posters/2026-11-05/staff-aspiration.png",
+      "suppliedFile": "codex-clipboard-bd24f5ed-3db1-4f92-b58a-ebf07f72b8ba.png",
+      "alt": "Сотрудница СОЮЗа в красной накидке с поднятой рукой под луной",
+      "focus": {
+        "desktop": "center 15%",
+        "mobile": "center 30%"
+      },
+      "sourceSha256": "cf744676d196b72ae62af29d5af0b96015da3fbc4da419d6ba32e997ad7f7ee5",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "variants": [
+        {
+          "url": "/media/editorial/staff-aspiration-640.webp",
+          "width": 640,
+          "height": 853,
+          "bytes": 38062,
+          "sha256": "eadb514997901a21c074e956ecd0545191beb66648401ccfcf4c5000cd43b0e0"
+        },
+        {
+          "url": "/media/editorial/staff-aspiration-1086.webp",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 72598,
+          "sha256": "5118925581023f5a38c9e5092dacff3a2dda51422639069f050d92cd2e3a87fc"
+        }
+      ]
+    }
+  ]
+}

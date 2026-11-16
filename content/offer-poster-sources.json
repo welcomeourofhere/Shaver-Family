@@ -1,0 +1,306 @@
+{
+  "generator": "Built-in image_gen",
+  "asOf": "2026-11-05",
+  "brief": "Individual painterly Soviet-style compositions; no text, barbershop interiors or barber poles. Honest-price poster is a local design candidate.",
+  "promptSet": "artifacts/posters/individual/prompts.json",
+  "images": [
+    {
+      "id": "coffee",
+      "composition": "Natural medium-view outdoor review scene with phone and coffee on table",
+      "prompt": "Create a NEW believable naturally staged text-free Soviet-poster-style painted illustration about COFFEE IN EXCHANGE FOR A CUSTOMER REVIEW. Portrait aspect ratio25:27. Scene: a contemporary adult man wearing a simple muted-blue casual shirt sits at an ordinary outdoor park cafe wooden table, seen in a natural three-quarter medium view from the opposite side of the table. His head, shoulders, torso and connected elbows are visible, realistic proportions. On the table in front of him sits a small plain white ceramic coffee cup ON its saucer, with a little natural steam; no one holds the cup. A normal-sized smartphone lies FLAT on the table at a realistic oblique angle. The man's RIGHT forearm rests naturally on the tabletop, right index finger gently touches the phone to leave a rating. His LEFT arm rests naturally relaxed at the other side of the table, left hand visible and empty. EXACTLY TWO connected human arms and two hands with correct left/right anatomy, five fingers each, no detached foreground hand, no extra fingers, no duplicate limbs. The phone's screen is subtle and physically realistic: five SMALL flat gold rating-star pictograms only, no giant embossed stars, no heart, no letters or numbers, no brand. His gaze is directed down at the phone, quiet genuine contentment rather than a posed camera-facing grin. Hands, cup and phone all at normal relative scales; cup about8cm tall, phone about15cm. Open-air leafy park and muted-blue sky softly painted in background, warm late-afternoon sunlight, restrained scarlet cloth accent. Absolutely NO barbershop/salon interior, barber poles, striped cylinders, hair tools, salon chairs or shop signs. No pencil, pen, stationery, blank card or other irrelevant props. Historical Soviet advertising-art MEDIUM only: confident oil/gouache brushwork, realistic hand-painted anatomy, tactile subtle lithographic grain, warm ochre/blue/scarlet/ivory palette. A painted everyday moment with physically plausible perspective and lighting, NOT photographic, NOT glossy artificial AI people, NOT 3D, NOT an idealized staged giant hand holding a phone at the viewer. Absolutely no text, labels, logos, numbers, signatures, watermarks or decorative borders anywhere.",
+      "source": "artifacts/posters/individual/coffee.png",
+      "sourceSha256": "ff2f5560d3f7a7e61494389be3085f21dc5806f2b6f4f31782a4fc28888915c0",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "variants": [
+        {
+          "url": "/media/offers/coffee-640.webp",
+          "width": 640,
+          "height": 691,
+          "bytes": 124890,
+          "sha256": "5722a69f229eac5a8571ed5a0cf6d295284b30130f1c2bf1ca7cc8b971938866"
+        },
+        {
+          "url": "/media/offers/coffee-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 263224,
+          "sha256": "191ccaecf6a04f65a22a899dde8b55c8b03ff0f4975daed94093ff89a90d4b93"
+        }
+      ]
+    },
+    {
+      "id": "first-visit",
+      "composition": "Low-angle outdoor welcome scene at an open garden gate",
+      "prompt": "Create ONE original painted promotional illustration, portrait aspect ratio 25:27, full bleed. A text-free Soviet advertising-art campaign: confident hand-painted gouache/oil brushwork, subtle lithographic paper grain, expressive natural anatomy and materials. Palette warm scarlet, muted blue, ochre, ivory, charcoal and believable skin tones; each composition has a different dominant hue. CRITICAL EXCLUSIONS across the entire image: absolutely NO barbershop or salon interior, no barber pole, no striped cylindrical object, no salon chair, no mirror station, no storefront signage, no hairdressing equipment, no scissors. Absolutely ZERO text, letters, words, digits, percentages, labels, logos, signatures, watermarks, caption bands or decorative borders. Not a photograph, not a filtered photo, not 3D, not a flat vector icon, no current SOYUZ employee or room references. The illustration communicates only its offer's broader idea below. A NEW BEGINNING and WELCOME: full-figure narrative in a sunlit urban park, viewed from a low oblique angle. A new young male visitor in a charcoal jacket walks from the lower-left foreground into a welcoming garden, seen mostly from behind. At the upper-right a smiling young woman in a flowing scarlet coat and simple ivory blouse opens a plain red wooden garden gate with her RIGHT hand, the LEFT arm relaxed at her side. A golden path leads into blue-green trees and open sky, no shop, no interiors, no grooming, no barber identifiers. Strong diagonal depth, separated full figures and tall red gate. Each person has exactly one left and one right arm, connected joints and natural hands.",
+      "source": "artifacts/posters/individual/first-visit.png",
+      "sourceSha256": "296c2815e7836b0ecd613f27d96f9b124d3d636e1ca8b826ae307ac956355b35",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "variants": [
+        {
+          "url": "/media/offers/first-visit-640.webp",
+          "width": 640,
+          "height": 691,
+          "bytes": 133944,
+          "sha256": "620d59c41ca58e616cd0dbd458aed8b9d8237bb17361e8b9f7f1657073b824f0"
+        },
+        {
+          "url": "/media/offers/first-visit-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 287246,
+          "sha256": "15e063e26097acd9fdd65010008690039c0d544003ecc91fc402c91d59e188f9"
+        }
+      ]
+    },
+    {
+      "id": "cashback",
+      "composition": "Conceptual diagonal close-up of one hand, coins and card, no faces",
+      "prompt": "ONE finished original painting for a text-free Soviet-style barbershop promotion card, portrait aspect ratio 25:27, full bleed. Authentic mid-century hand-painted gouache/oil advertising art, confident broad brushwork, subtle lithographic paper grain, warm natural light, believable anatomy and materials. Restricted harmonious scarlet, muted blue, ochre yellow, ivory and charcoal with natural skin tones. This is a coherent campaign but this illustration MUST have its own distinctive composition specified below. Absolutely NO text, letters, digits, percentages, logos, signatures, labels, watermark, text bands or decorative border. No scissors. No current real SOYUZ people or interiors. Not a photo, not 3D, not a vector icon, not glossy generic AI art. COMPOSITION: dramatic close-up of ONE anatomically correct open adult RIGHT hand angled from lower-left toward the center, palm facing up, receiving exactly five plain golden coins that arc back towards it in a sweeping circular return path. One unmarked muted-blue loyalty card lies tilted beneath the palm at lower right. Scarlet diagonal background planes with warm ivory light and yellow coin motion accents, painterly and tactile rather than 3D or flat vector. Strong off-center diagonal, no people, faces, torsos, cup, gift or barbershop interior. Coins have no numbers, letters or logos. The thumb's position and five fingers must be anatomically correct; no second hand or detached fingertips. Visual metaphor for cashback returning to the guest.",
+      "source": "artifacts/posters/individual/cashback.png",
+      "sourceSha256": "0df8e9978aea6fdde9e46bc862e0103505501a60086196afe1700ae5712d7609",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "variants": [
+        {
+          "url": "/media/offers/cashback-640.webp",
+          "width": 640,
+          "height": 691,
+          "bytes": 77250,
+          "sha256": "a069c0b95dc456d4aa77a4e940b06102ab053c776f15a6df72a879aac97689db"
+        },
+        {
+          "url": "/media/offers/cashback-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 173372,
+          "sha256": "89b506408191dfc3134ded0cd629f7434f33252757b6403a829659b3ec44a3ee"
+        }
+      ]
+    },
+    {
+      "id": "loyalty",
+      "composition": "Monumental vertical still life of gifts, eye-level, geometric asymmetry",
+      "prompt": "ONE finished original painting for a text-free Soviet-style barbershop promotion card, portrait aspect ratio 25:27, full bleed. Authentic mid-century hand-painted gouache/oil advertising art, confident broad brushwork, subtle lithographic paper grain, warm natural light, believable anatomy and materials. Restricted harmonious scarlet, muted blue, ochre yellow, ivory and charcoal with natural skin tones. This is a coherent campaign but this illustration MUST have its own distinctive composition specified below. Absolutely NO text, letters, digits, percentages, logos, signatures, labels, watermark, text bands or decorative border. No scissors. No current real SOYUZ people or interiors. Not a photo, not 3D, not a vector icon, not glossy generic AI art. COMPOSITION: sculptural eye-level still-life of six individually wrapped gifts of different sizes arranged in an asymmetric rising staircase from bottom-right to upper-left. Red, ochre, ivory and blue paper boxes with beautifully hand-painted fabric ribbons; a sweeping single red ribbon links the arrangement. Deep muted BLUE wall behind, golden side lighting. Frame close enough to make the gifts monumental, with clear negative space around their stepped silhouette. No people, face, hand, cup, cake, coins, blank cards or lettering. The arrangement should evoke abundance and a gift for each repeat visit, like a Soviet harvest still-life adapted to a barbershop loyalty programme.",
+      "source": "artifacts/posters/individual/loyalty.png",
+      "sourceSha256": "bf4825808a5732ae135c29ec334802a5401d39bb0b55dd9021a0022c6681dafb",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "variants": [
+        {
+          "url": "/media/offers/loyalty-640.webp",
+          "width": 640,
+          "height": 691,
+          "bytes": 67278,
+          "sha256": "4f4c9a8ee2a2df309707136240614fc5be2eb0daa8d3de8d6c6ae86b8d8765a9"
+        },
+        {
+          "url": "/media/offers/loyalty-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 165996,
+          "sha256": "9406eb9ca9cfc07c5f32dc99d502a5a50d1bd3e4a85e44e1ec1dbc09646be281"
+        }
+      ]
+    },
+    {
+      "id": "waxing",
+      "composition": "Extreme side-profile procedure close-up, cinematic crop",
+      "prompt": "ONE finished original painting for a text-free Soviet-style barbershop promotion card, portrait aspect ratio 25:27, full bleed. Authentic mid-century hand-painted gouache/oil advertising art, confident broad brushwork, subtle lithographic paper grain, warm natural light, believable anatomy and materials. Restricted harmonious scarlet, muted blue, ochre yellow, ivory and charcoal with natural skin tones. This is a coherent campaign but this illustration MUST have its own distinctive composition specified below. Absolutely NO text, letters, digits, percentages, logos, signatures, labels, watermark, text bands or decorative border. No scissors. No current real SOYUZ people or interiors. Not a photo, not 3D, not a vector icon, not glossy generic AI art. COMPOSITION: extreme close-up of the side profile of an adult male guest's right cheek and ear, eyes relaxed and looking out of frame. Only a small part of his face and short haircut occupy the right half. From the left edge ONE anatomically correct female RIGHT hand in a charcoal glove holds a clean wooden waxing applicator close to the outer ear; no insertion into ear, no pain, no injury. A small open warm-wax tin in the lower-left foreground, ivory towel below, softly painted ochre background. The gloved hand has a correct thumb and five fingers attached naturally, no duplicated hand. Intimate horizontal action inside portrait crop, skin and wax painted with subtle natural detail, no smiling two-person portrait, no full barber figure, no words.",
+      "source": "artifacts/posters/individual/waxing.png",
+      "sourceSha256": "3e70b36135caee3b5b281545daea24be1fa1e2366c69dfffd16b7739f473dbf0",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "variants": [
+        {
+          "url": "/media/offers/waxing-640.webp",
+          "width": 640,
+          "height": 691,
+          "bytes": 85616,
+          "sha256": "a2662dbec834bfd20be75c48bc32698ba231b2eaeb3f5887f2d633e20bbe2aca"
+        },
+        {
+          "url": "/media/offers/waxing-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 198944,
+          "sha256": "2f38ee05474ed5f5675442b61796619409876b84dce81bb3bfd55a28004b803e"
+        }
+      ]
+    },
+    {
+      "id": "father-son",
+      "composition": "Father and son walking away on an autumn park path",
+      "prompt": "Create ONE original painted promotional illustration, portrait aspect ratio 25:27, full bleed. A text-free Soviet advertising-art campaign: confident hand-painted gouache/oil brushwork, subtle lithographic paper grain, expressive natural anatomy and materials. Palette warm scarlet, muted blue, ochre, ivory, charcoal and believable skin tones; each composition has a different dominant hue. CRITICAL EXCLUSIONS across the entire image: absolutely NO barbershop or salon interior, no barber pole, no striped cylindrical object, no salon chair, no mirror station, no storefront signage, no hairdressing equipment, no scissors. Absolutely ZERO text, letters, words, digits, percentages, labels, logos, signatures, watermarks, caption bands or decorative borders. Not a photograph, not a filtered photo, not 3D, not a flat vector icon, no current SOYUZ employee or room references. The illustration communicates only its offer's broader idea below. Family visit idea: medium-long rear view of a father and school-age son walking together along an autumn park path. Father is on the LEFT wearing a muted-blue jacket, son on the RIGHT in an ochre sweater, both naturally freshly groomed. The father's RIGHT arm rests lightly across the son's LEFT shoulder with correct connected anatomy, his LEFT hand is in his pocket; the boy's arms rest naturally down. Their full figures and difference in heights are the story. A red scarf on the boy and warm yellow leaves form accents; distant city rooftops under blue sky, no shop or interior. Frame from behind down to shoes, gentle low sun, clear strong silhouettes, no huge front-facing faces.",
+      "source": "artifacts/posters/individual/father-son.png",
+      "sourceSha256": "8069fc7f3bc17e7107ff81be81afddbf31e0773e1447eba0d4cc2fdc94c713cb",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "variants": [
+        {
+          "url": "/media/offers/father-son-640.webp",
+          "width": 640,
+          "height": 691,
+          "bytes": 115438,
+          "sha256": "826d5114e8e8fb68d81af1d5aca9e66f3ba1a2b40bfbd08d47a34e8109bf6eb4"
+        },
+        {
+          "url": "/media/offers/father-son-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 221788,
+          "sha256": "4d93abe019003e445c925be5b4ccb52d6fa2f05f5e62fb87cf61f9e34b22be9f"
+        }
+      ]
+    },
+    {
+      "id": "birthday",
+      "composition": "Strict overhead radial birthday still life on scarlet",
+      "prompt": "Create ONE original painted promotional illustration, portrait aspect ratio 25:27, full bleed. A text-free Soviet advertising-art campaign: confident hand-painted gouache/oil brushwork, subtle lithographic paper grain, expressive natural anatomy and materials. Palette warm scarlet, muted blue, ochre, ivory, charcoal and believable skin tones; each composition has a different dominant hue. CRITICAL EXCLUSIONS across the entire image: absolutely NO barbershop or salon interior, no barber pole, no striped cylindrical object, no salon chair, no mirror station, no storefront signage, no hairdressing equipment, no scissors. Absolutely ZERO text, letters, words, digits, percentages, labels, logos, signatures, watermarks, caption bands or decorative borders. Not a photograph, not a filtered photo, not 3D, not a flat vector icon, no current SOYUZ employee or room references. The illustration communicates only its offer's broader idea below. Strict perfectly top-down painted still-life on a deep SCARLET tabletop. A round small ivory birthday cake with three glowing slender candles sits off-center to the right. Curved ochre ribbons, a few red cherries, small blue paper triangles and one plain charcoal gift envelope form an elegant loose circular rhythm. Every object seen consistently directly from above, flat composition with warm candle highlights and deep-blue short shadows. No people, faces, hands, chair, cup, towel, room or pile of gifts. A festive original overhead birthday poster with strong circular geometry and painterly texture.",
+      "source": "artifacts/posters/individual/birthday.png",
+      "sourceSha256": "2666d78cce51a5f03fd230ba34c760bcb2d856d88d7a4af7649a025f1f9ec42f",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "variants": [
+        {
+          "url": "/media/offers/birthday-640.webp",
+          "width": 640,
+          "height": 691,
+          "bytes": 73896,
+          "sha256": "4f309d456d9d24988f40ebef3032c0bdcbc14586eaad41e545052250393da34d"
+        },
+        {
+          "url": "/media/offers/birthday-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 158806,
+          "sha256": "92056c4253f475a9c017463f6fd4722b36d0bc432c700eaf792a7db5be511366"
+        }
+      ]
+    },
+    {
+      "id": "veterans",
+      "composition": "Recognizable serviceman outdoors, calm respectful waist-up character",
+      "prompt": "ONE finished original text-free painted advertising illustration for a barbershop promotion card, portrait aspect ratio25:27, full bleed. Authentic Soviet poster painting medium: expressive hand-painted gouache/oil brushwork, subtle lithographic grain, strong readable silhouette and clear human action; warm scarlet, muted blue, ochre, ivory, charcoal and natural skin. This is an imaginative symbolic scene, not a real current SOYUZ place or employee. Absolutely no salon/barbershop interior, barber pole, striped pole, salon chair, mirror station or hairdressing equipment. Absolutely ZERO written text, letters, words, digits, percentages, logos, labels, signatures, watermarks or caption bands. No scissors. Not a photo, not 3D, not generic vector clipart. STORY: a respectful welcome for MILITARY VETERAN GUESTS. Waist-up portrait from a slightly low angle of an adult military serviceman about40 with short neatly groomed dark hair, subtle stubble, calm kind confident face. He wears a simple olive field jacket and holds a folded plain olive service cap naturally in his LEFT hand at waist height, RIGHT hand relaxed below crop. No medals, patches, insignia, slogans, flags, weapons, battle or injuries. He stands outdoors with broad muted-blue sky and warm ochre light, a bold restrained scarlet diagonal geometric plane behind one shoulder. Clear military clothing makes the subject understandable; this is not an anonymous elderly civilian with a long gray beard. Natural contemporary adult features, respectfully painted, strong posture and believable five-finger hand. No other person, props or room.",
+      "source": "artifacts/posters/individual/veterans.png",
+      "sourceSha256": "82a12dd608e46425191678dbeaff245a575f33bfddda613b39d951ec7ba7d33f",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "variants": [
+        {
+          "url": "/media/offers/veterans-640.webp",
+          "width": 640,
+          "height": 691,
+          "bytes": 80314,
+          "sha256": "d5712f02cfaee07b289b6d62268b450c7d9c1eb50bee2f0269a159801ccca780"
+        },
+        {
+          "url": "/media/offers/veterans-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 166878,
+          "sha256": "fbd3b9e0724bca0c7856efc158cfe8c4abf0fa3447e7ed874e9bed7307a50a0e"
+        }
+      ]
+    },
+    {
+      "id": "premium",
+      "composition": "Dynamic full-figure groomed man, low angle and graphic urban silhouette",
+      "prompt": "ONE finished original text-free painted advertising illustration for a barbershop promotion card, portrait aspect ratio25:27, full bleed. Authentic Soviet poster painting medium: expressive hand-painted gouache/oil brushwork, subtle lithographic grain, strong readable silhouette and clear human action; warm scarlet, muted blue, ochre, ivory, charcoal and natural skin. This is an imaginative symbolic scene, not a real current SOYUZ place or employee. Absolutely no salon/barbershop interior, barber pole, striped pole, salon chair, mirror station or hairdressing equipment. Absolutely ZERO written text, letters, words, digits, percentages, logos, labels, signatures, watermarks or caption bands. No scissors. Not a photo, not 3D, not generic vector clipart. STORY: A COMPLETE PREMIUM GROOMED LOOK. A striking well-groomed man about30 walks confidently towards the viewer in a dynamic full-figure composition, seen from a slightly low side angle. Beautiful precise contemporary haircut, neatly sculpted short beard, healthy relaxed face and open eyes. He wears a tailored charcoal jacket over a simple ivory open-collar shirt and dark trousers, one hand casually in his pocket, the other naturally swinging at his side. Sunlight defines clean hair/beard contours. Broad abstract muted-blue and ochre architectural planes outdoors and a small scarlet accent form an elegant strong backdrop with long diagonal shadow. Show him from head to shoes with space and motion, not just another giant head portrait. No towel, steam, sleeping person, spa couch, barber chair, barber tools, fancy watch product placement or room. Confident finished style, natural anatomy and realistic proportions.",
+      "source": "artifacts/posters/individual/premium.png",
+      "sourceSha256": "c1111f9a96484225e6c8c054aea9eba50fd10f82cad347da9d7d90798111f2b1",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "variants": [
+        {
+          "url": "/media/offers/premium-640.webp",
+          "width": 640,
+          "height": 691,
+          "bytes": 85818,
+          "sha256": "b3337b6f3a1d4bf3cd8f71abc6761d3369cac2364c44d8fe93af40c3b4336d8f"
+        },
+        {
+          "url": "/media/offers/premium-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 183060,
+          "sha256": "c70b6ce328128a90a1dc0bb58a47a78127c0b265fa71e51faab6a2ca1b6c5ce1"
+        }
+      ]
+    },
+    {
+      "id": "referral",
+      "composition": "Wide outdoor friendship scene with triangular group",
+      "prompt": "Create ONE original painted promotional illustration, portrait aspect ratio 25:27, full bleed. A text-free Soviet advertising-art campaign: confident hand-painted gouache/oil brushwork, subtle lithographic paper grain, expressive natural anatomy and materials. Palette warm scarlet, muted blue, ochre, ivory, charcoal and believable skin tones; each composition has a different dominant hue. CRITICAL EXCLUSIONS across the entire image: absolutely NO barbershop or salon interior, no barber pole, no striped cylindrical object, no salon chair, no mirror station, no storefront signage, no hairdressing equipment, no scissors. Absolutely ZERO text, letters, words, digits, percentages, labels, logos, signatures, watermarks, caption bands or decorative borders. Not a photograph, not a filtered photo, not 3D, not a flat vector icon, no current SOYUZ employee or room references. The illustration communicates only its offer's broader idea below. Friendship and recommendation: lively outdoor scene in an ordinary sunlit city square, viewed from across a cobblestone walkway, three male friends of different heights and hairstyles talk in a loose triangle. They are shown as relatively SMALL full figures within a broad architectural space: one in scarlet sweater at upper-right, a blue-jacket friend in lower-left foreground, an ivory-shirt friend near the center. Different body orientations and natural eye contact, relaxed hands in pockets or down, NO handshake, no stiff front-facing lineup. Warm ochre blank building facades, open muted-blue sky and long diagonal afternoon shadows, no shop entrance, salon, grooming cues, signs or poles. Main focus is expansive street depth, not a huge close-up pair.",
+      "source": "artifacts/posters/individual/referral.png",
+      "sourceSha256": "8c99cc580f8ccd583fcbd1196978a681d1b16a003d54526a9b354cb635a950bf",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "variants": [
+        {
+          "url": "/media/offers/referral-640.webp",
+          "width": 640,
+          "height": 691,
+          "bytes": 116974,
+          "sha256": "89c993eb958c89d84d7340443b806ba905afbf3933b5fd4725e908001596e776"
+        },
+        {
+          "url": "/media/offers/referral-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 239340,
+          "sha256": "d2ad0a813ba46d9b68eaaa50efb3b769a0c478762912faccc47da8a329f9729d"
+        }
+      ]
+    },
+    {
+      "id": "honest-price",
+      "composition": "Oblique overhead payment still life: two flat banknotes, three coins and an open transparent cash box; no people or wallet",
+      "prompt": "Original Soviet modernist gouache/oil painting, portrait25:27. Payment and honesty/trust: two ordinary flat rectangular banknotes, blue-gray and ivory, slightly overlapping on blue tabletop lower-left. Natural straight edges and believable perspective. Open transparent glass cash box upper-right with modest coins; three coins between. Cream light, scarlet backdrop, steel blue table. No wallet, purse, people, hands, romance, barber interior or pole, tools, text, numbers, logo or border. Wallet removed in precise object edit following owner correction.",
+      "approval": "local-design-candidate-not-owner-approved",
+      "source": "artifacts/posters/individual/honest-price.png",
+      "sourceSha256": "b90032f1ce944eda3939fd3b2e2f395d5deaa98211374bf3bb851df26453a293",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "variants": [
+        {
+          "url": "/media/offers/honest-price-640.webp",
+          "width": 640,
+          "height": 691,
+          "bytes": 51124,
+          "sha256": "ff02d19d645bad3a6c9a1412e3b3901560f143530acfcb4b6149dc68a76e8d0f"
+        },
+        {
+          "url": "/media/offers/honest-price-1200.webp",
+          "width": 1200,
+          "height": 1295,
+          "bytes": 110466,
+          "sha256": "14ee6e2cd78fc8e18a734d90a6c3f3a5cb9ff402fb952e9b6f7edbc21cfd64c8"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+.legal-page{max-width:min(var(--content-max),80ch);padding-bottom:var(--size-48);overflow-wrap:anywhere}
+.legal-intro h1{font:400 clamp(var(--size-32),4vw,var(--size-56))/1.1 var(--font-display);text-transform:uppercase;color:var(--heading-color);text-wrap:balance;margin-bottom:var(--size-24)}
+.legal-intro>p{font-size:var(--size-16);line-height:1.7}
+.legal-intro .legal-revision{margin-top:var(--size-16);font-size:var(--size-13)}
+.legal-navigation{display:flex;flex-wrap:wrap;gap:var(--size-12);margin-block:var(--size-24) var(--size-40)}
+.legal-navigation .btn{flex:0 0 auto}
+.legal-navigation [aria-current=page]{background:var(--yellow);color:var(--ink)}
+.legal-sections{display:grid;gap:var(--size-36)}
+.legal-sections h2{font:600 var(--size-22)/1.4 var(--font-body);color:var(--heading-color);margin-bottom:var(--size-16);scroll-margin-top:var(--anchor-offset)}
+.legal-sections p{font-size:var(--size-16);line-height:1.75}
+.legal-sections p+p{margin-top:var(--size-16)}
+.legal-requisites{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:var(--size-12) var(--size-24);margin-top:var(--size-24);font-size:var(--size-14);line-height:1.6}
+.legal-requisites dd{margin:0;min-width:0}
+.legal-related{display:flex;flex-wrap:wrap;gap:var(--size-12) var(--size-24)}
+.legal-related a{text-decoration:underline;text-underline-offset:var(--size-3);color:inherit}
+@media(max-width:600px){.legal-requisites{grid-template-columns:1fr;gap:var(--size-4)}.legal-requisites dd+dt{margin-top:var(--size-12)}.legal-intro h1{font-size:var(--size-32)}}
+@media print{html,body{background:white!important;color:black!important}.site-header,.footer,.mobile-nav,.skip,.legal-navigation,dialog,.toast{display:none!important}.legal-page{width:100%;max-width:none;padding:0;margin:0}.legal-intro h1{font:700 24pt/1.2 sans-serif;color:black}.legal-sections h2{color:black;font-size:14pt;break-after:avoid}.legal-sections p{font-size:11pt}.legal-sections{gap:18pt}.legal-requisites{font-size:10pt}.legal-revision{color:black}}

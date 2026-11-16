@@ -1,0 +1,22 @@
+{
+  "projectId": 46815509,
+  "projectTitle": "СОЮЗ — Барбершоп в Кирове",
+  "origin": "https://soyuz.hair",
+  "technicalOrigin": "https://stay-tan-habanero.tilda.ws",
+  "bucket": "shaver",
+  "prefix": "Soyuz/releases/",
+  "awsProfile": "shaver-lookbook",
+  "pages": [
+    "/",
+    "/masters/milena-malyshevskaya",
+    "/masters/sonya-kid",
+    "/masters/svetlana-demina",
+    "/masters/lyubov-shklyaeva",
+    "/masters/sofya-shalaginova",
+    "/masters/darya-merzlyakova",
+    "/404",
+    "/oferta",
+    "/privacy-policy",
+    "/privacy-data"
+  ]
+}

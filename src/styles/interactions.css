@@ -1,0 +1,172 @@
+/* Hue changes, focus and press are shared. Component geometry has separate owners. */
+:where(button, a[href], summary, .sd-service) {
+  transition:
+    color var(--motion-ui) var(--ease-out),
+    background-color var(--motion-ui) var(--ease-out),
+    border-color var(--motion-ui) var(--ease-out),
+    scale var(--motion-press) var(--ease-out);
+}
+:is(
+  .header-nav > a,
+  .more-menu > summary,
+  .header-menu-panel :is(a, button),
+  .mobile-menu nav > a,
+  .text-btn
+) {
+  border-radius: var(--nav-link-radius, var(--radius-control));
+}
+.header-phone {
+  border-radius: var(--radius-pill);
+}
+.fb-setting {
+  max-width: 100%;
+}
+.btn:not(:disabled):focus-visible {
+  background: var(--action-hover-bg, var(--action-primary-hover-bg));
+  color: var(--action-hover-fg, var(--action-primary-hover-fg));
+}
+@media (hover:hover) and (pointer:fine) {
+
+.btn:not(:disabled):hover {
+  background: var(--action-hover-bg, var(--action-primary-hover-bg));
+  color: var(--action-hover-fg, var(--action-primary-hover-fg));
+}
+}
+.icon-btn:not(:disabled):focus-visible {
+  background: var(--icon-hover-bg, var(--red));
+  color: var(--icon-hover-fg, var(--paper));
+}
+@media (hover:hover) and (pointer:fine) {
+
+.icon-btn:not(:disabled):hover {
+  background: var(--icon-hover-bg, var(--red));
+  color: var(--icon-hover-fg, var(--paper));
+}
+}
+:is(.header-nav > a, .more-menu > summary, .header-phone):focus-visible {
+  color: var(--yellow);
+  background: var(--tone-98221e);
+}
+@media (hover:hover) and (pointer:fine) {
+
+:is(.header-nav > a, .more-menu > summary, .header-phone):hover {
+  color: var(--yellow);
+  background: var(--tone-98221e);
+}
+}
+:is(.header-menu-panel a):focus-visible {
+  color: var(--yellow);
+}
+@media (hover:hover) and (pointer:fine) {
+
+:is(.header-menu-panel a):hover {
+  color: var(--yellow);
+}
+}
+:is(.text-btn, .menu-business > a, .mobile-menu nav > a):focus-visible {
+  color: var(--red);
+  background: var(--paper);
+}
+@media (hover:hover) and (pointer:fine) {
+
+:is(.text-btn, .menu-business > a, .mobile-menu nav > a):hover {
+  color: var(--red);
+  background: var(--paper);
+}
+}
+[data-surface="dark"] .text-btn:focus-visible {
+  color: var(--ink);
+  background: var(--yellow);
+}
+@media (hover:hover) and (pointer:fine) {
+
+[data-surface="dark"] .text-btn:hover {
+  color: var(--ink);
+  background: var(--yellow);
+}
+}
+.header-book:focus-visible {
+  background: var(--yellow);
+  color: var(--red);
+}
+@media (hover:hover) and (pointer:fine) {
+
+.header-book:hover {
+  background: var(--yellow);
+  color: var(--red);
+}
+}
+.promo-code:focus-visible {
+  background: var(--promo-hover-bg);
+  color: var(--promo-hover-fg);
+  border-color: var(--promo-line);
+  border-style: dashed;
+}
+@media (hover:hover) and (pointer:fine) {
+
+.promo-code:hover {
+  background: var(--promo-hover-bg);
+  color: var(--promo-hover-fg);
+  border-color: var(--promo-line);
+  border-style: dashed;
+}
+}
+.sd-tab:focus-visible {
+  background: var(--tab-bg);
+  color: var(--tab-fg);
+}
+@media (hover:hover) and (pointer:fine) {
+
+.sd-tab:hover {
+  background: var(--tab-bg);
+  color: var(--tab-fg);
+}
+}
+.fb-setting:focus-visible {
+  color: var(--ink);
+  background: var(--yellow);
+}
+@media (hover:hover) and (pointer:fine) {
+
+.fb-setting:hover {
+  color: var(--ink);
+  background: var(--yellow);
+}
+}
+@media (prefers-reduced-motion: no-preference) {
+  :where(button, a[href], summary):not(
+      :disabled,
+      [aria-disabled="true"],
+      .skip,
+      .certificate-object,
+      .team-portrait,
+      .hero-dot,
+      .slide-dot,
+      .hero-edge
+    ):active {
+    scale: var(--press-scale);
+    transition-duration: var(--motion-press);
+  }
+  :is(.review-source, .gift-visual):active {
+    scale: var(--press-media-scale);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .team-card .team-portrait:active img { transform: translate3d(0,0,0) scale(var(--team-photo-press-scale)); }
+}
+[data-surface="dark"] { --focus-ring:var(--paper); }
+.sd-card summary:focus-visible {
+  outline-color: var(--card-fg);
+}
+:is(button:disabled, [aria-disabled="true"]) {
+  opacity: 0.38;
+  cursor: default;
+  scale: none;
+}
+/* Repeated keyboard commands respond directly; pointer interactions keep their motion. */
+:root[data-input-modality="keyboard"] :is(button,a[href],summary,.dock-menu-icon,.dock-close-icon,.choice-trigger .ui-icon),
+:root[data-input-modality="keyboard"] .faq-mark::before,
+:root[data-input-modality="keyboard"] :is(.about-card,.about-media,.review-card,.review-gallery,.team-portrait img) { transition:none; }
+@media (hover:hover) and (pointer:fine) {
+.header-logo:hover .header-mark { background:var(--yellow); }
+}

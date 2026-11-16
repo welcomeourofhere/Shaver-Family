@@ -1,0 +1,21 @@
+/* The heading's longest word reserves room when text grows; the normal ratio stays unchanged. */
+.faq-layout { display:grid; grid-template-columns:minmax(min-content,calc((100% - var(--size-48)) / (1 + var(--golden-ratio)))) minmax(0,1fr); align-items:start; gap:var(--size-48); }
+.faq-title { margin-bottom:0; }
+.faq-list { min-width:0; display:grid; gap:var(--size-8); }
+.faq-question-short { display:none; }
+.faq-item { min-width:0; border-radius:var(--radius-control); background:color-mix(in srgb,var(--blue) 11%,var(--panel-surface)); overflow:hidden; }
+.faq-item > summary { display:flex; align-items:center; justify-content:space-between; gap:var(--size-16); min-height:var(--size-70); padding:var(--size-16) var(--size-20); list-style:none; border-radius:var(--radius-control); font-size:var(--size-18); font-weight:600; line-height:1.4; }
+.faq-item > summary::-webkit-details-marker { display:none; }
+.faq-item[data-faq-tone="blue"] { --faq-open-bg:var(--blue); }
+.faq-item[data-faq-tone="ink"] { --faq-open-bg:var(--ink); }
+.faq-item[open] { --focus-ring:var(--paper); background:var(--faq-open-bg,var(--red)); color:var(--paper); }
+.faq-item[open] > summary { font-weight:600; }
+.faq-item:not([open]) > summary { font-weight:500; }
+.faq-item > summary:focus-visible { outline:var(--size-2) solid var(--focus-ring); outline-offset:calc(-1 * var(--size-4)); }
+@media (hover:hover) and (pointer:fine) { .faq-item:not([open]) > summary:hover { background:var(--yellow); color:var(--ink); } }
+.faq-mark { flex:none; width:var(--size-36); height:var(--size-36); border-radius:50%; background:var(--paper); color:var(--ink); display:grid; place-items:center; }
+.faq-mark::before { content:""; width:var(--size-8); height:var(--size-8); border-right:var(--size-2) solid currentColor; border-bottom:var(--size-2) solid currentColor; transform:translateY(calc(-1 * var(--size-2))) rotate(.125turn); transition:transform var(--motion-ui) var(--ease-out); }
+.faq-item[open] .faq-mark::before { transform:translateY(var(--size-2)) rotate(.625turn); }
+.faq-answer { display:grid; gap:var(--size-16); padding:0 var(--size-20) var(--size-24); font-size:var(--size-16); line-height:1.65; }
+.faq-more { justify-self:center; margin-top:var(--size-12); }
+@media (max-width:960px) { .faq-layout { grid-template-columns:minmax(0,1fr); gap:var(--size-28); } .faq-item > summary { min-height:var(--size-64); font-size:var(--size-16); } }

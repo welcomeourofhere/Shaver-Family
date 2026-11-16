@@ -1,0 +1,338 @@
+{
+  "photo-01": {
+    "alt": "Соня Кид в кресле барбершопа СОЮЗ",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-01.jpg",
+    "sourceSha256": "8b7074d174c0ac59c8dd3f4cb71403c3b413c63d3b7f4c235433fe69db0af5bd",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-01-640.webp",
+        "width": 640,
+        "height": 480,
+        "sha256": "3d83a92b9d806f805e0034681bbb470464313009397ea3fda8053718aaa68dcb"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-01-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "sha256": "06def88218f6e32182c2af7cad5d4e527d0593f4ad12dc5693859badb0508153"
+      }
+    ]
+  },
+  "photo-02": {
+    "alt": "Репетиция народного танца в танцевальном зале",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-02.jpg",
+    "sourceSha256": "2241c95c23eef5f083d729e1c8308395853a61c0b9d16b4ddc98cf61d4471101",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-02-640.webp",
+        "width": 640,
+        "height": 430,
+        "sha256": "42e58af64d526e1ecd5d75b157751da236f662cc08a162accac92beb7c9136e4"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-02-1080.webp",
+        "width": 1080,
+        "height": 725,
+        "sha256": "2091c42e7120edbb3f6adf9c70407f7c58450ed0c77361bbffbf47846f1ace73"
+      }
+    ]
+  },
+  "photo-03": {
+    "alt": "Участники танцевального коллектива в народных костюмах",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-03.jpg",
+    "sourceSha256": "8247e2ec18ffe553594ff4804b0fc6ba0fadeb511356b7e37d9af9d6ed8cc144",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-03-640.webp",
+        "width": 640,
+        "height": 427,
+        "sha256": "743218d43066670aeb0e5e64bce6629fb33c938bc00d4a0a922e61b407910694"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-03-1080.webp",
+        "width": 1080,
+        "height": 720,
+        "sha256": "e5dbe0b630fbf219d3768d7b9b14564956c556a5163ed792ccc00ca3d8d65805"
+      }
+    ]
+  },
+  "photo-04": {
+    "alt": "Ансамбль народного танца выступает на сцене",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-04.jpg",
+    "sourceSha256": "26bcf35e36dcdd750ba70a91552669c72b6995a77c831674bcc9b12bfb920216",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-04-604.webp",
+        "width": 604,
+        "height": 361,
+        "sha256": "e29ce939c975055b07293c4a828111679dd20c128cb5bc5c03e1c6d16400a2c8"
+      }
+    ]
+  },
+  "photo-05": {
+    "alt": "Соня Кид за диджейским пультом",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-05.jpg",
+    "sourceSha256": "d9956793e8f0151769fe2a7612066b8011d21783199fa3a91457fcacddb197cd",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-05-640.webp",
+        "width": 640,
+        "height": 960,
+        "sha256": "d635e38b37948b4793e3860854a6b9b5265f0615ce15a088ef0db96577e21475"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-05-1080.webp",
+        "width": 1080,
+        "height": 1621,
+        "sha256": "d1b2cc4ad298dc67787256d43c0cb1136f1ed56e029794e42de56f7802b08b0f"
+      }
+    ]
+  },
+  "photo-06": {
+    "alt": "Соня с участниками музыкального мероприятия",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-06.jpg",
+    "sourceSha256": "0eba0992f1d766ffdc3469f41a1d914d8a6c56f0f92d0de53d807bd0c67622e6",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-06-640.webp",
+        "width": 640,
+        "height": 427,
+        "sha256": "c67567089fc7ccb1d364dc00254740c558a43b8ee7e22af64ebed995b5eb9e81"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-06-1080.webp",
+        "width": 1080,
+        "height": 720,
+        "sha256": "5c955c5f18dd6399d4f83003c0dc0cf87cc10abc7974b6153e8e9308fc6298da"
+      }
+    ]
+  },
+  "photo-07": {
+    "alt": "Съёмочная площадка onosamoe.film",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-07.jpg",
+    "sourceSha256": "9a0c20e668368fe4dc3b60121ec7a1cf2eff52311ed5c75e2fcf41490dd72e10",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-07-640.webp",
+        "width": 640,
+        "height": 854,
+        "sha256": "f0c7921a7178b8c011aa298b8afc5bedc95a66de0ec3689f17674e08c89349c4"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-07-1080.webp",
+        "width": 1080,
+        "height": 1441,
+        "sha256": "51523c81ac71e7db3a87509a9f3d1d41aa601586ed72fa2f9385effc88afe131"
+      }
+    ]
+  },
+  "photo-08": {
+    "alt": "Кадр на мониторе во время работы съёмочной команды",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-08.jpg",
+    "sourceSha256": "179c4a9fc85bfe22f20b0a1bd927e0c44ea3205cd3f34b8a5cc1ae89e6387e7c",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-08-640.webp",
+        "width": 640,
+        "height": 854,
+        "sha256": "4856aa69f3cf4e718aae94255cebdc616ed5359fb5a3ce6cd5bdb928642d3023"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-08-1080.webp",
+        "width": 1080,
+        "height": 1441,
+        "sha256": "687c458d3701d8a7ad04565bc6e9869ba27d8c7caa9106eab1eae9519c3a6642"
+      }
+    ]
+  },
+  "photo-09": {
+    "alt": "Соня фотографируется в кресле СОЮЗа",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-09.jpg",
+    "sourceSha256": "3652d7b40f77614c36dba933f2445543f0d42ca73563a27ffdb6796e83504f7f",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-09-640.webp",
+        "width": 640,
+        "height": 480,
+        "sha256": "730af4e5a27b31847e5f17e89623737308e0d5b9a3531cc2aec218fde4e627f1"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-09-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "sha256": "197df7ce5a8f2dc8d7093736b439cbadcef7cf92952380519e774f259f43e185"
+      }
+    ]
+  },
+  "photo-10": {
+    "alt": "Соня с сертификатом об обучении мужским стрижкам",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-10.jpg",
+    "sourceSha256": "25196eb91bba16be28d48e9c58fffcaa85664126120be263dd1ea6beb8428b24",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-10-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "e15401aa0e02d9dbabce48d9c1ca079bdf6d92f41b6896f8787a554ae6198e61"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-10-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "5ab2debce423dd2e8bcbe4a9d991e919713aed4341c3a9293d11eda1fdac698c"
+      }
+    ]
+  },
+  "photo-11": {
+    "alt": "Соня держит сертификат над головой в барбершопе",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-11.jpg",
+    "sourceSha256": "de690ffb2f726cc713acdf5e0412a07a845e16783c95dbbbb72dfc604904b7c3",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-11-640.webp",
+        "width": 640,
+        "height": 1139,
+        "sha256": "dc15be3ef863f62bc73f60503ef06200f5ef50e36ee7ee34dd9303d90cf98c1a"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-11-1080.webp",
+        "width": 1080,
+        "height": 1921,
+        "sha256": "24eb2d6523e13ea9b5e0db64189b12600949c368a894250c290697450df639f7"
+      }
+    ]
+  },
+  "photo-12": {
+    "alt": "Соня у воды в свободное время",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-12.jpg",
+    "sourceSha256": "6674f29c02b42e21aa7a0a52873fb1179d35d9f68582d85f88b7ad92f8717526",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-12-640.webp",
+        "width": 640,
+        "height": 854,
+        "sha256": "04d729380c43b2f4be8c4c53855258908c075711ba807872ffc6b5d7d285166c"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-12-1080.webp",
+        "width": 1080,
+        "height": 1441,
+        "sha256": "146d9a66b0e0c81d16d98e157560c69fe25ec33e0c764acf5026905631609bfd"
+      }
+    ]
+  },
+  "photo-13": {
+    "alt": "Оформление пышной бороды и усов — работа Сони Кид",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-13.jpg",
+    "sourceSha256": "fab364da82143652473ee225d04a8b41261cf6a22e6286fb52ba0019ed0892a5",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-13-640.webp",
+        "width": 640,
+        "height": 854,
+        "sha256": "4055e598776c7d67cc815787c1881893e37f33e03091dc5c8954ae3e74b29fb7"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-13-1080.webp",
+        "width": 1080,
+        "height": 1441,
+        "sha256": "5658d16e7ef7396247e5b508518e4e42559664f407e02457e9fec5248da607b2"
+      }
+    ]
+  },
+  "photo-14": {
+    "alt": "Мужская стрижка и оформление бороды — работа Сони Кид",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-14.jpg",
+    "sourceSha256": "2caaf298c01d39d9ad05b3737cf2c70fa95774766fb3d096301f80c46a944b21",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-14-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "af2a10b5616a3f78c7d2becdf944a8274336ce1c9b4df7c3a39d37f966dfee02"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-14-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "8832d3ddbae334abbef5aebecb9fffd863bfc6cc93319127610915d212347cc2"
+      }
+    ]
+  },
+  "photo-15": {
+    "alt": "Короткая мужская стрижка с аккуратной окантовкой — работа Сони Кид",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-15.jpg",
+    "sourceSha256": "368bb9de2979583a9e22ac2598161a00b3eb0c9126934dc9f78062009cd53632",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-15-640.webp",
+        "width": 640,
+        "height": 854,
+        "sha256": "ad3f7b192f52754eacb571a7196981689d092fb7613cb62673bc52a28fb6bc84"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-15-1080.webp",
+        "width": 1080,
+        "height": 1441,
+        "sha256": "e8ed1fe51064806a5e5c65f24d21415bdf02b412010cec3916d07067b1c63f2c"
+      }
+    ]
+  },
+  "photo-16": {
+    "alt": "Мужская стрижка с боковым пробором и плавным переходом — работа Сони Кид",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-16.jpg",
+    "sourceSha256": "83da2d6e57613488760928909993a6d78020d2c3b3a36a0fb61ec45d4b7e1a94",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-16-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "6896f13db407b17e2a6aadda610351a6c81029548fe78d669e8810e43833fd4f"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-16-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "83b4240a47dee210154c9ac4a4ba7ad094febc4ed5761bce079ef8695380636e"
+      }
+    ]
+  },
+  "photo-17": {
+    "alt": "Текстурная мужская стрижка, вид сзади — работа Сони Кид",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-17.jpg",
+    "sourceSha256": "574167de371c80c4c136647763e0eeb8306da208ff3cf110e2238516eae9fcff",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-17-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "86dc36c9460e03173530c6c8b6c870f0430277bc67dfe2209a57d00988996190"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-17-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "9f43d832eaa23118bf05e02e858ce3b17cb2cd5c05b5ba637a9822e27c0424e5"
+      }
+    ]
+  },
+  "photo-18": {
+    "alt": "Удлинённая мужская стрижка с объёмом — работа Сони Кид",
+    "source": "artifacts/master-articles/sonya-kid/originals/photo-18.jpg",
+    "sourceSha256": "91a0a4bf63b8bff81ff38992d89f7f8243582f221cc08adc6848b925dd02d225",
+    "variants": [
+      {
+        "url": "/media/articles/sonya-kid/photo-18-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "07ffa32f770995f0d964cb6abfb90c78940a2a16d50b0cf950995349ff762de2"
+      },
+      {
+        "url": "/media/articles/sonya-kid/photo-18-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "0bf89167a4890a98a63841a02c1c1b390c48510de223b28c05c2414207b128d2"
+      }
+    ]
+  }
+}

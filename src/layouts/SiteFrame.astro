@@ -1,0 +1,24 @@
+---
+import Document from './Document.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileNav from '../components/MobileNav.astro';
+import BookingDrawer from '../components/BookingDrawer.astro';
+import ContactDialog from '../components/ContactDialog.astro';
+import Toast from '../components/Toast.astro';
+import AnalyticsChoice from '../components/AnalyticsChoice.astro';
+import SiteSettings from '../components/SiteSettings.astro';
+import '../styles/header.css';
+import '../styles/template.css';
+import '../styles/interactions.css';
+import '../styles/motion.css';
+interface Props {title?:string;description?:string;image?:string;imageAlt?:string;articleData?:Record<string,unknown>;noindex?:boolean;}
+const homeHref=Astro.url.pathname==='/'?'':'/';
+---
+<Document {...Astro.props}>
+ <div data-booking-page><a class="skip" href="#main">К содержанию</a><Header homeHref={homeHref} />
+  <slot />
+  <Footer homeHref={homeHref} /><MobileNav homeHref={homeHref} />
+ </div><BookingDrawer /><Toast /><ContactDialog /><AnalyticsChoice /><SiteSettings />
+ <script>import '../scripts/template';import '../scripts/feedback';import '../scripts/page-motion';import '../scripts/typography';import '../scripts/theme';</script>
+</Document>

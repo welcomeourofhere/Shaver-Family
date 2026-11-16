@@ -1,0 +1,24 @@
+@keyframes soyuz-rays {
+  to {
+    transform: rotate(1turn);
+  }
+}
+.soyuz-rays {
+  position: absolute;
+  width: var(--rays-extent);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  transform-origin: center;
+  animation: soyuz-rays var(--rays-period) linear infinite;
+  animation-play-state: paused;
+  background: repeating-conic-gradient(var(--yellow) 0turn var(--angle-10),transparent var(--angle-10) var(--angle-20));
+}
+.soyuz-rays.is-running { animation-play-state: running; }
+
+.reveal-move { transform: translate3d(0,0,0); }
+[data-reveal-pending] { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .soyuz-rays { animation: none; }
+  [data-reveal-pending] { opacity: 1; }
+  .reveal-move { transform: none; }
+}

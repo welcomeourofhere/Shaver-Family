@@ -1,0 +1,32 @@
+{
+  "source": "C:\\Users\\Lenovo\\Desktop\\Sequence 01.mp4",
+  "sourceSha256": "5dfed4ec98ffca42f60300b64647c6ca3e146128f86ecae7ba5f80127d0725af",
+  "sourceBytes": 77547552,
+  "output": "public\\media\\hero\\soyuz-intro-720.mp4",
+  "outputSha256": "0edcad52c05c9769a765a3c0c4ae666ea03396fbd60349afe54e1d8fea979123",
+  "outputBytes": 7113788,
+  "duration": 26.133333,
+  "width": 720,
+  "height": 1280,
+  "fps": 30,
+  "audio": false,
+  "encoder": "h264_nvenc cq25 maxrate2200k faststart",
+  "scope": "mobile and tablet hero; desktop news photo retained",
+  "playback": {
+    "url": "/media/hero/soyuz-intro-720-efficient.mp4",
+    "sha256": "aab1e1f60e135363567db9f9478494480b65f7d2898cc4c62ea8db15d39abd50",
+    "bytes": 4985368,
+    "duration": 26.133333,
+    "width": 720,
+    "height": 1280,
+    "fps": 30,
+    "audio": false,
+    "codec": "H.264 Main level 3.1, yuv420p, faststart",
+    "encoder": "libx264 preset slow CRF23, passthrough timestamps",
+    "derivedFrom": "public\\media\\hero\\soyuz-intro-720.mp4",
+    "sourceSha256": "0edcad52c05c9769a765a3c0c4ae666ea03396fbd60349afe54e1d8fea979123",
+    "ssimAgainstAcceptedVideo": 0.99053,
+    "originalsPreserved": true,
+    "generator": "scripts/prepare-hero-video.py"
+  }
+}

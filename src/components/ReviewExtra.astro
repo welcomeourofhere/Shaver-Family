@@ -1,0 +1,15 @@
+---
+import Icon from './Icon.astro';
+import type {ReviewExtraContent} from '../content/review-extras';
+import type {ReviewTile,ReviewTone} from '../scripts/review-layout';
+import '../styles/reviews.css';
+interface Props {extra:ReviewExtraContent;tile?:ReviewTile;preview?:boolean;tone?:ReviewTone;id?:string;}
+const {extra,tile,preview=false,tone=tile?.tone??'blue',id=extra.id}=Astro.props;
+const position=tile?`--tile-x:${tile.x+1};--tile-y:${tile.y+1};--tile-w:${tile.w};--tile-h:${tile.h}`:undefined;
+const short=extra.id==='reviews-yandex'?'Яндекс':extra.id==='reviews-vk'?'ВК':'Отзыв';
+---
+<article class="review-card review-extra" id={id} data-review-extra data-review-tile={preview?undefined:true} data-review-tone={tone} data-selection-surface={tone} data-review-shape={tile?`${tile.w}x${tile.h}`:undefined} hidden={!preview&&!tile} style={position}>
+ <div class="review-extra-body" tabindex="0"><h3>{extra.title}</h3><p>{extra.copy}</p></div>
+ {extra.href?<a class="btn review-extra-action" href={extra.href} target="_blank" rel="noopener noreferrer" aria-label={extra.name} data-action-short={short}><span data-action-label>{extra.name}</span><Icon name="external" /></a>:<button class="btn review-extra-action" type="button" data-open-reviews aria-haspopup="dialog" aria-controls="review-dialog" aria-label={extra.name} data-action-short={short}><span data-action-label>{extra.name}</span></button>}
+</article>
+<script>import '../scripts/action-label';</script>

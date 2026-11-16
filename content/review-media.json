@@ -1,0 +1,257 @@
+{
+  "source": "Owner attachments, 2026-11-09; association confirmed in chat",
+  "reviews": [
+    {
+      "id": "review-01",
+      "photos": [
+        {
+          "source": "codex-clipboard-ae4b574f-ed6f-477f-86e5-728c68dc0762.png",
+          "sha256": "cde726b952aba73b3f4abceb8fd2b73b646eea532fe4f8688c39f9c71ef1c4fd",
+          "variants": [
+            {
+              "url": "/media/reviews/review-01-1-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-01-1-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ]
+        },
+        {
+          "source": "codex-clipboard-e8d749f6-3c02-49e3-aa30-873cb3169b22.png",
+          "sha256": "7135daeacc4cd212e74dbb4b68878ed027fae37b74ea2bd3d698ed03b1dc55d6",
+          "variants": [
+            {
+              "url": "/media/reviews/review-01-2-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-01-2-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "review-02",
+      "photos": [
+        {
+          "source": "codex-clipboard-f221ccba-9e53-4ffe-8168-d8e4b7ea01a7.png",
+          "sha256": "9dcc33e35cbb2ea5509ccab16b530fcca64cfb2451192c69ef118e44affb17b1",
+          "variants": [
+            {
+              "url": "/media/reviews/review-02-1-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-02-1-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "review-03",
+      "photos": [
+        {
+          "source": "codex-clipboard-5bc69d58-2920-4e4d-915e-61e312c31eb9.png",
+          "sha256": "3beaa063df2c3d619ceda1674fc5e16bd52e350040dac597b2ab0093c3f0763b",
+          "variants": [
+            {
+              "url": "/media/reviews/review-03-1-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-03-1-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ]
+        },
+        {
+          "source": "codex-clipboard-1558113f-3e95-47b0-97df-b16da057c079.png",
+          "sha256": "795afe1b8280e10ee337c61bfa94e8d111211da535551e25a0f1067986f7bf1d",
+          "variants": [
+            {
+              "url": "/media/reviews/review-03-2-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-03-2-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "review-04",
+      "photos": [
+        {
+          "source": "codex-clipboard-b800bdfc-9e37-46df-b8d8-4e85ff913ac2.png",
+          "sha256": "198a4ea3112888d0a0f9366e9e994d616c691f203b1ef1a6e7373b2eb7d01797",
+          "variants": [
+            {
+              "url": "/media/reviews/review-04-1-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-04-1-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ]
+        },
+        {
+          "source": "codex-clipboard-0d4782bf-46f2-4035-a8aa-10b619ec416b.png",
+          "sha256": "f0160e9fc70fc636f548fac1d7d3b9c3ace251795376d67349d5f1dbe452458b",
+          "variants": [
+            {
+              "url": "/media/reviews/review-04-2-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-04-2-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "review-05",
+      "photos": [
+        {
+          "source": "codex-clipboard-0dd7ff45-fa5b-4519-b06a-a61d0ece38a1.png",
+          "sha256": "69bdea6b83fd5067efd518c7d5e9a56ed8dd83cb810676d64224415062af9b67",
+          "variants": [
+            {
+              "url": "/media/reviews/review-05-1-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-05-1-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ]
+        },
+        {
+          "source": "codex-clipboard-5fa63036-821d-4d33-8963-c3d139fae6bb.png",
+          "sha256": "6baccde2afc1690a7ab42500ba01bca050e5e835e47e63b6851fc91aff96351f",
+          "variants": [
+            {
+              "url": "/media/reviews/review-05-2-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-05-2-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "review-06",
+      "photos": [
+        {
+          "source": "codex-clipboard-d1a1d4fa-d933-4b30-82ca-0a5c188db8d7.png",
+          "sha256": "7741f1960bdd1bcf284f3462a063a70e17c74c5ec52297b155ad17b7d823a6e2",
+          "variants": [
+            {
+              "url": "/media/reviews/review-06-1-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-06-1-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "review-07",
+      "photos": [
+        {
+          "source": "codex-clipboard-e6bf80a6-7d59-4295-a620-a17ceef4f4ef.png",
+          "sha256": "cc970aa507aa0a02507b11b7ab7a0adcea97d4908e0950ec2ac82c7cd3ee03c8",
+          "variants": [
+            {
+              "url": "/media/reviews/review-07-1-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-07-1-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ]
+        }
+      ],
+      "video": {
+        "source": "https://vk.ru/soyuz_kirov?z=video-210007626_456239202%2F20db6bc17a6e0dfc30%2Fpl_post_-210007626_1176",
+        "original": "archive\\owner-media\\2026-11-09\\review-07-original.mp4",
+        "originalSha256": "0bba37d9596fe94f81c8e872f6533731f28a4e7253db519d9511baeb42e19ace",
+        "originalBytes": 1989305,
+        "url": "/media/reviews/review-07-video.mp4",
+        "sha256": "fa840335f5ccb8a6f222a7dc33bbb25c7c1b4c6bd8ce59d46afb4d5155353b6b",
+        "bytes": 1994777,
+        "duration": 8.448,
+        "width": 720,
+        "height": 1280,
+        "fps": 60,
+        "videoCodec": "h264",
+        "audioCodec": "aac",
+        "processing": "MP4 faststart remux, original video/audio streams preserved without re-encoding.",
+        "downloadedOn": "2026-11-09",
+        "acquisition": "Public VK media URL resolved by yt-dlp; Chromium network resource download, no account cookies or login."
+      }
+    },
+    {
+      "id": "review-08",
+      "photos": [
+        {
+          "source": "codex-clipboard-494e545e-5a02-41da-8659-75ee47a10c17.png",
+          "sha256": "f205f21532b727ae20b8570c164291fc4168023fe6fd1b043cf1d3aab334fdb2",
+          "variants": [
+            {
+              "url": "/media/reviews/review-08-1-480.webp",
+              "width": 480,
+              "height": 640
+            },
+            {
+              "url": "/media/reviews/review-08-1-960.webp",
+              "width": 960,
+              "height": 1280
+            }
+          ],
+          "original": "archive/owner-media/2026-11-15/reviews/codex-clipboard-494e545e-5a02-41da-8659-75ee47a10c17.png",
+          "alt": "Барбер Любовь и гость СОЮЗа после стрижки перед зеркалом"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "source": "J:\\Projects\\Shaver Family (Website)\\src\\shared\\icons\\sprite.html",
+  "sourceSha256": "d42b593413509473e449ed8b42c657fd8c73d27d02c88d44c354a4ee57809551",
+  "symbols": [
+    "telegram",
+    "max",
+    "vk",
+    "phone"
+  ],
+  "output": "/brand/contact-icons.svg",
+  "sha256": "c5b545be4d05d71dd832305e7d75ef394f315bb98dbb2778fe99ad988716cfbe",
+  "method": "Selected original SVG symbol paths from the current SHAVER FAMILY shared sprite; no contact destinations copied."
+}

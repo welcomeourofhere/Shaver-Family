@@ -1,0 +1,749 @@
+{
+  "metadata": {
+    "source": "J:/Projects/Shaver Family (CRM)/app/data/reference/price_list.json",
+    "sourceSha256": "8c0497da65b5e95277075bd98fcf1790fd938b7cd85673d9e53b268a8f5e1c92",
+    "asOf": "2026-11-09",
+    "exportDate": "2026-09-17",
+    "status": "soyuz-training-catalogue",
+    "branch": "souz",
+    "branchAttribution": "inferred_from_colleague_review_and_price_pattern",
+    "livePricesVerified": false,
+    "ownerPolicy": "Use SOYUZ administrator training; no biowave, braids or cornrows.",
+    "ownerOverrides": [
+      "Archive main-soyuz-head-beard; add main-honest-price from 500 RUB, first visit to Sonya Kid or Svetlana.",
+      "All premium services include 10-stage facial SPA; this owner instruction supersedes five-stage wording in the training export."
+    ],
+    "ownerUpdate54": {
+      "date": "2026-11-09",
+      "instruction": "Remove head shaving and Complex 2 from the active catalogue; retain originals here.",
+      "archivedServices": [
+        "hair-beard-267649",
+        "hair-beard-soyuz-head-shave"
+      ]
+    },
+    "editorialUpdate59": {
+      "date": "2026-11-14",
+      "descriptionLength": "145–215 characters, complete sentences; no visual truncation",
+      "demandSource": "artifacts/wordstat/services-2026-11-14.json",
+      "facts": "Existing SOYUZ training catalogue and owner overrides; prices/durations/composition preserved."
+    }
+  },
+  "categories": [
+    {
+      "id": "main",
+      "name": "Основные услуги",
+      "image": "/media/work-classic-1440.webp",
+      "imageAlt": "Мужская стрижка и оформленная борода — работа барбера СОЮЗ",
+      "services": [
+        {
+          "id": "main-267602",
+          "name": "Мужская стрижка",
+          "description": "Мужская стрижка ножницами и машинкой даёт чёткую форму, плавные переходы и аккуратный силуэт. Мытьё головы и укладка входят в стоимость. Из кресла выходишь с готовым образом.",
+          "duration": "60–90 мин",
+          "price": 1500,
+          "priceLabel": "1 500 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              27,
+              28,
+              29
+            ],
+            "priceFrom": 1500,
+            "priceTo": 1500,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "main-honest-price",
+          "name": "[Честная цена] Мужская стрижка",
+          "description": "Мужская стрижка с мытьём головы и укладкой на первый визит к Соне Кид или Свете. Познакомься с работой барбера и сам выбери сумму от 500 ₽. Акции и скидки не суммируются.",
+          "duration": "60–120 мин",
+          "price": 500,
+          "priceLabel": "от 500 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              8,
+              9,
+              10
+            ],
+            "priceFrom": 500,
+            "priceTo": 1500,
+            "descriptionStatus": "owner-confirmed-2026-11-09"
+          },
+          "eligibleMasterIds": [
+            "souz-sonya-kid",
+            "souz-svetlana"
+          ],
+          "firstVisitToMasterOnly": true
+        },
+        {
+          "id": "main-15270008",
+          "name": "[Премиум] Мужская стрижка",
+          "description": "Премиум-стрижка объединяет форму и полноценный уход. Маска для волос, пилинг кожи головы, коррекция бровей и ваксинг носа и ушей входят в услугу. Завершает ритуал 10-этапный СПА-уход за лицом.",
+          "duration": "120 мин",
+          "price": 2800,
+          "priceLabel": "2 800 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              20,
+              21
+            ],
+            "priceFrom": 2800,
+            "priceTo": 2800,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "main-267630",
+          "name": "Комплекс №1. Мужская стрижка + Моделирование бороды опасной бритвой + СПА",
+          "description": "Мужская стрижка и моделирование бороды со СПА создают цельный образ за один визит. Чёткие контуры, аккуратная длина и ухоженная борода подчёркивают выразительный мужской стиль.",
+          "duration": "90–150 мин",
+          "price": 2300,
+          "priceLabel": "2 300 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              44,
+              45,
+              46,
+              47
+            ],
+            "priceFrom": 2300,
+            "priceTo": 2300,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "main-267628",
+          "name": "Детская стрижка",
+          "description": "Детская стрижка для мальчиков от 4 до 12 лет включительно сохраняет аккуратную форму для школы, прогулок и праздников. Знакомство с инструментами, мытьё головы и укладка входят в услугу.",
+          "duration": "60–90 мин",
+          "price": 1200,
+          "priceLabel": "1 200 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              35,
+              36,
+              37
+            ],
+            "priceFrom": 1200,
+            "priceTo": 1200,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "main-6129311",
+          "name": "Экспресс-коррекция бровей",
+          "description": "Экспресс-коррекция бровей воском и опасной бритвой убирает лишние волоски и делает естественную форму аккуратнее. Добавь небольшую деталь, которая придаёт всему образу ухоженный вид.",
+          "duration": "",
+          "price": 250,
+          "priceLabel": "250 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              76,
+              77
+            ],
+            "priceFrom": 250,
+            "priceTo": 250,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "main-28485114",
+          "name": "Классический массаж лица",
+          "description": "Классический массаж лица помогает расслабиться в кресле барбера. Спокойный ритм и внимание к лицу позволяют переключиться с дел на себя. Приходи за отдыхом и приятной передышкой.",
+          "duration": "60 мин",
+          "price": 1600,
+          "priceLabel": "1 600 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              4,
+              5
+            ],
+            "priceFrom": 1600,
+            "priceTo": 1600,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "main-5768512",
+          "name": "Акция. Отец + сын",
+          "description": "Мужская и детская стрижки во время совместного визита отца и сына дают повод обновить образ вместе. Скидка 300 ₽ при посещении с сыном от 4 до 18 лет включительно. Акции не суммируются.",
+          "duration": "120–180 мин",
+          "price": 2400,
+          "priceLabel": "2 400–2 700 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              61,
+              62,
+              63
+            ],
+            "priceFrom": 2400,
+            "priceTo": 2700,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        }
+      ],
+      "color": "blue"
+    },
+    {
+      "id": "hair-beard",
+      "name": "Стрижки и бритьё",
+      "image": "/media/work-fade-1440.webp",
+      "imageAlt": "Короткая мужская стрижка с плавным переходом — работа барбера СОЮЗ",
+      "services": [
+        {
+          "id": "hair-beard-267602",
+          "name": "Мужская стрижка",
+          "description": "Мужская стрижка ножницами и машинкой даёт чёткую форму, плавные переходы и аккуратный силуэт. Мытьё головы и укладка входят в стоимость. Из кресла выходишь с готовым образом.",
+          "duration": "60–90 мин",
+          "price": 1500,
+          "priceLabel": "1 500 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              27,
+              28,
+              29
+            ],
+            "priceFrom": 1500,
+            "priceTo": 1500,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "hair-beard-12398982",
+          "name": "Удлиненная мужская стрижка",
+          "description": "Удлинённая мужская стрижка для волос от 5 см раскрывает текстуру и сохраняет собранную форму. Барбер работает ножницами с отдельными прядями. Придай длинным волосам ухоженный вид и сохрани их характер.",
+          "duration": "90–120 мин",
+          "price": 1500,
+          "priceLabel": "1 500 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              30,
+              31,
+              32
+            ],
+            "priceFrom": 1500,
+            "priceTo": 1500,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "hair-beard-267628",
+          "name": "Детская стрижка",
+          "description": "Детская стрижка для мальчиков от 4 до 12 лет включительно сохраняет аккуратную форму для школы, прогулок и праздников. Знакомство с инструментами, мытьё головы и укладка входят в услугу.",
+          "duration": "60–90 мин",
+          "price": 1200,
+          "priceLabel": "1 200 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              35,
+              36,
+              37
+            ],
+            "priceFrom": 1200,
+            "priceTo": 1200,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "hair-beard-267631",
+          "name": "Моделирование бороды опасной бритвой + СПА",
+          "description": "Моделирование бороды со СПА-уходом создаёт выразительную форму, точные контуры и аккуратную длину. Опасная бритва, шейвер или триммер подчёркивают линии лица и делают образ завершённым.",
+          "duration": "60–90 мин",
+          "price": 1100,
+          "priceLabel": "1 100 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              41,
+              42,
+              43
+            ],
+            "priceFrom": 1100,
+            "priceTo": 1100,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "hair-beard-4449458",
+          "name": "Вечерняя укладка + Мытье головы + Окантовка",
+          "description": "Вечерняя укладка, мытьё головы и окантовка создают готовый образ к встрече, празднику или фотосессии. Свежие контуры подчёркивают форму стрижки, укладка добавляет выразительность волосам.",
+          "duration": "30 мин",
+          "price": 800,
+          "priceLabel": "800 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              33,
+              34
+            ],
+            "priceFrom": 800,
+            "priceTo": 800,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "hair-beard-646764",
+          "name": "Комплекс №3. Мужская стрижка + Моделирование бороды опасной бритвой + СПА + Тонирование бороды",
+          "description": "Мужская стрижка, моделирование бороды со СПА и тонирование бороды в одном комплексе. Чёткая форма и ровный оттенок работают вместе. Обнови весь образ за один визит к барберу.",
+          "duration": "120–180 мин",
+          "price": 2800,
+          "priceLabel": "2 800 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              53,
+              54,
+              55,
+              56
+            ],
+            "priceFrom": 2800,
+            "priceTo": 2800,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        }
+      ],
+      "color": "red"
+    },
+    {
+      "id": "premium",
+      "name": "Премиум и СПА",
+      "image": "/media/work-classic-1440.webp",
+      "imageAlt": "Мужская стрижка и оформленная борода — работа барбера СОЮЗ",
+      "services": [
+        {
+          "id": "premium-15270008",
+          "name": "[Премиум] Мужская стрижка",
+          "description": "Премиум-стрижка объединяет форму и полноценный уход. Маска для волос, пилинг кожи головы, коррекция бровей и ваксинг носа и ушей входят в услугу. Завершает ритуал 10-этапный СПА-уход за лицом.",
+          "duration": "120 мин",
+          "price": 2800,
+          "priceLabel": "2 800 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              20,
+              21
+            ],
+            "priceFrom": 2800,
+            "priceTo": 2800,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "premium-7171247",
+          "name": "[Премиум] Моделирование бороды",
+          "description": "Премиум-моделирование бороды сочетает выразительную форму и СПА с коррекцией бровей и ваксингом носа и ушей. Включён 10-этапный СПА-уход за кожей лица. Больше внимания каждой детали твоего образа.",
+          "duration": "90–120 мин",
+          "price": 2300,
+          "priceLabel": "2 300 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              22,
+              23,
+              24
+            ],
+            "priceFrom": 2300,
+            "priceTo": 2300,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "premium-15747139",
+          "name": "[Премиум] Комплекс №1. Мужская стрижка + Моделирование бороды",
+          "description": "Мужская стрижка и моделирование бороды со СПА, маска для волос и пилинг кожи головы. Коррекция бровей, ваксинг и 10-этапный СПА-уход за лицом завершают полноценный ритуал ухода.",
+          "duration": "150 мин",
+          "price": 3800,
+          "priceLabel": "3 800 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              25,
+              26
+            ],
+            "priceFrom": 3800,
+            "priceTo": 3800,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "extra-28485114",
+          "name": "Классический массаж лица",
+          "description": "Классический массаж лица помогает расслабиться в кресле барбера. Спокойный ритм и внимание к лицу позволяют переключиться с дел на себя. Приходи за отдыхом и приятной передышкой.",
+          "duration": "60 мин",
+          "price": 1600,
+          "priceLabel": "1 600 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              4,
+              5
+            ],
+            "priceFrom": 1600,
+            "priceTo": 1600,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "extra-28485093",
+          "name": "Экспресс-массаж лица",
+          "description": "Экспресс-массаж лица с проработкой шеи, овала лица, зоны глаз и лба дарит небольшую паузу среди насыщенного дня. Приходи за расслаблением и возвращайся к делам с приятным ощущением отдыха.",
+          "duration": "30 мин",
+          "price": 800,
+          "priceLabel": "800 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              2,
+              3
+            ],
+            "priceFrom": 800,
+            "priceTo": 800,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "extra-15747049",
+          "name": "10-этапный СПА-уход за кожей лица",
+          "description": "10-этапный СПА-уход за кожей лица дарит 30 минут отдыха в кресле барбера. Последовательный ритуал ухода оставляет ощущение свежести и ухоженный вид. Отвлекись от дел и удели время себе.",
+          "duration": "30 мин",
+          "price": 1000,
+          "priceLabel": "1 000 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              72,
+              73
+            ],
+            "priceFrom": 1000,
+            "priceTo": 1000,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        }
+      ],
+      "color": "ink"
+    },
+    {
+      "id": "extra",
+      "name": "Допы",
+      "image": "/media/work-fade-1440.webp",
+      "imageAlt": "Короткая мужская стрижка с плавным переходом — работа барбера СОЮЗ",
+      "services": [
+        {
+          "id": "extra-28485066",
+          "name": "Мужское оформление бровей",
+          "description": "Мужское оформление бровей подчёркивает взгляд и сохраняет естественную форму. Ровная длина и аккуратные контуры делают образ собраннее. Добавь выразительную деталь к своему стилю.",
+          "duration": "30 мин",
+          "price": 600,
+          "priceLabel": "600 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              74,
+              75
+            ],
+            "priceFrom": 600,
+            "priceTo": 600,
+            "descriptionStatus": "from_export"
+          }
+        },
+        {
+          "id": "extra-6129311",
+          "name": "Экспресс-коррекция бровей",
+          "description": "Экспресс-коррекция бровей воском и опасной бритвой убирает лишние волоски и делает естественную форму аккуратнее. Добавь небольшую деталь, которая придаёт всему образу ухоженный вид.",
+          "duration": "",
+          "price": 250,
+          "priceLabel": "250 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              76,
+              77
+            ],
+            "priceFrom": 250,
+            "priceTo": 250,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "extra-6129319",
+          "name": "Удаление волос воском (уши)",
+          "description": "Ваксинг ушей убирает нежелательные волоски и делает внешний вид аккуратнее. Процедура для тех, кто ценит внимание к деталям. Чистые линии дополняют мужскую стрижку и оформление бороды.",
+          "duration": "",
+          "price": 250,
+          "priceLabel": "250 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              78,
+              79
+            ],
+            "priceFrom": 250,
+            "priceTo": 250,
+            "descriptionStatus": "from_export"
+          }
+        },
+        {
+          "id": "extra-6129299",
+          "name": "Удаление волос воском (нос)",
+          "description": "Ваксинг носа удаляет нежелательные волоски и помогает выглядеть ухоженно вблизи. Удели внимание небольшой, но заметной детали образа. Процедуру удобно совместить с мужской стрижкой.",
+          "duration": "",
+          "price": 250,
+          "priceLabel": "250 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              80,
+              81
+            ],
+            "priceFrom": 250,
+            "priceTo": 250,
+            "descriptionStatus": "from_export"
+          }
+        },
+        {
+          "id": "extra-4483882",
+          "name": "Комплекс №4. Удаление волос из носа и ушей + Коррекция бровей",
+          "description": "Удаление волос из носа и ушей воском вместе с коррекцией бровей объединяет три детали ухоженного образа за один визит. Аккуратные контуры и отсутствие лишних волосков дополняют любую стрижку.",
+          "duration": "15 мин",
+          "price": 600,
+          "priceLabel": "600 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              68,
+              69
+            ],
+            "priceFrom": 600,
+            "priceTo": 600,
+            "descriptionStatus": "from_export"
+          }
+        },
+        {
+          "id": "extra-soyuz-brows-color",
+          "name": "Комплекс №5. Мужское оформление бровей + Окрашивание бровей",
+          "description": "Мужское оформление и окрашивание бровей придают аккуратную длину, естественную форму и выразительный оттенок. Подчеркни взгляд и сделай образ завершённым за один визит к барберу.",
+          "duration": "30 мин",
+          "price": 900,
+          "priceLabel": "900 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              70,
+              71
+            ],
+            "priceFrom": 900,
+            "priceTo": 900,
+            "descriptionStatus": "from_export"
+          }
+        },
+        {
+          "id": "extra-soyuz-peeling",
+          "name": "Пилинг кожи головы",
+          "description": "Пилинг кожи головы глубоко очищает кожу и корни волос, дарит ощущение свежести. Для средних и длинных волос предусмотрена питательная маска. Полноценный уход для чистоты и ухоженного вида.",
+          "duration": "30 мин",
+          "price": 800,
+          "priceLabel": "800 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              82,
+              83
+            ],
+            "priceFrom": 800,
+            "priceTo": 800,
+            "descriptionStatus": "from_export"
+          }
+        }
+      ],
+      "color": "yellow"
+    },
+    {
+      "id": "coloring",
+      "name": "Окрашивание",
+      "image": "/media/work-texture-1440.webp",
+      "imageAlt": "Мужская стрижка с текстурным верхом — работа барбера СОЮЗ",
+      "services": [
+        {
+          "id": "coloring-14360790",
+          "name": "Окрашивание волос",
+          "description": "Мужское окрашивание волос помогает изменить цвет или сделать оттенок ровнее. Обнови привычный образ и добавь ему выразительности. Новый цвет подчёркивает характер твоей стрижки.",
+          "duration": "90 мин",
+          "price": 1500,
+          "priceLabel": "1 500–2 500 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              84,
+              85
+            ],
+            "priceFrom": 1500,
+            "priceTo": 2500,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "coloring-267692",
+          "name": "Тонирование волос",
+          "description": "Тонирование волос и камуфляж седины создают более ровный, естественный оттенок. Освежи цвет и сохрани привычный стиль. Ухоженные волосы делают мужскую стрижку выразительнее.",
+          "duration": "60 мин",
+          "price": 900,
+          "priceLabel": "900–1 900 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              88,
+              89
+            ],
+            "priceFrom": 900,
+            "priceTo": 1900,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "coloring-14360785",
+          "name": "Окрашивание бороды",
+          "description": "Окрашивание бороды меняет или выравнивает оттенок и добавляет образу выразительность. Подчеркни форму уже оформленной бороды цветом. Заметная деталь завершает мужской стиль.",
+          "duration": "60 мин",
+          "price": 1300,
+          "priceLabel": "1 300–2 300 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              86,
+              87
+            ],
+            "priceFrom": 1300,
+            "priceTo": 2300,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        },
+        {
+          "id": "coloring-11066470",
+          "name": "Тонирование бороды",
+          "description": "Тонирование бороды и камуфляж седины помогают сделать оттенок ровнее и естественнее. Освежи цвет, сохрани характер бороды и придай ухоженному образу ещё больше выразительности.",
+          "duration": "30 мин",
+          "price": 800,
+          "priceLabel": "800–1 800 ₽",
+          "source": {
+            "branch": "souz",
+            "file": "services (1).xls",
+            "rows": [
+              90,
+              91
+            ],
+            "priceFrom": 800,
+            "priceTo": 1800,
+            "descriptionStatus": "editorial-2026-11-09"
+          }
+        }
+      ],
+      "color": "red"
+    }
+  ],
+  "archivedServices": [
+    {
+      "id": "main-soyuz-head-beard",
+      "name": "Комплекс №2. Бритье головы налысо + Моделирование бороды опасной бритвой + СПА +Тонирование бороды",
+      "description": "Бритьё головы налысо, моделирование бороды опасной бритвой, СПА и тонирование бороды.",
+      "duration": "60–90 мин",
+      "price": 2400,
+      "priceLabel": "2 400 ₽",
+      "source": {
+        "branch": "souz",
+        "file": "services (1).xls",
+        "rows": [
+          48,
+          49
+        ],
+        "priceFrom": 2400,
+        "priceTo": 2400,
+        "descriptionStatus": "from_export"
+      },
+      "archivedOn": "2026-11-09",
+      "reason": "Owner: archived head-shave complex, remove from public service categories."
+    },
+    {
+      "categoryId": "hair-beard",
+      "id": "hair-beard-267649",
+      "name": "Комплекс №2. Моделирование бороды опасной бритвой + СПА +Тонирование бороды",
+      "description": "Моделирование бороды, оформление контуров опасной бритвой, шейвером или триммером, СПА-уход и тонирование бороды.",
+      "duration": "90–120 мин",
+      "price": 1700,
+      "priceLabel": "1 700 ₽",
+      "source": {
+        "branch": "souz",
+        "file": "services (1).xls",
+        "rows": [
+          50,
+          51,
+          52
+        ],
+        "priceFrom": 1700,
+        "priceTo": 1700,
+        "descriptionStatus": "editorial-2026-11-09"
+      }
+    },
+    {
+      "categoryId": "hair-beard",
+      "id": "hair-beard-soyuz-head-shave",
+      "name": "Бритьё головы + СПА",
+      "description": "Бритьё головы и СПА-уход.",
+      "duration": "60 мин",
+      "price": 1400,
+      "priceLabel": "1 400 ₽",
+      "source": {
+        "branch": "souz",
+        "file": "services (1).xls",
+        "rows": [
+          57,
+          58
+        ],
+        "priceFrom": 1400,
+        "priceTo": 1400,
+        "descriptionStatus": "from_export"
+      }
+    }
+  ]
+}

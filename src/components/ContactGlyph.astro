@@ -1,0 +1,8 @@
+---
+import sprite from '../../public/brand/contact-icons.svg?raw';
+interface Props {name:'telegram'|'max'|'vk'|'phone';}
+const {name}=Astro.props;
+const match=sprite.match(new RegExp(`<symbol id="contact-${name}"[^>]*>([\\s\\S]*?)</symbol>`));
+if(!match)throw new Error(`Missing contact icon: ${name}`);
+---
+<svg class="contact-channel-icon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" set:html={match[1]} />

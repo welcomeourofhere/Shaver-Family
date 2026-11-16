@@ -1,0 +1,50 @@
+name: SOYUZ VK News
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 3 * * *'
+  push:
+    paths:
+      - 'soyuz/scripts/**'
+      - 'soyuz/content/news-policy.json'
+      - 'soyuz/tests/**'
+      - '.github/workflows/soyuz-news.yml'
+permissions:
+  contents: write
+concurrency:
+  group: soyuz-vk-news
+  cancel-in-progress: false
+defaults:
+  run:
+    working-directory: soyuz
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow==12.3.0'
+      - run: python -m unittest discover -s tests -p 'vk_news*_test.py'
+      - name: Read public SOYUZ wall with server-side key
+        env:
+          SOYUZ_VK_TOKEN: ${{ secrets.SOYUZ_VK_TOKEN || secrets.VK_TOKEN }}
+        shell: bash
+        run: |
+          test -n "$SOYUZ_VK_TOKEN" || { echo 'Configure SOYUZ_VK_TOKEN in Actions secrets'; exit 1; }
+          python scripts/update-vk-news.py --public-only
+      - name: Save only SOYUZ news and images
+        working-directory: .
+        shell: bash
+        run: |
+          git add soyuz/public/data/news.json soyuz/public/media/news
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'soyuz-news-bot'
+          git config user.email 'soyuz-news-bot@users.noreply.github.com'
+          git commit -m 'Update SOYUZ public news snapshot'
+          git pull --rebase origin main
+          git push origin HEAD:main
+

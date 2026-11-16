@@ -1,0 +1,347 @@
+{
+  "metadata": {
+    "status": "historical-local-design-content",
+    "source": "archive/legacy/js/data.js",
+    "sourceExport": "SOYUZ_DATA.services",
+    "currentBusinessFactsVerified": false,
+    "firstVisitOffer": {
+      "percent": 50,
+      "source": "SOYUZ_DATA.brand.discountPercent and services.discountPrice",
+      "status": "historical-local-design-content"
+    }
+  },
+  "categories": [
+    {
+      "id": "all",
+      "name": "Все услуги"
+    },
+    {
+      "id": "main",
+      "name": "Стрижки"
+    },
+    {
+      "id": "beard",
+      "name": "Борода и СПА"
+    },
+    {
+      "id": "complex",
+      "name": "Комплексы"
+    },
+    {
+      "id": "premium",
+      "name": "Премиум"
+    },
+    {
+      "id": "care",
+      "name": "Уход и СПА"
+    },
+    {
+      "id": "color",
+      "name": "Камуфляж седины"
+    }
+  ],
+  "services": [
+    {
+      "id": "men-cut",
+      "categoryId": "main",
+      "name": "Мужская стрижка",
+      "duration": "50 мин",
+      "durationMinutes": 50,
+      "price": 1400,
+      "firstVisitPrice": 700,
+      "details": [
+        "Индивидуальный подбор формы по анатомии лица",
+        "Двукратное мытье головы с легким массажем",
+        "Стрижка ножницами и машинкой с плавным переходом fade"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "men-cut",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "kid-cut",
+      "categoryId": "main",
+      "name": "Детская стрижка (до 12 лет)",
+      "duration": "45 мин",
+      "durationMinutes": 45,
+      "price": 1200,
+      "firstVisitPrice": 600,
+      "details": [
+        "Терпеливый и заботливый подход мастера-девушки",
+        "Стильная современная форма с чистыми контурами",
+        "Мытье головы и бережная сушка"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "kid-cut",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "long-cut",
+      "categoryId": "main",
+      "name": "Удлиненная мужская стрижка",
+      "duration": "60 мин",
+      "durationMinutes": 60,
+      "price": 1600,
+      "firstVisitPrice": 800,
+      "details": [
+        "Глубокая проработка слоев и текстуры ножницами",
+        "СПА-мытье головы с питательным кондиционером",
+        "Сушка диффузором или брашингом для объема"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "long-cut",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "contouring",
+      "categoryId": "main",
+      "name": "Окантовка и сведение висков",
+      "duration": "25 мин",
+      "durationMinutes": 25,
+      "price": 600,
+      "firstVisitPrice": 300,
+      "details": [
+        "Четкие контуры шейной и височных линий",
+        "Подчистка шейной зоны шейвером или бритвой",
+        "Успокаивающий лосьон после бритья"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "contouring",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "father-son",
+      "categoryId": "main",
+      "name": "Стрижка «Отец и Сын»",
+      "duration": "60 мин",
+      "durationMinutes": 60,
+      "price": 2400,
+      "firstVisitPrice": 1200,
+      "details": [
+        "Два кресла рядом от топ-мастеров",
+        "Полноценная взрослая и детская стрижки",
+        "Мытье, массаж головы и укладка для обоих"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "father-son",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "beard-spa",
+      "categoryId": "beard",
+      "name": "Оформление бороды + СПА",
+      "duration": "40 мин",
+      "durationMinutes": 40,
+      "price": 1000,
+      "firstVisitPrice": 500,
+      "details": [
+        "Горячий компресс с маслами эвкалипта и мяты",
+        "Филигранное контурирование опасной бритвой",
+        "Стрижка и сведение объема машинки и ножниц"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "beard-spa",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "cut-beard",
+      "categoryId": "beard",
+      "name": "Стрижка + Моделирование бороды",
+      "duration": "80 мин",
+      "durationMinutes": 80,
+      "price": 2100,
+      "firstVisitPrice": 1050,
+      "details": [
+        "Полный цикл мужской стрижки волос головы",
+        "Распаривание лица горячим полотенцем",
+        "Контурирование опасной бритвой и фейд бороды"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "cut-beard",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "royal-shave",
+      "categoryId": "beard",
+      "name": "Королевское бритье опасной бритвой",
+      "duration": "50 мин",
+      "durationMinutes": 50,
+      "price": 1400,
+      "firstVisitPrice": 700,
+      "details": [
+        "Двойное распаривание горячими полотенцами",
+        "Бритье одноразовым японским лезвием Feathertouch",
+        "Премиальный бесспиртовой бальзам после бритья"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "royal-shave",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "complex-full",
+      "categoryId": "complex",
+      "name": "Комплекс «Лидер Партии»",
+      "duration": "90 мин",
+      "durationMinutes": 90,
+      "price": 2600,
+      "firstVisitPrice": 1300,
+      "details": [
+        "Мужская стрижка любой сложности + стайлинг",
+        "Моделирование бороды с горячим распариванием",
+        "Тонизирующий массаж лица и зерновой кофе"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "complex-full",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "complex-refresh",
+      "categoryId": "complex",
+      "name": "Комплекс «Экспресс-Перезагрузка»",
+      "duration": "45 мин",
+      "durationMinutes": 45,
+      "price": 1500,
+      "firstVisitPrice": 750,
+      "details": [
+        "Четкая окантовка и подбривание висков и шеи",
+        "Моделирование контуров и длины бороды",
+        "Экспресс-уход за кожей лица"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "complex-refresh",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "premium-cut",
+      "categoryId": "premium",
+      "name": "Премиум Мужская Стрижка",
+      "duration": "75 мин",
+      "durationMinutes": 75,
+      "price": 2800,
+      "firstVisitPrice": 1400,
+      "details": [
+        "Глубокий релаксационный массаж кожи головы",
+        "Премиальная косметика Lock Stock & Barrel / Reuzel"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "premium-cut",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "premium-all",
+      "categoryId": "premium",
+      "name": "Премиум Комплекс СОЮЗ VIP",
+      "duration": "110 мин",
+      "durationMinutes": 110,
+      "price": 3600,
+      "firstVisitPrice": 1800,
+      "details": [
+        "VIP-обслуживание в отдельном комфортном ритме",
+        "Модельная стрижка + моделирование бороды бритвой",
+        "СПА-ритуал для лица с распариванием и скрабированием"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "premium-all",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "waxing",
+      "categoryId": "care",
+      "name": "Ваксинг (уши / нос / щеки)",
+      "duration": "15 мин",
+      "durationMinutes": 15,
+      "price": 300,
+      "firstVisitPrice": 150,
+      "details": [
+        "Деликатный итальянский воск для чувствительной кожи",
+        "Удаление волосков из носа, ушей или на скулах",
+        "Успокаивающий лосьон с алоэ вера"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "waxing",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "face-massage",
+      "categoryId": "care",
+      "name": "Классический релакс-массаж лица",
+      "duration": "20 мин",
+      "durationMinutes": 20,
+      "price": 600,
+      "firstVisitPrice": 300,
+      "details": [
+        "Очищение кожи тоником с натуральными экстрактами",
+        "Мягкий скульптурирующий массаж по массажным линиям",
+        "Легкий увлажняющий крем с антистресс-эффектом"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "face-massage",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "beard-color",
+      "categoryId": "color",
+      "name": "Камуфляж седины бороды",
+      "duration": "30 мин",
+      "durationMinutes": 30,
+      "price": 800,
+      "firstVisitPrice": 400,
+      "details": [
+        "Подбор тона точно под натуральный пигмент волос",
+        "Безаммиачный краситель American Crew",
+        "Плавное естественное вымывание без рыжины"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "beard-color",
+        "status": "historical-local-design-content"
+      }
+    },
+    {
+      "id": "hair-color",
+      "categoryId": "color",
+      "name": "Камуфляж седины волос головы",
+      "duration": "35 мин",
+      "durationMinutes": 35,
+      "price": 1100,
+      "firstVisitPrice": 550,
+      "details": [
+        "Быстрая 10-минутная выдержка в мойке",
+        "СПА-уход и легкая укладка"
+      ],
+      "source": {
+        "file": "archive/legacy/js/data.js",
+        "record": "hair-color",
+        "status": "historical-local-design-content"
+      }
+    }
+  ]
+}

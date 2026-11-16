@@ -1,0 +1,9 @@
+---
+import '../styles/loading.css';
+interface Props {compact?:boolean;label?:string;class?:string;}
+const {compact=false,label,class:className}=Astro.props;
+---
+<span class:list={['loading-indicator',{'loading-indicator-compact':compact},className]} data-loading-indicator data-loading-paused="true" role={label?'status':undefined} aria-hidden={label?undefined:'true'}>
+  <i></i><i></i><i></i><i></i>
+  {label&&<span class="sr-only">{label}</span>}
+</span>

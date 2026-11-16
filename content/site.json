@@ -1,0 +1,29 @@
+{
+  "brand": "СОЮЗ",
+  "city": "Киров",
+  "address": "ул. Владимирская, 132",
+  "phone": "+7 (922) 909-00-43",
+  "phoneLink": "+79229090043",
+  "hours": "11:00–22:00",
+  "vk": "https://vk.com/soyuz_kirov",
+  "promo": "СССР",
+  "firstVisitPercent": 50,
+  "cashbackPercent": 5,
+  "dataStatus": "historical-local-template-needs-owner-validation-before-publication",
+  "futureAddress": "ул. Свободы, 110",
+  "addressSource": "owner-confirmed 2026-11-04: current Vladimirskaya132 (formerly Karla Marksa); future relocation Svobody110 without confirmed date",
+  "mapQuery": "СОЮЗ барбершоп Киров Владимирская 132",
+  "bookingUrl": "https://n2763199.yclients.ru/",
+  "bookingUrlSource": "owner-confirmed 2026-11-04 in current website iteration",
+  "telegram": "https://t.me/+79229090043",
+  "maxUrl": "https://max.ru/u/f9LHodD0cOJ4rurD35gvwHJ5jR1Cy1N_MbuZCA8BlA3k2BfpFkVYZkD2FKo",
+  "contactsSource": {
+    "vk": "https://kirov.gdekrasa.ru/muzhskaya-parikmaherskaya-soyuz-barbershop",
+    "telegram": "Official phone deep-link format; account visibility depends on the business Telegram privacy settings.",
+    "max": "Public SOYUZ profile URL supplied by owner on 2026-11-05."
+  },
+  "vkMessageUrl": "https://vk.me/soyuz_kirov",
+  "newsFeedUrl": "https://raw.githubusercontent.com/welcomeourofhere/Shaver-Family/main/soyuz/public/data/news.json",
+  "certificateUrl": "https://o16013.yclients.ru/certificates",
+  "certificateUrlSource": "owner-corrected purchase URL, 2026-11-15"
+}

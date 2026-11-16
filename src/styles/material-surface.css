@@ -1,0 +1,38 @@
+.surface-shell {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  background: var(--material-bg, var(--panel-surface));
+  box-shadow: var(--material-shadow, none);
+  transform: translate3d(0,0,0) scale(1,1);
+  transform-origin: inherit;
+}
+.surface-viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.surface-content {
+  position: relative;
+  padding: var(--material-padding, var(--size-28));
+  max-height: var(--material-max-height, calc(100dvh - var(--size-32)));
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+dialog ::-webkit-scrollbar-button { display:none; width:0; height:0; }
+@media (max-width:960px) {
+  dialog:not(.booking-drawer,.mobile-sheet) {
+    max-width:calc(100% - max(var(--size-16),var(--safe-left),var(--safe-right)) * 2);
+    max-height:calc(100dvh - var(--size-32) - max(var(--safe-top),var(--safe-bottom)) * 2);
+    --material-max-height:calc(100dvh - var(--size-32) - max(var(--safe-top),var(--safe-bottom)) * 2);
+  }
+  :where(dialog:not(.booking-drawer)) .surface-content { scroll-padding-top: calc(var(--size-48) + var(--material-padding,var(--size-28))); }
+  :where(dialog:not(.booking-drawer)) .dialog-head { position: sticky; top: 0; z-index: 3; isolation: isolate; }
+  :where(dialog:not(.booking-drawer)) .dialog-head::before { content: ''; position: absolute; inset: calc(-1 * var(--material-padding,var(--size-28))) calc(-1 * var(--material-padding,var(--size-28))) 0; z-index: -1; background: var(--material-bg,var(--panel-surface)); }
+  dialog.mobile-sheet { width:min(var(--dock-max),calc(100% - max(var(--size-12),var(--safe-left),var(--safe-right)) * 2)); max-width:none; margin:auto auto calc(var(--size-12) + var(--safe-bottom)); max-height:calc(100svh - var(--size-24) - var(--safe-top) - var(--safe-bottom)); --material-padding:var(--size-20); --material-max-height:calc(100svh - var(--size-24) - var(--safe-top) - var(--safe-bottom)); }
+  dialog.mobile-sheet .dialog-head { touch-action: none; }
+  dialog.category-dialog { width:min(var(--dock-max),calc(100% - max(var(--size-8),var(--safe-left),var(--safe-right)) * 2)); --material-padding:var(--size-12); }
+}

@@ -1,0 +1,260 @@
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--team-columns), minmax(0, 1fr));
+  gap: var(--team-gap);
+  grid-auto-rows: 1fr;
+}
+.team-card {
+  --focus-ring:var(--team-current-fg);
+  --team-selection-bg:var(--team-selection-bg-wide);
+  --team-selection-fg:var(--team-selection-fg-wide);
+  --team-active-selection-bg:var(--team-active-selection-bg-wide);
+  --team-active-selection-fg:var(--team-active-selection-fg-wide);
+
+  --team-book-hover-bg: var(--team-book-hover-bg-wide);
+  --team-book-hover-fg: var(--team-book-hover-fg-wide);
+  --team-bg: var(--team-bg-wide);
+  --team-fg: var(--team-fg-wide);
+  --team-active-bg: var(--team-active-bg-wide);
+  --team-active-fg: var(--team-active-fg-wide);
+  --team-book-bg: var(--team-book-bg-wide);
+  --team-book-fg: var(--team-book-fg-wide);
+  --team-active-book-bg: var(--team-active-book-bg-wide);
+  --team-active-book-fg: var(--team-active-book-fg-wide);
+
+  --selection-bg:var(--team-selection-bg);
+  --selection-fg:var(--team-selection-fg);
+  --team-current-bg: var(--team-bg);
+  --team-current-fg: var(--team-fg);
+  --team-current-book-bg: var(--team-book-bg);
+  --team-current-book-fg: var(--team-book-fg);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--team-current-bg);
+  color: var(--team-current-fg);
+  transition:
+    background-color var(--motion-ui) var(--ease-out),
+    color var(--motion-ui) var(--ease-out);
+}
+.team-media {
+  position: relative;
+}
+.team-portrait {
+  display: block;
+  width: 100%;
+  padding: 0;
+  aspect-ratio: var(--team-photo-ratio);
+  overflow: hidden;
+  background: var(--team-current-bg);
+}
+.team-portrait img {
+  object-position: var(--portrait-position);
+  transform: translate3d(0,0,0) scale(var(--team-photo-base-scale));
+  transition: transform var(--motion-photo) var(--ease-photo);
+}
+.team-discover {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: var(--size-12);
+  width: max-content;
+  margin-inline: auto;
+  padding-inline: var(--size-20);
+  gap: var(--size-8);
+  font-size: var(--size-12);
+  min-height: var(--control-hit);
+  --action-bg: var(--yellow);
+  --action-fg: var(--ink);
+  --action-hover-bg: var(--blue);
+  --action-hover-fg: var(--paper);
+}
+.team-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding: var(--team-copy-padding);
+}
+.team-copy h3 {
+  font: 400 var(--team-name-size)/1.15 var(--font-display);
+}
+.team-name {
+  margin-bottom: var(--size-4);
+}
+.team-hobby {
+  min-height: var(--team-hobby-height);
+  font-size: var(--size-12);
+  line-height: 1.5;
+  opacity: var(--service-description-opacity);
+}
+.team-facts {
+  display: flex;
+  flex-direction: var(--team-facts-direction);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--size-4) var(--size-12);
+  font-size: var(--size-12);
+  margin: var(--size-8) 0 var(--size-12);
+}
+.team-facts p {
+  white-space: nowrap;
+}
+.team-card .team-book {
+  margin-top: auto;
+  width: 100%;
+  padding-inline: var(--size-12);
+  --action-bg: var(--team-current-book-bg);
+  --action-fg: var(--team-current-book-fg);
+  --action-hover-bg: var(--team-book-hover-bg);
+  --action-hover-fg: var(--team-book-hover-fg);
+}
+@media (min-width:961px) {
+.team-card:has(:focus-visible) {
+  --selection-bg:var(--team-active-selection-bg);
+  --selection-fg:var(--team-active-selection-fg);
+  --team-current-bg: var(--team-active-bg);
+  --team-current-fg: var(--team-active-fg);
+  --team-current-book-bg: var(--team-active-book-bg);
+  --team-current-book-fg: var(--team-active-book-fg);
+}
+.team-card:has(:focus-visible) .team-portrait img {
+  transform: translate3d(0,0,0) scale(var(--team-photo-scale));
+}
+}
+.team-card :is(.team-book, .team-discover):focus-visible {
+  outline-color: var(--team-current-fg);
+}
+.team-card .team-portrait:focus-visible {
+  outline: var(--size-3) solid var(--team-current-fg);
+  outline-offset: calc(-1 * var(--size-5));
+}
+.team-dialog {
+  width: var(--team-dialog-width);
+  color: var(--text-primary);
+}
+.team-dialog .dialog-head {
+  margin-block-end: var(--size-16);
+}
+.team-dialog .icon-btn {
+  flex: none;
+  --icon-bg: var(--yellow);
+  --icon-fg: var(--ink);
+  --icon-hover-bg: var(--blue);
+  --icon-hover-fg: var(--paper);
+}
+.team-profile {
+  display: grid;
+  grid-template-columns: var(--team-profile-columns);
+  align-items: center;
+  gap: var(--size-20);
+}
+.team-profile-photo {
+  width: var(--team-profile-photo-width);
+  aspect-ratio: var(--team-photo-ratio);
+  height: auto;
+  object-position: var(--portrait-position);
+  border-radius: var(--radius-control);
+}
+.team-profile-heading {
+  min-width: 0;
+}
+.team-profile h2 {
+  margin: 0 0 var(--size-12);
+  color: var(--heading-color);
+  font: 400 var(--size-36)/1.1 var(--font-display);
+  overflow-wrap: anywhere;
+}
+.team-profile-heading p {
+  font-size: var(--size-14);
+}
+.team-interview {
+  margin-block-start: var(--size-32);
+}
+.team-interview > h3 {
+  margin: 0 0 var(--size-24);
+  font: 400 var(--size-26)/1.15 var(--font-display);
+  color: var(--heading-color);
+}
+.team-interview-block + .team-interview-block {
+  margin-block-start: var(--size-28);
+}
+.team-interview h4 {
+  margin: 0 0 var(--size-12);
+  font-size: var(--size-15);
+  font-weight: 600;
+  line-height: 1.5;
+}
+.team-interview p {
+  font-size: var(--size-14);
+  line-height: 1.65;
+}
+.team-interview p + p {
+  margin-block-start: var(--size-12);
+}
+.team-interview blockquote {
+  margin: 0;
+  padding-inline-start: var(--size-16);
+  border-inline-start: var(--size-3) solid var(--red);
+}
+.team-dialog-actions {
+  margin-block-start: var(--size-28);
+}
+.team-dialog-actions .btn {
+  width: 100%;
+  padding-inline: var(--size-12);
+  --action-bg: var(--yellow);
+  --action-fg: var(--ink);
+  --action-hover-bg: var(--blue);
+  --action-hover-fg: var(--paper);
+}
+@media (min-width:961px) and (hover: hover) and (pointer: fine) {
+  .team-card:hover {
+      --selection-bg:var(--team-active-selection-bg);
+    --selection-fg:var(--team-active-selection-fg);
+    --team-current-bg: var(--team-active-bg);
+    --team-current-fg: var(--team-active-fg);
+    --team-current-book-bg: var(--team-active-book-bg);
+    --team-current-book-fg: var(--team-active-book-fg);
+  }
+  .team-card:hover .team-portrait img {
+    transform: translate3d(0,0,0) scale(var(--team-photo-scale));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .team-card:is(:hover, :has(:focus-visible)) .team-portrait img {
+    transform: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .team-card {
+    --team-selection-bg:var(--team-selection-bg-narrow);
+    --team-selection-fg:var(--team-selection-fg-narrow);
+    --team-active-selection-bg:var(--team-active-selection-bg-narrow);
+    --team-active-selection-fg:var(--team-active-selection-fg-narrow);
+
+    --team-book-hover-bg: var(--team-book-hover-bg-narrow);
+    --team-book-hover-fg: var(--team-book-hover-fg-narrow);
+    --team-bg: var(--team-bg-narrow);
+    --team-fg: var(--team-fg-narrow);
+    --team-active-bg: var(--team-active-bg-narrow);
+    --team-active-fg: var(--team-active-fg-narrow);
+    --team-book-bg: var(--team-book-bg-narrow);
+    --team-book-fg: var(--team-book-fg-narrow);
+    --team-active-book-bg: var(--team-active-book-bg-narrow);
+    --team-active-book-fg: var(--team-active-book-fg-narrow);
+  }
+}
+
+@media (max-width:960px) {
+  .team-grid { --rail-card-width:min(84%,var(--size-320)); grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:var(--rail-card-width); grid-auto-rows:1fr; overflow-x:auto; gap:var(--size-12); scroll-snap-type:x mandatory; scrollbar-width:none; padding-bottom:var(--size-8); }
+  .team-grid::-webkit-scrollbar { display: none; }
+  .team-card { scroll-snap-align: start; }
+  .team-portrait { aspect-ratio: 1.12; }
+  .team-copy { padding: var(--size-20); }
+  .team-copy h3 { font-size: var(--size-28); }
+  .team-hobby { min-height: 0; font-size: var(--size-13); }
+  .team-facts { flex-direction: row; margin-block: var(--size-12); }
+}

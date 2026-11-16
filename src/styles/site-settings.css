@@ -1,0 +1,23 @@
+.preference-controls { display:flex;align-items:center;gap:var(--size-8); }
+.preference-controls :is(.fb-setting,.preference-button) { display:grid;place-items:center;flex:0 0 var(--size-48);width:var(--size-48);height:var(--size-48);min-height:var(--size-48);margin:0;padding:var(--size-12);border-radius:var(--radius-control);background:var(--blue);color:var(--paper); }
+.utility-icon { display:block;flex:none;width:var(--size-24);height:var(--size-24);overflow:visible; }
+.theme-icon .sun,.theme-icon .moon { transform-origin:var(--size-12) var(--size-12);transition:transform var(--motion-context) var(--ease-out),opacity var(--motion-ui) var(--ease-out); }
+.theme-icon .sun { opacity:1;transform:none; }
+.theme-icon .moon { opacity:0;transform:rotate(calc(-1 * var(--angle-20))) scale(.6); }
+[data-theme=dark] .theme-icon .sun { opacity:0;transform:rotate(var(--angle-20)) scale(.4); }
+[data-theme=dark] .theme-icon .moon { opacity:1;transform:none; }
+.site-settings,.back-to-top { position:fixed;z-index:85;bottom:max(var(--size-20),var(--safe-bottom)); }
+.site-settings { left:max(var(--size-20),var(--safe-left)); }
+.back-to-top { right:max(var(--size-20),var(--safe-right));background:var(--blue);color:var(--paper); }
+.settings-toggle,.back-to-top { display:grid;place-items:center;width:var(--size-48);height:var(--size-48);padding:var(--size-12);border-radius:var(--radius-control);box-shadow:var(--shadow-card); }
+.settings-toggle { background:var(--yellow);color:var(--ink); }
+.settings-panel { position:absolute;left:calc(100% + var(--size-8));bottom:0; }
+.settings-panel[hidden],.back-to-top[hidden] { display:none; }
+.preference-controls button:is(:hover,:focus-visible),.back-to-top:is(:hover,:focus-visible) { background:var(--yellow);color:var(--ink); }
+.settings-toggle:is(:hover,:focus-visible) { background:var(--blue);color:var(--paper); }
+@media(max-width:960px) {
+ .site-settings,.back-to-top { display:none; }
+ .menu-contact-row { display:flex;flex-wrap:wrap;flex:1 1 100%;gap:var(--size-8);align-items:center; }
+ .menu-contact-row>a { display:flex;align-items:center;flex:1;min-width:max-content;height:var(--size-48);min-height:var(--size-48);padding:var(--size-12);border-radius:var(--radius-control);background:var(--blue);color:var(--paper);font-size:var(--size-14);font-weight:600;white-space:nowrap; }
+}
+@media(prefers-reduced-motion:reduce) { .theme-icon .sun,.theme-icon .moon { transition:none; } }

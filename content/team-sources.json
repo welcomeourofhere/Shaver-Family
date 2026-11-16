@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "copiedAt": "2026-11-04",
+  "authorization": "User explicitly authorized local reuse of masters and photographs from training project. No publication authorized.",
+  "sourceAsOf": "2026-10-11",
+  "status": "local-source-and-copy-hashes-verified-current-staff-not-independently-verified",
+  "sourceRoot": "J:\\Projects\\Shaver Family (CRM)",
+  "rosterSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+  "rosterSha256": "10a3ded466d283258f80e3ec07285f8a49113d7d4b03c6990eccd8d1678b870c",
+  "photoManifestSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\media_manifest.json",
+  "photoManifestSha256": "bb3b873c05223e8c9b3c26dec4c660f4ed0a3143709b32340e51e664430a5ba6",
+  "scope": "Explicit SOUZ master names, role labels, portrait WebP bytes, dimensions, owner-confirmed experience as of 2026-10-11 and supplied profile descriptions. No staff account data, contacts, CRM IDs or learner information copied.",
+  "people": [
+    {
+      "id": "souz-svetlana",
+      "name": "Светлана Дёмина",
+      "profileSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+      "profileBranch": "SOUZ",
+      "photoSource": "J:\\Projects\\Shaver Family (CRM)\\app\\course_r28\\assets\\team\\souz-svetlana.webp",
+      "photoOriginalSource": "J:\\Projects\\Shaver Family (CRM)\\sources\\photo_archive\\team_2026-10-11\\СОЮЗ_и_руководство\\Светлана.png",
+      "photoSha256": "20278ff44f2fdb5df8b256ddfc6d3807365a65f7628ac31e0f0b744a80948658",
+      "localImage": "public/media/team/souz-svetlana.webp",
+      "localImageSha256": "20278ff44f2fdb5df8b256ddfc6d3807365a65f7628ac31e0f0b744a80948658",
+      "photoOriginalSha256FromTrainingManifest": "985976b512698a7d936137ac6372469dc1a317e3d8a7815200f5759949544e88",
+      "experienceSource": {
+        "file": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+        "years": 1,
+        "asOf": "2026-10-11",
+        "label": "Опыт 1 год",
+        "ownerEvidence": "J:\\Projects\\Shaver Family (CRM)\\sources\\reviews\\owner_team_2026-10-11\\OWNER_RULE.md",
+        "ownerEvidenceSha256": "69e840cf76559d1577d1c1f29f6a7470a2d2012cf2be7d851194e8fe8621538e",
+        "note": "Confirmed years as of source date; this is not a career start date."
+      },
+      "descriptionStatus": "confirmed-roster-description",
+      "descriptionSource": "J:\\Projects\\Shaver Family (CRM)\\sources\\reviews\\owner_team_2026-10-11\\supplied_svetlana_interview_excerpt.md",
+      "descriptionSourceSha256": "804a690bdf7516273833d93e5c47214c009443cb44e5b181eeb197648dbb2d88",
+      "bookingUrlStatus": "not-found-in-authorized-profile-sources"
+    },
+    {
+      "id": "souz-sonya-kid",
+      "name": "Соня Кид",
+      "profileSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+      "profileBranch": "SOUZ",
+      "photoSource": "J:\\Projects\\Shaver Family (CRM)\\app\\course_r28\\assets\\team\\souz-sonya-kid.webp",
+      "photoOriginalSource": "J:\\Projects\\Shaver Family (CRM)\\sources\\photo_archive\\team_2026-10-11\\СОЮЗ_и_руководство\\Соня Кид.png",
+      "photoSha256": "b0ec192b7bb2b45b137291940b78c6a3aa5321475f111cd680bc6832ec90e984",
+      "localImage": "public/media/team/souz-sonya-kid.webp",
+      "localImageSha256": "b0ec192b7bb2b45b137291940b78c6a3aa5321475f111cd680bc6832ec90e984",
+      "photoOriginalSha256FromTrainingManifest": "37e50c07db60f0a86a356b6b3355130673bfb38a67b427fb48229bf1bb588711",
+      "experienceSource": {
+        "file": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+        "years": 1,
+        "asOf": "2026-10-11",
+        "label": "Опыт 1 год",
+        "ownerEvidence": "J:\\Projects\\Shaver Family (CRM)\\sources\\reviews\\owner_team_2026-10-11\\OWNER_RULE.md",
+        "ownerEvidenceSha256": "69e840cf76559d1577d1c1f29f6a7470a2d2012cf2be7d851194e8fe8621538e",
+        "note": "Confirmed years as of source date; this is not a career start date."
+      },
+      "descriptionStatus": "confirmed-roster-description",
+      "descriptionSource": "J:\\Projects\\Shaver Family (CRM)\\sources\\reviews\\owner_team_2026-10-11\\supplied_sonya_kid_interview.txt",
+      "descriptionSourceSha256": "c1d55ef0d36d28f72796d354f7243a8121e226e6886285e335cdc21b0275b95d",
+      "bookingUrlStatus": "not-found-in-authorized-profile-sources"
+    },
+    {
+      "id": "souz-milena",
+      "name": "Милена Малышевская",
+      "profileSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+      "profileBranch": "SOUZ",
+      "photoSource": "J:\\Projects\\Shaver Family (CRM)\\app\\course_r28\\assets\\team\\souz-milena.webp",
+      "photoOriginalSource": "J:\\Projects\\Shaver Family (CRM)\\sources\\photo_archive\\team_2026-10-11\\СОЮЗ_и_руководство\\Милена.png",
+      "photoSha256": "ba81c510134b2fb85322aad083dda0968287e13aa8731ad1c45f099a5c5acf9a",
+      "localImage": "public/media/team/souz-milena.webp",
+      "localImageSha256": "ba81c510134b2fb85322aad083dda0968287e13aa8731ad1c45f099a5c5acf9a",
+      "photoOriginalSha256FromTrainingManifest": "83efd026b303f1c62090dff36e9a4b7a2bb6502c3900f10cb8cc58b6816ec70a",
+      "experienceSource": {
+        "file": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+        "years": 1,
+        "asOf": "2026-10-11",
+        "label": "Опыт 1 год",
+        "ownerEvidence": "J:\\Projects\\Shaver Family (CRM)\\sources\\reviews\\owner_team_2026-10-11\\OWNER_RULE.md",
+        "ownerEvidenceSha256": "69e840cf76559d1577d1c1f29f6a7470a2d2012cf2be7d851194e8fe8621538e",
+        "note": "Confirmed years as of source date; this is not a career start date."
+      },
+      "descriptionStatus": "confirmed-roster-description",
+      "descriptionSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+      "bookingUrlStatus": "not-found-in-authorized-profile-sources"
+    },
+    {
+      "id": "souz-darya",
+      "name": "Дарья Мерзлякова",
+      "profileSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+      "profileBranch": "SOUZ",
+      "photoSource": "J:\\Projects\\Shaver Family (CRM)\\app\\course_r28\\assets\\team\\souz-darya.webp",
+      "photoOriginalSource": "J:\\Projects\\Shaver Family (CRM)\\sources\\photo_archive\\team_2026-10-11\\СОЮЗ_и_руководство\\Дарья.png",
+      "photoSha256": "ee38ebfb68f42fcd80eb57f1de92b4987475b9cea015ba55134ea3333c39aa59",
+      "localImage": "public/media/team/souz-darya.webp",
+      "localImageSha256": "ee38ebfb68f42fcd80eb57f1de92b4987475b9cea015ba55134ea3333c39aa59",
+      "photoOriginalSha256FromTrainingManifest": "832340e8ae59560239e508d89f8f1cf4dd1cd09a6b32ac4f35ca541abeab531c",
+      "experienceSource": {
+        "file": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+        "years": 1.5,
+        "asOf": "2026-10-11",
+        "label": "Опыт 1,5 года",
+        "ownerEvidence": "J:\\Projects\\Shaver Family (CRM)\\sources\\reviews\\owner_team_2026-10-11\\OWNER_RULE.md",
+        "ownerEvidenceSha256": "69e840cf76559d1577d1c1f29f6a7470a2d2012cf2be7d851194e8fe8621538e",
+        "note": "Confirmed years as of source date; this is not a career start date."
+      },
+      "descriptionStatus": "not-supplied-profile-pending-do-not-invent",
+      "descriptionSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+      "bookingUrlStatus": "not-found-in-authorized-profile-sources"
+    },
+    {
+      "id": "souz-sofya-shalaginova",
+      "name": "Софья Шалагинова",
+      "profileSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+      "profileBranch": "SOUZ",
+      "photoSource": "J:\\Projects\\Shaver Family (CRM)\\app\\course_r28\\assets\\team\\souz-sofya-shalaginova.webp",
+      "photoOriginalSource": "J:\\Projects\\Shaver Family (CRM)\\sources\\photo_archive\\team_2026-10-11\\СОЮЗ_и_руководство\\Софья Шалагинова.png",
+      "photoSha256": "d9bde3f344390a25f0c729525e9d1ef8913e5c13b096ecf28898d6c6b326d869",
+      "localImage": "public/media/team/souz-sofya-shalaginova.webp",
+      "localImageSha256": "d9bde3f344390a25f0c729525e9d1ef8913e5c13b096ecf28898d6c6b326d869",
+      "photoOriginalSha256FromTrainingManifest": "36ce0884f900ff7af5c4af9f328df2d01a3ecf7430e9beea1cb1999b02596c65",
+      "experienceSource": {
+        "file": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+        "years": 2,
+        "asOf": "2026-10-11",
+        "label": "Опыт 2 года",
+        "ownerEvidence": "J:\\Projects\\Shaver Family (CRM)\\sources\\reviews\\owner_team_2026-10-11\\OWNER_RULE.md",
+        "ownerEvidenceSha256": "69e840cf76559d1577d1c1f29f6a7470a2d2012cf2be7d851194e8fe8621538e",
+        "note": "Confirmed years as of source date; this is not a career start date."
+      },
+      "descriptionStatus": "not-supplied-profile-pending-do-not-invent",
+      "descriptionSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+      "bookingUrlStatus": "not-found-in-authorized-profile-sources"
+    },
+    {
+      "id": "souz-lyubov",
+      "name": "Любовь Шкляева",
+      "profileSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+      "profileBranch": "SOUZ",
+      "photoSource": "J:\\Projects\\Shaver Family (CRM)\\app\\course_r28\\assets\\team\\souz-lyubov.webp",
+      "photoOriginalSource": "J:\\Projects\\Shaver Family (CRM)\\sources\\photo_archive\\team_2026-10-11\\СОЮЗ_и_руководство\\Любовь.png",
+      "photoSha256": "bce03a5fa62c964a345f87cfe05c817812ab55cb5ea72c8e79c66ff853a6fdac",
+      "localImage": "public/media/team/souz-lyubov.webp",
+      "localImageSha256": "bce03a5fa62c964a345f87cfe05c817812ab55cb5ea72c8e79c66ff853a6fdac",
+      "photoOriginalSha256FromTrainingManifest": "ec75eeb14961cf3c70c7e02e082c39e045848542e900d6cb8bd30da361edb9ea",
+      "experienceSource": {
+        "file": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+        "years": 3,
+        "asOf": "2026-10-11",
+        "label": "Опыт 3 года",
+        "ownerEvidence": "J:\\Projects\\Shaver Family (CRM)\\sources\\reviews\\owner_team_2026-10-11\\OWNER_RULE.md",
+        "ownerEvidenceSha256": "69e840cf76559d1577d1c1f29f6a7470a2d2012cf2be7d851194e8fe8621538e",
+        "note": "Confirmed years as of source date; this is not a career start date."
+      },
+      "descriptionStatus": "not-supplied-profile-pending-do-not-invent",
+      "descriptionSource": "J:\\Projects\\Shaver Family (CRM)\\project_docs\\training\\stage_01\\team_2026-10-11\\roster.json",
+      "bookingUrlStatus": "not-found-in-authorized-profile-sources"
+    }
+  ],
+  "legacyComparison": [
+    {
+      "legacyId": "evgenia",
+      "legacyName": "Евгения",
+      "result": "not-present-in-training-roster"
+    },
+    {
+      "legacyId": "lena",
+      "legacyName": "Лена",
+      "result": "not-present-in-training-roster"
+    },
+    {
+      "legacyId": "milena",
+      "legacyName": "Милена",
+      "result": "same-short-name-use-full-training-name-and-training-portrait"
+    },
+    {
+      "legacyId": "sonya",
+      "legacyName": "Соня",
+      "result": "short-name-ambiguous-training-has-sonya-kid-and-sofya-shalaginova-do-not-infer-identity"
+    }
+  ],
+  "profileEnrichment": {
+    "checkedAt": "2026-11-04",
+    "experienceSourceDate": "2026-10-11",
+    "experienceMeaning": "Owner-confirmed years as of 2026-10-11; career start dates are not supplied.",
+    "descriptionCount": 3,
+    "missingDescriptionIds": [
+      "souz-darya",
+      "souz-sofya-shalaginova",
+      "souz-lyubov"
+    ],
+    "individualBookingUrlsFound": false,
+    "commonBookingEvidence": {
+      "file": "J:\\Projects\\Shaver Family (CRM)\\sources\\reviews\\owner_team_2026-10-11\\supplied_souz_interviews.txt",
+      "sha256": "0e508a8c5f6909f28f0ef8f0ae9aa2ffb355ad953fee5e6037e8e850e6cbe72c",
+      "lineNumbers": [
+        22,
+        59
+      ],
+      "host": "n2266404.yclients.com",
+      "verificationStatus": "Public source host could not be resolved on 2026-11-04; not added to team data."
+    },
+    "publicAddressEvidence": {
+      "file": "J:\\Projects\\Shaver Family (CRM)\\sources\\reviews\\owner_team_2026-10-11\\supplied_souz_interviews.txt",
+      "sha256": "0e508a8c5f6909f28f0ef8f0ae9aa2ffb355ad953fee5e6037e8e850e6cbe72c",
+      "lineNumbers": [
+        18,
+        55
+      ],
+      "address": "Киров, ул. Владимирская, 132",
+      "status": "Public source supplied in training on 2026-10-11; current external address not independently verified."
+    }
+  },
+  "ownerOverrides": [
+    {
+      "date": "2026-11-09",
+      "masterId": "souz-lyubov",
+      "field": "hobby",
+      "value": "Любит готовить и растягиваться",
+      "source": "owner request in SOYUZ website chat"
+    }
+  ]
+}

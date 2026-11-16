@@ -1,0 +1,20 @@
+{
+  "checkedOn": "2026-11-15",
+  "operatorConfirmation": "Владелец подтвердил в текущем поручении: использовать те же реквизиты, что в Shaver Family.",
+  "hoursConfirmation": "Владелец подтвердил11:00–22:00, ежедневно,15.11.2026.",
+  "certificateTerms": {
+    "url": "https://o16013.yclients.ru/certificates",
+    "method": "Открыт раздел «Как оплатить?» в браузере; бессрочные/многоразовые, остаток сохраняется. Покупка не оформлялась."
+  },
+  "reference": "Исходные3документа Shaver Family, используемые по прямому поручению владельца; лукбук/обучение/товарная корзина удалены.",
+  "sources": [
+    {
+      "url": "https://mintrud.gov.ru/docs/laws/130",
+      "subject": "152-ФЗ: самостоятельность согласия, права субъекта и основания обработки"
+    },
+    {
+      "url": "https://77.rospotrebnadzor.ru/index.php/press-centr/press-relizy/15119-podarochnyj-sertifikat-chto-nuzhno-znat-potrebitelyu-19-02-2026",
+      "subject": "Подарочный сертификат как аванс и возврат неиспользованных средств"
+    }
+  ]
+}

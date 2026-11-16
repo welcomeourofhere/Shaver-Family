@@ -1,0 +1,31 @@
+{
+  "generator": "scripts/prepare-body-fonts.py",
+  "fontToolsVersion": "4.68.0",
+  "operation": "Map U+00A0 to the existing U+0020 space glyph in Unicode cmaps; rename derived internal family; retain copyright, outlines, advances, instructions and kerning.",
+  "fonts": [
+    {
+      "source": "public/fonts/Manrope-Regular.woff2",
+      "sourceSha256": "83d9891868ab02033f0f60be6e7a0b602a64137e2114c5378062218fb4b755f2",
+      "output": "public/fonts/Manrope-Regular-UI.woff2",
+      "sha256": "56dbd8c6d7dd4b861e5106e3b8bd30cc87d00f195980c8da4ee32e182cfcaf56",
+      "outlineSignature": "e7be78308d283a6504801fdf308618d6bcec6d59f79827609168e81431d02f54",
+      "outlinesAndAdvancesUnchanged": true
+    },
+    {
+      "source": "public/fonts/Manrope-Medium.woff2",
+      "sourceSha256": "3407f3de463490302db243ca91d560ce555fc74a8cf7b55d402b5105d7ae8fd9",
+      "output": "public/fonts/Manrope-Medium-UI.woff2",
+      "sha256": "decdd45c2250c55b7089d2aa05464ff0450545631884122bf6009c46eb1ff0c2",
+      "outlineSignature": "c48d38cf74d7ea8fc9d34ce9fc99d23857363914e2b65cc171e0268bb761bb17",
+      "outlinesAndAdvancesUnchanged": true
+    },
+    {
+      "source": "public/fonts/Manrope-SemiBold.woff2",
+      "sourceSha256": "76b9cfa664a6fec40f518d6850cf070960d6c2fa1cfdc2e7c889d0ee2edd8395",
+      "output": "public/fonts/Manrope-SemiBold-UI.woff2",
+      "sha256": "577d9a686f8bfdf0cd4e4ce94ce9b59e59d0b02d84b8c98bfd4b4e71cb0e2cab",
+      "outlineSignature": "eb232a75e3ab0d9bcd57ff992b559581103feffacf56bf9ee795da06afb382bb",
+      "outlinesAndAdvancesUnchanged": true
+    }
+  ]
+}

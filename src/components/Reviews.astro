@@ -1,0 +1,66 @@
+---
+import Headline from './Headline.astro';
+import ReviewExtra from './ReviewExtra.astro';
+import ReviewDialog from './ReviewDialog.astro';
+import {reviewExtras,reviewExtrasEnabled} from '../content/review-extras';
+import RailControls from './RailControls.astro';
+import SlideIndicator from './SlideIndicator.astro';
+import reviews from '../../content/reviews.json';
+import media from '../../content/review-media.json';
+import {planReviewBatches,planReviewCarousel,reviewLayoutRules} from '../scripts/review-layout';
+import {previewParagraphCount} from '../scripts/reading-preview';
+import '../styles/reviews.css';
+import LoadingIndicator from './LoadingIndicator.astro';
+import design from '../config/design';
+const extras=reviewExtrasEnabled?reviewExtras:[];
+const rules=reviewLayoutRules(reviews);
+const initial=planReviewBatches(reviews.map(r=>r.id),extras.map(e=>e.id),4,50,rules);
+const narrow=planReviewBatches(reviews.map(r=>r.id),extras.map(e=>e.id),2,50,rules);
+const middle=planReviewBatches(reviews.map(r=>r.id),extras.map(e=>e.id),3,50,rules);
+const initialIds=new Set(initial.initialIds);
+const carouselTiles=new Map(planReviewCarousel(reviews.map(r=>r.id),50,rules).map(tile=>[tile.id,tile]));
+const middleTiles=new Map(middle.tiles.map(tile=>[tile.id,tile]));
+const narrowTiles=new Map(narrow.tiles.map(tile=>[tile.id,tile]));
+const quadToken=design.base['--review-quad-min'];
+const quadMinimum=(design.base as Record<string,string>)[quadToken.slice(4,-1)];
+const tripleToken=design.base['--review-triple-min'];
+const tripleMinimum=(design.base as Record<string,string>)[tripleToken.slice(4,-1)];
+const initialCSS=`@container reviews (width < ${quadMinimum}){#reviews-rail{--review-columns:3;--review-rows:var(--review-initial-rows-middle)}#reviews-rail>.review-card{--tile-x:var(--tile-middle-x);--tile-y:var(--tile-middle-y);--tile-w:var(--tile-middle-w);--tile-h:var(--tile-middle-h);--tile-initial:var(--tile-initial-middle)}}@container reviews (width < ${tripleMinimum}){#reviews-rail{--review-columns:2;--review-rows:var(--review-initial-rows-narrow)}#reviews-rail>.review-card{--tile-x:var(--tile-narrow-x);--tile-y:var(--tile-narrow-y);--tile-w:var(--tile-narrow-w);--tile-h:var(--tile-narrow-h);--tile-initial:var(--tile-initial-narrow)}}`;
+const initialTiles=new Map(initial.tiles.map(tile=>[tile.id,tile]));
+const tileProps=(id:string)=>{const tile=initialTiles.get(id)??carouselTiles.get(id)!,small=narrowTiles.get(id),mid=middleTiles.get(id);return {'data-review-tone':tile.tone,'data-selection-surface':tile.tone,'data-review-shape':`${tile.w}x${tile.h}`,style:`--tile-wide-x:${tile.x+1};--tile-wide-y:${tile.y+1};--tile-wide-w:${tile.w};--tile-wide-h:${tile.h};--tile-initial-wide:${initial.initialIds.includes(id)?'grid':'none'};--tile-middle-x:${(mid?.x??0)+1};--tile-middle-y:${(mid?.y??0)+1};--tile-middle-w:${mid?.w??1};--tile-middle-h:${mid?.h??1};--tile-initial-middle:${middle.initialIds.includes(id)?'grid':'none'};--tile-narrow-x:${(small?.x??0)+1};--tile-narrow-y:${(small?.y??0)+1};--tile-narrow-w:${small?.w??1};--tile-narrow-h:${small?.h??1};--tile-initial-narrow:${narrow.initialIds.includes(id)?'grid':'none'}`};};
+---
+<section class="section shell" id="reviews" aria-labelledby="reviews-title">
+ <Headline class="section-title" id="reviews-title" name="reviews" />
+ <style is:inline set:html={initialCSS} />
+ <div class="reviews-board">
+  <div class="reviews-rail compact-rail" id="reviews-rail" aria-label="Отзывы гостей" data-review-bento data-rail-index="0" style={`--rail-count:${reviews.length+extras.length};--review-initial-rows-wide:${initial.initialRows};--review-initial-rows-middle:${middle.initialRows};--review-initial-rows-narrow:${narrow.initialRows}`}>
+   {reviews.map((review,index)=>{
+    const photos=media.reviews.find(item=>item.id===review.id)!.photos as {alt?:string;variants:{url:string;width:number;height:number}[]}[];
+    const count=photos.length+(review.videoLocal?1:0);
+    return <article class="review-card" id={review.id} data-review-card data-review-tile data-review-master={review.masterId} data-review-short={rules.verticalIds!.includes(review.id)} data-review-feature={rules.featureIds!.includes(review.id)} data-review-video={!!review.videoLocal} data-review-initial={initialIds.has(review.id)} {...tileProps(review.id)} aria-label={`Отзыв ${index+1}. ${review.about}`}>
+     <div class="review-gallery" data-review-gallery data-rail-nested={count>1?true:undefined} tabindex={count>1||review.videoLocal?0:undefined} role="group" aria-label={`Фото${review.videoLocal?' и видео':''} к отзыву ${index+1}${review.videoLocal?'. Пробел — пауза или воспроизведение':''}`}>
+      <p class="review-about" id={`${review.id}-about`}>{review.about}</p>
+      <div class="review-slides">
+       {review.videoLocal&&<div class="review-slide" data-review-slide data-active="true" data-loading-media><video loop muted playsinline preload="none" data-video-poster={photos[0].variants.at(-1)!.url} data-video-src={review.videoLocal} aria-label="Видео гостя о СОЮЗе" /><noscript><img src={photos[0].variants[0].url} srcset={photos[0].variants.map(v=>`${v.url} ${v.width}w`).join(', ')} sizes="(max-width:600px) 90vw, 560px" width={photos[0].variants[0].width} height={photos[0].variants[0].height} alt="Гость СОЮЗа с барбером" loading="lazy" /></noscript></div>}
+       {photos.map((photo,photoIndex)=>{const slideIndex=photoIndex+(review.videoLocal?1:0);return <div class="review-slide" data-review-slide data-active={String(slideIndex===0)} aria-hidden={slideIndex!==0} data-loading-media><img src={photo.variants[0].url} srcset={photo.variants.map(v=>`${v.url} ${v.width}w`).join(', ')} sizes="(max-width:600px) 90vw, (max-width:1100px) 45vw, 560px" width={photo.variants[0].width} height={photo.variants[0].height} alt={photo.alt??`Гость СОЮЗа после стрижки — фото ${photoIndex+1} к отзыву ${index+1}`} loading="lazy" decoding="async" draggable="false" /></div>;})}
+      </div>
+      {count>1&&<SlideIndicator class="review-slide-indicator" count={count} label={`Слайды отзыва ${index+1}`} />}
+      <span class="sr-only" data-review-video-status role="status" />
+     </div>
+     <div class="review-copy">
+      <div class="review-prose reading-prose" id={`${review.id}-text`} role="region" aria-labelledby={`${review.id}-about`}><blockquote>{review.text.map((text,i)=><p data-reading-rest={i>=previewParagraphCount(review.text)?true:undefined}>{text}</p>)}</blockquote></div>
+      <button class="btn review-read-toggle" type="button" data-review-read aria-expanded="false" aria-controls={`${review.id}-text`} hidden>Читать полностью</button>
+     </div>
+     <div class="review-reading-progress" aria-hidden="true"><span /></div>
+    </article>;
+   })}
+   {extras.map(extra=><ReviewExtra extra={extra} tile={initialTiles.get(extra.id)} />)}
+  </div>
+  <div class="review-layout-loader"><LoadingIndicator label="Загрузка отзывов" /></div>
+  <RailControls id="reviews-rail" count={reviews.length+extras.length} label="Перелистывание отзывов" />
+ </div>
+ <button class="btn reviews-more" type="button" data-review-more aria-expanded="false" aria-controls="reviews-rail">Показать ещё</button>
+</section>
+<noscript><style is:inline>#reviews-rail{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none!important;grid-auto-rows:var(--review-unit)}#reviews-rail>.review-card{display:grid!important;grid-column:auto!important;grid-row:span 2!important}.reviews-more,.reviews-board>.rail-controls{display:none}</style></noscript>
+<ReviewDialog />
+<script>import '../scripts/reviews';</script>

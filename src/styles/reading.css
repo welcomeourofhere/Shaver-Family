@@ -1,0 +1,8 @@
+.reading-prose { --scrollbar-thumb:currentColor; --reading-thumb:currentColor; --reading-fade-top:var(--size-0); --reading-fade-bottom:var(--size-0); mask-image:linear-gradient(to bottom,transparent,var(--ink) var(--reading-fade-top),var(--ink) calc(100% - var(--reading-fade-bottom)),transparent); }
+.reading-prose[data-reading-scrollable="true"] { overscroll-behavior-y:contain; }
+.reading-prose[data-reading-chain="buffered"][data-reading-released="true"] { overscroll-behavior-y:auto; }
+.reading-prose[data-reading-above="true"] { --reading-fade-top:var(--size-16); }
+.reading-prose[data-reading-below="true"] { --reading-fade-bottom:var(--size-16); }
+.reading-prose [hidden] { display:none; }
+.reading-prose[data-reading-transition] { --reading-thumb:transparent; }
+.reading-prose::-webkit-scrollbar-button,.reading-prose::-webkit-scrollbar-button:single-button,.reading-prose::-webkit-scrollbar-button:increment,.reading-prose::-webkit-scrollbar-button:decrement { display:none; width:0; height:0; }

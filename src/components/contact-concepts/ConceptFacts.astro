@@ -1,0 +1,10 @@
+---
+import site from '../../../content/site.json';
+const {class:className=''}=Astro.props;
+const map=`https://yandex.ru/maps/?text=${encodeURIComponent(site.mapQuery)}`;
+---
+<dl class={`cp-facts ${className}`}>
+ <div class="cp-fact-address"><dt>Наш адрес</dt><dd><a href={map} target="_blank" rel="noopener noreferrer">{site.city}, {site.address}</a></dd></div>
+ <div class="cp-fact-hours"><dt>Каждый день</dt><dd>{site.hours}</dd></div>
+ <div class="cp-fact-phone"><dt>Телефон барбершопа</dt><dd><a class="cp-phone-link" href={`tel:${site.phoneLink}`} aria-label={site.phone} data-action-short="Позвонить"><span data-action-label>{site.phone}</span></a></dd></div>
+</dl>

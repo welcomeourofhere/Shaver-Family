@@ -1,0 +1,789 @@
+{
+  "asOf": "2026-11-05",
+  "status": "owner-authorized-temporary-photos-replaceable-per-service",
+  "generator": "scripts/prepare-service-photos.py",
+  "images": {
+    "main-267602": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0121.jpg",
+      "sourceSha256": "213146b694c7a7fd2100c87712da1587adec039040fdcb67b67280d4da113003",
+      "alt": "Короткая мужская стрижка с плавным переходом, вид сбоку",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/main-267602-480.webp",
+          "width": 480,
+          "height": 720,
+          "sha256": "287e64378a87b25a588cc8fdb77139970ad45d36d1ead9f460cd75ff8c13dd3c",
+          "bytes": 21408
+        },
+        {
+          "url": "/media/services/main-267602-960.webp",
+          "width": 960,
+          "height": 1440,
+          "sha256": "aa8ee07989ecfba09f3ed49ddb622811ab41d042d57431de50ace10aae4bfa75",
+          "bytes": 60358
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "main-15270008": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0294.jpg",
+      "sourceSha256": "f57a5b4555a4693b603445dd4cfafb60937b23dcebf8d51b32c0a27056a12e51",
+      "alt": "Девушка-мастер укладывает волосы клиента у зеркала",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/main-15270008-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "0c6ecbcf23d197ce9270b8338cc28fb92c6c2e3eb4061bce4b915bef42cc8340",
+          "bytes": 39244
+        },
+        {
+          "url": "/media/services/main-15270008-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "75fa0698cbdc4616c85dbcc58d5cfb130874eb1ab7142c68753fde4cadfd7f6e",
+          "bytes": 106562
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "main-267630": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1097.jpg",
+      "sourceSha256": "b3c18fd79108ee35e9c1968c0b42632c1ccd699b1a83a14755832133cfdc2895",
+      "alt": "Мастер работает расчёской с длинной верхней частью стрижки",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/main-267630-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "4dca68fa1088d3602c9d0d3ae66da2471caf5d3d8bd339bbd5b3333488eef49c",
+          "bytes": 20528
+        },
+        {
+          "url": "/media/services/main-267630-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "657b01cc8cd2eae8f506caf7489d8bc692b8a1230bdd1a57e44965542fbdd8fa",
+          "bytes": 50606
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "main-267628": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0100.jpg",
+      "sourceSha256": "4c9958663c9f8f266efbcd2659537509d2f9f7896466f6eef9166c9fda477e8a",
+      "alt": "Мастер поправляет волосы молодого клиента",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/main-267628-480.webp",
+          "width": 480,
+          "height": 720,
+          "sha256": "1bffd04abe7282e7f79cfd18d23d8a55b5c0ee2904910734d9f5dc991bae67e5",
+          "bytes": 24826
+        },
+        {
+          "url": "/media/services/main-267628-960.webp",
+          "width": 960,
+          "height": 1440,
+          "sha256": "965bbcea59f5260aabf9f599a893c4b78a2f605c43adc03dcb44135581ca1961",
+          "bytes": 61708
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "main-6129311": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0550.jpg",
+      "sourceSha256": "86f66cd5d4b1e852ccf73cdf5a8e1a7746804152cbd2bf99dfc3dbcaae2009c5",
+      "alt": "Укладка мужских волос расчёской крупным планом",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/main-6129311-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "bb98e8505c83a9e93b8d0bf43584f3cbbd0e9face102bb841a60aeef7d05e1d3",
+          "bytes": 13524
+        },
+        {
+          "url": "/media/services/main-6129311-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "b235a9ba758a8bb897a98824cf554efc750b8726b6d056bf4d41464f07dc8142",
+          "bytes": 32956
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "main-28485114": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1317.jpg",
+      "sourceSha256": "f9b4fb397384202bc36c6b069b66e229cab91c46395a073373b2156e703852f8",
+      "alt": "Мытьё головы клиента у парикмахерской мойки",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/main-28485114-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "3c3c10f64be593f31d243a7fe2f37149dadcd4ac4a3e3af302db91c3ebd58b53",
+          "bytes": 19440
+        },
+        {
+          "url": "/media/services/main-28485114-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "270454d6983ca73bd045b648da29340a7fb1cabbb645fac6ff7b87f8a830f0d0",
+          "bytes": 54214
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "main-5768512": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0019.jpg",
+      "sourceSha256": "f9725d3da42a9b04063e3bf1e595309d21bcded2f511d16ccc09074731ff90b3",
+      "alt": "Мастер и клиент у кресла после стрижки",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/main-5768512-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "5bbdecf17d9881e647438832a5d314b28e97d4cb8e302bf86496be767de19134",
+          "bytes": 29410
+        },
+        {
+          "url": "/media/services/main-5768512-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "5ffe4beb41a74242319588fc342cf6016a2892d06270c970b4959afc7b7d803d",
+          "bytes": 72978
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "hair-beard-267602": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0756.jpg",
+      "sourceSha256": "73a6c05c491027d0583a56cdad0119fcce95a7a9c336f1639d40cfb93cc41442",
+      "alt": "Девушка-мастер готовит клиента к стрижке",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/hair-beard-267602-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "988487ce0ecd4f83cd7d55b8375f4e02a59e230ba437e14e25f58117b98f51d1",
+          "bytes": 25688
+        },
+        {
+          "url": "/media/services/hair-beard-267602-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "686de87e0481a0a850699c1013f5f87c4303201c1f57240e6bb9b09e46892ffe",
+          "bytes": 68410
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "hair-beard-12398982": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0076.jpg",
+      "sourceSha256": "471e42f1e988c08a570d91285ca24ad5dae831756606abf57f6b309a518afbd9",
+      "alt": "Работа расчёской с длинными волосами клиента",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/hair-beard-12398982-480.webp",
+          "width": 480,
+          "height": 720,
+          "sha256": "fbabf5b1b2b97a7b690bb017e2d534f3d026add0a197e821d0dd47487136bfa6",
+          "bytes": 25164
+        },
+        {
+          "url": "/media/services/hair-beard-12398982-960.webp",
+          "width": 960,
+          "height": 1440,
+          "sha256": "180a2b046181d7889e159ce01b10823d63b57ee49d958decadd74c1b8422512f",
+          "bytes": 65152
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "hair-beard-267628": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0491.jpg",
+      "sourceSha256": "074da741498dd79dcf0ebe9c5500831d9f979d79d0a6ad5dbc2c14374a79a4c8",
+      "alt": "Мужская стрижка с объёмными кудрями",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/hair-beard-267628-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "f16c79d9fe84a686fb701714eab59ffcbf4022bc2c9d04fb21ce6e14bd2ba37f",
+          "bytes": 33402
+        },
+        {
+          "url": "/media/services/hair-beard-267628-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "3de1bef26d75e6317d21cc09e977a86db93c5c49a017fac787259c22306d7cce",
+          "bytes": 127436
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "hair-beard-267631": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1178.jpg",
+      "sourceSha256": "c3205054d99947496c9a9e1d717008b26a2b188617e9431a168c8f2f999153ed",
+      "alt": "Мастер работает над мужской стрижкой у зеркала",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/hair-beard-267631-480.webp",
+          "width": 480,
+          "height": 360,
+          "sha256": "7b8d4580e9bde4770459d948e5de69e37aaf7c7cb8ce685980396f62627bcf62",
+          "bytes": 15020
+        },
+        {
+          "url": "/media/services/hair-beard-267631-960.webp",
+          "width": 960,
+          "height": 720,
+          "sha256": "4071fdde0a445d3c0db767b6e7041f27c8def04fd913372b826306f28abf4f54",
+          "bytes": 33846
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "hair-beard-4449458": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1349.jpg",
+      "sourceSha256": "c74e72dc28db66b28d82ee16e9b50873d5ec84cc22e8ccb6e14980fe75ee4978",
+      "alt": "Работа машинкой над короткой стрижкой крупным планом",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/hair-beard-4449458-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "156bb54082c1bc60c2b9d576885213f2c8ab824bdafd2ae9d17c4db5c330c294",
+          "bytes": 11810
+        },
+        {
+          "url": "/media/services/hair-beard-4449458-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "5ed81c5917b7c4950f0099685bcf7c1d456dc817b0ebda476d7e5b7de76ee526",
+          "bytes": 28704
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "hair-beard-646764": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1383.jpg",
+      "sourceSha256": "dc8b78e915cd1423a895cbd27ed2254f53c4477cf54cdc5d182511e1466fc75a",
+      "alt": "Девушка-мастер стрижёт клиента в кресле",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/hair-beard-646764-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "580c9991e033425e7e918e052a0199ec2b987d12f015a3c895f61dbb237e240c",
+          "bytes": 27658
+        },
+        {
+          "url": "/media/services/hair-beard-646764-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "691921970fe27143e2fc13e5e146412edcd0ec148a27cdaf59efe5f18af17ecf",
+          "bytes": 73922
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "hair-beard-267649": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1287.jpg",
+      "sourceSha256": "c56b98ff3faf5131dd963bd322b68eb73937fded17aa99a808d18950246142cd",
+      "alt": "Оформление линии шеи триммером",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/hair-beard-267649-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "438393861d327e2b41428182948b33f68b267e2125b2b125f9e14ac537ce0180",
+          "bytes": 12234
+        },
+        {
+          "url": "/media/services/hair-beard-267649-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "1e64585ac6a9007498c05a3aff1f2e201a8f5d38dbac85ed5387b7d4305936af",
+          "bytes": 29726
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "premium-15270008": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1652.jpg",
+      "sourceSha256": "baf003f17198f18964cc24dc56f05e25fc73251ef486d2c82fcafc0f05013f84",
+      "alt": "Мастер укладывает волосы сидящего клиента",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/premium-15270008-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "b005af61e6ff77d147952aee18bfc2a04e0886aa919964b4ec438e0d70d2da7e",
+          "bytes": 24886
+        },
+        {
+          "url": "/media/services/premium-15270008-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "fe5938b512d90782e0d3365462ca0a8361f231ae86430c0732bfce0363d8eb35",
+          "bytes": 66266
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "premium-7171247": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1209.jpg",
+      "sourceSha256": "1f5bc82c1f1c53848e1a210cbdabaf419bb3eb805c4e9ca8e0e46c1570968c4b",
+      "alt": "Клиент с короткой стрижкой в кресле барбершопа",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/premium-7171247-480.webp",
+          "width": 480,
+          "height": 720,
+          "sha256": "e9f56cd5dbd6ac8b17a48dd334d28a85fb0bc62be23466ce22051035e3a95738",
+          "bytes": 27200
+        },
+        {
+          "url": "/media/services/premium-7171247-960.webp",
+          "width": 960,
+          "height": 1440,
+          "sha256": "c7013b662b06c2e6a21895ebfdfdd94aa51062bd9117f46f6c963371a865dc8e",
+          "bytes": 68042
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "premium-15747139": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1931.jpg",
+      "sourceSha256": "91f2a81801368006fc1d4362cfa9cfd17bc2dde1642f5f584b1f3d9b9d7e5e2a",
+      "alt": "Мужская стрижка с зачёсанными назад волосами",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/premium-15747139-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "0f628c99432abd47c1fde882994e04c95060b183ec6432298d1371cf1fbad2f2",
+          "bytes": 16822
+        },
+        {
+          "url": "/media/services/premium-15747139-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "0ec2367a7a12382cb4dccfaeeacfa017181b1887fd74b880975045d63512210a",
+          "bytes": 47878
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "extra-28485114": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1242.jpg",
+      "sourceSha256": "61c88bc681e4336cdc13b191dd0bebe1a0d66976d69657be81bec15c74b89a25",
+      "alt": "Мытьё головы перед стрижкой",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/extra-28485114-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "5bbcd9346c11c5fc1ae10fe003dcfed21182dc2ed0c9dc08f3d85194b4f4a777",
+          "bytes": 16302
+        },
+        {
+          "url": "/media/services/extra-28485114-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "877c97273e213fa514959138430ee4729693a82bfbfa73b3809a00cf151f32ea",
+          "bytes": 42628
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "extra-28485093": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0725.jpg",
+      "sourceSha256": "f2b3b01aaa4071c4fb2f5d3c7a3a7c09ac655248951b3ebe0075a9e26631c7aa",
+      "alt": "Нанесение средства на волосы клиента у мойки",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/extra-28485093-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "f02d544af3be212755092cc32314bafe8caea746a0bd5472527dd4627786396a",
+          "bytes": 22380
+        },
+        {
+          "url": "/media/services/extra-28485093-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "353368fd47890a80e4b1d03f6a07af657648d693a65550c8896355023514cccd",
+          "bytes": 57124
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "extra-15747049": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1875.jpg",
+      "sourceSha256": "cd492f9a0bc14043cb0c9a25ad30ef2dff687b5ee8208c0c57b836b93b9753c9",
+      "alt": "Мастер моет голову клиента",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/extra-15747049-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "2e0b4c31983bbc0385fcc64a9c55cf23f415652554694184529e4c1f9c7588b5",
+          "bytes": 22516
+        },
+        {
+          "url": "/media/services/extra-15747049-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "a407fb551760dcaaf1b46bd0debf46c0c6853c825f6d7d93e2372100757e6304",
+          "bytes": 49924
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "extra-28485066": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0409.jpg",
+      "sourceSha256": "a0d62a94d7398e72382f8efbbd05ffd693147c50b75a2fd80d70e30cc5b00c81",
+      "alt": "Работа расчёской с волосами на затылке",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/extra-28485066-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "5b645fc1ef35f64cf8827e0b57ec779e018239e6aba6847735bcd1ddb214ed71",
+          "bytes": 19102
+        },
+        {
+          "url": "/media/services/extra-28485066-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "80fad4bdd1eb7468457d665b3ff5171caa7fdc9e4bf6a0a098e2cc438ade7d03",
+          "bytes": 50006
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "extra-6129311": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1507.jpg",
+      "sourceSha256": "265d9048fbf6f58d6c486c319d75f11ebab135014711c6f2df9409aeed7bf17c",
+      "alt": "Клиент проверяет укладку после стрижки",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/extra-6129311-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "6f78009e3b58846c8cf82e568098d087cc943c90a52804b1b2aa160bb016e5f5",
+          "bytes": 23360
+        },
+        {
+          "url": "/media/services/extra-6129311-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "500cc48abc3a4dbfee338afd6b2ae5a7f4c9942989c63c04c5e319df13f2f9c3",
+          "bytes": 62144
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "extra-6129319": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1010.jpg",
+      "sourceSha256": "4ddd8832c551c762d749316ad3b23e5943b659e752854007b78d344553e1420f",
+      "alt": "Мастер обсуждает стрижку с клиентом",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/extra-6129319-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "c39e9926641e3b422a0fcb0bbd24ba50172759828539444ee2ff88a5256f84d7",
+          "bytes": 33406
+        },
+        {
+          "url": "/media/services/extra-6129319-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "862d17c2ee5d4861ad5728307cb65184b56b60b3bd09540d3b32341aa6273559",
+          "bytes": 89060
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "extra-6129299": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A9999.jpg",
+      "sourceSha256": "0abaea95cc7e09223b56ed0fdf4ac4d6cdd4a8f3321dd75cee0a7b2119684c04",
+      "alt": "Сушка мужских волос феном",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/extra-6129299-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "4490d7515c93d31b466efb89aa04337b7b187d02cb37e95bb0fcb85c6a2ad3bf",
+          "bytes": 28438
+        },
+        {
+          "url": "/media/services/extra-6129299-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "f1c3f718269f6d984e2bb7668cb24ef33b85118bfd90ba55d775b9a1fc9f0de2",
+          "bytes": 77126
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "extra-4483882": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1053.jpg",
+      "sourceSha256": "f5cbc1462175c26188c5f8c29592bfb6558280a30e42968644e536ba7879407e",
+      "alt": "Мастер работает над формой мужской стрижки",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/extra-4483882-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "ac0cb8da2f1bd2dc8004e14f336e7a3432b57f17572d4aa57f6e5301bb218e04",
+          "bytes": 18880
+        },
+        {
+          "url": "/media/services/extra-4483882-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "c1ee361a7b158929c81d7e6196385dec8c1a4fa04685eb78f691c55ee7797164",
+          "bytes": 48500
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "coloring-14360790": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1722.jpg",
+      "sourceSha256": "ac74d2ba21ebbe0b672333fa2e1aaf3cbb0fa5265aad88c3ccc03863190e59f6",
+      "alt": "Мужская стрижка с плавным переходом на виске",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/coloring-14360790-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "e54e31ae46307ecf9637f82115914bfe2725bab140c269d1a8cd632feb25a6cf",
+          "bytes": 19118
+        },
+        {
+          "url": "/media/services/coloring-14360790-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "c3c6ae035595bb5c1552951628a4ed9421a0acaba2c8f9cb121dc2a51ec7d1a7",
+          "bytes": 58436
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "coloring-267692": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1832.jpg",
+      "sourceSha256": "1a58afe183a592e2e46488d73e97910c6ff5e76f55d823082edd42996bf6e932",
+      "alt": "Короткая мужская стрижка, профиль клиента",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/coloring-267692-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "e65067103e098e43ac02b1237caa85bd9259f9b5c2f84be7052c949dbab5bfbe",
+          "bytes": 17034
+        },
+        {
+          "url": "/media/services/coloring-267692-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "79cdd538b7c232f78d8b6d63eaf7c785c2dd634bcc520344691bcd58ba31a151",
+          "bytes": 54746
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "coloring-14360785": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1962.jpg",
+      "sourceSha256": "893a02637d58acca0d2d67bab0b12005d66689dca49d818be8c5ab97fddf2312",
+      "alt": "Мужская стрижка и оформленная борода, вид сбоку",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/coloring-14360785-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "9afe9494113509f0dcfecfa33d3ab799d64e5bd9fafb7442067aba39d97e1532",
+          "bytes": 16416
+        },
+        {
+          "url": "/media/services/coloring-14360785-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "4e52610a6feafc28bd18a2b173cbe612c3bf61450778ef21eb5c3e2284e52ef3",
+          "bytes": 49234
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "coloring-11066470": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0225.jpg",
+      "sourceSha256": "b19780de6063eac0542ba54e9cf7050e8b97af76f71b536b2ce724473f82ac74",
+      "alt": "Короткая стрижка на затылке, вид сзади",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/coloring-11066470-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "dba31159f21469bcd517073be93c2c53c3263728e4362ee10c8b39f47aaae627",
+          "bytes": 14284
+        },
+        {
+          "url": "/media/services/coloring-11066470-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "fa85d0d3b916e7f09da98ef2e12a7a5f59b2a352bdfb8c6f279a33ce0e889e62",
+          "bytes": 43640
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "hair-beard-soyuz-head-shave": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0756.jpg",
+      "sourceSha256": "73a6c05c491027d0583a56cdad0119fcce95a7a9c336f1639d40cfb93cc41442",
+      "alt": "Девушка-мастер готовит клиента к стрижке",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/hair-beard-267602-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "988487ce0ecd4f83cd7d55b8375f4e02a59e230ba437e14e25f58117b98f51d1",
+          "bytes": 25688
+        },
+        {
+          "url": "/media/services/hair-beard-267602-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "686de87e0481a0a850699c1013f5f87c4303201c1f57240e6bb9b09e46892ffe",
+          "bytes": 68410
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "main-soyuz-head-beard": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0121.jpg",
+      "sourceSha256": "213146b694c7a7fd2100c87712da1587adec039040fdcb67b67280d4da113003",
+      "alt": "Короткая мужская стрижка с плавным переходом, вид сбоку",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/main-267602-480.webp",
+          "width": 480,
+          "height": 720,
+          "sha256": "287e64378a87b25a588cc8fdb77139970ad45d36d1ead9f460cd75ff8c13dd3c",
+          "bytes": 21408
+        },
+        {
+          "url": "/media/services/main-267602-960.webp",
+          "width": 960,
+          "height": 1440,
+          "sha256": "aa8ee07989ecfba09f3ed49ddb622811ab41d042d57431de50ace10aae4bfa75",
+          "bytes": 60358
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "extra-soyuz-brows-color": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1242.jpg",
+      "sourceSha256": "61c88bc681e4336cdc13b191dd0bebe1a0d66976d69657be81bec15c74b89a25",
+      "alt": "Мытьё головы перед стрижкой",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/extra-28485114-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "5bbcd9346c11c5fc1ae10fe003dcfed21182dc2ed0c9dc08f3d85194b4f4a777",
+          "bytes": 16302
+        },
+        {
+          "url": "/media/services/extra-28485114-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "877c97273e213fa514959138430ee4729693a82bfbfa73b3809a00cf151f32ea",
+          "bytes": 42628
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "extra-soyuz-peeling": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A1242.jpg",
+      "sourceSha256": "61c88bc681e4336cdc13b191dd0bebe1a0d66976d69657be81bec15c74b89a25",
+      "alt": "Мытьё головы перед стрижкой",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/extra-28485114-480.webp",
+          "width": 480,
+          "height": 640,
+          "sha256": "5bbcd9346c11c5fc1ae10fe003dcfed21182dc2ed0c9dc08f3d85194b4f4a777",
+          "bytes": 16302
+        },
+        {
+          "url": "/media/services/extra-28485114-960.webp",
+          "width": 960,
+          "height": 1280,
+          "sha256": "877c97273e213fa514959138430ee4729693a82bfbfa73b3809a00cf151f32ea",
+          "bytes": 42628
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    },
+    "main-honest-price": {
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\170A0121.jpg",
+      "sourceSha256": "213146b694c7a7fd2100c87712da1587adec039040fdcb67b67280d4da113003",
+      "alt": "Короткая мужская стрижка с плавным переходом, вид сбоку",
+      "temporary": true,
+      "variants": [
+        {
+          "url": "/media/services/main-267602-480.webp",
+          "width": 480,
+          "height": 720,
+          "sha256": "287e64378a87b25a588cc8fdb77139970ad45d36d1ead9f460cd75ff8c13dd3c",
+          "bytes": 21408
+        },
+        {
+          "url": "/media/services/main-267602-960.webp",
+          "width": 960,
+          "height": 1440,
+          "sha256": "aa8ee07989ecfba09f3ed49ddb622811ab41d042d57431de50ace10aae4bfa75",
+          "bytes": 60358
+        }
+      ],
+      "altSource": "visual review of selected photo, 2026-11-05"
+    }
+  }
+}

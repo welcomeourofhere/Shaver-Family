@@ -1,0 +1,13 @@
+---
+import Icon from './Icon.astro';
+import '../styles/select-control.css';
+interface Props {label:string;options:{value:string;label:string}[];value?:string;nativeAttributes?:Record<string,string|boolean>;}
+const {label,options,value=options[0].value,nativeAttributes={}}=Astro.props;
+const id=`choice-${crypto.randomUUID()}`;
+---
+<div class="choice" data-choice>
+  <label class="choice-native"><span class="sr-only">{label}</span><select aria-label={label} {...nativeAttributes}>{options.map(option=><option value={option.value} selected={option.value===value}>{option.label}</option>)}</select></label>
+  <button class="choice-trigger" type="button" role="combobox" aria-label={label} aria-haspopup="listbox" aria-expanded="false" aria-controls={id} hidden><span data-choice-label>{options.find(option=>option.value===value)?.label}</span><Icon name="chevron" /></button>
+  <div id={id} class="choice-list" role="listbox" aria-label={label} popover="auto">{options.map((option,index)=><button id={`${id}-${index}`} class="choice-option" type="button" role="option" aria-selected={option.value===value} tabindex="-1" data-value={option.value}><span>{option.label}</span></button>)}</div>
+</div>
+<script>import '../scripts/select-control';</script>

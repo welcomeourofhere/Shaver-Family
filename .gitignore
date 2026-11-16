@@ -1,2 +1,22 @@
 node_modules/
-*.tmp
+dist/
+deploy/out/
+.astro/
+.local/
+tmp/
+archive/
+.agents/
+.env*
+!.env.example
+test-results/
+.superpowers/
+.artifacts/
+__pycache__/
+*.py[cod]
+
+# Local originals and restored binary delivery files stay outside the source branch.
+artifacts/
+public/**
+!public/**/
+!public/**/*.svg
+public/previews/

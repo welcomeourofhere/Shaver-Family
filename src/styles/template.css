@@ -1,0 +1,2 @@
+.review-dialog { width: var(--size-460); }
+.review-choices { display: grid; gap: var(--size-12); margin-top: var(--size-24); }

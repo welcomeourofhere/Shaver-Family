@@ -1,0 +1,11 @@
+---
+import '../styles/info-tip.css';
+interface Props {label:string;text:string;compact?:boolean;triggerText?:string;hoverDelay?:number;panelClass?:string;}
+const {label,text,compact=false,triggerText,hoverDelay,panelClass}=Astro.props;
+const id=`info-${crypto.randomUUID()}`;
+---
+<span class:list={['info-tip',{'info-tip-compact':compact}]} data-info-tip data-info-delay={hoverDelay}>
+  <button class={triggerText?'info-trigger-text':'info-trigger'} type="button" aria-label={label} aria-describedby={id} aria-expanded="false">{triggerText||<span aria-hidden="true">i</span>}</button>
+  <span class:list={['info-panel',panelClass]} id={id} role="tooltip" popover="manual" data-info-compact={compact||undefined}><slot>{text}</slot></span>
+</span>
+<script>import '../scripts/info-tip';</script>

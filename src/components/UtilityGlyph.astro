@@ -1,0 +1,9 @@
+---
+import sprite from '../../public/brand/utility-icons.svg?raw';
+// Official pinned Lucide paths and notices are retained in content/third-party/lucide.
+interface Props {name:'theme'|'sound-on'|'sound-off'|'settings'|'arrow-up'|'cookie';}
+const {name}=Astro.props;
+const match=sprite.match(new RegExp(`<symbol id="utility-${name}"[^>]*>([\\s\\S]*?)</symbol>`));
+if(!match)throw new Error(`Missing utility glyph: ${name}`);
+---
+<svg class:list={['utility-icon',{'theme-icon':name==='theme'}]} viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" set:html={match[1]} />

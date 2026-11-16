@@ -1,0 +1,553 @@
+{
+  "photo-01": {
+    "alt": "Любовь Шкляева в кресле барбершопа СОЮЗ",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-01.jpg",
+    "sourceSha256": "92d75b8e7255156e66d906950821f8499c184035290af9371c4d90ae9a7c5186",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-01-640.webp",
+        "width": 640,
+        "height": 480,
+        "sha256": "26267446bf0ba23e5d91ad98f1076c6f2ef61901af54bc236a62b6910bb8c826"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-01-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "sha256": "3a98dec386d21240306492703dc2f499bd893aa91e8cdb4f6cd75a9486fd3054"
+      }
+    ]
+  },
+  "photo-02": {
+    "alt": "Любовь фотографируется в интерьере барбершопа",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-02.jpg",
+    "sourceSha256": "7d4dec36dd6e9be7d324a2857082ee8a333685f99f94296c44b267b1fa2d4459",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-02-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "e4bae1d8c34993e9986d53783d49d9058bae204cc7bc7302ae6f2496782d29f9"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-02-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "8b1aca546afe9136d7e70769ba8de0bf77a1997399768c66a59a73d0ffea54cb"
+      }
+    ]
+  },
+  "photo-03": {
+    "alt": "Стрижка каре на учебном манекене, вид сбоку",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-03.jpg",
+    "sourceSha256": "9b998e4a5e631630db059e0fad1a574da1387d2b7a6162c932d9ca8277b36d71",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-03-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "b11100509d50cff7056fda17847c7ac096a996d47d13005915ba086a76aecbe2"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-03-960.webp",
+        "width": 960,
+        "height": 1280,
+        "sha256": "86700f3a1c0eefa3bad26e8781c08bce1b5846d13c8eeeeef3b57728bfeb9670"
+      }
+    ]
+  },
+  "photo-04": {
+    "alt": "Стрижка каре на учебном манекене, вид спереди",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-04.jpg",
+    "sourceSha256": "448bdf3c3f4c05af6d4d35100df2e87080de6042f040b55255f70f1dfef79811",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-04-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "a92be2158adc783762068a90b36549d6f4c9b45f89fafb4b1b95103a44ac108d"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-04-960.webp",
+        "width": 960,
+        "height": 1280,
+        "sha256": "6e00d419ba8d79ff85512dc1b034c45c894b96c7be6272f8e380a8096da96814"
+      }
+    ]
+  },
+  "photo-05": {
+    "alt": "Работа с прядью волос на учебном манекене",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-05.jpg",
+    "sourceSha256": "81da31bf07e7f88d6fbde41785b17a2d0bced2af135bf61eb0200df280a04fbb",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-05-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "e35d46ac8ef30ef892ac07292f5b159f8a9cbefa81751aef96acee629931d293"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-05-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "e34be344dcdf726dbb57cee43e23f492d982341057a53e1605c6e62f5b56be82"
+      }
+    ]
+  },
+  "photo-06": {
+    "alt": "Собранная причёска на учебном манекене",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-06.jpg",
+    "sourceSha256": "011aac7981e2c2533f8efca0c73d2c57fd218a472cc3b455ff4a00d3d0422202",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-06-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "afbd3c1ad42add1d44cfb2e3d1267ebfa8b35f7cb4d422a21dc370e5a1459617"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-06-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "936e4c27a97d1fb7466a0a6c2900d37efd81ee894ae65e377b35d4f50e9d7913"
+      }
+    ]
+  },
+  "photo-07": {
+    "alt": "Любовь выполняет мужскую стрижку в начале работы в СОЮЗе",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-07.jpg",
+    "sourceSha256": "8e00c1e21c71f9aff229aa99a93114b144d2292b70131b24fbd4f8341133dc75",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-07-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "fbcc7767f56a8021fe9073b40402284e68d2abf220456bc0dc24c848a2269ded"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-07-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "5f34eea04b7cefc60368bb03a57ce52385bed0ad7097cb73577e2d14b10fd318"
+      }
+    ]
+  },
+  "photo-08": {
+    "alt": "Любовь и гость перед зеркалом барбершопа в начале её работы",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-08.jpg",
+    "sourceSha256": "484d8e4972218f20c7d31c4d88244fc03a656b0f736b557886b7280b2ba0f9ea",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-08-640.webp",
+        "width": 640,
+        "height": 960,
+        "sha256": "ab03099f9401646ee5eec95bde2fa0266420e39c49eab175a1ea3c78012a7937"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-08-1080.webp",
+        "width": 1080,
+        "height": 1620,
+        "sha256": "dfc613b0eb1e6926702c6a6ed6497cd483079daf2013398738a0667c57547ef2"
+      }
+    ]
+  },
+  "photo-09": {
+    "alt": "Короткая мужская стрижка, одна из первых работ Любови",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-09.jpg",
+    "sourceSha256": "3fb13fe83f594e2bb304cb6c669dc9d140a436234e8011e7ea7db8af144c25ac",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-09-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "bda2bb55c761c4f1cff78c11d92f93a7149539be8ab7e06146985706e813719b"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-09-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "7ab82797d84464069ded127a69269e5a41f5ee0424f69e5f776932b3c33ad8fd"
+      }
+    ]
+  },
+  "photo-10": {
+    "alt": "Мужская стрижка с плавным переходом, ранняя работа Любови",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-10.jpg",
+    "sourceSha256": "f093cb1bcbb040591334a02393773aca9eeba991809d8c71ad702e969d6b34c8",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-10-640.webp",
+        "width": 640,
+        "height": 640,
+        "sha256": "9336d2677d8dc3730d4fc993735d91070e6b5bad001d55d5179b4bac79ebbfe6"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-10-899.webp",
+        "width": 899,
+        "height": 899,
+        "sha256": "24a0f48a3ec0f49569eb20bbd2f7a2d2f9f78bd509fdd406498ec7d11e89da5c"
+      }
+    ]
+  },
+  "photo-11": {
+    "alt": "Короткая текстурная мужская стрижка, ранняя работа Любови",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-11.jpg",
+    "sourceSha256": "f87d7263c12b124b22e829753309ba5f0377a4fd659de1d5f14d04c01035fdb8",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-11-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "092ea84797b51ddf620b0788ecb79c2303bf29d1aa01759809367e3e15cd499c"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-11-960.webp",
+        "width": 960,
+        "height": 1280,
+        "sha256": "57ac20f9dcfe70ed6a1006617ce7cc5054a412c585255339f62e08d18704e012"
+      }
+    ]
+  },
+  "photo-12": {
+    "alt": "Любовь и гость фотографируются перед зеркалом после стрижки",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-12.jpg",
+    "sourceSha256": "c7481647483054688216f11d5922589ca00e8e043e3894ed9caf2a7e0f885d00",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-12-640.webp",
+        "width": 640,
+        "height": 640,
+        "sha256": "9f03634e03034aac243ac4efd93dce3639884f2be556428ec8164352e790004d"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-12-1080.webp",
+        "width": 1080,
+        "height": 1080,
+        "sha256": "924feeaad0856e1a6cc98eceb00a762869d8f6978d1792edf3621866e1c484af"
+      }
+    ]
+  },
+  "photo-13": {
+    "alt": "Рабочее фото Любови в барбершопе СОЮЗ",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-13.jpg",
+    "sourceSha256": "bb2fbec774e65faf7e258fc3adb56d4b9d222be81db7b0b3c21d226a03630585",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-13-640.webp",
+        "width": 640,
+        "height": 1138,
+        "sha256": "c882866d16ceb764e9db51a5c9e2eddc4b4fa65b6e4a1c8030badf054318caac"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-13-1080.webp",
+        "width": 1080,
+        "height": 1920,
+        "sha256": "f9abe944c8edfae05924e10a3ccd840216b32ac4937cacc1f40fb7bce7746857"
+      }
+    ]
+  },
+  "photo-14": {
+    "alt": "Любовь работает над стрижкой гостя",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-14.jpg",
+    "sourceSha256": "fce0dd4ca2768d1784ea1ade3ef14eadbde00f34481157d45f463f48a6a52726",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-14-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "6a9e64612379661f7485fa5c175782612f12e9e384de533c70f81ccdea322eba"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-14-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "484d78f2e08ce9cc1cb2c82244813c30570147c1445c29ca23d63d895d55d033"
+      }
+    ]
+  },
+  "photo-15": {
+    "alt": "Любовь и гость в зеркале после завершения стрижки",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-15.jpg",
+    "sourceSha256": "3a76f63b5fcb8ba3095ef7a7f2896b2eeb6b54b2ab1b84d1707b5ad2026ce838",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-15-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "7f4059d93a11052bdf2ade47e00f86a065b2604a69537da2a326186f29bd810c"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-15-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "763c706cadb305eb701695f4cd05b462670c494ea2417e0746a3e9aebdd94fa9"
+      }
+    ]
+  },
+  "photo-16": {
+    "alt": "Мужская стрижка с плавным переходом — недавняя работа Любови",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-16.jpg",
+    "sourceSha256": "3f7f7aa99318122eeed169c2f8ff2531da4014e3e16833b970512bb4bb31a22f",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-16-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "0d15e26a7313394f6a6c90c9905c1e610d6c8ded1159dc7306538a4c250d4291"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-16-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "f2936a3fc27c5ffd6576de6a28768a1a8b6ac8c643a6b101a86a07fe0681ae6c"
+      }
+    ]
+  },
+  "photo-17": {
+    "alt": "Удлинённая мужская стрижка с объёмом — работа Любови",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-17.jpg",
+    "sourceSha256": "c3d3ed0653e910c81f0f15e65cd1f9f94d0a37f3fed74bb59f604c90826026b0",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-17-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "ea06fbfccb42139ac101213a6f26c9e3d97d37b2fbeb7d23ed95b3fecef78671"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-17-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "a6d30c0f79908f3671cbbc946c9ca2176c6485b8879a682657c0d9cb121cbb7a"
+      }
+    ]
+  },
+  "photo-18": {
+    "alt": "Мужская стрижка с боковой укладкой — работа Любови",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-18.jpg",
+    "sourceSha256": "20513b2335a9441347b53e624c5afab5721f835dce309f04d217582738ffd252",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-18-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "f26637cfddb0f70c053b0115884639da16dcb7b788b3d0e0af963b6ff8dd93cf"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-18-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "735936461776277ebcb506061a935b60c23d9740128b1ca3321ac7892c0b534a"
+      }
+    ]
+  },
+  "photo-19": {
+    "alt": "Текстурная мужская стрижка — работа Любови",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-19.jpg",
+    "sourceSha256": "71168d41d686eefc42492a9869d1ce0c982e907a5f15618b59a03b945ddb890e",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-19-640.webp",
+        "width": 640,
+        "height": 857,
+        "sha256": "c6690e1059131affc06795129c73298adc2c5c6c273b4ac17c66826224118c83"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-19-1080.webp",
+        "width": 1080,
+        "height": 1446,
+        "sha256": "46a185ce79efaf8f044ad1fd467be3f51d2573355c980c6e01e4f4312dc9370e"
+      }
+    ]
+  },
+  "photo-20": {
+    "alt": "Короткая мужская стрижка — работа Любови",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-20.jpg",
+    "sourceSha256": "438d89df32455cfa9f9b72ea480fd48f3051a180444dd77aa394f7ea78d14fcc",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-20-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "be1bbeb1dbe04583028fb6e98de78e44dada69e5d18230acb2cb46ab9d9ac547"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-20-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "2e1162d523985785aaaadada908d93259e04b8abead85fe1e1fbc7bf8a614c7e"
+      }
+    ]
+  },
+  "photo-21": {
+    "alt": "Любовь работает с гостем над удлинённой мужской стрижкой",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-21.jpg",
+    "sourceSha256": "54dd70b0e8df74211a55099eb97156bc8f5546c0faed8122d485b273f7b7037a",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-21-640.webp",
+        "width": 640,
+        "height": 960,
+        "sha256": "31e18d03182f5ed7e848ddaf22d54dc5d83d558b804192a8c3de2d73610d8f24"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-21-1080.webp",
+        "width": 1080,
+        "height": 1620,
+        "sha256": "9a06fe7f5393a55cf08232c1727552366abac0b348e24fb13d10b0a59b4e16ee"
+      }
+    ]
+  },
+  "photo-22": {
+    "alt": "Любовь и гость с кудрявой стрижкой",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-22.jpg",
+    "sourceSha256": "95d7e25baa9653738a2a8f5321a976cb691e21d51fdeeba041e1677a5f7ca8fa",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-22-640.webp",
+        "width": 640,
+        "height": 960,
+        "sha256": "2bd55f8f4b19efb08bc3c1a2facf20aefce02eea0665712916d86faed8e61ddb"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-22-1080.webp",
+        "width": 1080,
+        "height": 1620,
+        "sha256": "7347104e053953b79a845c42c370eb28275104e6cef38710e055c3c226e8afca"
+      }
+    ]
+  },
+  "photo-23": {
+    "alt": "Демонстрация техники оформления бороды на профессиональном мероприятии",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-23.jpg",
+    "sourceSha256": "45f7e02a22d77404d5ec39eb43a698acc6daa70b1a473d1be0d7efa459ef0857",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-23-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "0b4d4a80bf942aa1103a2252eea056fa34ac90a63f44adc242c7c6d126833ecf"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-23-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "b24dce464b652bf18ae4d0e1d38cfd4f722f2a70b19066f832957e88361e8807"
+      }
+    ]
+  },
+  "photo-24": {
+    "alt": "Выступление мастера на профессиональном конгрессе в Москве",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-24.jpg",
+    "sourceSha256": "0a60589c1d76bdac08ed34fca028c970fa6a262a18c64e6b0307ef2a0c9984a1",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-24-640.webp",
+        "width": 640,
+        "height": 1143,
+        "sha256": "5fdec520274ba9b72e4bee48899d757aceede31f41cf619fb11c979c775448fc"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-24-1071.webp",
+        "width": 1071,
+        "height": 1912,
+        "sha256": "c6712cb40c4cec0fb18bb09b00321f460d4f746211e26fae5d85b83810c87488"
+      }
+    ]
+  },
+  "photo-25": {
+    "alt": "Участники профессионального конгресса наблюдают за сценой",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-25.jpg",
+    "sourceSha256": "21b786369b290bea2e9a10f28e787b8b1c0c749fa5445a31652dc0dc383561b6",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-25-640.webp",
+        "width": 640,
+        "height": 1387,
+        "sha256": "dcb1ea6973290fd6a29670f7a72e7c4d953f87cf8f9e91e969ca1a5a9ba74154"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-25-1080.webp",
+        "width": 1080,
+        "height": 2341,
+        "sha256": "7c283d51a56cad6600163c7856579118630a0ba5475015a4a74d6f947ebc7b79"
+      }
+    ]
+  },
+  "photo-26": {
+    "alt": "Любовь с подругой в свободное время",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-26.jpg",
+    "sourceSha256": "f30be4224df84d4088dbddfba0ee1e8a2959a43bf39dfdb1bcda5324c6b08811",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-26-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "b0bc84055e5417e98171c2410f46d88fcb87e9de57d388f8fabe1a653c916082"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-26-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "ac629fbdd5aab6c11e90e268fabb89ac1c328b6b76d0c9aa333c1dc22eb0ff41"
+      }
+    ]
+  },
+  "photo-27": {
+    "alt": "Любовь фотографируется перед зеркалом вне работы",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-27.jpg",
+    "sourceSha256": "950955af4964d8721f90068572dba9fea76a3dfa8173f49c570541d51682e2cb",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-27-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "895f992216419dffe2875d3fa372270773d2fd81220f2c55587567ae71e73121"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-27-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "e2cff8f8501005444e12e83a04266e85b9156e53888d106b463f269a6fc1294f"
+      }
+    ]
+  },
+  "photo-28": {
+    "alt": "Любовь и подруга фотографируются в зеркале",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-28.jpg",
+    "sourceSha256": "abe4d024e6adacea67578ef90bb61663543c9e3da7980d6b17289effd9a5c58c",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-28-640.webp",
+        "width": 640,
+        "height": 854,
+        "sha256": "091557e28d18494ffc2defc51eacd82453cb68fa88f141c18791958c390b6cc3"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-28-1080.webp",
+        "width": 1080,
+        "height": 1441,
+        "sha256": "2da57af91041202d8107f12316d1fc48d10a03067650556a7546b139887c208d"
+      }
+    ]
+  },
+  "photo-29": {
+    "alt": "Любовь накрывает стол на открытом воздухе",
+    "source": "artifacts/master-articles/lyubov-shklyaeva/originals/photo-29.jpg",
+    "sourceSha256": "e5875efb16d619354e4f26ad7c325a95f667d146f2cc45711b56ca75933841f7",
+    "variants": [
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-29-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "8060f6181db846dcc7344a46eb06413b5e7fa15ce31293254d1753b81a30f63e"
+      },
+      {
+        "url": "/media/articles/lyubov-shklyaeva/photo-29-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "f15984d844b9865ae05dda6179040ba1a2c304528000d8ef809f691a9b07746a"
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+.contact-channel-short { display: none; }
+@media (max-width:960px) {
+  .contact-connect [data-contact-channel="vk"] .contact-channel-label { display: none; }
+  .contact-connect .contact-channel-short { display: inline; }
+}

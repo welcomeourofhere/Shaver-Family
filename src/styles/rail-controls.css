@@ -1,0 +1,17 @@
+.rail-controls,.rail-controls[hidden] { display:none; }
+.rail-progress span[hidden] { display:none; }
+.rail-controls { align-items:center; gap:var(--size-8); margin-top:var(--size-8); color:var(--text-primary); }
+.rail-controls output { flex:none; font-size:var(--size-12); font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.rail-progress { display:flex; flex:1; min-width:var(--size-24); gap:var(--size-4); margin-inline:var(--size-8); }
+.rail-progress span { flex:1; height:var(--size-4); border-radius:var(--radius-pill); background:var(--red); opacity:.18; transition:opacity var(--motion-ui) var(--ease-out); }
+.rail-progress [data-current="true"] { opacity:1; }
+.rail-controls .icon-btn { flex:none; background:var(--paper); color:var(--ink); }
+@media (min-width:961px) { .rail-controls[data-rail-visibility="desktop"]:not([hidden]) { display:flex; } }
+@media (max-width:960px) {
+  .compact-rail { --rail-gap:var(--size-12); --rail-tail:max(0px,calc(100% - var(--rail-card-width) - var(--rail-gap))); overscroll-behavior-x:contain; }
+  .compact-rail[data-rail-index]:not(.reviews-rail) { grid-template-columns:repeat(var(--rail-count,1),var(--rail-card-width)); grid-auto-columns:var(--rail-tail); }
+  .compact-rail[data-rail-index]::after { content:""; display:block; width:var(--rail-tail); min-width:0; height:var(--size-1); pointer-events:none; flex:0 0 var(--rail-tail); }
+  .team-grid,.about-stack { cursor:grab; }
+  :is(.team-grid,.about-stack).is-dragging,:is(.team-grid,.about-stack).is-dragging * { cursor:grabbing; user-select:none; }
+  .rail-controls:not([data-rail-visibility="desktop"]):not([hidden]) { display:flex; }
+}

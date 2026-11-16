@@ -1,0 +1,13 @@
+---
+import {headlines} from '../config/headlines';
+interface Props {name:keyof typeof headlines;id?:string;class?:string;as?:'h1'|'h2'|'h3';aside?:boolean;lines?:readonly string[];}
+const {name,id,class:className='',as:Tag='h2',aside=false,lines}=Astro.props;
+const copy=headlines[name];
+const desktop=lines||copy.desktop;
+const tablet='tablet' in copy?copy.tablet:desktop;
+---
+<Tag id={id} class:list={['headline',className,{'section-title--aside':aside}]} data-headline={name}>
+  <span class="headline-desktop">{desktop.map(line=><span>{line}</span>)}</span>
+  <span class="headline-tablet">{tablet.map(line=><span>{line}</span>)}</span>
+  <span class="headline-mobile">{copy.mobile.map(line=><span>{line}</span>)}</span>
+</Tag>

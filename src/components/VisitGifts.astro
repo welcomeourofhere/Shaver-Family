@@ -1,0 +1,46 @@
+---
+import Certificates from './Certificates.astro';
+import RailControls from './RailControls.astro';
+import Headline from './Headline.astro';
+import assets from '../../content/reference-assets.json';
+import vectors from '../../content/gift-vector-sources.json';
+const photoIds = assets.giftPhotoIds;
+---
+<section class="section shell" id="gifts" aria-labelledby="gifts-title">
+  <Headline class="section-title" id="gifts-title" name="gifts" />
+  <div class="gifts-layout"><div class="gifts-rail"><div class="gifts-grid compact-rail" id="gifts-rail" data-rail-index="0" style={`--rail-count:${vectors.icons.length}`}>
+    {vectors.icons.map((icon, index) => {
+      const name = icon.title;
+      const number = index + 1;
+      const hasPhoto = photoIds.includes(number);
+      const Visual = hasPhoto ? 'button' : 'div';
+      return (
+        <figure class="gift">
+          <Visual
+            class="gift-visual photo-frame"
+            data-loading-media
+            type={hasPhoto ? 'button' : undefined}
+            data-gift={hasPhoto ? '' : undefined}
+            data-has-photo={String(hasPhoto)}
+            aria-pressed={hasPhoto ? 'false' : undefined}
+            aria-label={hasPhoto ? `Рассмотреть подарок за ${number}-й визит: ${name}` : undefined}
+          >
+            <img class="gift-icon" src={icon.url} width={icon.width} height={icon.height} alt={name} loading="lazy" />
+            {hasPhoto && <img class="gift-photo photo-image" src={`/reference/gift-photo-${number}.webp`} width="300" height="300" alt={`Фото: ${name}`} loading="lazy" />}
+          </Visual>
+          <figcaption><span>{String(number).padStart(2, '0')}.</span> {name}</figcaption>
+        </figure>
+      );
+    })}
+  </div><RailControls id="gifts-rail" count={vectors.icons.length} label="Подарки за визиты" /></div><Certificates /></div>
+</section>
+<script>
+import {observeRail,connectRailControls,enableRailCardSelection} from '../scripts/rail-selection';
+import {enableRailMouseDrag} from '../scripts/native-rail-drag';
+const rail=document.querySelector<HTMLElement>('#gifts-rail')!;
+const compact=matchMedia('(max-width:960px)');
+enableRailMouseDrag(rail,compact);
+enableRailCardSelection(rail,'.gift',()=>compact.matches,index=>choose(index));
+const controls=connectRailControls(rail);
+const choose=observeRail(rail,'.gift',index=>controls(index));
+</script>

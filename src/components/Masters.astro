@@ -1,0 +1,114 @@
+---
+import data from '../../content/team.json';
+import interviews from '../../content/team-interviews.json';
+import Icon from './Icon.astro';
+import MaterialSurface from './MaterialSurface.astro';
+import '../styles/team.css';
+import design from '../config/design.json';
+import {masterStories} from '../content/master-articles';
+import MasterStory from './MasterStory.astro';
+import RailControls from './RailControls.astro';
+import Headline from './Headline.astro';
+const reviewPlural = new Intl.PluralRules('ru');
+const reviewLabel = (count: number) => `${count} ${{ one: 'отзыв', few: 'отзыва', many: 'отзывов', other: 'отзыва', zero: 'отзывов', two: 'отзыва' }[reviewPlural.select(count)]}`;
+
+const colorStyle = (layout: 'wide' | 'narrow', index: number) => {
+  const background = design.teamThemes[layout].base[index];
+  const active = design.teamThemes[layout].active[index];
+  const foreground = (color: string) => ['yellow','paper'].includes(color) ? 'ink' : 'paper';
+  const button = (color: string) => color === 'yellow' ? 'red' : 'yellow';
+  const hoverSurface=layout==='narrow'?background:active;
+  const hoverColor=design.actionBySurface[hoverSurface as keyof typeof design.actionBySurface].primary;
+  return Object.entries({
+    bg: background, fg: foreground(background),
+    'selection-bg':design.selectionBySurface[background as keyof typeof design.selectionBySurface].background,
+    'selection-fg':design.selectionBySurface[background as keyof typeof design.selectionBySurface].foreground,
+    'active-selection-bg':design.selectionBySurface[active as keyof typeof design.selectionBySurface].background,
+    'active-selection-fg':design.selectionBySurface[active as keyof typeof design.selectionBySurface].foreground,
+    'active-bg': active, 'active-fg': foreground(active),
+    'book-bg': button(background), 'book-fg': foreground(button(background)),
+    'active-book-bg': button(active), 'active-book-fg': foreground(button(active)),
+    'book-hover-bg':hoverColor,
+    'book-hover-fg':foreground(hoverColor),
+  }).map(([key, value]) => `--team-${key}-${layout}:var(--${value})`).join(';');
+};
+const profiles = data.masters.map((master, index) => {
+  const profile = interviews.profiles.find((item) => item.id === master.id);
+  const story = masterStories.find(article=>article.masterId===master.id);
+  const name = master.name.split(' ')[0];
+  return {
+    master,
+    profile,
+    story,
+    name,
+    dialogId: `team-dialog-${master.id}`,
+    openLabel:`Знакомство: ${name}`,
+    style: `${colorStyle('wide', index)};${colorStyle('narrow', index)};--portrait-position:var(${master.imageFocus === 'top' ? '--team-photo-position-top' : '--team-photo-position'})`,
+  };
+});
+---
+<section class="section shell" id="masters" aria-labelledby="masters-title">
+  <Headline class="section-title" id="masters-title" name="masters" />
+  <div class="team-grid compact-rail" id="masters-rail" data-rail-index="0" style={`--rail-count:${profiles.length}`}>
+    {profiles.map(({ master, name, dialogId, openLabel, style }) => (
+      <article class="team-card" style={style} data-booking-name={master.bookingNameDative}>
+        <div class="team-media">
+          <button class="team-portrait photo-frame" data-loading-media type="button" data-team-open={master.id} aria-label={openLabel} aria-haspopup="dialog" aria-controls={dialogId}>
+            <img class="photo-image" src={master.image} width={master.width} height={master.height} alt={name} loading="lazy" />
+            <span class="btn team-discover" aria-hidden="true">Знакомство</span>
+          </button>
+        </div>
+        <div class="team-copy">
+          <h3 class="team-name">{name}</h3>
+          <p class="team-hobby">{master.hobby}</p>
+          <div class="team-facts">
+            <p>{master.experienceLabel}</p>
+            <p>{reviewLabel(master.reviewCount)}</p>
+          </div>
+          <button class="btn team-book" type="button" data-booking data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Запись к мастеру: ${name}`} aria-label={`Записаться к мастеру: ${name}`} data-action-full="Записаться к мастеру" data-action-short="Записаться">
+            <span data-action-label>Записаться</span>
+          </button>
+        </div>
+      </article>
+    ))}
+  </div>
+  <RailControls id="masters-rail" count={profiles.length} label="Выбор мастера" />
+  {profiles.map(({ master, profile, story, name, dialogId }) => (
+    <dialog class:list={["team-dialog",{"team-story-dialog":!!story}]} id={dialogId} aria-labelledby={`${dialogId}-title`}>
+      {story&&<div class="dialog-head story-dialog-head"><button class="icon-btn" type="button" data-dismiss aria-label="Закрыть знакомство"><Icon name="close" /></button></div>}
+      <MaterialSurface>
+      {story ? <>
+        <MasterStory article={story} dialog titleId={`${dialogId}-title`} />
+      </> : <>
+      <div class="dialog-head">
+        <button class="icon-btn" type="button" data-dismiss aria-label="Закрыть знакомство с мастером"><Icon name="close" /></button>
+      </div>
+      <div class="team-profile" style={`--portrait-position:var(${master.imageFocus === 'top' ? '--team-photo-position-top' : '--team-photo-position'})`}>
+        <div class="team-profile-visual" data-loading-media><img class="team-profile-photo" src={master.image} width={master.width} height={master.height} alt={name} loading="lazy" /></div>
+        <div class="team-profile-heading">
+          <h2 id={`${dialogId}-title`}>{name}</h2>
+          <p>{master.role}</p>
+          <p>{master.experienceLabel}</p>
+        </div>
+      </div>
+      {profile && profile.blocks.length > 0 && (
+        <div class="team-interview">
+          <h3>{profile.format === 'interview-excerpts' ? 'Из интервью' : 'О себе'}</h3>
+          {profile.blocks.map((block) => (
+            <section class="team-interview-block">
+              <h4>{block.title}</h4>
+              {block.kind === 'quote' ? (
+                <blockquote>{block.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</blockquote>
+              ) : block.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            </section>
+          ))}
+        </div>
+      )}
+      </>}
+      <div class="team-dialog-actions">
+        <button class="btn" type="button" data-booking data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Запись к мастеру: ${name}`} aria-label={`Записаться к ${master.bookingNameDative || name}`} data-personal-booking-short={`К ${master.bookingNameDative || name}`}>Записаться к {master.bookingNameDative || name}</button>
+      </div>
+      </MaterialSurface>
+    </dialog>
+  ))}
+</section>

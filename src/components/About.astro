@@ -1,0 +1,47 @@
+---
+import content from '../../content/about.json';
+import site from '../../content/site.json';
+import editorial from '../../content/editorial-images.json';
+import '../styles/about.css';
+import '../styles/reading.css';
+import Headline from './Headline.astro';
+import RailControls from './RailControls.astro';
+
+const format = (text: string) => text
+  .replaceAll('{address}', site.address)
+  .replaceAll('{hours}', site.hours);
+---
+
+<section class="section shell about-section" id="about" aria-labelledby="about-title">
+  <div class="about-heading-track"><Headline class="section-title" id="about-title" name="about" lines={content.title} /></div>
+  <div class="about-stack compact-rail" id="about-rail" data-about-stack data-rail-index="0" style={`--rail-count:${content.cards.length};--about-card-count:${content.cards.length}`}>
+    {content.cards.map((card, index) => {
+      const photo = editorial.images.find(image => image.slot === `about:${card.id}`);
+      const imageURL = (variant: {url: string; sha256: string}) => `${variant.url}?v=${variant.sha256.slice(0,12)}`;
+      return (
+      <div class="about-layer" id={`about-panel-${card.id}`} data-about-layer style={`--about-layer-remaining:${content.cards.length - 1 - index}`}>
+      <article class={`about-card about-card-${card.theme}`} style={photo ? `--about-image-position:${photo.focus.desktop};--about-image-position-mobile:${photo.focus.mobile}` : undefined} aria-labelledby={`about-${card.id}-title`} data-about-card data-selection-surface={card.theme} data-surface={card.theme === 'yellow' ? undefined : 'dark'}>
+        <div class="about-media photo-frame" data-loading-media>
+          <img
+            class="photo-image"
+            src={photo ? imageURL(photo.variants[1]) : `/media/${card.image}-1440.webp`}
+            srcset={photo ? photo.variants.map(variant => `${imageURL(variant)} ${variant.width}w`).join(', ') : `/media/${card.image}-640.webp 640w, /media/${card.image}-1440.webp 1440w`}
+            sizes="(max-width:800px) calc(100vw - 2rem), (max-width:1200px) 42vw, 480px"
+            width={photo?.variants[1].width ?? 1440} height={photo?.variants[1].height ?? 1920} alt={photo?.alt ?? card.imageAlt} loading="lazy" decoding="async"
+          />
+        </div>
+        <div class="about-copy">
+          <div class="about-copy-inner" data-about-copy-inner>
+            <h3 id={`about-${card.id}-title`}>{card.title[0]}<br />{card.title[1]}</h3>
+            <div class="about-prose reading-prose" id={`about-prose-${card.id}`}>{card.paragraphs.map((paragraph,i) => <p data-reading-rest={i>0?true:undefined}>{format(paragraph)}</p>)}</div>
+            <button class="btn about-more" type="button" data-about-more data-ui-kind="disclosure" aria-expanded="false" aria-controls={`about-prose-${card.id}`}>Читать полностью</button>
+          </div>
+        </div>
+      </article>
+      </div>
+    )})}
+  </div>
+  <RailControls id="about-rail" count={content.cards.length} label="О СОЮЗе" />
+</section>
+
+<script>import '../scripts/about';</script>

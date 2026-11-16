@@ -1,0 +1,227 @@
+{
+  "sourceRoot": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025",
+  "images": {
+    "hero-light": {
+      "source": "07_Фотографии/Фотосет 2025 №1/170A1142.jpg",
+      "sourceSha256": "df3629b555d491d285cdd8490b8fac504f8cef309f53a3f6e22c4f9ea9395060",
+      "sourceWidth": 2560,
+      "sourceHeight": 1920,
+      "variants": [
+        {
+          "url": "/media/hero-light-640.webp",
+          "bytes": 35260,
+          "sha256": "2336f36b4db7c9605d4f03b2be89e01ce25937a7f68ed2d82ec08bdae33a3237",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "url": "/media/hero-light-1440.webp",
+          "bytes": 119400,
+          "sha256": "efff3fee04a6fac8fc301ea5ace5aac72aca780054c664b027d355c346e3c4b9",
+          "width": 1440,
+          "height": 1080
+        }
+      ]
+    },
+    "hero-poster": {
+      "source": "07_Фотографии/Фотосет 2025 №1/170A1624.jpg",
+      "sourceSha256": "672653aab1b9f056c9f28ecb493d9d1614b395121029d28214a2d5bdad96d6ce",
+      "sourceWidth": 2560,
+      "sourceHeight": 1707,
+      "variants": [
+        {
+          "url": "/media/hero-poster-640.webp",
+          "bytes": 20210,
+          "sha256": "c5a6e8a2d284e569abdb97b6893b2a0af0a6191a54b5e01e4dc88d5f1646fc5b",
+          "width": 640,
+          "height": 427
+        },
+        {
+          "url": "/media/hero-poster-1440.webp",
+          "bytes": 68888,
+          "sha256": "7fa62849f14cfa120f0486a02cf6ec9310fcc99c9ae30e189303c58c5c17aabb",
+          "width": 1440,
+          "height": 960
+        }
+      ]
+    },
+    "team": {
+      "source": "07_Фотографии/Фотосет 2025 №1/170A1587.jpg",
+      "sourceSha256": "822179c096634d79ddbfbcc61167dad58268bcbc1941248296644863cb45acf5",
+      "sourceWidth": 1920,
+      "sourceHeight": 2560,
+      "variants": [
+        {
+          "url": "/media/team-640.webp",
+          "bytes": 46974,
+          "sha256": "37c581566f70f4bc72a84594408d9b726141c1b79414ac2c99ccf88654ac33ea",
+          "width": 640,
+          "height": 853
+        },
+        {
+          "url": "/media/team-1440.webp",
+          "bytes": 150332,
+          "sha256": "b2cab4765bd6080d8140f4b1dc5be14d924493b44d55d29b44f140e61ea3330f",
+          "width": 1440,
+          "height": 1920
+        }
+      ]
+    },
+    "hero-dark": {
+      "source": "07_Фотографии/Фотосет 2025 №1/170A0736.jpg",
+      "sourceSha256": "5d603828657fc1e9d2651c78ef55129d7431ddc217d97ff2033843c7340a6814",
+      "sourceWidth": 1920,
+      "sourceHeight": 2560,
+      "variants": [
+        {
+          "url": "/media/hero-dark-640.webp",
+          "bytes": 64626,
+          "sha256": "749be4f537785fc162534479936b97b816cf27645ca84ea554c882fc435024cd",
+          "width": 640,
+          "height": 853
+        },
+        {
+          "url": "/media/hero-dark-1440.webp",
+          "bytes": 206444,
+          "sha256": "3cdc934819d7a04c43c8b4a128faacf012543c4bd0c70720832cd2750897eda5",
+          "width": 1440,
+          "height": 1920
+        }
+      ]
+    },
+    "work-texture": {
+      "source": "07_Фотографии/Фотосет 2025 №1/170A0240.jpg",
+      "sourceSha256": "2c334dee1e9e3c1c9c710d7a8ecfda033dedf445c9d9bab91de88434a0c50096",
+      "sourceWidth": 1920,
+      "sourceHeight": 2560,
+      "variants": [
+        {
+          "url": "/media/work-texture-640.webp",
+          "bytes": 30496,
+          "sha256": "f50e99bcf23fe51d1406700a9d9c92b5f9668ae99071ce1cf66e34fd931cda79",
+          "width": 640,
+          "height": 853
+        },
+        {
+          "url": "/media/work-texture-1440.webp",
+          "bytes": 114526,
+          "sha256": "50479701888053623ab43b62632ee94d5e9ecd8df05e3783a8b2647813e31b81",
+          "width": 1440,
+          "height": 1920
+        }
+      ]
+    },
+    "work-fade": {
+      "source": "07_Фотографии/Фотосет 2025 №1/170A1068.jpg",
+      "sourceSha256": "bbf3f8648ec72fb595d10b904b8fc0dc1a76f395a5fc323dc74e73223f979fea",
+      "sourceWidth": 1920,
+      "sourceHeight": 2560,
+      "variants": [
+        {
+          "url": "/media/work-fade-640.webp",
+          "bytes": 42688,
+          "sha256": "87a87bf8eb2c147f188d3cecb75715bbc256612486951898ea4664a870d4747f",
+          "width": 640,
+          "height": 853
+        },
+        {
+          "url": "/media/work-fade-1440.webp",
+          "bytes": 156234,
+          "sha256": "74b561679b8a574a7a9a1226a52c9d9698075e533b12c220a7434c3b6285951e",
+          "width": 1440,
+          "height": 1920
+        }
+      ]
+    },
+    "work-classic": {
+      "source": "07_Фотографии/Фотосет 2025 №1/170A1840.jpg",
+      "sourceSha256": "a358cc2e8469fe33142d6938e7769f66c9ae1f6396edf42c4eba6d7464e83d3f",
+      "sourceWidth": 1920,
+      "sourceHeight": 2560,
+      "variants": [
+        {
+          "url": "/media/work-classic-640.webp",
+          "bytes": 29386,
+          "sha256": "86947853bf87f9e56676cfc1d5b20257c105ef56d1fe06722e3cc17680d39ed5",
+          "width": 640,
+          "height": 853
+        },
+        {
+          "url": "/media/work-classic-1440.webp",
+          "bytes": 111692,
+          "sha256": "54479b27622bf3bd74e13034d892d08c74fe558aca5acf457163310dc98e510a",
+          "width": 1440,
+          "height": 1920
+        }
+      ]
+    },
+    "work-back": {
+      "source": "07_Фотографии/Фотосет 2025 №1/170A1937.jpg",
+      "sourceSha256": "bc514a3f066b810182b1f9f332b1442f7453bdcebc04281c94bc3889730b7422",
+      "sourceWidth": 1920,
+      "sourceHeight": 2560,
+      "variants": [
+        {
+          "url": "/media/work-back-640.webp",
+          "bytes": 27132,
+          "sha256": "8dfc005cd4ac980ed54dae23ab002094a4b83206ab29096f3b3dc657c8c512f3",
+          "width": 640,
+          "height": 853
+        },
+        {
+          "url": "/media/work-back-1440.webp",
+          "bytes": 109130,
+          "sha256": "8d8331f9aa584476f361ffc80640b5b0e390b650d97afdfae02e318e9a197e81",
+          "width": 1440,
+          "height": 1920
+        }
+      ]
+    }
+  },
+  "logos": {
+    "logo-light": {
+      "source": "01_Логотип/Векторные файлы/Варианты логотипов/Логотип белый (прозрачный).svg",
+      "sourceSha256": "1f85dfae24812c17022651ab85c1d98d1f26db6867ac9087d3f1dcc39614b610",
+      "url": "/brand/logo-light.svg",
+      "bytes": 15315,
+      "sha256": "1f85dfae24812c17022651ab85c1d98d1f26db6867ac9087d3f1dcc39614b610"
+    },
+    "logo-dark": {
+      "source": "01_Логотип/Векторные файлы/Варианты логотипов/Логотип черный (прозрачный).svg",
+      "sourceSha256": "c96d6389826532bc921517fc4980a4d04e66abca4e4f6e95a8f6136016120908",
+      "url": "/brand/logo-dark.svg",
+      "bytes": 15505,
+      "sha256": "c96d6389826532bc921517fc4980a4d04e66abca4e4f6e95a8f6136016120908"
+    }
+  },
+  "fonts": {
+    "Manrope-Regular": {
+      "source": "02_Шрифты/Manrope Static/Manrope-Regular.woff2",
+      "sourceSha256": "83d9891868ab02033f0f60be6e7a0b602a64137e2114c5378062218fb4b755f2",
+      "url": "/fonts/Manrope-Regular.woff2",
+      "bytes": 21880,
+      "sha256": "83d9891868ab02033f0f60be6e7a0b602a64137e2114c5378062218fb4b755f2"
+    },
+    "Manrope-Medium": {
+      "source": "02_Шрифты/Manrope Static/Manrope-Medium.woff2",
+      "sourceSha256": "3407f3de463490302db243ca91d560ce555fc74a8cf7b55d402b5105d7ae8fd9",
+      "url": "/fonts/Manrope-Medium.woff2",
+      "bytes": 22136,
+      "sha256": "3407f3de463490302db243ca91d560ce555fc74a8cf7b55d402b5105d7ae8fd9"
+    },
+    "Manrope-SemiBold": {
+      "source": "02_Шрифты/Manrope Static/Manrope-Semibold.woff2",
+      "sourceSha256": "76b9cfa664a6fec40f518d6850cf070960d6c2fa1cfdc2e7c889d0ee2edd8395",
+      "url": "/fonts/Manrope-SemiBold.woff2",
+      "bytes": 21720,
+      "sha256": "76b9cfa664a6fec40f518d6850cf070960d6c2fa1cfdc2e7c889d0ee2edd8395"
+    },
+    "Molot": {
+      "source": "02_Шрифты/Molot/Molot.ttf",
+      "sourceSha256": "36b23bfd5da7caa36ea9db0a6a1aca8c8fa20f76897085604786a5d2ecc70036",
+      "url": "/fonts/Molot.ttf",
+      "bytes": 26364,
+      "sha256": "36b23bfd5da7caa36ea9db0a6a1aca8c8fa20f76897085604786a5d2ecc70036"
+    }
+  }
+}

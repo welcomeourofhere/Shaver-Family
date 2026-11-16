@@ -1,0 +1,37 @@
+---
+import type {MasterStory} from '../content/master-articles';
+import '../styles/master-story.css';
+interface Props {article:MasterStory;dialog?:boolean;titleId?:string;}
+const {article,dialog=false,titleId=`story-${article.slug}-title`}=Astro.props;
+const Title=dialog?'h2':'h1';
+const Chapter=dialog?'h3':'h2';
+const Question=dialog?'h4':'h3';
+const DirectQuestion=dialog?'h3':'h2';
+const Closing=article.closing.title?'section':'div';
+const cover=article.media[article.cover];
+const url=(variant:{url:string;sha256:string})=>`${variant.url}?v=${variant.sha256.slice(0,12)}`;
+const sizes=dialog?'(max-width:650px) 100vw, 860px':'(max-width:800px) 100vw, 960px';
+let replyIndex=0;
+---
+<article class="master-story" data-article-slug={article.slug} aria-labelledby={titleId}>
+  <header class="story-heading"><Title id={titleId} tabindex={dialog?-1:undefined} autofocus={dialog}>{article.title}</Title></header>
+  {article.lead?.length&&<div class="story-lead">{article.lead.map(text=><p>{text}</p>)}</div>}
+  <div class="story-cover" data-loading-media>
+    <img src={url(cover.variants.at(-1)!)} srcset={cover.variants.map(v=>`${url(v)} ${v.width}w`).join(', ')} sizes={sizes} width={cover.variants.at(-1)!.width} height={cover.variants.at(-1)!.height} alt={cover.alt} loading={dialog?'lazy':'eager'} decoding="async" />
+  </div>
+  {article.coverCaption&&<p class="story-cover-caption">{article.coverCaption}</p>}
+  <div class="story-body">
+    {article.sections.map(section=>{const InterviewQuestion=section.title?Question:DirectQuestion;return <section class="story-chapter" data-chapter={section.id} aria-labelledby={section.title?`${article.slug}-${section.id}-title`:undefined}>
+      {section.title&&<Chapter id={`${article.slug}-${section.id}-title`}>{section.title}</Chapter>}
+      {section.intro?.map(text=><p class="story-chapter-intro">{text}</p>)}
+      {section.blocks.map(block=>block.kind==='qa'?<div class="story-answer" data-reply-tone={['red','blue','yellow'][replyIndex++%3]}><InterviewQuestion>{block.question}</InterviewQuestion><blockquote>{block.paragraphs.map(text=><p>{text}</p>)}</blockquote></div>:block.kind==='text'?block.quoted?<div class="story-answer" data-reply-tone={['red','blue','yellow'][Math.max(0,replyIndex-1)%3]}><blockquote>{block.paragraphs.map(text=><p>{text}</p>)}</blockquote></div>:<div class="story-interlude">{block.paragraphs.map(text=>block.heading?<InterviewQuestion>{text}</InterviewQuestion>:<p>{text}</p>)}</div>:<figure class:list={['story-photos',{'story-photos-grid':block.images.length>1,'story-photos-works':block.images.length>2}]}>
+        <div class="story-photo-grid">{block.images.map((id,index)=>{
+          const photo=article.media[id],large=photo.variants.at(-1)!;
+          return <a class:list={{'story-portrait':large.height>large.width}} data-loading-media href={url(large)} target="_blank" rel="noopener noreferrer" aria-label={`Рассмотреть: ${photo.alt}`}><img src={url(photo.variants[0])} srcset={photo.variants.map(v=>`${url(v)} ${v.width}w`).join(', ')} sizes={block.images.length>2?'(max-width:540px) 44vw, 240px':block.images.length>1?'(max-width:540px) 44vw, 360px':'(max-width:800px) 100vw, 720px'} width={large.width} height={large.height} alt={photo.alt} loading="lazy" decoding="async" />{block.caption==='До и после'&&<span>{index===0?'До':'После'}</span>}</a>;
+        })}</div>
+        {block.caption&&<figcaption>{block.caption}</figcaption>}
+      </figure>)}
+    </section>})}
+    {(article.closing.title||article.closing.paragraphs.length>0)&&<Closing class="story-closing">{article.closing.title&&<Chapter>{article.closing.title}</Chapter>}{article.closing.paragraphs.map(text=><p>{text}</p>)}</Closing>}
+  </div>
+</article>

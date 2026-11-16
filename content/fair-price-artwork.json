@@ -1,0 +1,132 @@
+{
+  "generator": "built-in image_gen",
+  "asOf": "2026-11-05",
+  "id": "poster-duo-soviet-v3",
+  "source": "artifacts/fair-price/masters-poster-soviet-v3.png",
+  "sourceSha256": "8dc12fb526e69a9b1006e6ef731d4f07daeb98832c683bc8ab7f3b114915b0f4",
+  "url": "/media/fair-price-poster-soviet-v3.webp",
+  "sha256": "9a189c4441c723485f845ae1ead78acbe326c03964eccbe93251bd922f840bbd",
+  "size": [
+    1448,
+    1086
+  ],
+  "alpha": true,
+  "raysOcclusionAnchor": [
+    0.5,
+    0.82
+  ],
+  "alphaBounds": [
+    0,
+    0,
+    1448,
+    1086
+  ],
+  "references": [
+    "public/media/team/souz-sonya-kid.webp",
+    "public/media/team/souz-svetlana.webp"
+  ],
+  "prompt": "Image1 is the edit target: a transparent Soviet-poster duo illustration. Image2 is the PRIMARY facial identity reference for SONYA KID, the RIGHT woman with bangs. Image3 is the PRIMARY facial identity reference for SVETLANA, the LEFT woman with long straight brown hair. Revise BOTH portrait likenesses to faithfully match their own real photo, prioritizing exact face shape, natural eye/brow spacing, nose, cheeks, lips, complexion, hairline and recognizable expression over idealized poster glamour. Use each photo's original near-frontal face angle and natural gentle expression so the real person remains recognizable; no generic movie-star face, no extra-thin face, no exchanging identities. Preserve Sonya's full dark wavy hair and bangs, Svetlana's straight long brown hair with warm lighter ends. Also change clothing to tasteful Soviet urban-inspired clothing: Svetlana wears a fitted deep graphite Soviet-era tailored jacket with simple lapels over a cream blouse; Sonya wears a muted navy/blue workwear-inspired fitted jacket with simple brass buttons, cream blouse and a small scarlet neckerchief. Refined modern interpretation of1950s/1960s city poster clothing, not farm costumes or theatrical uniforms. Keep the overall clean two-person waist-up composition: Svetlana left and a little taller, Sonya right slightly closer/lower, outer shoulders fully defined, hands below lower crop, believable connected anatomy. Strong gouache/lithographic poster planes and subtle print grain in cream/ochre/graphite/navy/scarlet, confident calm colleagues. Genuine transparent alpha background, complete hair and heads near top with small transparent breathing room. No grass, landscape, sky, graphic geometry, discs, rays, writing, symbols, badges, logos or paper backdrop. Preserve the format and outer silhouette usability of Image1. Do not beautify or make the women older.",
+  "variants": [
+    {
+      "id": "previous-duo-v2",
+      "source": "artifacts/fair-price/masters-poster-duo-v2.png",
+      "sourceSha256": "829b14fab9d6df1f01631d2651aa451add0be90ed91a00f6b04f4b38bd30d7b9",
+      "url": "/media/fair-price-poster-duo-v2.webp",
+      "sha256": "d80812ce430b3252650aed3e5239c1c83e477db877157f03fb8bcd65224c6b15",
+      "size": [
+        1448,
+        1086
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1448,
+        1086
+      ]
+    },
+    {
+      "id": "previous-poster",
+      "source": "artifacts/fair-price/masters-poster-full-left.png",
+      "sourceSha256": "5d1e8af350e11bf84d70172024dab33e1d8238907837394948e2e4abcdd25cc4",
+      "url": "/media/fair-price-masters-full-left.webp",
+      "sha256": "c8229fa64c560dd56c3a8ac6c77b184fd7f4b464cad1fe618147df797f5a31af",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBounds": [
+        0,
+        1,
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "a",
+      "source": "artifacts/fair-price/masters-left-a.png",
+      "sourceSha256": "6a897161609e4a905634105e4aa1b4ebd3c4fa194adc5369dfe365361e24c123",
+      "url": "/media/fair-price-masters-left-a.webp",
+      "sha256": "1daa4dacd564621eb7585a98832833a2b36085a4ebb72670ad3570c1ec935b73",
+      "size": [
+        1200,
+        1200
+      ],
+      "alphaBounds": [
+        39,
+        25,
+        1164,
+        1200
+      ]
+    },
+    {
+      "id": "b",
+      "source": "artifacts/fair-price/masters-left-b.png",
+      "sourceSha256": "1ddf20b074ce89548af3bc970060b61a4fd5280118808dd78309bd08fdac4430",
+      "url": "/media/fair-price-masters-left-b.webp",
+      "sha256": "ede51ce2580b12d1374e8b239ae5011158437c90807210ad345ae8bf1ca91761",
+      "size": [
+        1200,
+        1200
+      ],
+      "alphaBounds": [
+        0,
+        0,
+        1200,
+        1156
+      ]
+    }
+  ],
+  "editTarget": "artifacts/fair-price/masters-poster-duo-v2.png",
+  "separateFigures": {
+    "asOf": "2026-11-15",
+    "generator": "built-in image_gen",
+    "editTarget": "artifacts/fair-price/masters-poster-soviet-v3.png",
+    "prompts": "artifacts/fair-price/separate-figures-prompts.json",
+    "items": [
+      {
+        "id": "svetlana",
+        "source": "artifacts/fair-price/svetlana-separate-v1.png",
+        "sourceSha256": "cd686ccb680b28aac7246d19a1e3963628ccfa4b2c2d4577fb3cc0a991f951da",
+        "url": "/media/fair-price-svetlana-v1.webp",
+        "sha256": "8dc2c6b893668e63ae9e6be884116df4abd9a29c395ec5e0c35a428c69d83bb8",
+        "size": [
+          1312,
+          1199
+        ],
+        "alpha": true
+      },
+      {
+        "id": "sonya",
+        "source": "artifacts/fair-price/sonya-separate-v1.png",
+        "sourceSha256": "0c3487ac7f36dba3bd4a85f0136eef00dede7719a8dfc67ebdb73119546bc812",
+        "url": "/media/fair-price-sonya-v1.webp",
+        "sha256": "035f2325ec60162ae378377e7e7adfd548d212ba1d14aea0c4eeccbc4c8ad8ae",
+        "size": [
+          1086,
+          1448
+        ],
+        "alpha": true
+      }
+    ]
+  }
+}

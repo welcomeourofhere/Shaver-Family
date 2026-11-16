@@ -1,0 +1,8 @@
+---
+import '../styles/slide-indicator.css';
+interface Props {count:number;label:string;class?:string;buttonClass?:string;hero?:boolean;}
+const {count,label,class:className='',buttonClass='',hero=false}=Astro.props;
+---
+<div class={`slide-indicator ${className}`} style={`--slide-count:${count}`} data-slide-indicator role="group" aria-label={label}>
+ {Array.from({length:count},(_,index)=><button class={`slide-dot ${buttonClass}`} type="button" data-slide-index={index} data-hero-dot={hero?true:undefined} data-feedback="manual" aria-label={`Показать слайд ${index+1} из ${count}`} aria-current={index===0?'true':'false'} />)}
+</div>

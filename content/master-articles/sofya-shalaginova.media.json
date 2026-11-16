@@ -1,0 +1,420 @@
+{
+  "portrait": {
+    "alt": "Софья Шалагинова в барбершопе СОЮЗ",
+    "source": "artifacts/master-articles/sofya-shalaginova/portrait.png",
+    "sourceSha256": "1822971013092c911ab35a43109cf2aa09fb8bc538838c571dbf0aaf49b406d7",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/portrait-640.webp",
+        "width": 640,
+        "height": 480,
+        "sha256": "665eb34dc0653a7a7d68168895f5af45d6599c39eb81b356679f5dac28233c6b"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/portrait-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "sha256": "1aff72c02b85d6053423d0d76598d8aa4a8d327adb0daf375256455f6b1b9f1b"
+      }
+    ]
+  },
+  "childhood": {
+    "alt": "Соня в детстве за фортепиано",
+    "source": "artifacts/master-articles/sofya-shalaginova/childhood.png",
+    "sourceSha256": "af7c5d2a364093abbd3d25da82daa8bdaa46317c7eb0f37d69b6a6e98e3f4384",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/childhood-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "de7b22decfd1b622b02acca8f2e4629c934eeba85f36536650b45ddcb67b0ec3"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/childhood-960.webp",
+        "width": 960,
+        "height": 1280,
+        "sha256": "25fc0e2005fda06db0dc214127d2f311744e3ef531f869e3040c633b780a4e07"
+      }
+    ]
+  },
+  "training": {
+    "alt": "Софья подстригает волосы ножницами над расчёской",
+    "source": "artifacts/master-articles/sofya-shalaginova/training.png",
+    "sourceSha256": "506f93c9288221d402312bb73664d9fd9c0a23e72a1dccf0ef8c99f2d6bed295",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/training-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "9cbb8810de67446ac056a8d920ca68f049aa6724c053bdc6da6890261cba7db4"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/training-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "9100ff8b9fdc042196d99669d9bc6272e3328f4eca7035a79c241eb616ce7ee6"
+      }
+    ]
+  },
+  "work-1": {
+    "alt": "Работа Софьи: мужская стрижка, вид сзади и сбоку",
+    "source": "artifacts/master-articles/sofya-shalaginova/work-1.png",
+    "sourceSha256": "b9bc0c3c4dbf71dfeef0a5f6d1784c9279f47112a19ea699a8a1046fed64fd49",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/work-1-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "f367e6315fba9f2589d5ca5f8750ec7119cb21c5b69ecdf5d334508c18ae843d"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/work-1-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "4db502a1f6cfd7589c4b32fe88f34866c62ba9481889d3cafeb6f0f8485a70bd"
+      }
+    ]
+  },
+  "work-2": {
+    "alt": "Работа Софьи: короткая мужская стрижка, вид сбоку",
+    "source": "artifacts/master-articles/sofya-shalaginova/work-2.png",
+    "sourceSha256": "b4a293fdb87a117d4fd1b45b6ebff2a232014fc0243ca7c3bf5b890737dc5e5b",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/work-2-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "a3cd204ed4fbe18b02e1c2c41f23714812ed5538b522884ca0c52b08fb742137"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/work-2-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "a79705895497f83f95115609f0013ad8946d55a0264f5ece08d716bd3005ff5a"
+      }
+    ]
+  },
+  "work-3": {
+    "alt": "Работа Софьи: мужская стрижка, вид сзади",
+    "source": "artifacts/master-articles/sofya-shalaginova/work-3.png",
+    "sourceSha256": "46a24bfe8dea6d1d47bbe98c291699238344014dcb00ce8ff2161156b1f71e53",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/work-3-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "650b5b5099170b0a9f2da722339ba95e0fd3cfb763ea6829a96a9294edf9de7d"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/work-3-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "d0899e5d5637870d9f21ea65781ea714187a9a1ab253778c732c6341adc6c704"
+      }
+    ]
+  },
+  "work-4": {
+    "alt": "Работа Софьи: короткая стрижка на светлых волосах",
+    "source": "artifacts/master-articles/sofya-shalaginova/work-4.png",
+    "sourceSha256": "b0d9e1162ff600f493b338d16536c3eea9e7098692fbdd814e1f652b29807537",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/work-4-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "51353728ad9573170a7aa31735b950eb756924c7576081d6bef12de04aee3fbe"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/work-4-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "67015115622ac8612e1e8eedc7462adc0cd56a3a7b2252cafbe8a9a6f9ce760d"
+      }
+    ]
+  },
+  "work-5": {
+    "alt": "Работа Софьи: светлые волосы и короткие виски",
+    "source": "artifacts/master-articles/sofya-shalaginova/work-5.png",
+    "sourceSha256": "a89f8535f6fa8b725384e0f36bb3dcd7fc9d65a71d077e79b9776cd1683176fc",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/work-5-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "5c707c36730800b9cb6b0ec9bba2124dd820da594469fe83f509e0c6520ee203"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/work-5-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "ba9ebff085804c9ea73cf03b390d5c6d6aa7a7a4e5f53f23023fb56ce9e9ba2b"
+      }
+    ]
+  },
+  "work-6": {
+    "alt": "Работа Софьи: мужская стрижка с объёмом сверху",
+    "source": "artifacts/master-articles/sofya-shalaginova/work-6.png",
+    "sourceSha256": "1dfff8f2cc3670599cda1613c04f75e0f9f81f712bfac57bf85912660358c971",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/work-6-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "0e14f58bf1fd2633aa1b9fe6b2429c92d210ab922f9ea9ee0ca851ff3fbfdad3"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/work-6-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "6a1dc84677180fd56e33d104eb138e9cc4ea50bfe660e782c3679b9a14766e22"
+      }
+    ]
+  },
+  "team": {
+    "alt": "Софья улыбается коллеге в СОЮЗе",
+    "source": "artifacts/master-articles/sofya-shalaginova/team.png",
+    "sourceSha256": "a5f8a70fae9caacee6628ceb3ca71e0b7c6d40e35aedb7953e87bfb07f36f829",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/team-640.webp",
+        "width": 640,
+        "height": 480,
+        "sha256": "7f84dec50debfae0ebc5d8cb370dc7c3f3714999ee073f8da66bd3546a64d938"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/team-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "sha256": "1e8bf945fa890727f39f01c0d779ab7db558a7b728eae8757c17aeb1694b18c7"
+      }
+    ]
+  },
+  "shift": {
+    "alt": "Софья отдыхает с коллегами за столом в СОЮЗе",
+    "source": "artifacts/master-articles/sofya-shalaginova/shift.png",
+    "sourceSha256": "55857bc1613649c11c6c751d8d747f55433743797336d6aae7c89505549e6b5a",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/shift-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "bead8bb3bc6311be7160ab482cdf04b38aad1605f0d3fd72becbe17f1686d615"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/shift-960.webp",
+        "width": 960,
+        "height": 1280,
+        "sha256": "7032f54ef635f02607cd7788de2da23c4f55fdaf7be601e17129ec2c30d535b5"
+      }
+    ]
+  },
+  "trip": {
+    "alt": "Отдых у воды: Софья в лодке с друзьями",
+    "source": "artifacts/master-articles/sofya-shalaginova/trip.png",
+    "sourceSha256": "0cf5fa91683adf1e53472daf12cb0efbca5f6079fc0dcb857d04612be68b3315",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/trip-640.webp",
+        "width": 640,
+        "height": 1138,
+        "sha256": "02f7c8c9d4927492aa644d10443585adac349fea690aa52415cd8e4c01bc5afc"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/trip-1080.webp",
+        "width": 1080,
+        "height": 1920,
+        "sha256": "a42a6110ab39f4b42c4a7dc489ea019bd1f149aa7d9942ba42ec65552627cfa0"
+      }
+    ]
+  },
+  "wash": {
+    "alt": "Софья моет волосы гостю барбершопа",
+    "source": "artifacts/master-articles/sofya-shalaginova/wash.png",
+    "sourceSha256": "baac99f7df40ac37dfc790232a10eb10f8ef9438cfa2af0b5ea20365a79bf578",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/wash-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "7aa0322b7801a63994fd65ae741460c0e5923d8ffdc34c6e301ddd6a08d14d50"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/wash-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "598f850130c1d8965312e0842c7f5b575b44337f6f5d8771623660267e6e999c"
+      }
+    ]
+  },
+  "working": {
+    "alt": "Софья рядом с гостем в процессе стрижки",
+    "source": "artifacts/master-articles/sofya-shalaginova/working.png",
+    "sourceSha256": "ffc8c576722de38ae81c32515b6892c16f906271a0feb79e2906ab3f53f28223",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/working-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "340f752c6a4721707e7fde3abe5b4b6258bbd51ad4b91e6ceaa0cc8d5b78ddb8"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/working-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "95cc4a435dac57eac153b12741d2b873b8f567efb8b46432bdd218b5c89b44d6"
+      }
+    ]
+  },
+  "dryer": {
+    "alt": "Софья укладывает волосы феном",
+    "source": "artifacts/master-articles/sofya-shalaginova/dryer.png",
+    "sourceSha256": "50b821d389029410531753eee8498df8168e81b2c5546f00c32c6bc14b387620",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/dryer-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "e84d98022194c7e67159e48aa8e8d84f79934f5c174d4af21d83ed1f13962032"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/dryer-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "0e3b9c20e58fb73fd3de97857a333196bb7f6abb44c277d437e3a5137bf9d3b8"
+      }
+    ]
+  },
+  "clipper": {
+    "alt": "Софья выполняет стрижку машинкой",
+    "source": "artifacts/master-articles/sofya-shalaginova/clipper.png",
+    "sourceSha256": "8b445bad5b5960a3e94c1beb4f9c9fe17802b8e84769f532c39501bc69f9e709",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/clipper-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "d8706b5322ef9b15a7eef019d08f87d18d8a4595ef2f554099f6bf19a64237e2"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/clipper-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "162e6cf4ee44c0f35212fac0030117acc280b4244592595486236653ad03db8a"
+      }
+    ]
+  },
+  "before": {
+    "alt": "Гость Софьи перед сменой образа",
+    "source": "artifacts/master-articles/sofya-shalaginova/before.png",
+    "sourceSha256": "cda551c9a80d58710e9d675ed77ada17c42a80677f87339dabf4ee594b210160",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/before-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "778ccaf59ed4cbfc1c0a5919f420009899409edb2497368d7ecf24221f7fee8b"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/before-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "aacdf0d7bc3760eda793f77bcd1cf5d8b2332d62d94ff051306ccd13ec58925d"
+      }
+    ]
+  },
+  "after": {
+    "alt": "Тот же гость после стрижки у Софьи",
+    "source": "artifacts/master-articles/sofya-shalaginova/after.png",
+    "sourceSha256": "09abc06f3b702e401a11594adb0fcd55ba331dc38629113a51943ae3011b2e88",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/after-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "a2694e6598e441a842b26b6de298fa418c137f4aac11e701d7eadfc24daa9646"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/after-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "430979f43470cc829267790f63202b621bc17a47cc2b1a9bcba660fd78a5b40e"
+      }
+    ]
+  },
+  "finish": {
+    "alt": "Софья завершает стрижку гостя",
+    "source": "artifacts/master-articles/sofya-shalaginova/finish.png",
+    "sourceSha256": "4a349dcf5b1220b8f64eea72bfb6f49f8c34dda1d6a041886ec526d9ed215d72",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/finish-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "0a328ded650041a73283e3900acafbaad47b63cfc6a86cc3540e2bbe99f4bf8e"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/finish-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "ef0e7eadb60ff477ab4da325ebc0840642ca8c7218096561168a67e7a64a428a"
+      }
+    ]
+  },
+  "pets-1": {
+    "alt": "Кот и мопс Софьи на дорожке во дворе",
+    "source": "artifacts/master-articles/sofya-shalaginova/pets-1.png",
+    "sourceSha256": "c38002dc2619b0d93ade75dc542f6cb044ea32142bb180a82169c247c64c40a3",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/pets-1-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "6491b1d32a90f8dc9b34e0ccbda1fbc19174e9778d50337fed89d345530b4203"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/pets-1-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "34e5f0f5f7144081ed6ccf8e18c4c8ff1b1f49f75129b66b64318b9fec9b7c0c"
+      }
+    ]
+  },
+  "pets-2": {
+    "alt": "Две собаки Софьи во дворе",
+    "source": "artifacts/master-articles/sofya-shalaginova/pets-2.png",
+    "sourceSha256": "56a0e65585298a8c1eae4c946f4faa416df1ef6e1d70ec5526922cbb614b938b",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/pets-2-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "7df1605e181c06f0aad92f0443986b67dc3aea4418f6b75a3dc91f2ad25d3865"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/pets-2-960.webp",
+        "width": 960,
+        "height": 1280,
+        "sha256": "2e644b08d93b407041addb0e95ac21cb992e38b8eaa364edc29c94957c74096d"
+      }
+    ]
+  },
+  "closing": {
+    "alt": "Портрет Софьи во время укладки волос гостю",
+    "source": "artifacts/master-articles/sofya-shalaginova/closing.png",
+    "sourceSha256": "41e6cc3b9b06cbf8cf361edacd12a54e77181caa23bc0ecfa7d1f7a4a812f40b",
+    "variants": [
+      {
+        "url": "/media/articles/sofya-shalaginova/closing-640.webp",
+        "width": 640,
+        "height": 853,
+        "sha256": "5ca6bc64b2237395f15827aff4b735e0418bd212471fe987716d54ad9352a197"
+      },
+      {
+        "url": "/media/articles/sofya-shalaginova/closing-1080.webp",
+        "width": 1080,
+        "height": 1440,
+        "sha256": "ee48bfc2575c0ff5cc5cffa0c6fb04036e2568dabaa0e6a7566fd6bd438e33a1"
+      }
+    ]
+  }
+}

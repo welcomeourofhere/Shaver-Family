@@ -1,0 +1,351 @@
+{
+  "status": "local-only-vector-illustrations-not-published",
+  "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\06_Цифровое пространство\\Иконки\\Набор иконок.cdr",
+  "sourceSha256": "25487e12a42730517f97fe25ee54ff4ad5d7a9400171838d769ad1d0172bb664",
+  "nativeExport": "tmp/vector-export-tools/native-icons.svg",
+  "nativeExportSha256": "7c5b8ee767899fb810c3389a9f2978007b60b248e58e67ad54c4b22e6019c7fc",
+  "generator": "scripts/prepare-offer-icons.py",
+  "method": "Four native brandbook objects and six newly drawn offer-specific SVG illustrations. New artwork is explicitly identified per icon and is not presented as original brandbook artwork.",
+  "palette": [
+    "#C62C2A",
+    "#FFCC29",
+    "#52658C",
+    "#1E335C",
+    "#F6E8D3"
+  ],
+  "canvas": {
+    "width": 512,
+    "height": 512,
+    "viewBox": "0 0 512 512",
+    "background": "transparent"
+  },
+  "icons": [
+    {
+      "id": "coffee",
+      "title": "Кофе с собой за отзыв",
+      "url": "/offer-icons/coffee.svg",
+      "viewBox": "0 0 512 512",
+      "width": 512,
+      "height": 512,
+      "bytes": 2837,
+      "sha256": "3dd3ed2630d2976bfd6441cd266fb65968ee65f6fb84db70ad3881b814928f8f",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 8,
+        "stop": 20,
+        "g": 1,
+        "path": 12,
+        "ellipse": 2
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "artworkType": "new-svg-illustration",
+      "object": "Стакан кофе с собой",
+      "authoring": "Drawn for the local SOYUZ offers in scripts/prepare-offer-icons.py using SVG paths and shapes; not extracted or traced from the brandbook.",
+      "styleReference": [
+        "public/reference/gift-5.svg",
+        "public/reference/gift-6.svg",
+        "tmp/vector-export-tools/native-icons.svg"
+      ],
+      "construction": "New tapered takeaway cup, blue lid, cream sleeve and raised star; source palette and gradient direction.",
+      "sourceLayerChildIndices": [],
+      "sourceElementIds": []
+    },
+    {
+      "id": "first-visit",
+      "title": "Скидка 50% на первый визит",
+      "url": "/offer-icons/first-visit.svg",
+      "viewBox": "0 0 512 512",
+      "width": 512,
+      "height": 512,
+      "bytes": 9359,
+      "sha256": "4d1ce78042a6122299aba30300c12cbd6c39835e39316f1a870d5d267b3880f8",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 6,
+        "stop": 6,
+        "radialGradient": 4,
+        "clipPath": 4,
+        "path": 20,
+        "g": 10
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "artworkType": "native-brandbook-vector",
+      "object": "Ракета — первый старт",
+      "sourceLayerChildIndices": [
+        43
+      ],
+      "sourceElementIds": [
+        "_5747830800"
+      ],
+      "modifications": "Original vector shapes, colors and gradient values retained; native CSS inlined; raster-only shadows removed; local IDs prefixed; object uniformly scaled and centered on a transparent square.",
+      "omittedRasterShadowElementsInsideBody": 1
+    },
+    {
+      "id": "cashback",
+      "title": "Постоянный кешбэк 5%",
+      "url": "/offer-icons/cashback.svg",
+      "viewBox": "0 0 512 512",
+      "width": 512,
+      "height": 512,
+      "bytes": 2727,
+      "sha256": "e59612f657c6560595f3e3ba209048fb90b93064fcc212c62466fd1026734549",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 8,
+        "stop": 20,
+        "g": 2,
+        "path": 5,
+        "ellipse": 6
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "artworkType": "new-svg-illustration",
+      "object": "Стопка монет и возвратная стрелка",
+      "authoring": "Drawn for the local SOYUZ offers in scripts/prepare-offer-icons.py using SVG paths and shapes; not extracted or traced from the brandbook.",
+      "styleReference": [
+        "public/reference/gift-5.svg",
+        "public/reference/gift-6.svg",
+        "tmp/vector-export-tools/native-icons.svg"
+      ],
+      "construction": "New stacked coins with thick rims, bevels and a curved return arrow; no numerals or offer conditions are embedded.",
+      "sourceLayerChildIndices": [],
+      "sourceElementIds": []
+    },
+    {
+      "id": "loyalty",
+      "title": "Программа лояльности",
+      "url": "/offer-icons/loyalty.svg",
+      "viewBox": "0 0 512 512",
+      "width": 512,
+      "height": 512,
+      "bytes": 6755,
+      "sha256": "64646943a83b57f3653fcb20fefc73e5f6a2dd5fe696f1bba8b73ff9ae6b2d11",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 9,
+        "clipPath": 3,
+        "path": 9,
+        "mask": 2,
+        "stop": 13,
+        "rect": 6,
+        "g": 9,
+        "polygon": 2
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "artworkType": "native-brandbook-vector",
+      "object": "Подарочная коробка",
+      "sourceLayerChildIndices": [
+        24
+      ],
+      "sourceElementIds": [
+        "_5747849664"
+      ],
+      "modifications": "Original vector shapes, colors and gradient values retained; native CSS inlined; raster-only shadows removed; local IDs prefixed; object uniformly scaled and centered on a transparent square.",
+      "omittedRasterShadowElementsInsideBody": 1
+    },
+    {
+      "id": "waxing",
+      "title": "Бесплатный ваксинг",
+      "url": "/offer-icons/waxing.svg",
+      "viewBox": "0 0 512 512",
+      "width": 512,
+      "height": 512,
+      "bytes": 2804,
+      "sha256": "7d379becf37846422526ded0bf9f709f1fe08accb604d7b9e9e4b3e3a8da5cdb",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 8,
+        "stop": 20,
+        "g": 2,
+        "path": 9,
+        "ellipse": 3,
+        "rect": 2
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "artworkType": "new-svg-illustration",
+      "object": "Восковая ванночка и аппликатор",
+      "authoring": "Drawn for the local SOYUZ offers in scripts/prepare-offer-icons.py using SVG paths and shapes; not extracted or traced from the brandbook.",
+      "styleReference": [
+        "public/reference/gift-5.svg",
+        "public/reference/gift-6.svg",
+        "tmp/vector-export-tools/native-icons.svg"
+      ],
+      "construction": "New open wax pot with golden wax and wooden applicator. It is not a cosmetic jar extracted from the source.",
+      "sourceLayerChildIndices": [],
+      "sourceElementIds": []
+    },
+    {
+      "id": "father-son",
+      "title": "Акция Отец и сын",
+      "url": "/offer-icons/father-son.svg",
+      "viewBox": "0 0 512 512",
+      "width": 512,
+      "height": 512,
+      "bytes": 4422,
+      "sha256": "44ca2ba69614e8b24d4a4c9f795d675ad2cb840294f9a8bcccf61b0e131bd9bc",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 8,
+        "stop": 20,
+        "g": 2,
+        "path": 18,
+        "ellipse": 4,
+        "rect": 8
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "artworkType": "new-svg-illustration",
+      "object": "Два барберских кресла",
+      "authoring": "Drawn for the local SOYUZ offers in scripts/prepare-offer-icons.py using SVG paths and shapes; not extracted or traced from the brandbook.",
+      "styleReference": [
+        "public/reference/gift-5.svg",
+        "public/reference/gift-6.svg",
+        "tmp/vector-export-tools/native-icons.svg"
+      ],
+      "construction": "New adult and child barber chairs at different scales; red and blue upholstery, cream armrests and dimensional metal bases.",
+      "sourceLayerChildIndices": [],
+      "sourceElementIds": []
+    },
+    {
+      "id": "birthday",
+      "title": "Скидка 10% в день рождения",
+      "url": "/offer-icons/birthday.svg",
+      "viewBox": "0 0 512 512",
+      "width": 512,
+      "height": 512,
+      "bytes": 3330,
+      "sha256": "763ea2562333367fc2f6f8d4c94b019730e7b4410157cd8aec7e06c07d12ab1d",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 8,
+        "stop": 20,
+        "ellipse": 7,
+        "path": 11,
+        "g": 1
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "artworkType": "new-svg-illustration",
+      "object": "Праздничный торт со свечами",
+      "authoring": "Drawn for the local SOYUZ offers in scripts/prepare-offer-icons.py using SVG paths and shapes; not extracted or traced from the brandbook.",
+      "styleReference": [
+        "public/reference/gift-5.svg",
+        "public/reference/gift-6.svg",
+        "tmp/vector-export-tools/native-icons.svg"
+      ],
+      "construction": "New dimensional birthday cake with cream icing, three candles and blue serving plate.",
+      "sourceLayerChildIndices": [],
+      "sourceElementIds": []
+    },
+    {
+      "id": "veterans",
+      "title": "Скидка 10% ветеранам СВО",
+      "url": "/offer-icons/veterans.svg",
+      "viewBox": "0 0 512 512",
+      "width": 512,
+      "height": 512,
+      "bytes": 4468,
+      "sha256": "84c69d60e01eadbde4bb342e9f40c073f5973407b52763623735f99ae4e4b33b",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "clipPath": 1,
+        "path": 1,
+        "linearGradient": 12,
+        "stop": 4,
+        "g": 3,
+        "polygon": 12
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "artworkType": "native-brandbook-vector",
+      "object": "Объёмная пятиконечная звезда",
+      "sourceLayerChildIndices": [
+        9,
+        10,
+        11
+      ],
+      "sourceElementIds": [
+        "layer-child-9",
+        "layer-child-10",
+        "layer-child-11"
+      ],
+      "modifications": "Original vector shapes, colors and gradient values retained; native CSS inlined; raster-only shadows removed; local IDs prefixed; object uniformly scaled and centered on a transparent square.",
+      "omittedRasterShadowElementsInsideBody": 0
+    },
+    {
+      "id": "premium",
+      "title": "Премиум с выгодой",
+      "url": "/offer-icons/premium.svg",
+      "viewBox": "0 0 512 512",
+      "width": 512,
+      "height": 512,
+      "bytes": 8110,
+      "sha256": "dd9f38a59f9ccc31fb71930e6beb5b5e022e7a1a9d206ed3a1cba87614c52a6c",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 5,
+        "stop": 10,
+        "radialGradient": 3,
+        "g": 4,
+        "path": 15
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "artworkType": "native-brandbook-vector",
+      "object": "Открытая банка укладочного средства",
+      "sourceLayerChildIndices": [
+        27
+      ],
+      "sourceElementIds": [
+        "_5747846544"
+      ],
+      "modifications": "Original vector shapes, colors and gradient values retained; native CSS inlined; raster-only shadows removed; local IDs prefixed; object uniformly scaled and centered on a transparent square.",
+      "omittedRasterShadowElementsInsideBody": 0
+    },
+    {
+      "id": "referral",
+      "title": "Реферальная программа",
+      "url": "/offer-icons/referral.svg",
+      "viewBox": "0 0 512 512",
+      "width": 512,
+      "height": 512,
+      "bytes": 2865,
+      "sha256": "f54aa6d6a23d96bb6b58505029423a9888a145259870dc6071547c1abfa3a898",
+      "elementCounts": {
+        "svg": 1,
+        "defs": 1,
+        "linearGradient": 8,
+        "stop": 20,
+        "g": 2,
+        "rect": 4,
+        "path": 8
+      },
+      "embeddedImages": 0,
+      "externalReferences": 0,
+      "artworkType": "new-svg-illustration",
+      "object": "Две связанные клубные карты",
+      "authoring": "Drawn for the local SOYUZ offers in scripts/prepare-offer-icons.py using SVG paths and shapes; not extracted or traced from the brandbook.",
+      "styleReference": [
+        "public/reference/gift-5.svg",
+        "public/reference/gift-6.svg",
+        "tmp/vector-export-tools/native-icons.svg"
+      ],
+      "construction": "New pair of red and blue membership cards linked by a gold loop, representing a friend invitation and shared bonus.",
+      "sourceLayerChildIndices": [],
+      "sourceElementIds": []
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+import '../styles/rail-controls.css';
+interface Props {id:string;count:number;label:string;capacity?:number;visibility?:'compact'|'desktop';loop?:boolean;pending?:boolean;}
+const {id,count,label,capacity=count,visibility='compact',loop=false,pending=false}=Astro.props;
+---
+<div class="rail-controls" data-rail-controls={id} data-rail-visibility={visibility} role="group" aria-label={label}>
+  <output data-rail-count aria-label={`1 из ${count}`}>01 / {String(count).padStart(2,'0')}</output>
+  <div class="rail-progress" aria-hidden="true">{Array.from({length:capacity},(_,i)=><span data-current={String(i===0)} hidden={i>=count} />)}</div>
+  <button class="icon-btn" type="button" data-rail-step="-1" aria-label="Предыдущая карточка" aria-controls={id} disabled={pending||!loop||count<2}><Icon name="left" /></button>
+  <button class="icon-btn" type="button" data-rail-step="1" aria-label="Следующая карточка" aria-controls={id} disabled={pending||count<2}><Icon name="right" /></button>
+</div>

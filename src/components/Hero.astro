@@ -1,0 +1,55 @@
+---
+import site from '../../content/site.json';
+import heroMedia from '../../content/hero-media.json';
+import Icon from './Icon.astro';
+import LoadingIndicator from './LoadingIndicator.astro';
+import '../styles/hero.css';
+import Headline from './Headline.astro';
+import RailControls from './RailControls.astro';
+
+---
+<section class="hero shell" id="top" aria-label="Барбершоп СОЮЗ">
+  <div class="hero-lead">
+  <h1 class="hero-heading"><span class="hero-heading-desktop">Первый барбершоп в Кирове, </span><span class="hero-heading-desktop">где стригут и бреют </span><span class="hero-heading-desktop">только прекрасные дамы</span><span class="hero-heading-mobile">Барбершоп СОЮЗ</span></h1>
+  <p class="hero-mobile-copy">Первый барбершоп в Кирове, где стригут и бреют только прекрасные дамы</p>
+  </div>
+  <div class="hero-scene" role="region" aria-roledescription="карусель" aria-label="Публикации СОЮЗа во ВКонтакте" data-news-state="pending" data-news-feed={site.newsFeedUrl} data-news-fallback="/data/news.json">
+    <div class="hero-brand"><picture><source media="(max-width:960px)" srcset="/brand/logo-paper.svg" /><img src="/brand/logo-light.svg" width="160" height="78" alt="СОЮЗ Барбершоп" /></picture></div>
+    <div class="hero-media">
+    <div class="hero-rail" id="hero-news-rail" tabindex="0" aria-label="Публикации ВК. Стрелки влево и вправо — сменить слайд, пробел — пауза и продолжение">
+      <article class="hero-slide photo-frame" data-loading-media data-hero-active="true">
+        <video class="hero-video" data-video-src={heroMedia.playback.url} poster="/media/hero/soyuz-intro-poster.webp" preload="none" muted loop playsinline aria-label="Атмосфера барбершопа СОЮЗ" />
+      </article>
+    </div>
+    <div class="hero-news-state" role="status">
+      <LoadingIndicator label="Загружаем публикации СОЮЗа" />
+      <noscript><p>Включи JavaScript, чтобы увидеть публикации.</p></noscript>
+      <p class="hero-news-failure" hidden>Публикации пока недоступны</p>
+      <button class="btn hero-news-retry" type="button" hidden>Повторить</button>
+    </div>
+    <div class="hero-news-panel" data-news-tone="red" data-selection-surface="red">
+      <div class="hero-news-bodies" id="hero-news-bodies"></div>
+      <div class="hero-news-action" id="hero-news-action"><div><a class="btn btn-cream hero-news-link" href={site.vk} target="_blank" rel="noopener noreferrer" aria-label="Читать публикацию во ВКонтакте">Читать в ВК <Icon name="external" /></a></div></div>
+    </div>
+    </div>
+    <RailControls id="hero-news-rail" count={10} label="Перелистывание публикаций СОЮЗа" visibility="desktop" loop pending />
+    <span class="hero-position sr-only" aria-live="polite" aria-atomic="true"></span>
+  </div>
+  <div class="hero-asides" id="promotions">
+    <aside class="first-visit ticket-cutout" id="welcome-offer" data-selection-surface="blue" aria-labelledby="first-title">
+      <Headline id="first-title" name="promo" />
+      <p>Укажи промокод<span class="yellow-mark">*</span> администратору или в онлайн-записи и получи скидку в размере {site.firstVisitPercent}% на первый визит в барбершоп «СОЮЗ»</p>
+      <div class="first-actions">
+        <button class="promo-code" type="button" data-copy-promo data-promo={site.promo} aria-label={`Скопировать промокод ${site.promo}`}>{site.promo}</button>
+        <button class="btn" type="button" data-booking data-context={`Первый визит −${site.firstVisitPercent}%, промокод ${site.promo}`} aria-label="Записаться со скидкой"><span class="hero-book-long">Записаться со скидкой</span><span class="hero-book-short">Записаться</span></button>
+        <small><span class="yellow-mark">*</span> Для новых клиентов, только на первый визит</small>
+      </div>
+    </aside>
+    <aside class="cashback" id="cashback" data-selection-surface="red" aria-labelledby="cashback-title">
+      <div class="cashback-surface" aria-hidden="true"><div class="cashback-art-stage"><div class="cashback-rays soyuz-rays"></div></div></div>
+      <div class="cashback-copy"><h2 id="cashback-title">Кешбэк</h2><p>{site.cashbackPercent}% возвращается<br />баллами<br />на карту</p><a class="btn btn-cream cashback-link" href="#offer-cashback" aria-label="Подробнее о кешбэке">Подробнее</a></div>
+      <div class="cashback-art-stage cashback-illustration" aria-hidden="true"><img src="/reference/pioneer.webp" width="594" height="800" alt="" /></div>
+    </aside>
+  </div>
+</section>
+<script>import '../scripts/hero-news';</script>

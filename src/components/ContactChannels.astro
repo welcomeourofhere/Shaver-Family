@@ -1,0 +1,23 @@
+---
+import site from '../../content/site.json';
+import Icon from './Icon.astro';
+import ContactGlyph from './ContactGlyph.astro';
+import '../styles/contact-channels.css';
+interface Props { compact?: boolean; showPhone?: boolean; iconsOnly?: boolean; }
+const { compact = false, showPhone = true, iconsOnly = false } = Astro.props;
+const channels = [
+  { id: 'telegram', label: 'Telegram', url: site.telegram },
+  { id: 'max', label: 'MAX', url: site.maxUrl },
+  { id: 'vk', label: 'ВКонтакте', url: site.vkMessageUrl },
+  { id: 'phone', label: 'Позвонить', url: `tel:${site.phoneLink}` },
+];
+---
+<div class="contact-channels">
+  {channels.filter(channel => showPhone || channel.id !== 'phone').map(channel => {
+    const Tag = channel.url ? 'a' : 'button';
+    return <Tag class:list={['contact-channel', !compact && `btn ${channel.id === 'phone' ? 'btn-red' : 'btn-blue'}`]} href={channel.url ?? undefined} type={channel.url ? undefined : 'button'} target={channel.id === 'phone' || !channel.url ? undefined : '_blank'} rel={channel.id === 'phone' || !channel.url ? undefined : 'noopener noreferrer'} disabled={!channel.url} aria-label={channel.label} title={iconsOnly ? channel.label : undefined} data-contact-channel={channel.id}>
+      <ContactGlyph name={channel.id as 'telegram'|'max'|'vk'|'phone'} />
+      <span class:list={['contact-channel-label',{'sr-only':iconsOnly}]}>{channel.label}</span>{!iconsOnly&&channel.id==='vk'&&<span class="contact-channel-short" aria-hidden="true">ВК</span>}{channel.url ? !compact && <Icon name="external" /> : <span class="contact-channel-status">Скоро</span>}
+    </Tag>;
+  })}
+</div>

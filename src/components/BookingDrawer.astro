@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+import site from '../../content/site.json';
+import {bookingURLs} from '../scripts/booking-url';
+import '../styles/booking.css';
+const urls=bookingURLs((site as typeof site & {bookingUrl?:string}).bookingUrl);
+---
+<dialog id="booking-drawer" class="booking-drawer" data-booking-drawer data-booking-url={urls?.widgetUrl} data-booking-default-url={urls?.publicUrl} data-booking-certificate-url={site.certificateUrl} aria-labelledby="booking-drawer-title" tabindex="-1">
+ <div class="booking-backdrop" data-booking-backdrop aria-hidden="true"></div>
+ <section class="booking-panel" data-booking-panel>
+  <h2 class="sr-only" id="booking-drawer-title">Онлайн-запись в СОЮЗ</h2><button class="icon-btn booking-close" type="button" data-booking-close aria-label="Закрыть запись" autofocus><Icon name="close"/></button>
+  {urls?<div class="booking-provider" data-loading-component>
+   <div class="sr-only" data-booking-context hidden><p data-booking-selection></p></div>
+   <p class="booking-status sr-only" data-booking-status role="status">Загружаем онлайн-запись…</p>
+   <iframe class="booking-frame" data-booking-frame title="Онлайн-запись в барбершоп СОЮЗ" referrerpolicy="strict-origin-when-cross-origin" allow="payment"/>
+   <div class="booking-recovery" data-booking-recovery hidden><p>Загрузка занимает больше обычного.</p><button class="btn btn-blue" type="button" data-booking-retry>Повторить</button></div>
+   <a class="text-btn booking-external" data-booking-external href={urls.publicUrl} target="_blank" rel="noopener noreferrer">Открыть отдельно <Icon name="external"/></a>
+  </div>:<div class="booking-body">
+   <div class="booking-context" data-booking-context hidden><p data-booking-selection></p></div>
+   <div class="booking-welcome"><h3>Выберем время вместе</h3><p>Напиши администратору или позвони — поможем выбрать услугу, мастера и удобное время.</p></div>
+   <div class="booking-contacts"><a class="btn btn-red" href={site.vk} target="_blank" rel="noopener noreferrer">Написать в ВК <Icon name="external"/></a><a class="btn btn-cream" href={`tel:${site.phoneLink}`}>Позвонить</a><p>{site.phone}</p></div>
+   <div class="booking-visit"><p>{site.address}</p><p>{site.hours}</p></div>
+  </div>}
+ </section>
+</dialog>
+<script>import '../scripts/booking';</script>

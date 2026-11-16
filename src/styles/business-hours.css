@@ -1,0 +1,10 @@
+.business-hours { display:inline-flex; vertical-align:middle; }
+.business-hours-panel { width:max-content;max-width:calc(100vw - var(--size-32));background:var(--header-popup-bg);color:var(--paper); }
+.business-hours-line { display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--size-4) var(--size-8); }
+.business-hours-status { font-weight:600;white-space:nowrap; }
+.business-hours-status[data-state]::before { content:"";display:inline-block;width:var(--size-8);height:var(--size-8);margin-inline-end:var(--size-8);vertical-align:middle;border-radius:50%;background:var(--red); }
+.business-hours-status[data-state="open"]::before { background:var(--status-open); }
+.business-hours-status[data-state="closing"]::before { background:var(--yellow); }
+.business-hours-detail { min-width:0;max-width:100%;font-weight:400;overflow-wrap:normal; }
+.business-hours-detail:empty { display:none; }
+.business-hours-detail:not(:empty)::before { content:"•\00a0"; }

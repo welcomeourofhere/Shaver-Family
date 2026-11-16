@@ -1,0 +1,38 @@
+.analytics-choice{position:fixed;z-index:110;left:max(var(--size-16),var(--safe-left));bottom:max(var(--size-16),var(--safe-bottom));width:min(var(--size-440),calc(100% - var(--size-32)));max-height:calc(100dvh - var(--size-32) - var(--safe-top) - var(--safe-bottom));overflow:auto;padding:var(--size-24);border-radius:var(--radius-card);background:var(--blue);color:var(--paper);box-shadow:var(--shadow-card)}
+.analytics-choice[hidden]{display:none}
+.analytics-choice h2{font:600 var(--size-20)/1.4 var(--font-body);margin-bottom:var(--size-12)}
+.analytics-choice p,.cookie-settings p{font-size:var(--size-14);line-height:1.6}
+.analytics-choice-notice{margin-top:var(--size-12)}
+.analytics-choice a,.cookie-settings a{color:inherit;text-decoration:underline;text-underline-offset:var(--size-3);overflow-wrap:anywhere}
+.analytics-choice-actions{display:flex;flex-wrap:wrap;gap:var(--size-12);margin-top:var(--size-20)}
+.analytics-choice-actions .btn{flex:1 0 auto}
+.analytics-settings-link{flex-basis:100%;min-height:var(--control-hit);padding:var(--size-8) var(--size-12);border:0;background:transparent;color:inherit;font:600 var(--size-14)/1.4 var(--font-body);text-decoration:underline;text-underline-offset:var(--size-3);white-space:nowrap;cursor:pointer}
+.cookie-settings{width:var(--size-600)}
+.cookie-settings .surface-content{padding:0;scrollbar-gutter:auto;scroll-padding-top:calc(var(--size-80) + var(--size-24))}
+.cookie-settings .dialog-head{position:sticky;top:0;z-index:3;align-items:flex-start;margin:0;padding:var(--size-24) var(--material-padding,var(--size-28)) var(--size-16);background:var(--panel-surface)}
+.cookie-settings .dialog-head::before{content:none}
+.cookie-settings .dialog-head h2{font:400 var(--size-30)/1.1 var(--font-display)}
+.cookie-settings .dialog-head .icon-btn{flex:none}
+.cookie-title-short{display:none}
+.cookie-window-body{padding:0 var(--material-padding,var(--size-28)) var(--material-padding,var(--size-28));overflow-wrap:anywhere}
+.cookie-services{display:grid;gap:var(--size-12);margin-block:var(--size-24);padding:0;border:0;min-width:0}
+.cookie-services legend{font:600 var(--size-16)/1.4 var(--font-body)}
+.cookie-services legend{margin-bottom:var(--size-12)}
+.cookie-service{display:grid;grid-template-columns:var(--control-hit) minmax(0,1fr);align-items:start;gap:var(--size-8);padding:var(--size-16) var(--size-12);border-radius:var(--radius-control);background:color-mix(in srgb,var(--blue) 11%,var(--panel-surface));text-align:start;cursor:pointer;transition:background-color var(--motion-ui) var(--ease-out),color var(--motion-ui) var(--ease-out)}
+.cookie-service:has(input:checked){background:var(--blue);color:var(--paper);--focus-ring:var(--paper)}
+.cookie-service input{width:var(--size-24);height:var(--size-24);margin:var(--size-8);accent-color:var(--blue);cursor:pointer}
+.cookie-service:has(input:checked) input{accent-color:var(--yellow)}
+.cookie-service>span{min-width:0;overflow-wrap:anywhere}
+.cookie-service strong{display:block;font:600 var(--size-16)/1.5 var(--font-body)}
+.cookie-service span span{display:block;margin-top:var(--size-4);font-size:var(--size-14);line-height:1.6}
+.cookie-details{margin-top:var(--size-28)}
+.cookie-details>summary{white-space:nowrap}
+.cookie-details-label-short{display:none}
+.cookie-consent-text,.cookie-policy,.cookie-state{margin-top:var(--size-16)}
+.cookie-settings .cookie-consent-text,.cookie-settings .cookie-policy,.cookie-settings .cookie-state{font-size:var(--size-12)}
+.cookie-actions{display:flex;flex-wrap:wrap;gap:var(--size-12);margin-top:var(--size-20)}
+.cookie-actions .btn{flex:1 0 auto}
+.cookie-state:empty{display:none}
+@media(max-width:960px){.analytics-choice{bottom:calc(var(--mobile-nav-space,var(--size-80)) + var(--size-16));max-height:calc(100dvh - var(--mobile-nav-space,var(--size-80)) - var(--size-32) - var(--safe-top) - var(--safe-bottom));padding:var(--size-20)}}
+@media(max-width:600px){.cookie-title-wide,.cookie-details-label-wide{display:none}.cookie-title-short,.cookie-details-label-short{display:inline}}
+@media print{.analytics-choice,.cookie-settings{display:none!important}}

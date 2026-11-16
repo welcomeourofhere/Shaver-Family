@@ -1,0 +1,13 @@
+{
+  "source": "public/fonts/Molot.ttf",
+  "sourceSha256": "36b23bfd5da7caa36ea9db0a6a1aca8c8fa20f76897085604786a5d2ecc70036",
+  "output": "public/fonts/Molot-UI.ttf",
+  "sha256": "e704751806a0016bf2e50d7c00a9ebe00d771e1b6b6c446cc679335d6c95cd91",
+  "generator": "scripts/prepare-display-font.py",
+  "fontToolsVersion": "4.68.0",
+  "outlineSignature": "336ac0961837757090429982b50a25bd21aa553116eb2544f2be73965ba489b0",
+  "outlinesAndAdvancesUnchanged": true,
+  "operation": "Remove legacy TrueType pixel-grid instructions and integer-ppem forcing; preserve original glyph contours, widths, kerning, Cyrillic accents and percent. Rename derived internal family, retain copyright.",
+  "capHeight": 1434,
+  "unitsPerEm": 2048
+}

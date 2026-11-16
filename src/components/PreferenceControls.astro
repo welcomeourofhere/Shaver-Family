@@ -1,0 +1,10 @@
+---
+import UtilityGlyph from './UtilityGlyph.astro';
+import FeedbackSettings from './FeedbackSettings.astro';
+import '../styles/site-settings.css';
+---
+<div class="preference-controls" role="group" aria-label="Настройки сайта">
+ <FeedbackSettings iconsOnly />
+ <button class="preference-button theme-toggle" type="button" data-theme-toggle aria-label="Переключить тему" title="Переключить тему"><UtilityGlyph name="theme" /></button>
+ <button class="preference-button" type="button" data-analytics-settings aria-label="Настройки cookie" aria-haspopup="dialog" aria-controls="cookie-settings" title="Настройки cookie"><UtilityGlyph name="cookie" /></button>
+</div>

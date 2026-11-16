@@ -1,0 +1,33 @@
+---
+import catalog from '../../content/service-catalog.json';
+import photos from '../../content/service-photos.json';
+import { orderDeck } from '../scripts/deck-order';
+import '../styles/service-deck.css';
+import Headline from './Headline.astro';
+const categories=catalog.categories;
+const order=orderDeck(categories.map((_,index)=>index),0,categories.map(category=>category.color));
+const photoFor=(id:string)=>photos.images[id as keyof typeof photos.images];
+const version=(image:{url:string,sha256:string})=>`${image.url}?v=${image.sha256.slice(0,12)}`;
+---
+<section class="section sd-section" id="services" aria-labelledby="sd-heading" data-service-deck>
+ <div class="shell">
+  <Headline class="section-title" id="sd-heading" name="services" />
+  <div class="sd-tabs" role="tablist" aria-label="Категории услуг">
+   {categories.map((category,index)=><button class="sd-tab" id={`sd-tab-${category.id}`} type="button" role="tab" aria-label={category.name} aria-selected={index===0?'true':'false'} aria-controls={`sd-panel-${category.id}`} tabindex={index===0?0:-1} data-sd-tab={index} style={`--tab-bg:var(--${category.color});--tab-fg:var(--${category.color==='yellow'?'ink':'paper'})`}>{index<2?<><span class="sd-label-full" aria-hidden="true">{category.name}</span><span class="sd-label-compact" aria-hidden="true">{index===0?'Основные':'Стрижки'}</span></>:category.name}</button>)}
+  </div>
+  <div class="sd-stack" style={`--card-count:${categories.length}`}>
+   {categories.map((category,index)=><div class="sd-card" id={`sd-panel-${category.id}`} role="tabpanel" aria-labelledby={`sd-tab-${category.id}`} aria-hidden={index===0?'false':'true'} data-sd-panel={index} data-sd-color={category.color} data-selection-surface={category.color} style={`--card-level:${order.indexOf(index)};--card-bg:var(--${category.color});--card-fg:var(--${category.color==='yellow'?'ink':'paper'});--card-highlight:var(--service-highlight-${category.color==='yellow'?'light':'dark'});--card-duration:var(--${category.color==='yellow'?'ink':'paper'});z-index:${categories.length-order.indexOf(index)}`}>
+    <div class="sd-face" inert={index!==0}>
+     <div class="sd-photo photo-frame" data-loading-media>{(()=>{const p=photoFor(category.services[0].id);return <img class="photo-image" data-photo-current="true" src={version(p.variants[0])} srcset={p.variants.map(v=>`${version(v)} ${v.width}w`).join(', ')} sizes="(max-width:800px) 100vw, 500px" width={p.variants[0].width} height={p.variants[0].height} alt={p.alt} loading="lazy" decoding="async" />})()}</div>
+     <div class="sd-content"><h3 class="sd-title">{category.name}</h3><div class="sd-service-area">
+      {category.services.map((service,serviceIndex)=><details class="sd-service" open={serviceIndex===0} name={`sd-accordion-${category.id}`} data-service-id={service.id} data-photo-src={version(photoFor(service.id).variants[0])} data-photo-srcset={photoFor(service.id).variants.map(v=>`${version(v)} ${v.width}w`).join(', ')} data-photo-alt={photoFor(service.id).alt}>
+       <summary class="sd-summary"><span class="sd-service-main"><span class="sd-service-name">{service.name}</span>{service.duration&&<> <span class="sd-duration">{service.duration}</span></>}</span><span class="sd-price">{service.priceLabel}</span></summary>
+       <div class="sd-description"><p>{service.description}</p></div>
+      </details>)}
+     </div></div>
+    </div>
+   </div>)}
+  </div>
+ </div>
+</section>
+<script>import '../scripts/service-deck';</script>

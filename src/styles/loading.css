@@ -1,0 +1,20 @@
+/* Gallery 04 is the reference: only the inherited color varies between surfaces. */
+.loading-indicator{position:relative;display:inline-block;flex:none;width:var(--loading-size);height:var(--loading-size);color:var(--loading-color,currentColor);vertical-align:middle}
+.loading-indicator-compact{width:var(--loading-compact);height:var(--loading-compact)}
+.loading-indicator>i{display:block;position:absolute;width:var(--loading-tile);height:var(--loading-tile);border-radius:var(--loading-radius);background:currentColor;animation:soyuz-loading-assembly var(--loading-cycle) ease-in-out infinite}
+.loading-indicator>i:nth-child(1){left:var(--loading-inset);top:var(--loading-inset);--loading-x:calc(-1 * var(--loading-spread));--loading-y:calc(-1 * var(--loading-spread))}
+.loading-indicator>i:nth-child(2){right:var(--loading-inset);top:var(--loading-inset);--loading-x:var(--loading-spread);--loading-y:calc(-1 * var(--loading-spread));animation-delay:var(--loading-stagger)}
+.loading-indicator>i:nth-child(3){left:var(--loading-inset);bottom:var(--loading-inset);--loading-x:calc(-1 * var(--loading-spread));--loading-y:var(--loading-spread);animation-delay:calc(2 * var(--loading-stagger))}
+.loading-indicator>i:nth-child(4){right:var(--loading-inset);bottom:var(--loading-inset);--loading-x:var(--loading-spread);--loading-y:var(--loading-spread);animation-delay:calc(3 * var(--loading-stagger))}
+@keyframes soyuz-loading-assembly{0%,100%{transform:translate(var(--loading-x),var(--loading-y));opacity:var(--loading-alpha)}44%,65%{transform:translate(0,0);opacity:1}}
+.loading-indicator[data-loading-paused=true]>i{animation-play-state:paused}
+:where([data-loading-media],[data-loading-component]){position:relative}
+[data-loading-media]>.loading-layer,[data-loading-component]>.loading-layer{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:2;background:transparent;padding:0;border-radius:0}
+.loading-layer[hidden]{display:none}
+:where([data-selection-surface=red],[data-selection-surface=blue],[data-selection-surface=ink],.hero-scene,.story-cover,.story-photo-grid a,.review-photo,.contact-map){--loading-color:var(--paper)}
+:where([data-selection-surface=yellow],[data-selection-surface=paper]){--loading-color:var(--ink)}
+.story-photos:not(.story-photos-grid) .story-portrait{--loading-color:var(--text-primary)}
+.gift:nth-child(1),.gift:nth-child(3),.gift:nth-child(4),.gift:nth-child(5){--loading-color:var(--paper)}
+.gift:nth-child(2),.gift:nth-child(6){--loading-color:var(--ink)}
+.contact-portrait{flex:none;position:relative}
+@media(prefers-reduced-motion:reduce){.loading-indicator>i{animation:none;transform:translate(0,0);opacity:1}}

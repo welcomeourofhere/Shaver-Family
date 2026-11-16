@@ -1,0 +1,33 @@
+{
+  "source": "J:/Projects/Shaver Family (CRM)/app/data/reference/price_list.json",
+  "sourceSha256": "8c0497da65b5e95277075bd98fcf1790fd938b7cd85673d9e53b268a8f5e1c92",
+  "asOf": "2026-11-09",
+  "exportDate": "2026-09-17",
+  "status": "soyuz-training-catalogue",
+  "branch": "souz",
+  "branchAttribution": "inferred_from_colleague_review_and_price_pattern",
+  "livePricesVerified": false,
+  "ownerPolicy": "Use SOYUZ administrator training; no biowave, braids or cornrows.",
+  "sourceFiles": [
+    {
+      "branch": "souz",
+      "file": "services (1).xls",
+      "sha256": "719fd58d9352e3cfb6aacdf47eb62c476f410127aeeeceeeb00e37b8b16cc5c2"
+    },
+    {
+      "branch": "shaver_family",
+      "file": "services (2).xls",
+      "sha256": "b390f473ee030aec50751f934d90ab6498687f9047db56d38606beb00bcf7366"
+    }
+  ],
+  "notes": [
+    "Only souz records imported. Ranges retained. Empty duration remains empty.",
+    "Booking-time, model recruitment and unconfirmed student/promotion conditions are not ordinary public services.",
+    "Cross-brand descriptions are not copied. Short descriptions use literal service composition."
+  ],
+  "ownerOverrides": [
+    "Archive main-soyuz-head-beard; add main-honest-price from 500 RUB, first visit to Sonya Kid or Svetlana.",
+    "All premium services include 10-stage facial SPA; this owner instruction supersedes five-stage wording in the training export."
+  ],
+  "editorialSource": "docs/research/wordstat-services-2026-11-09.json; region 46 Kirov; search wording is not evidence of service composition."
+}

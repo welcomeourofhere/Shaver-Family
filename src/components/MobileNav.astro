@@ -1,0 +1,34 @@
+---
+import Icon from './Icon.astro';
+import site from '../../content/site.json';
+import catalog from '../../content/service-catalog.json';
+import MaterialSurface from './MaterialSurface.astro';
+import '../styles/mobile-nav.css';
+import '../styles/dock-surface.css';
+import {dockActions} from '../scripts/dock-actions';
+const {homeHref=''}=Astro.props;
+const initialActions=dockActions(homeHref?'article':'top');
+---
+<nav class="mobile-nav" aria-label="Действия в текущем разделе" data-mobile-nav data-home-href={homeHref} data-action-count={initialActions.length}>
+  <span class="dock-shell" aria-hidden="true"></span>
+  <div class="dock-toolbar">
+    <button class="dock-menu" type="button" data-open-menu aria-label="Разделы сайта" aria-controls="mobile-menu" aria-haspopup="dialog" aria-expanded="false"><span class="dock-menu-icon"><Icon name="menu" /></span><span class="dock-close-icon"><Icon name="close" /></span></button>
+    {[0,1,2].map((index)=>{
+      const item=initialActions[index],primary=index===initialActions.length-1;
+      return <button class:list={['dock-action',{'mobile-nav-book':primary,'dock-secondary':!primary}]} type="button" data-dock-slot={index} data-action={item?.action} data-display-index={index} data-dock-primary={primary||undefined} data-dock-secondary={!primary||undefined} hidden={!item}><span>{item?.label}</span><span class="dock-arrow dock-arrow-left"><Icon name="left" /></span><span class="dock-arrow dock-arrow-right"><Icon name="right" /></span></button>;
+    })}
+  </div>
+  <span class="sr-only" data-dock-status role="status" aria-live="polite"></span>
+</nav>
+{!homeHref&&<dialog id="service-categories" class="category-dialog mobile-sheet" aria-labelledby="category-dialog-title"><MaterialSurface>
+  <div class="dialog-head"><h2 id="category-dialog-title">Услуги и цены</h2><button class="icon-btn" type="button" data-dismiss aria-label="Закрыть категории"><Icon name="close" /></button></div>
+  <div class="dock-categories">{catalog.categories.map((category,index)=><button type="button" data-dock-category={index} aria-label={category.name} aria-pressed={index===0} style={`--category-color:var(--${category.color});--category-fg:var(--${category.color==='yellow'?'ink':'paper'})`}><span>{category.name.replace(' и ', ', ')}</span></button>)}</div>
+</MaterialSurface></dialog>}
+<dialog id="promo-dialog" class="promo-dialog" aria-labelledby="promo-title" data-promo>
+ <MaterialSurface>
+ <div class="dialog-head"><h2 id="promo-title">Первый визит<br/>за полцены</h2><button class="icon-btn" type="button" data-dismiss aria-label="Закрыть"><Icon name="close"/></button></div>
+ <p>Скидка {site.firstVisitPercent}% на первый визит по промокоду.</p><button class="promo-code" type="button" data-copy-promo data-promo={site.promo} aria-label={`Скопировать промокод ${site.promo}`}>{site.promo}</button>
+ <button class="btn" data-booking data-context={`Первый визит −${site.firstVisitPercent}%, промокод ${site.promo}`} aria-label="Записаться со скидкой"><span class="mobile-action-full">Записаться со скидкой</span><span class="mobile-action-short">Записаться</span></button>
+ </MaterialSurface>
+</dialog>
+<script>import '../scripts/mobile-nav';</script>

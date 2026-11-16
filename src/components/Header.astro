@@ -1,0 +1,32 @@
+---
+import site from '../../content/site.json';
+import BusinessHours from './BusinessHours.astro';
+import Icon from './Icon.astro';
+import ContactChannels from './ContactChannels.astro';
+import PreferenceControls from './PreferenceControls.astro';
+import MaterialSurface from './MaterialSurface.astro';
+import {navigation} from '../config/navigation';
+const links=navigation.map(link=>[`#${link.id}`,link.label]);
+const {homeHref=''}=Astro.props;
+---
+<header class="site-header shell">
+ <div class="header-capsule" data-selection-surface="red">
+  <span class="header-shape" aria-hidden="true"></span>
+  <nav class="header-nav" aria-label="Основная навигация">
+   {links.slice(0,4).map((link,i)=><a class:list={{'header-nav-extra':i===3}} href={`${homeHref}${link[0]}`}>{link[1]}</a>)}
+   <details class="header-menu more-menu"><summary>Ещё <Icon name="chevron" /></summary><div class="header-menu-panel more-panel"><MaterialSurface>{links.slice(2).map((link,i)=><a class:list={{'more-gifts':i===0,'more-extra':i===1}} href={`${homeHref}${link[0]}`}>{link[1]}</a>)}</MaterialSurface></div></details>
+  </nav>
+  <a class="header-logo" href={`${homeHref}#top`} aria-label="СОЮЗ — главная"><span class="header-mark" aria-hidden="true"></span></a>
+  <div class="header-actions"><div class="header-hours"><BusinessHours header /></div><details class="header-menu header-contact"><summary class="header-phone">{site.phone}</summary><div class="header-menu-panel header-contact-panel"><MaterialSurface><ContactChannels compact /></MaterialSurface></div></details><button class="header-book" data-booking>Онлайн-запись</button></div>
+ </div>
+</header>
+<script>import '../scripts/header-menus';</script>
+<dialog id="mobile-menu" class="mobile-menu mobile-sheet" aria-labelledby="menu-title"><MaterialSurface>
+ <span class="menu-grip" aria-hidden="true"></span><div class="dialog-head"><h2 id="menu-title" tabindex="-1">СОЮЗ</h2><button class="icon-btn" data-dismiss aria-label="Закрыть меню"><Icon name="close" /></button></div>
+ <nav aria-label="Разделы сайта">
+  {navigation.filter(link=>link.id!=='contacts').map(link=><a href={`${homeHref}#${link.id}`} aria-label={link.label}><span class="menu-label-full">{link.label}</span><span class="menu-label-short">{link.short}</span><Icon name="right" /></a>)}
+  <div class="menu-contact-row"><a href={`${homeHref}#contacts`} aria-label="Контакты и карта">Контакты</a><PreferenceControls /></div>
+ </nav>
+ <div class="menu-business"><a href={`tel:${site.phoneLink}`}>{site.phone}</a><span>Ежедневно <BusinessHours /></span></div>
+ <button class="btn" data-booking aria-label="Записаться онлайн"><span class="mobile-action-full">Записаться онлайн</span><span class="mobile-action-short">Записаться</span></button>
+</MaterialSurface></dialog>

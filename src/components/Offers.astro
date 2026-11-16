@@ -1,0 +1,78 @@
+---
+import Icon from './Icon.astro';
+import catalog from '../../content/offers.json';
+import posters from '../../content/offer-poster-sources.json';
+import design from '../config/design.json';
+import '../styles/offers.css';
+import Headline from './Headline.astro';
+import RailControls from './RailControls.astro';
+import InfoTip from './InfoTip.astro';
+import site from '../../content/site.json';
+
+const { offers } = catalog;
+const tones = design.offerThemes.base;
+const colorStyle = (index: number) => {
+  const tone = tones[index];
+  const foreground = (tone: string) => tone === 'yellow' ? 'ink' : 'paper';
+  const button = tone === 'yellow' ? 'ink' : 'yellow';
+  const values = {bg: tone, fg: foreground(tone), 'button-bg': button, 'button-fg': foreground(button), 'button-hover-bg': tone === 'blue' ? 'red' : 'blue', 'button-hover-fg': 'paper'};
+  return Object.entries(values).map(([key, value]) => `--offer-base-${key}:var(--${value})`).join(';')+`;--offer-order:${index}`;
+};
+const posterById = Object.fromEntries(posters.images.map(image => [image.id, image]));
+const imageURL = (variant: {url: string; sha256: string}) => `${variant.url}?v=${variant.sha256.slice(0, 12)}`;
+---
+
+<section class="section of-section" id="offers" aria-labelledby="offers-title" data-offers>
+  <div class="shell of-layout">
+    <div class="of-intro">
+      <Headline class="section-title of-heading" id="offers-title" name="offers" aside />
+      <div class="of-controls" aria-label="Перелистывание акций">
+        <button class="icon-btn of-arrow" type="button" data-ui-kind="selection" data-feedback="manual" data-of-prev aria-controls="offers-rail" aria-label="Предыдущая акция"><Icon name="left" /></button>
+        <p class="of-position" data-of-position aria-live="polite" aria-atomic="true">1 / {offers.length}</p>
+        <button class="icon-btn of-arrow" type="button" data-ui-kind="selection" data-feedback="manual" data-of-next aria-controls="offers-rail" aria-label="Следующая акция"><Icon name="right" /></button>
+      </div>
+    </div>
+
+  <div class="of-slider">
+  <p class="sr-only" id="offers-instructions">Листайте акции стрелками или проведите по карточкам. Клавиши влево и вправо переключают акции.</p>
+  <div class="of-rail compact-rail" id="offers-rail" tabindex="0" role="region" aria-roledescription="карусель" aria-label="Все акции СОЮЗа" aria-describedby="offers-instructions" data-of-rail data-loop-ready data-rail-index="0" style={`--rail-count:${offers.length}`}>
+    {offers.map((offer, index) => (
+      <article
+        class="of-card" style={colorStyle(index)} data-offer-active={index === 0 ? 'true' : 'false'}
+        data-offer-tone={tones[index]} data-selection-surface={tones[index]}
+        id={`offer-${offer.id}`}
+        data-offer-id={offer.id}
+        role="group"
+        aria-roledescription="карточка акции"
+        aria-label={`${index + 1} из ${offers.length}: ${offer.title}`}
+      >
+        {offer.note&&<div class="of-note"><InfoTip label={`Важно об акции «${offer.title.replace(/^Акция:\s*/u,'')}»`} text={offer.note} compact /></div>}
+        <div class="of-photo photo-frame" data-loading-media aria-hidden="true"><img class="photo-image" src={imageURL(posterById[offer.id].variants[0])} srcset={posterById[offer.id].variants.map(variant => `${imageURL(variant)} ${variant.width}w`).join(', ')} sizes="(max-width:540px) calc(100vw - 40px), 350px" width={posterById[offer.id].variants[1].width} height={posterById[offer.id].variants[1].height} alt="" loading="lazy" decoding="async" /></div>
+        <div class="of-card-copy">
+        <h3 class="of-title" id={`offer-title-${offer.id}`}>{offer.titleLines ? offer.titleLines.map((line, index) => <span>{line}{index < offer.titleLines.length - 1 ? ' ' : ''}</span>) : offer.title}</h3>
+        <p class="of-summary">{offer.summary}</p>
+          {offer.id === 'honest-price' ? <a class="btn of-action" href="#first-visit">{offer.action}</a> : offer.actionType==='vk'?<a class="btn of-action" href={site.vk} target="_blank" rel="noopener noreferrer" aria-label={offer.action}><span class="mobile-action-full">{offer.action}</span><span class="mobile-action-short">Промокод</span></a>:<button
+            class="btn of-action"
+            type="button"
+            data-ui-kind="filled"
+            data-booking={offer.actionType === 'booking' ? true : undefined}
+            data-contact={offer.actionType === 'contact' ? true : undefined}
+            data-open-reviews={offer.actionType === 'review' ? true : undefined}
+            aria-haspopup={offer.actionType === 'review' ? 'dialog' : undefined}
+            aria-controls={offer.actionType === 'review' ? 'review-dialog' : undefined}
+            data-context={`Акция: ${offer.title.replace(/^Акция:\s*/u, '')}`}
+            aria-label={offer.action}
+          >{offer.actionType === 'booking' || offer.id === 'referral' ? <><span class="mobile-action-full">{offer.action}</span><span class="mobile-action-short">{offer.actionType === 'booking' ? 'Записаться' : 'Подробнее'}</span></> : offer.action}</button>}
+        </div>
+      </article>
+    ))}
+  </div>
+  <RailControls id="offers-rail" count={offers.length} label="Перелистывание акций" />
+  </div>
+  </div>
+
+</section>
+
+<script>
+  import '../scripts/offers';
+</script>

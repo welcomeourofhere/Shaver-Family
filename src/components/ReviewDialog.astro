@@ -1,0 +1,17 @@
+---
+import MaterialSurface from './MaterialSurface.astro';
+import Icon from './Icon.astro';
+import site from '../../content/site.json';
+import {reviewYandex} from '../content/review-extras';
+import '../styles/template.css';
+---
+<dialog id="review-dialog" class="review-dialog" aria-labelledby="review-dialog-title"><MaterialSurface>
+ <div class="dialog-head"><h2 id="review-dialog-title">Оставить отзыв</h2><button class="icon-btn" type="button" data-dismiss aria-label="Закрыть выбор площадки"><Icon name="close" /></button></div>
+ <p>Выбери площадку, на которой тебе удобно поделиться впечатлением.</p>
+ <div class="review-choices"><a class="btn btn-red" href={reviewYandex} target="_blank" rel="noopener noreferrer">Яндекс Карты <Icon name="external" /></a><a class="btn btn-blue" href={site.vk} target="_blank" rel="noopener noreferrer">ВКонтакте <Icon name="external" /></a></div>
+</MaterialSurface></dialog>
+<script>
+ import {openDialog} from '../scripts/motion';
+ const dialog=document.querySelector<HTMLDialogElement>('#review-dialog')!;
+ for(const trigger of document.querySelectorAll('[data-open-reviews]'))trigger.addEventListener('click',()=>openDialog(dialog));
+</script>

@@ -1,0 +1,10 @@
+---
+import InfoTip from './InfoTip.astro';
+import BusinessHoursStatus from './BusinessHoursStatus.astro';
+import MaterialSurface from './MaterialSurface.astro';
+import site from '../../content/site.json';
+import '../styles/business-hours.css';
+const {header=false}=Astro.props;
+---
+{header?<details class="header-menu header-hours-menu"><summary class="info-trigger-text" aria-label={`График работы СОЮЗа, ежедневно ${site.hours}`}>{site.hours}</summary><div class="header-menu-panel business-hours-panel"><MaterialSurface><BusinessHoursStatus /></MaterialSurface></div></details>:<span class="business-hours"><InfoTip label={`График работы СОЮЗа, ежедневно ${site.hours}`} text={`Ежедневно ${site.hours}`} triggerText={site.hours} hoverDelay={0} panelClass="business-hours-panel"><BusinessHoursStatus /></InfoTip></span>}
+<script>import '../scripts/business-hours';</script>

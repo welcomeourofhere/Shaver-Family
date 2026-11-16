@@ -1,0 +1,58 @@
+{
+  "sourceRoot": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025",
+  "status": "historical-portraits-current-team-unverified",
+  "masters": [
+    {
+      "id": "evgenia",
+      "name": "Евгения",
+      "image": "/media/masters/evgenia.webp",
+      "source": "06_Цифровое пространство/YCLIENTS/Сотрудники/Евгения/[C] Евгения аватарка для YCLIENTS.psd",
+      "sourceSha256": "633f4eae718a23b39ac048b0e63789748c429eb3667abd83c964a75c0d031a97",
+      "sourceWidth": 1500,
+      "sourceHeight": 1500,
+      "exportWidth": 900,
+      "exportHeight": 900,
+      "exportSha256": "f970c25e4d418b19a24002e530e19a06f311695abd727557316ec6dc5054e2d1",
+      "status": "historical-source-not-current-team-verified"
+    },
+    {
+      "id": "lena",
+      "name": "Лена",
+      "image": "/media/masters/lena.webp",
+      "source": "06_Цифровое пространство/YCLIENTS/Сотрудники/Лена/Лена.psd",
+      "sourceSha256": "aed95213ffc3c95d8297b5327c3e84b4532acd5575bca4412e63735057bde81a",
+      "sourceWidth": 1920,
+      "sourceHeight": 2560,
+      "exportWidth": 900,
+      "exportHeight": 1200,
+      "exportSha256": "df7d81274860f6722e21da847842925b2c6e5e5bdccaadfaf024fab82c47aea3",
+      "status": "historical-source-not-current-team-verified"
+    },
+    {
+      "id": "milena",
+      "name": "Милена",
+      "image": "/media/masters/milena.webp",
+      "source": "06_Цифровое пространство/YCLIENTS/Сотрудники/Милена/Милена.psd",
+      "sourceSha256": "ddb56f75b69a90be98e8e9ee0d2fa269409ca4e266cc0f6415c01d44745d367f",
+      "sourceWidth": 1920,
+      "sourceHeight": 2560,
+      "exportWidth": 900,
+      "exportHeight": 1200,
+      "exportSha256": "6277428a56a7b5ce2754831af98c71c82117293c4e6f2274cb7acb4fc593ef6b",
+      "status": "historical-source-not-current-team-verified"
+    },
+    {
+      "id": "sonya",
+      "name": "Соня",
+      "image": "/media/masters/sonya.webp",
+      "source": "06_Цифровое пространство/YCLIENTS/Сотрудники/Соня/Соня (Ава).psd",
+      "sourceSha256": "3f0859e615b9d4106ec32ac65e36ac0143ea339ffd244e29cfd795d8b0352d8b",
+      "sourceWidth": 1792,
+      "sourceHeight": 2400,
+      "exportWidth": 896,
+      "exportHeight": 1200,
+      "exportSha256": "311c5170b1601251025a42c53f628007a24a70255d734e3a7fd66547c1b6ae03",
+      "status": "historical-source-not-current-team-verified"
+    }
+  ]
+}

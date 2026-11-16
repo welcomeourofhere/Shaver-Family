@@ -1,0 +1,12 @@
+---
+import site from '../../../content/site.json';
+import {contactMapEmbed} from '../../content/contact-map';
+import Icon from '../Icon.astro';
+interface Props {id:string;class?:string;}
+const {id,class:className=''}=Astro.props;
+const query=encodeURIComponent(site.mapQuery),url=`https://yandex.ru/maps/?text=${query}`;
+---
+<div class={`cp-map ${className}`} data-concept-map data-loading-media>
+ <template data-map-template><iframe id={`map-${id}`} title={`Карта — СОЮЗ, ${site.city}, ${site.address}`} data-map-src={contactMapEmbed} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen tabindex="-1" /></template>
+ <div class="cp-map-tools"><button class="cp-map-toggle" type="button" data-map-toggle aria-controls={`map-${id}`} aria-pressed="false" aria-label="Включить перемещение карты">Двигать карту</button><a class="cp-map-route" href={url} target="_blank" rel="noopener noreferrer">Маршрут<Icon name="external" /></a></div>
+</div>

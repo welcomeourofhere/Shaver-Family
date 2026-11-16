@@ -1,0 +1,21 @@
+---
+import SiteFrame from '../../layouts/SiteFrame.astro';
+import MasterStory from '../../components/MasterStory.astro';
+import {masterStories,type MasterStory as Story} from '../../content/master-articles';
+import team from '../../../content/team.json';
+export function getStaticPaths() {
+  return masterStories.map(article=>({params:{slug:article.slug},props:{article}}));
+}
+interface Props {article:Story;}
+const {article}=Astro.props;
+const master=team.masters.find(item=>item.id===article.masterId)!;
+const articleData={'@context':'https://schema.org','@type':'Article',headline:article.title,description:article.description,author:{'@type':'Organization',name:'Барбершоп СОЮЗ'},about:{'@type':'Person',name:master.name}};
+---
+<SiteFrame title={`${article.title} — Барбершоп СОЮЗ, Киров`} description={article.description} image={article.media[article.cover].variants.at(-1)!.url} imageAlt={article.media[article.cover].alt} articleData={articleData}>
+    <main class="shell story-page" id="main">
+      <div id="top"><a class="text-btn story-back" href="/#masters" aria-label="К мастерам СОЮЗа"><span class="mobile-action-full">← К мастерам СОЮЗа</span><span class="mobile-action-short">К мастерам</span></a></div>
+      <MasterStory article={article} />
+      <div class="story-actions"><button class="btn" type="button" data-booking data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Запись к мастеру: ${master.name}`} aria-label={`Записаться к ${master.bookingNameDative || master.name}`} data-personal-booking-short={`К ${master.bookingNameDative || master.name}`}>Записаться к {master.bookingNameDative || master.name}</button><a class="text-btn" href="/#masters">Все мастера</a></div>
+    </main>
+  <script>import '../../scripts/personal-booking-label';</script>
+</SiteFrame>

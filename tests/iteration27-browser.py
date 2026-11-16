@@ -1,0 +1,21 @@
+from iteration18_browser_helpers import *
+report={'geometry':[],'actions':{},'externalSubmission':False}
+import json
+artwork=json.loads((ROOT/'content/fair-price-artwork.json').read_text(encoding='utf-8'))
+call('open','http://127.0.0.1:4321/');settle();js('window.__errors=[];addEventListener("error",e=>__errors.push(e.message));addEventListener("unhandledrejection",e=>__errors.push(String(e.reason)))')
+for theme in ['light','dark']:
+ call('select','.footer [data-theme-select]',theme)
+ for w in [320,360,390,540,650,680,700,768,800,960,1024,1100,1280,1440,1920]:
+  call('set','viewport',str(w),'1000');center('.footer');row=js(MEASURE);assert not row['overflow'] and not row['issues'],row
+  extra=js('''(()=>{const r=e=>e.getBoundingClientRect(),f=document.querySelector('.footer'),shell=document.querySelector('#services > .shell'),issues=[],range=document.createRange();for(const e of f.querySelectorAll('a,button,select')){const b=r(e),s=getComputedStyle(e);if(b.height<44)issues.push('hit:'+e.className);if(b.left<r(f).left-.5||b.right>r(f).right+.5)issues.push('outside:'+e.className);if(e.matches('select')){const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');ctx.font=s.font;if(ctx.measureText(e.options[e.selectedIndex].text).width+parseFloat(s.paddingLeft)+parseFloat(s.paddingRight)+16>b.width)issues.push('select clipped');}}return{footerWidth:r(f).width,shellWidth:r(shell).width,height:r(f).height,logo:getComputedStyle(f.querySelector('.footer-brand-mark')).backgroundColor,background:getComputedStyle(f.querySelector('.footer-card')).backgroundColor,issues}})()''')
+  assert abs(extra['footerWidth']-extra['shellWidth'])<1 and extra['logo']=='rgb(246, 232, 211)' and extra['background']=='rgb(75, 75, 77)' and not extra['issues'],extra
+  center('#first-visit');js('window.__alphaTop='+str(artwork['alphaBounds'][1]));visit=js('''(async()=>{const section=document.querySelector('#first-visit'),title=section.querySelector('h2'),ticket=section.querySelector('.visit-ticket'),art=section.querySelector('.visit-art'),img=art.querySelector('img');await img.decode();const r=e=>e.getBoundingClientRect(),before=r(title).top,old=art.style.visibility;art.style.visibility='hidden';const after=r(title).top;art.style.visibility=old;const box=r(img),scale=Math.min(box.width/img.naturalWidth,box.height/img.naturalHeight),head=box.bottom-img.naturalHeight*scale+__alphaTop*scale;return{headingDelta:Math.abs(before-after),notch:parseFloat(getComputedStyle(ticket).getPropertyValue('--ticket-notch')),gap:r(ticket).top-r(title).bottom,headOverhang:r(ticket).top-head,headClearance:head-r(title).bottom,actionGap:r(section.querySelector('.visit-actions')).top-r(section.querySelector('.visit-copy>p')).bottom,noGrass:!section.querySelector('.visit-field')};})()''')
+  assert visit['headingDelta']==0 and visit['notch']==24 and visit['noGrass'] and 16<=visit['actionGap']<=24 and visit['headOverhang']>5 and visit['headClearance']>8,visit
+  report['geometry'].append({**row,**extra,**visit})
+ print('PASS bounded footer / beige logo / labels / independent heading',theme,flush=True)
+call('set','viewport','844','390');center('.footer');assert not js(MEASURE)['issues'];center('#first-visit');assert not js(MEASURE)['issues']
+call('set','viewport','1440','1000');call('select','.footer [data-theme-select]','light');center('.footer');call('click','.footer-booking [data-booking]');settle();assert js('!!document.querySelector("[data-booking-drawer][open]")');report['actions']['booking']=True
+r=js(MEASURE);assert not r['issues'] and not r['overflow'],r;call('press','Escape');settle();center('.footer');call('click','.footer-phone');settle();assert js('document.querySelector(".contact-dialog").open');call('press','Escape');settle();report['actions']['contacts']=True
+for w in [390,1440]:
+ call('set','viewport',str(w),'1000');center('#first-visit');call('screenshot',str(ROOT/f'docs/previews/round27-visit-{w}.png'));center('.footer');call('screenshot',str(ROOT/f'docs/previews/round27-footer-{w}.png'))
+report['errors']=js('__errors');assert not report['errors'];save('iteration27-qa',report);print('PASS footer actions / docked geometry / landscape / no JS errors',flush=True)

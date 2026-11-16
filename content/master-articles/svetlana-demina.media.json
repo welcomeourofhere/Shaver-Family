@@ -1,0 +1,116 @@
+{
+  "photo-01": {
+    "alt": "Светлана Дёмина в кресле барбершопа СОЮЗ",
+    "source": "artifacts/master-articles/svetlana-demina/originals/photo-01.jpg",
+    "sourceSha256": "3ffae77a2fd43274e1cf28be9d56e36d97865582b1740762f84131bb1e61fd2b",
+    "variants": [
+      {
+        "url": "/media/articles/svetlana-demina/photo-01-640.webp",
+        "width": 640,
+        "height": 480,
+        "sha256": "f52783cd7f6e7f96b4a6cf40c1ed107c4b6dc2661116a9dc9eecd3cecd246443"
+      },
+      {
+        "url": "/media/articles/svetlana-demina/photo-01-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "sha256": "8915745a564fe12ec85f53f1a8d2be37733cd4b23c60bb129f16cb79c945bad3"
+      }
+    ]
+  },
+  "photo-02": {
+    "alt": "Светлана в выпускной мантии с дипломом",
+    "source": "artifacts/master-articles/svetlana-demina/originals/photo-02.jpg",
+    "sourceSha256": "e5d3cfdec76ad50f1645909eb28ef7112258c5289a1978fa19c5f711b9dbc742",
+    "variants": [
+      {
+        "url": "/media/articles/svetlana-demina/photo-02-640.webp",
+        "width": 640,
+        "height": 854,
+        "sha256": "326d4affede21b9b7433287051aca14a952f012b7fe25ad2db8c6611ebb8ff01"
+      },
+      {
+        "url": "/media/articles/svetlana-demina/photo-02-1080.webp",
+        "width": 1080,
+        "height": 1441,
+        "sha256": "e2a80ac14d6aa53030dbe15801572413eb27f5b6a9c24a77fb311961920977f1"
+      }
+    ]
+  },
+  "photo-03": {
+    "alt": "Светлана выступает перед аудиторией во время работы в Россельхозцентре",
+    "source": "artifacts/master-articles/svetlana-demina/originals/photo-03.jpg",
+    "sourceSha256": "7755b6d027989b38580bdfa126684a22924dffb65f1ccd457a93f34327b9f2af",
+    "variants": [
+      {
+        "url": "/media/articles/svetlana-demina/photo-03-640.webp",
+        "width": 640,
+        "height": 427,
+        "sha256": "bfd4447d71cf486480c66d4a2aeaa161794d851a404675403e26663a3abda941"
+      },
+      {
+        "url": "/media/articles/svetlana-demina/photo-03-1080.webp",
+        "width": 1080,
+        "height": 720,
+        "sha256": "4929b314b57903b9d3160b13776618b4d27d473e9349e829ef5f01b12d1d2041"
+      }
+    ]
+  },
+  "photo-04": {
+    "alt": "Светлана повторяет жест с плаката в интерьере СОЮЗа",
+    "source": "artifacts/master-articles/svetlana-demina/originals/photo-04.jpg",
+    "sourceSha256": "0057ff9643dac7493ccc5f13cff56a6ee9143ff092d9ec8a5ef518acc0e54165",
+    "variants": [
+      {
+        "url": "/media/articles/svetlana-demina/photo-04-640.webp",
+        "width": 640,
+        "height": 480,
+        "sha256": "d061aa417cc4c42d23c6040b77ba273f7b691617fbb6200ce3f75f5a9e5ab9ba"
+      },
+      {
+        "url": "/media/articles/svetlana-demina/photo-04-1080.webp",
+        "width": 1080,
+        "height": 810,
+        "sha256": "568d24783edf05ce53824a6ac2ba7dc5634a5d5dfb9394fb036ee10e9051a868"
+      }
+    ]
+  },
+  "photo-05": {
+    "alt": "Участники совместного занятия за столом",
+    "source": "artifacts/master-articles/svetlana-demina/originals/photo-05.jpg",
+    "sourceSha256": "8522103d1a802153110050296b644430ac4f44f7fddbe7097559e9b0a9e06072",
+    "variants": [
+      {
+        "url": "/media/articles/svetlana-demina/photo-05-640.webp",
+        "width": 640,
+        "height": 427,
+        "sha256": "08d65aab162309c0cac489fc9a49e2bf205a4102f41979d8aab255f734d82bd2"
+      },
+      {
+        "url": "/media/articles/svetlana-demina/photo-05-1080.webp",
+        "width": 1080,
+        "height": 720,
+        "sha256": "9b4cd762da176a4443a338fab2e0bdf834c6624959b52e05d1f15933e503de89"
+      }
+    ]
+  },
+  "photo-06": {
+    "alt": "Светлана высаживает растения на участке",
+    "source": "artifacts/master-articles/svetlana-demina/originals/photo-06.jpg",
+    "sourceSha256": "bdd1beb6a7df0d747beaafe8dd43fad3a23e0ebc7d1f3bb10a8cc4b8442cc401",
+    "variants": [
+      {
+        "url": "/media/articles/svetlana-demina/photo-06-640.webp",
+        "width": 640,
+        "height": 634,
+        "sha256": "cb2627de821a16bb8ac14984a1518a0edaf6bf35b75681662f9512d292123d89"
+      },
+      {
+        "url": "/media/articles/svetlana-demina/photo-06-1080.webp",
+        "width": 1080,
+        "height": 1070,
+        "sha256": "fa261ad77e653b8bf9e12f42458b10ceb6d776a6dd47b0c50cb522becde06365"
+      }
+    ]
+  }
+}

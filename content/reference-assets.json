@@ -1,0 +1,130 @@
+{
+  "status": "local-template-reference-assets",
+  "giftPhotoIds": [
+    4
+  ],
+  "images": {
+    "gift-photo-4": {
+      "url": "/reference/gift-photo-4.webp",
+      "source": "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\codex-clipboard-68de5f2a-58f5-4130-8853-b247d0e1949d.png",
+      "sourceSha256": "56f8bef9fb4fce62ac959defebebb486270979ea010797c9a57fc96cbfcb2f6d",
+      "operation": {
+        "type": "latest-owner-reference-photo-crop",
+        "box": [
+          222,
+          483,
+          410,
+          671
+        ],
+        "nativeResolution": true
+      },
+      "width": 188,
+      "height": 188,
+      "bytes": 33782,
+      "sha256": "fbe48afb73bc621ab172a1d417efd09215e8adba1f88fa7306554c3bd38a170f"
+    },
+    "certificate-front": {
+      "url": "/reference/certificate-front.webp",
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\05_Базовая палиграфия\\Подарочные карты и сертификаты\\Подарочные карты (Только для просмотра).pdf",
+      "sourceSha256": "631d63f72ed1d6c48adf7c1c14ee8413533b14b83f078f96d431d4e4cc1be82a",
+      "operation": {
+        "type": "pdf-page-render",
+        "page": 1,
+        "renderWidth": 900,
+        "historicalPrintedContent": true
+      },
+      "width": 900,
+      "height": 1422,
+      "bytes": 34034,
+      "sha256": "51cd725fa3ccc89e1dda9947e50d1dcf96b2f6bdf989f6f706008b703d4700dd"
+    },
+    "certificate-back": {
+      "url": "/reference/certificate-back.webp",
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\05_Базовая палиграфия\\Подарочные карты и сертификаты\\Подарочные карты (Только для просмотра).pdf",
+      "sourceSha256": "631d63f72ed1d6c48adf7c1c14ee8413533b14b83f078f96d431d4e4cc1be82a",
+      "operation": {
+        "type": "pdf-page-render",
+        "page": 3,
+        "renderWidth": 900,
+        "historicalPrintedContent": true
+      },
+      "width": 900,
+      "height": 1422,
+      "bytes": 29518,
+      "sha256": "f416eafd51a067928016f75dd1cf9e33d3f957c87a499aa81864c5a991d02523"
+    },
+    "pioneer": {
+      "url": "/reference/pioneer.webp",
+      "source": "J:\\Projects\\СОЮЗ (Website)\\archive\\legacy\\assets\\images\\decor\\pioneer.webp",
+      "sourceSha256": "b4c89ede6aec3557b2b21aeaa1bc4e05bbeb933fde93d86dda412f6e9b5eb2ec",
+      "operation": {
+        "type": "unchanged-legacy-artwork",
+        "alphaPreserved": true,
+        "lineage": "Visual artwork match to Soviet pioneer poster embedded in brandbook CDR site; legacy extraction process undocumented."
+      },
+      "width": 594,
+      "height": 800,
+      "bytes": 37488,
+      "sha256": "b4c89ede6aec3557b2b21aeaa1bc4e05bbeb933fde93d86dda412f6e9b5eb2ec"
+    },
+    "hero": {
+      "url": "/reference/hero.webp",
+      "source": "J:\\Projects\\СОЮЗ (Website)\\archive\\legacy\\assets\\images\\interior\\170A0800.jpg",
+      "sourceSha256": "a973a52a52fbd11ca6085d3de8202c2b5d8830469ddaf1aa1df6f383db07f179",
+      "operation": {
+        "type": "resize-exact-owner-selected-photo",
+        "exactReferenceMatch": "Owner screenshot2, hand at lips, burgundy hair, blue shirt, red cabinet and carpet",
+        "brandbookSource": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\07_Фотографии\\Фотосет 2025 №1\\Не исопльзовать\\170A0800.jpg",
+        "archivalFolderFlag": "Не исопльзовать",
+        "currentSelection": "Owner explicitly selected this exact photograph in screenshot2; latest explicit selection overrides the old unused-folder label for this scoped local template",
+        "brandbookAndLegacyByteIdenticalVerified": true
+      },
+      "width": 1440,
+      "height": 1920,
+      "bytes": 254204,
+      "sha256": "7f4fdb739ba1c5b850c7156a42e20acf4d46958248160c4d3b916a66301dbae0"
+    },
+    "certificate-1000": {
+      "url": "/reference/certificate-1000.webp",
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\05_Базовая палиграфия\\Подарочные карты и сертификаты\\Подарочные карты (Только для просмотра).pdf",
+      "sourceSha256": "631d63f72ed1d6c48adf7c1c14ee8413533b14b83f078f96d431d4e4cc1be82a",
+      "operation": {
+        "type": "native-vector-denomination-adaptation",
+        "page": 2,
+        "renderWidth": 900,
+        "historicalPrintedContent": true,
+        "fromAmount": 1500,
+        "toAmount": 1000,
+        "glyphSource": "Zero outline from the same PDF page, replacing only the five outline",
+        "editable": "artifacts/certificates/certificate-1000.svg"
+      },
+      "width": 900,
+      "height": 1422,
+      "bytes": 21900,
+      "sha256": "0cfda7005a96916d8c432354a9c8cd4279337d18fab7c52be1fbaebde95d3074"
+    },
+    "certificate-3000": {
+      "url": "/reference/certificate-3000.webp",
+      "source": "J:\\Brandbooks\\brand book СОЮЗ Барбершоп 2025\\05_Базовая палиграфия\\Подарочные карты и сертификаты\\Подарочные карты (Только для просмотра).pdf",
+      "sourceSha256": "631d63f72ed1d6c48adf7c1c14ee8413533b14b83f078f96d431d4e4cc1be82a",
+      "operation": {
+        "type": "pdf-page-render",
+        "page": 4,
+        "renderWidth": 900,
+        "historicalPrintedContent": true
+      },
+      "width": 900,
+      "height": 1422,
+      "bytes": 25524,
+      "sha256": "f00de41a94971160ede91eb80c2e0ef3edab6b146c431c7c478f1f39eadea0c2"
+    }
+  },
+  "gaps": [
+    "Gift photos 1,2,3,5,6 are unavailable. Preserve their illustrations on interaction; do not substitute unrelated products.",
+    "Gift photo4 is a 188x188 exact crop of the latest owner reference. The original independent photograph was not found.",
+    "Pioneer is an unchanged legacy transparent asset. The same artwork is visible in the source CDR bitmap, but the legacy background-removal process is undocumented.",
+    "Printed certificate contacts and denominations are historical artwork, not verification of current business conditions.",
+    "Hero exact original matches the owner's current screenshot2 choice. The same filename is filed under the brandbook's older 'Не исопльзовать' directory. The owner's latest explicit selection overrides that older folder label for this scoped local template."
+  ],
+  "vectorIcons": "content/gift-vector-sources.json"
+}

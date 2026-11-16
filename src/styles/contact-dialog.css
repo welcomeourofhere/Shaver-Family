@@ -1,0 +1,31 @@
+.contact-dialog {
+  width: var(--size-460);
+}
+.contact-context {
+  margin-block: 0 var(--size-20);
+  font-size: var(--size-14);
+}
+.contact-channels {
+  display: grid;
+  gap: var(--size-12);
+}
+.contact-dialog .contact-channel {
+  width: 100%;
+  min-height: var(--size-56);
+  justify-content: flex-start;
+  gap: var(--size-12);
+  padding-inline: var(--size-16);
+}
+.contact-channel-icon {
+  flex: none;
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+.contact-channel > .ui-icon,
+.contact-channel-status {
+  margin-inline-start: auto;
+}
+.contact-channel-status {
+  font-size: var(--size-12);
+  font-weight: 400;
+}

@@ -1,0 +1,44 @@
+---
+import Icon from './Icon.astro';
+import MaterialSurface from './MaterialSurface.astro';
+import operator from '../../content/legal/operator.json';
+import '../styles/analytics-choice.css';
+import '../styles/faq.css';
+---
+<aside class="analytics-choice" data-selection-surface="blue" data-analytics-prompt hidden role="region" aria-labelledby="analytics-choice-title">
+ <h2 id="analytics-choice-title">Cookie и статистика</h2>
+ <p>Яндекс Метрика с Вебвизором и Google Analytics собирают статистику посещений и действий. Сервисы включаются с вашего согласия и используют cookie и данные браузера. Google получает данные за пределами России.</p>
+ <p class="analytics-choice-notice">Кнопкой «Разрешить» вы даёте {operator.legalName} отдельное согласие на эту обработку на 180 дней. Изменить выбор или отозвать согласие можно в настройках cookie. <a href="/privacy-policy/">Политика обработки персональных данных</a></p>
+ <div class="analytics-choice-actions">
+  <button class="btn btn-yellow" type="button" data-analytics-choice="granted">Разрешить</button>
+  <button class="btn btn-cream" type="button" data-analytics-choice="denied">Без аналитики</button>
+  <button class="analytics-settings-link" type="button" data-analytics-settings aria-haspopup="dialog" aria-controls="cookie-settings" aria-label="Настроить cookie и аналитику">Настроить</button>
+ </div>
+</aside>
+<dialog id="cookie-settings" class="cookie-settings" aria-labelledby="cookie-settings-title" aria-describedby="cookie-settings-intro">
+ <MaterialSurface>
+  <div class="dialog-head"><h2 id="cookie-settings-title" aria-label="Настройки cookie"><span class="cookie-title-wide">Настройки cookie</span><span class="cookie-title-short" aria-hidden="true">Куки</span></h2><button class="icon-btn" type="button" data-dismiss aria-label="Закрыть настройки cookie"><Icon name="close" /></button></div>
+  <div class="cookie-window-body">
+  <p id="cookie-settings-intro">Выберите сервисы для статистики посещений и действий на сайте.</p>
+  <fieldset class="cookie-services">
+   <legend>Необязательная аналитика</legend>
+   <label class="cookie-service"><input type="checkbox" name="cookie-metrika" data-cookie-service="metrika" aria-labelledby="cookie-metrika-title" aria-describedby="cookie-metrika-description" /><span><strong id="cookie-metrika-title">Яндекс Метрика</strong><span id="cookie-metrika-description">Статистика посещений, переходов и действий. Вебвизор записывает взаимодействия с сайтом. Сервис использует cookie, IP-адрес, данные устройства и браузера.</span></span></label>
+   <label class="cookie-service"><input type="checkbox" name="cookie-ga4" data-cookie-service="ga4" aria-labelledby="cookie-ga4-title" aria-describedby="cookie-ga4-description" /><span><strong id="cookie-ga4-title">Google Analytics</strong><span id="cookie-ga4-description">Статистика посещений, переходов и действий. Сервис использует cookie, идентификаторы браузера и данные устройства. Google получает эти данные, в том числе за пределами России. Рекламная персонализация отключена.</span></span></label>
+  </fieldset>
+  <p class="cookie-consent-text">Нажимая «Сохранить», вы даёте {operator.legalName} отдельное согласие на обработку технических данных отмеченными сервисами для аналитики. Согласие действует 180 дней или до отзыва.</p>
+  <div class="cookie-actions"><button class="btn btn-yellow" type="button" data-analytics-save aria-label="Сохранить выбор cookie">Сохранить</button><button class="btn btn-blue" type="button" data-analytics-withdraw>Без аналитики</button></div>
+  <p class="cookie-state" data-cookie-state role="status" aria-live="polite"></p>
+  <details class="faq-item cookie-details" data-faq-tone="blue" data-selection-surface="blue">
+   <summary aria-label="Данные и согласие"><span class="cookie-details-label-wide">Данные и согласие</span><span class="cookie-details-label-short" aria-hidden="true">Данные</span><span class="faq-mark" aria-hidden="true"></span></summary>
+   <div class="faq-answer">
+    <p>Сайт запоминает тему, звук и выбор аналитики в этом браузере. Настройки темы и звука в сервисы аналитики не передаются.</p>
+    <p>Оператор обработки данных {operator.legalName}, ИНН {operator.inn}. Мы анализируем посещаемость, чтобы улучшать сайт. Автоматизированная обработка включает сбор, запись, хранение, использование, передачу выбранным сервисам и удаление данных.</p>
+    <p>Выбор действует 180 дней. В этом браузере сохраняются выбранные сервисы, дата и версия согласия. Через 180 дней сайт спросит снова. Срок аналитических cookie зависит от сервиса и браузера. Например, срок cookie _ga по умолчанию составляет два года.</p>
+    <p>Кнопка «Без аналитики» отзывает согласие, останавливает счётчики и удаляет доступные этому сайту аналитические cookie. Cookie других доменов удаляются в настройках браузера. По вопросам уже обработанных данных напишите на <a href={`mailto:${operator.email}`}>{operator.email}</a>.</p>
+    <p><a href="https://yandex.ru/support/metrica/ru/general/cookie-usage" target="_blank" rel="noopener noreferrer">Cookie Яндекс Метрики</a> · <a href="https://support.google.com/analytics/answer/11397207?hl=ru" target="_blank" rel="noopener noreferrer">Cookie Google Analytics</a></p>
+   </div>
+  </details>
+  <p class="cookie-policy"><a href="/privacy-policy/">Политика обработки персональных данных</a></p>
+  </div>
+ </MaterialSurface>
+</dialog>

@@ -1,0 +1,11 @@
+---
+import '../styles/feedback.css';
+import UtilityGlyph from './UtilityGlyph.astro';
+interface Props { compact?: boolean; iconsOnly?:boolean; }
+const { compact = false,iconsOnly=false } = Astro.props;
+---
+<button class="fb-setting" type="button" data-feedback-toggle aria-pressed="true" aria-label="Звук и вибрация: включены">
+  <span class="fb-icon" data-feedback-wave><UtilityGlyph name="sound-on" /></span><span class="fb-icon" data-feedback-mute><UtilityGlyph name="sound-off" /></span>
+  {!iconsOnly&&<span>{compact ? 'Звук:' : <><span class="feedback-label-full">Звук и вибрация:</span><span class="feedback-label-short">Звук:</span></>} <span data-feedback-status>вкл.</span></span>}
+</button>
+

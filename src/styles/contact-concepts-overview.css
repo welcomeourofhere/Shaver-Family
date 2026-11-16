@@ -1,0 +1,18 @@
+.cc-overview { max-width:calc(var(--size-1160) + var(--size-40)); margin:auto; padding:var(--size-32) var(--size-20) var(--size-64); }
+.cc-overview h1 { font:400 var(--size-40)/1.1 var(--font-display); color:var(--heading-color); margin-bottom:var(--size-16); }
+.cc-overview>p { max-width:var(--size-800); margin-bottom:var(--size-16); }
+.cc-overview section { padding-block:var(--size-40); border-bottom:var(--size-1) solid var(--ink); }
+.cc-overview-title { display:flex; flex-wrap:wrap; gap:var(--size-16); justify-content:space-between; align-items:center; margin-bottom:var(--size-16); }
+.cc-overview-title h2 { font:400 var(--size-28)/1.15 var(--font-display); color:var(--heading-color); }
+.cc-overview section>p { font-size:var(--size-14); margin-bottom:var(--size-20); }
+.cc-overview .btn { padding-inline:var(--size-16); font-size:var(--size-13); }
+.cc-board { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--size-24); margin-block:var(--size-32); }
+.cc-board>a { display:flex; flex-direction:column; min-width:0; padding:var(--size-12); background:var(--paper); color:var(--ink); border-radius:var(--radius-card); }
+.cc-board img { width:100%; height:var(--size-400); object-fit:contain; object-position:center; border-radius:var(--radius-control); }
+.cc-board span { display:flex; align-items:center; min-height:var(--control-hit); padding-inline:var(--size-12); font:600 var(--size-16)/1.4 var(--font-body); }
+.cc-board>a:focus-visible { outline:var(--size-3) solid var(--blue); outline-offset:var(--size-3); }
+@media (hover:hover) and (pointer:fine) { .cc-board>a:hover { background:var(--yellow); } }
+.cc-overview-pair { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,1fr); gap:var(--size-20); align-items:start; }
+.cc-overview-pair>a { min-width:0; border-radius:var(--radius-control); overflow:hidden; }
+.cc-overview-pair img { display:block; width:100%; height:auto; }
+@media (max-width:600px) { .cc-board { grid-template-columns:minmax(0,1fr); }.cc-board img { height:auto; }.cc-overview-pair { grid-template-columns:minmax(0,1fr); }.cc-overview-pair>a:nth-child(2) { max-width:75%; margin-inline:auto; } }

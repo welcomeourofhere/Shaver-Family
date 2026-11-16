@@ -1,0 +1,13 @@
+---
+import Icon from './Icon.astro';
+import ContactChannels from './ContactChannels.astro';
+import MaterialSurface from './MaterialSurface.astro';
+import '../styles/contact-dialog.css';
+---
+<dialog id="contact-dialog" class="contact-dialog" aria-labelledby="contact-title">
+  <MaterialSurface>
+  <div class="dialog-head"><h2 id="contact-title">Связаться<br />с СОЮЗом</h2><button class="icon-btn" type="button" data-dismiss aria-label="Закрыть контакты"><Icon name="close" /></button></div>
+  <p class="contact-context" data-contact-context hidden></p>
+  <ContactChannels />
+  </MaterialSurface>
+</dialog>

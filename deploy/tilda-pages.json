@@ -1,0 +1,140 @@
+{
+  "projectId": 46815509,
+  "build": "db23e622f97223556f77",
+  "origin": "https://soyuz.hair",
+  "technicalOrigin": "https://stay-tan-habanero.tilda.ws",
+  "pages": [
+    {
+      "route": "/",
+      "pageid": 389013709,
+      "recordid": 5845189501,
+      "alias": "",
+      "headSha256": "a4c81480fc113dc3b0aaba610861b4b0c2d954c613e8df69ffed68333913df3c",
+      "codeSha256": "c28b18376665d630a085a5f33b21955193c8a40555cac750050e5e96e93b5f3c",
+      "bodyExact": true,
+      "headExact": true
+    },
+    {
+      "route": "/masters/milena-malyshevskaya",
+      "pageid": 389014309,
+      "recordid": 5845195201,
+      "alias": "masters/milena-malyshevskaya",
+      "headSha256": "c52b04cb89e9f700bf014c45a5cc9fcd2a518f024087ff88818c849f75d7beb9",
+      "codeSha256": "c5454823f3631d25f928225ac49977a3dcf969aaa37ba0bcdd91e285f7a24131",
+      "bodyExact": true,
+      "headExact": true
+    },
+    {
+      "route": "/masters/sonya-kid",
+      "pageid": 389014409,
+      "recordid": 5845195301,
+      "alias": "masters/sonya-kid",
+      "headSha256": "dc82956ab1a3817d85db2adf57b16c03b37c268649ae50bcec665a2648560a41",
+      "codeSha256": "88abb7780f6b1da1c8474b96c1a09ae5ae91ee2116a122c200ee99016209d409",
+      "bodyExact": true,
+      "headExact": true
+    },
+    {
+      "route": "/masters/svetlana-demina",
+      "pageid": 389014509,
+      "recordid": 5845195501,
+      "alias": "masters/svetlana-demina",
+      "headSha256": "9d17edebede6a3cbac748b38be52a78688d275fe9c7391e684368624650fa6f8",
+      "codeSha256": "9b6fcaf729e68f2a5ad455cc69b9636ec9d78eaf889bbd355f98a80af02a8d1e",
+      "bodyExact": true,
+      "headExact": true
+    },
+    {
+      "route": "/masters/lyubov-shklyaeva",
+      "pageid": 389014609,
+      "recordid": 5845195801,
+      "alias": "masters/lyubov-shklyaeva",
+      "headSha256": "2551c3bbd0fa5e51768537241e0b9d16002a2e67093acc69a298f7454bf49e0a",
+      "codeSha256": "13f165e5ca205bfbba9c0c204528b4bcd1d9e658be8f8953658f6295bd6c47aa",
+      "bodyExact": true,
+      "headExact": true
+    },
+    {
+      "route": "/masters/sofya-shalaginova",
+      "pageid": 389014709,
+      "recordid": 5845196001,
+      "alias": "masters/sofya-shalaginova",
+      "headSha256": "1fee978bd4977c840ccd48a9b9e365ef8cc110c0100ea1df5346a4326f7bf357",
+      "codeSha256": "b9b9d9d59dca54ee55f97e0c4515e03e162ed0465dc4c287644e01a3bd9b5560",
+      "bodyExact": true,
+      "headExact": true
+    },
+    {
+      "route": "/masters/darya-merzlyakova",
+      "pageid": 389014809,
+      "recordid": 5845196201,
+      "alias": "masters/darya-merzlyakova",
+      "headSha256": "28bc8a68b6d2cc37d7fc1d158b844b5057cb618894471f49abe170e27d718d96",
+      "codeSha256": "f9e8dfd9aeb360106bc2496ed8bd0eac057ae0d2d2a24b61ddeeffb4e006797f",
+      "bodyExact": true,
+      "headExact": true
+    },
+    {
+      "route": "/404",
+      "pageid": 389014909,
+      "recordid": 5845196401,
+      "alias": "not-found",
+      "headSha256": "7338e11b0a5d83194b60388a67022e498c76200495b70733f4247270974181d0",
+      "codeSha256": "a119830fb68b64c3a7a87ed955cd66885854c52d58ac157608723c358505b78d",
+      "bodyExact": true,
+      "headExact": true
+    },
+    {
+      "route": "/oferta",
+      "pageid": 389284109,
+      "recordid": 5848252201,
+      "alias": "oferta",
+      "headSha256": "fa6d0248175ed1b714e7deb462b7f0b60894caf2b7554aa3e694c820b7ceec1c",
+      "codeSha256": "63319213100af24d32a2c13104674413c0f585bd97b645cee3279fb3f6be9db9",
+      "bodyExact": true,
+      "headExact": true
+    },
+    {
+      "route": "/privacy-policy",
+      "pageid": 389284209,
+      "recordid": 5848252301,
+      "alias": "privacy-policy",
+      "headSha256": "5802c7fa28f71972903cd90330c8a3816336b734ac3edaa5f099fda9b77dd700",
+      "codeSha256": "5924bf79fcfa42c85da9e04c8068528cc592a21444d398ff5fc0d35fa4fda00c",
+      "bodyExact": true,
+      "headExact": true
+    },
+    {
+      "route": "/privacy-data",
+      "pageid": 389284309,
+      "recordid": 5848252601,
+      "alias": "privacy-data",
+      "headSha256": "aaa16f7248ae51829b1cbe888c71c796bdc0baf1368a2f11f87d41a679b386ad",
+      "codeSha256": "2ae798f858f8228034c2ce4d5bfd85c40193a145e558d20ce97a0b51da15055d",
+      "bodyExact": true,
+      "headExact": true
+    },
+    {
+      "route": "/soyuz-header",
+      "pageid": 389283909,
+      "recordid": 5848251901,
+      "alias": "soyuz-header",
+      "headSha256": "1bb9aae800bdb6e8ccc004edf018d1afd4d9e14f4df6153215757cfa4c67640f",
+      "codeSha256": "ff110f06e0a653aa7b3688c1b9b40b6e97dbe2edbad67edd226cdf3adbee584b",
+      "bodyExact": true,
+      "headExact": true,
+      "sharedKind": "header"
+    },
+    {
+      "route": "/soyuz-footer",
+      "pageid": 389284009,
+      "recordid": 5848252001,
+      "alias": "soyuz-footer",
+      "headSha256": "1bb9aae800bdb6e8ccc004edf018d1afd4d9e14f4df6153215757cfa4c67640f",
+      "codeSha256": "55d95851f4002b17f0d689dbb79e86691969572603ba590c225d7f07f01e5456",
+      "bodyExact": true,
+      "headExact": true,
+      "sharedKind": "footer"
+    }
+  ]
+}

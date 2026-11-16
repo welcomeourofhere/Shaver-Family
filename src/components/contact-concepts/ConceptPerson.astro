@@ -1,0 +1,11 @@
+---
+import data from '../../../content/contacts.json';
+const person=data.people[0];
+interface Props {class?:string;portrait?:boolean;}
+const {class:className='',portrait=true}=Astro.props;
+---
+<article class={`cp-person ${className}`}>
+ {portrait&&<div class="cp-person-photo" data-loading-media><img src={person.image} width="300" height="300" alt={person.name} loading="lazy" decoding="async" /></div>}
+ <div class="cp-person-copy"><h3>{person.name}</h3><p>{person.role}</p></div>
+ <div class="cp-person-links"><a href={`tel:${person.phoneTel}`} aria-label={person.phoneDisplay} data-action-short="Позвонить"><span data-action-label>{person.phoneDisplay}</span></a><a href={person.telegramUrl} target="_blank" rel="noopener noreferrer" aria-label={person.telegram} data-action-short="Telegram"><span data-action-label>{person.telegram}</span></a></div>
+</article>
