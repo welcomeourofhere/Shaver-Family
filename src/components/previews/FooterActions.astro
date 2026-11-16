@@ -1,0 +1,11 @@
+---
+import {footerFacts as facts} from '../../content/footer-concepts';
+import ContactChannels from '../ContactChannels.astro';
+interface Props {phone?:boolean;channels?:boolean;booking?:boolean;channelStyle?:'blue'|'secondary';}
+const {phone=true,channels=true,booking=true,channelStyle='blue'}=Astro.props;
+---
+<div class="fc-actions" data-channel-style={channelStyle}>
+ {phone&&<a class="fc-phone" href={facts.phoneHref} aria-label={`Позвонить в СОЮЗ: ${facts.phone}`} data-action-full={facts.phone} data-action-short="Позвонить"><span data-action-label>{facts.phone}</span></a>}
+ {channels&&<ContactChannels compact showPhone={false} iconsOnly />}
+ {booking&&<a class="fc-book" href={facts.booking} target="_blank" rel="noopener noreferrer" aria-label="Записаться онлайн в СОЮЗ">Записаться</a>}
+</div>

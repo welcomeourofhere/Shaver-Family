@@ -17,7 +17,8 @@ CONTENT_TYPES={'.css':'text/css','.js':'application/javascript','.mjs':'applicat
 CODEC={'format':'gzip','level':9,'mtime':0,'os':255,'zlibVersion':zlib.ZLIB_RUNTIME_VERSION}
 PATTERN=re.compile(r'(?<![\w:./-])(?:https://soyuz\.hair)?/(?:_astro|media|brand|fonts|data|reference|audio|offer-icons)/[^\s\x22\x27<>),;`]*')
 RELATIVE=re.compile(r'[\x22\x27](\.{1,2}/[^\x22\x27\s]+)[\x22\x27]')
-HOST_CSS='''#allrecords .t123,#allrecords .t123>.t-container,#allrecords .t123 .t-col,#allrecords .t123 .t-width{width:100%;max-width:none;margin:0;padding:0;float:none}
+HOST_CSS='''body.t-body,#allrecords,#t-header,#t-footer{background:transparent!important}
+#allrecords .t123,#allrecords .t123>.t-container,#allrecords .t123 .t-col,#allrecords .t123 .t-width{width:100%;max-width:none;margin:0;padding:0;float:none}
 #allrecords .t-rec{padding:0!important}
 /* Native shared-page wrappers must not bound the sticky header or clip its menus. */
 #t-header,#t-header>.t-rec,#t-header .t123,#t-header .t123>.t-container,#t-header .t123>.t-container_100,#t-header .t123 .t-col,#t-header .t123 .t-width{display:contents}
@@ -26,6 +27,18 @@ html[data-booking-layout="docked"][data-booking-state="open"] #allrecords{width:
 
 def sha(data):return hashlib.sha256(data).hexdigest()
 def content_type(path):return CONTENT_TYPES.get(Path(path).suffix.lower(),'application/octet-stream')
+def exporter_fingerprint():
+    # Source snapshots normalize newlines; preserve that identity across OSes.
+    source=Path(__file__).read_bytes().replace(b'\r\n',b'\n')
+    return {'version':5,'sourceSha256':sha(source),'sourceNormalization':'UTF-8 LF','hostCssSha256':sha(HOST_CSS.encode('utf-8'))}
+def build_identity(prepared):
+    digest=hashlib.sha256(b'SOYUZ public assets v5 exporter identity')
+    for value in (CODEC,exporter_fingerprint()):digest.update(json.dumps(value,sort_keys=True,separators=(',',':')).encode())
+    for path in sorted(prepared):
+        body=prepared[path];kind=Path(path).suffix.lower()
+        normalized=public_urls(body.decode('utf-8'),'@ASSET_BASE@/').encode('utf-8')if kind in TEXT else body
+        digest.update(path.encode());digest.update(content_type(path).encode());digest.update(normalized)
+    return digest.hexdigest()[:20]
 def gzip_bytes(body):
     buffer=BytesIO()
     with gzip.GzipFile(filename='',mode='wb',fileobj=buffer,compresslevel=CODEC['level'],mtime=CODEC['mtime'])as archive:archive.write(body)
@@ -115,15 +128,13 @@ def main():
         protect_embedded_css(soup)
     # Keep the approved canonical icons/fonts available to source checks and CI.
     for directory in ['brand','fonts']:include(directory+'/')
-    # HTML/metadata edits reuse identical resources; hash their actual export form.
-    digest=hashlib.sha256(b'SOYUZ public assets v4 canonical content types');prepared={}
-    digest.update(json.dumps(CODEC,sort_keys=True,separators=(',',':')).encode())
+    # Include the native renderer/host contract, not only resource bytes.
+    prepared={}
     for path in sorted(assets):
         body=(DIST/path).read_bytes();kind=Path(path).suffix.lower()
         if kind=='.css':body=protected_css(body.decode('utf-8')).encode()
-        prepared[path]=body;normalized=public_urls(body.decode('utf-8'),'@ASSET_BASE@/').encode('utf-8')if kind in TEXT else body
-        digest.update(path.encode());digest.update(content_type(path).encode());digest.update(normalized)
-    build=digest.hexdigest()[:20];prefix=CONFIG['prefix']+build+'/'
+        prepared[path]=body
+    build=build_identity(prepared);prefix=CONFIG['prefix']+build+'/'
     base=f'https://storage.yandexcloud.net/{CONFIG["bucket"]}/{prefix}'
     urls={path:f'https://storage.yandexcloud.net/{CONFIG["bucket"]}/'+asset_key(path,prepared[path],build)for path in assets}
     out=ROOT/'deploy/out'/build;out.mkdir(parents=True,exist_ok=True)
@@ -155,19 +166,19 @@ def main():
         host='<style>'+HOST_CSS+'</style>'
         head=host+head
         headfile=f'{name}.head.html';codefile=f'{name}.body.html'
-        (out/headfile).write_text(head,encoding='utf-8');(out/codefile).write_text(code,encoding='utf-8')
+        (out/headfile).write_text(head,encoding='utf-8',newline='');(out/codefile).write_text(code,encoding='utf-8',newline='')
         emitted.append({'route':route,'alias':''if route=='/'else'not-found'if route=='/404'else route.strip('/'),'title':metadata.title.get_text(),'description':metadata.select_one('meta[name=description]')['content'],'canonical':CONFIG['origin']+route,'noindex':route=='/404','headFile':headfile,'codeFile':codefile,'headSha256':sha(head.encode()),'codeSha256':sha(code.encode()),'codeBytes':len(code.encode())})
     assert shared is not None
     shared_pages={}
     for key,body in shared.items():
         head=rewrite('<meta name="robots" content="noindex, nofollow">'+shared_head+'<style>'+HOST_CSS+'</style>');code=rewrite(body)
         headfile=f'shared-{key}.head.html';codefile=f'shared-{key}.body.html'
-        (out/headfile).write_text(head,encoding='utf-8');(out/codefile).write_text(code,encoding='utf-8')
+        (out/headfile).write_text(head,encoding='utf-8',newline='');(out/codefile).write_text(code,encoding='utf-8',newline='')
         shared_pages[key]={'alias':'soyuz-'+key,'title':'Шапка СОЮЗа'if key=='header'else'Подвал СОЮЗа','noindex':True,'headFile':headfile,'codeFile':codefile,'headSha256':sha(head.encode()),'codeSha256':sha(code.encode())}
-    manifest={'schemaVersion':2,'codec':CODEC,'build':build,'projectId':CONFIG['projectId'],'origin':CONFIG['origin'],'bucket':CONFIG['bucket'],'prefix':prefix,'assetBase':base,'pages':emitted,'shared':shared_pages,'files':files}
-    (out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    (ROOT/'deploy/current.json').write_text(json.dumps({'build':build,'manifest':(out/'manifest.json').relative_to(ROOT).as_posix()},indent=2)+'\n',encoding='utf-8')
+    manifest={'schemaVersion':2,'codec':CODEC,'exporter':exporter_fingerprint(),'build':build,'projectId':CONFIG['projectId'],'origin':CONFIG['origin'],'bucket':CONFIG['bucket'],'prefix':prefix,'assetBase':base,'pages':emitted,'shared':shared_pages,'files':files}
+    (out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='')
+    (ROOT/'deploy/current.json').write_text(json.dumps({'build':build,'manifest':(out/'manifest.json').relative_to(ROOT).as_posix()},indent=2)+'\n',encoding='utf-8',newline='')
     media_lock={'schemaVersion':1,'build':build,'assetBase':base,'files':[{key:row[key]for key in ['sourcePath','sourceSha256','url','sha256','contentSha256','contentEncoding']}for row in files if not row['sourcePath'].startswith('_astro/')]}
-    (ROOT/'deploy/media-lock.json').write_text(json.dumps(media_lock,indent=2)+'\n',encoding='utf-8')
+    (ROOT/'deploy/media-lock.json').write_text(json.dumps(media_lock,indent=2)+'\n',encoding='utf-8',newline='')
     print(json.dumps({'build':build,'pages':len(pages),'assets':len(files),'encodedBytes':sum(f['bytes']for f in files),'manifest':str(out/'manifest.json')},ensure_ascii=False))
 if __name__=='__main__':main()

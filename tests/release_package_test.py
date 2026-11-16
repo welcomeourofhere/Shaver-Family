@@ -10,6 +10,39 @@ ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('package',ROOT/'scripts/prepare-tilda-release.py');package=importlib.util.module_from_spec(spec);spec.loader.exec_module(package)
 
 class ReleasePackageTest(unittest.TestCase):
+ def test_native_host_canvas_delegates_opaque_background_to_root(self):
+  rules=package.tinycss2.parse_stylesheet(package.HOST_CSS,skip_whitespace=True,skip_comments=True)
+  rule=next(rule for rule in rules if rule.type=='qualified-rule'and 'body.t-body'in package.tinycss2.serialize(rule.prelude).split(','))
+  self.assertEqual(set(package.tinycss2.serialize(rule.prelude).split(',')),{'body.t-body','#allrecords','#t-header','#t-footer'})
+  background=next(item for item in package.tinycss2.parse_declaration_list(rule.content)if item.type=='declaration'and item.lower_name=='background')
+  self.assertTrue(background.important);self.assertEqual(package.tinycss2.serialize(background.value).strip(),'transparent')
+ def test_host_renderer_changes_build_but_preserves_binary_representation(self):
+  prepared={'_astro/entry.js':b'console.log("same")','media/portrait.webp':b'same image','fonts/ui.woff2':b'same font'}
+  before=package.build_identity(prepared);fingerprint=package.exporter_fingerprint()
+  with patch.object(package,'HOST_CSS',package.HOST_CSS+'\nbody.t-body{isolation:isolate}'):
+   after=package.build_identity(prepared);changed=package.exporter_fingerprint()
+  self.assertNotEqual(before,after);self.assertNotEqual(fingerprint['hostCssSha256'],changed['hostCssSha256'])
+  self.assertEqual(fingerprint['sourceSha256'],changed['sourceSha256'])
+  for path in ['media/portrait.webp','fonts/ui.woff2']:
+   body=prepared[path];self.assertEqual(package.asset_key(path,body,before),package.asset_key(path,body,after));self.assertEqual(prepared[path],body)
+  self.assertNotEqual(package.asset_key('_astro/entry.js',prepared['_astro/entry.js'],before),package.asset_key('_astro/entry.js',prepared['_astro/entry.js'],after))
+ def test_exporter_fingerprint_is_portable_but_detects_renderer_source_change(self):
+  with patch.object(package.Path,'read_bytes',return_value=b'first\r\nsecond\r\n'):windows=package.exporter_fingerprint()
+  with patch.object(package.Path,'read_bytes',return_value=b'first\nsecond\n'):posix=package.exporter_fingerprint()
+  self.assertEqual(windows,posix)
+  before=package.build_identity({})
+  with patch.object(package.Path,'read_bytes',return_value=b'changed renderer\n'):after=package.build_identity({})
+  self.assertNotEqual(before,after)
+ def test_fixture_reproduces_native_classes_and_opaque_project_background(self):
+  spec=importlib.util.spec_from_file_location('freeze_fixture',ROOT/'scripts/freeze-release-fixture.py');freeze=importlib.util.module_from_spec(spec);spec.loader.exec_module(freeze)
+  document=freeze.native_document('Host test','<style>'+package.HOST_CSS+'</style>','<div id="t-header" class="t-records"></div><main>Content</main><div id="t-footer" class="t-records"></div>',freeze.host_background('#FFFCF7'))
+  soup=BeautifulSoup(document,'html.parser')
+  for node in [soup.body,soup.select_one('#allrecords')]:self.assertEqual(node['style'],'background-color:#fffcf7')
+  self.assertIn('t-body',soup.body['class']);self.assertIn('t-records',soup.select_one('#allrecords')['class'])
+  self.assertEqual(soup.select_one('[data-native-host-background]').get_text(),'body.t-body,.t-records{background-color:#fffcf7}')
+  for selector in ['#t-header','#t-footer']:self.assertIn('t-records',soup.select_one(selector)['class'])
+  self.assertIsNone(BeautifulSoup(freeze.native_document('No background','',''),'html.parser').body.get('style'))
+  with self.assertRaises(freeze.argparse.ArgumentTypeError):freeze.host_background('#ffffff00')
  def test_asset_mime_is_portable_and_part_of_immutable_binary_identity(self):
   with patch('mimetypes.guess_type',return_value=('application/octet-stream',None)):
    for path,mime in [('photo.webp','image/webp'),('font.woff2','font/woff2'),('font.woff','font/woff'),('font.ttf','font/ttf'),('icon.svg','image/svg+xml'),('entry.js','application/javascript')]:self.assertEqual(package.content_type(path),mime)
@@ -41,10 +74,17 @@ class ReleasePackageTest(unittest.TestCase):
   self.assertIn('a:hover:not(#soyuz-export-style-a#soyuz-export-style-b)',result)
   self.assertIn('.x:not(#soyuz-export-style-a#soyuz-export-style-b)::before',result)
   self.assertIn('from{opacity:0}',result);self.assertNotIn('from:not',result)
+ def test_current_package_prepares_exact_tilda_payload_without_normalizing_bytes(self):
+  spec=importlib.util.spec_from_file_location('tilda_update',ROOT/'scripts/prepare-tilda-update.py');update=importlib.util.module_from_spec(spec);spec.loader.exec_module(update)
+  payload=update.prepare(ROOT,require_uploaded=False)
+  self.assertEqual(len(payload['rows']),13);self.assertFalse(payload['assetsVerified'])
+  for row in payload['rows']:
+   for field in ['head','code']:self.assertEqual(hashlib.sha256(row[field].encode('utf-8')).hexdigest(),row[field+'Sha256'])
  def test_every_referenced_public_asset_is_packaged_with_verified_bytes(self):
   pointer=json.loads((ROOT/'deploy/current.json').read_text());manifest_path=ROOT/pointer['manifest'];manifest=json.loads(manifest_path.read_text(encoding='utf-8'));rows={row['sourcePath']:row for row in manifest['files']}
   self.assertEqual(manifest['projectId'],46815509);self.assertEqual(manifest['origin'],'https://soyuz.hair');self.assertEqual(len(manifest['pages']),11)
   self.assertEqual(manifest['codec'],package.CODEC)
+  self.assertEqual(manifest['exporter'],package.exporter_fingerprint())
   self.assertFalse(any('/previews/'in p['route']for p in manifest['pages']))
   for row in rows.values():
    body=(ROOT/row['file']).read_bytes();self.assertEqual(hashlib.sha256(body).hexdigest(),row['sha256']);self.assertEqual(hashlib.sha256(gzip.decompress(body)if row['contentEncoding']=='gzip'else body).hexdigest(),row['contentSha256'])
@@ -62,7 +102,8 @@ class ReleasePackageTest(unittest.TestCase):
    for path in re.findall(r'''["'(](/(?!/)[^"')\s<>?#]+)''',source):
     target=ROOT/'dist'/path.lstrip('/')
     if target.is_file()and target.suffix!='.html':self.assertIn(path.lstrip('/'),rows,path)
-   body=(manifest_path.parent/page['codeFile']).read_text(encoding='utf-8');head=(manifest_path.parent/page['headFile']).read_text(encoding='utf-8')
+   body=(manifest_path.parent/page['codeFile']).read_bytes().decode('utf-8');head=(manifest_path.parent/page['headFile']).read_bytes().decode('utf-8')
+   self.assertIn(package.HOST_CSS,head)
    self.assertEqual(hashlib.sha256(body.encode()).hexdigest(),page['codeSha256']);self.assertEqual(hashlib.sha256(head.encode()).hexdigest(),page['headSha256'])
    self.assertEqual(len(BeautifulSoup(body,'html.parser').select('h1')),1)
    exported=BeautifulSoup(head,'html.parser');self.assertFalse(exported.select('meta[property="og:title"],meta[property="og:description"],meta[property="og:url"],meta[property="og:type"]'))
@@ -75,7 +116,8 @@ class ReleasePackageTest(unittest.TestCase):
    self.assertNotRegex(body+head,r'https?://(?:127\.0\.0\.1|localhost)');self.assertNotIn('shaverfamily.ru',head)
   self.assertEqual(set(manifest['shared']),{'header','footer'})
   for key,row in manifest['shared'].items():
-   code=(manifest_path.parent/row['codeFile']).read_text(encoding='utf-8');head=(manifest_path.parent/row['headFile']).read_text(encoding='utf-8')
+   code=(manifest_path.parent/row['codeFile']).read_bytes().decode('utf-8');head=(manifest_path.parent/row['headFile']).read_bytes().decode('utf-8')
+   self.assertIn(package.HOST_CSS,head)
    self.assertEqual(hashlib.sha256(code.encode()).hexdigest(),row['codeSha256']);self.assertEqual(hashlib.sha256(head.encode()).hexdigest(),row['headSha256']);self.assertIn('noindex',head)
    self.assertNotIn('type="module"',head)
 if __name__=='__main__':unittest.main()

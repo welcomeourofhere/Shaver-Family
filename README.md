@@ -36,3 +36,15 @@ python -m unittest discover -s tests -p '*_test.py'
 Подготовка пакета не публикует сайт. upload-tilda-assets.py --apply пишет только разрешённый namespace существующим локальным профилем. T123 и HEAD берутся из точного manifest, затем проверяются чтением и публикуются средствами Тильды. Подробная карта настроек — docs/TILDA_SETTINGS_64.md; действующий контракт — docs/DESIGN_SYSTEM.md; состояние — docs/PROGRESS.md; план — docs/superpowers/plans/2026-11-15-soyuz-release.md.
 
 Исходное production-дерево готовится командой `python scripts/prepare-source-tree.py`. Она явно исключает локальные previews, originals и сборки, сохраняет авторские SVG и создаёт Git tree payload в `.local/release65/`; `--materialize .local/<новая папка>` дополнительно создаёт чистый каталог для CI-проверки. Команда ничего не отправляет в GitHub и не удаляет файлы.
+
+## Git и source-политика
+
+Удалённый источник этого сайта — изолированная ветка `codex/soyuz-release` репозитория `welcomeourofhere/Shaver-Family`. Она содержит только СОЮЗ. Fetch/push ограничиваются этой веткой; `main` Shaver Family не меняется. Подключение локального Git выполняется отдельно после подтверждённого source-commit, без checkout/reset/clean рабочего каталога.
+
+Канонический набор задаёт `scripts/prepare-source-tree.py:source_files()` вместе с `tests/ci-suites.json` и `deploy/media-lock.json`. Staging разрешён только по проверенному списку этих путей с последующей сверкой staged/tracked-набора. Нельзя использовать `git add -A` или `git add .`: `.gitignore` служит дополнительной защитой, а не заменой source-whitelist. В `public` разрешены только выбранные авторскиеSVG и лицензияLucide; правило «всеSVG» не применяется. При изменении канонического набора соответствующие исключения `.gitignore` сверяются заново.
+
+`.gitattributes` использует `* -text`, чтобы API-payload, Git blobs и локальные авторские файлы сохраняли одинаковые байты, включаяCRLF. Это отключает EOL-конверсию, а не обычный текстовыйdiff. Массовая нормализация и `git add --renormalize` не входят в экспорт. КаноническиеLF-байты HEAD/body и их хеши отдельно обеспечивает exporter.
+
+Оригиналы, previews, игры, исторические бинарные материалы и результаты сборок остаются локально. Публичные производные восстанавливаются через bootstrap по lock и SHA, без перезаписи отличающихся оригиналов. НеобходимыеMarkdown-документы из `docs/archive` остаются частью явно выбранного source-набора.
+
+Успешный GitHub CI подтверждает проверку source/пакета, но не публикацию сайта. Cloud-перенос, HEAD/T123, readback и публикация Тильды выполняются отдельно из принятого manifest; запись build в локальном указателе не заменяет подтверждение публичной версии.

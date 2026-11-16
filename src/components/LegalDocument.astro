@@ -6,12 +6,12 @@ const {document:legal}=Astro.props;
 ---
 <main class="legal-page shell section" id="main">
  <div class="legal-intro"><h1>{legal.title}</h1><p>{legal.intro}</p><p class="legal-revision">Редакция от 15 ноября 2026 года</p></div>
- <nav class="legal-navigation" aria-label="Документы СОЮЗа">{legalDocuments.map(page=><a class="btn" href={`/${page.slug}`} aria-current={page.slug===legal.slug?'page':undefined} aria-label={page.title}>{page.label}</a>)}<button class="btn btn-cream" type="button" data-legal-print>Печать</button></nav>
+ <nav class="legal-navigation" aria-label="Документы СОЮЗа">{legalDocuments.map(page=><a class="btn" href={`/${page.slug}/`} aria-current={page.slug===legal.slug?'page':undefined} aria-label={page.title}>{page.label}</a>)}<button class="btn btn-cream" type="button" data-legal-print>Печать</button></nav>
  <div class="legal-sections">{legal.sections.map((section,index)=><section aria-labelledby={section.id}>
   <h2 id={section.id}>{index+1}. {section.title}</h2>
   {section.paragraphs.map(paragraph=><p>{paragraph}</p>)}
   {section.requisites&&<dl class="legal-requisites">{requisites.map(([label,value])=><><dt>{label}</dt><dd>{value}</dd></>)}</dl>}
-  {section.links&&<p class="legal-related">{section.links.map(slug=>{const page=legalDocuments.find(item=>item.slug===slug)!;return <a href={`/${slug}`}>{page.title}</a>;})}</p>}
+  {section.links&&<p class="legal-related">{section.links.map(slug=>{const page=legalDocuments.find(item=>item.slug===slug)!;return <a href={`/${slug}/`}>{page.title}</a>;})}</p>}
  </section>)}</div>
 </main>
 <script>for(const button of document.querySelectorAll('[data-legal-print]'))button.addEventListener('click',()=>window.print());</script>

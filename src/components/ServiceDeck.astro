@@ -7,6 +7,7 @@ import Headline from './Headline.astro';
 const categories=catalog.categories;
 const order=orderDeck(categories.map((_,index)=>index),0,categories.map(category=>category.color));
 const photoFor=(id:string)=>photos.images[id as keyof typeof photos.images];
+const mirrorFor=(id:string)=>{const image=photoFor(id);return 'mirror'in image&&image.mirror===true;};
 const version=(image:{url:string,sha256:string})=>`${image.url}?v=${image.sha256.slice(0,12)}`;
 ---
 <section class="section sd-section" id="services" aria-labelledby="sd-heading" data-service-deck>
@@ -18,9 +19,9 @@ const version=(image:{url:string,sha256:string})=>`${image.url}?v=${image.sha256
   <div class="sd-stack" style={`--card-count:${categories.length}`}>
    {categories.map((category,index)=><div class="sd-card" id={`sd-panel-${category.id}`} role="tabpanel" aria-labelledby={`sd-tab-${category.id}`} aria-hidden={index===0?'false':'true'} data-sd-panel={index} data-sd-color={category.color} data-selection-surface={category.color} style={`--card-level:${order.indexOf(index)};--card-bg:var(--${category.color});--card-fg:var(--${category.color==='yellow'?'ink':'paper'});--card-highlight:var(--service-highlight-${category.color==='yellow'?'light':'dark'});--card-duration:var(--${category.color==='yellow'?'ink':'paper'});z-index:${categories.length-order.indexOf(index)}`}>
     <div class="sd-face" inert={index!==0}>
-     <div class="sd-photo photo-frame" data-loading-media>{(()=>{const p=photoFor(category.services[0].id);return <img class="photo-image" data-photo-current="true" src={version(p.variants[0])} srcset={p.variants.map(v=>`${version(v)} ${v.width}w`).join(', ')} sizes="(max-width:800px) 100vw, 500px" width={p.variants[0].width} height={p.variants[0].height} alt={p.alt} loading="lazy" decoding="async" />})()}</div>
+     <div class="sd-photo photo-frame" data-loading-media>{(()=>{const p=photoFor(category.services[0].id);return <img class="photo-image" data-photo-current="true" data-photo-mirror={mirrorFor(category.services[0].id)?'true':undefined} src={version(p.variants[0])} srcset={p.variants.map(v=>`${version(v)} ${v.width}w`).join(', ')} sizes="(max-width:800px) 100vw, 500px" width={p.variants[0].width} height={p.variants[0].height} alt={p.alt} loading="lazy" decoding="async" />})()}</div>
      <div class="sd-content"><h3 class="sd-title">{category.name}</h3><div class="sd-service-area">
-      {category.services.map((service,serviceIndex)=><details class="sd-service" open={serviceIndex===0} name={`sd-accordion-${category.id}`} data-service-id={service.id} data-photo-src={version(photoFor(service.id).variants[0])} data-photo-srcset={photoFor(service.id).variants.map(v=>`${version(v)} ${v.width}w`).join(', ')} data-photo-alt={photoFor(service.id).alt}>
+      {category.services.map((service,serviceIndex)=><details class="sd-service" open={serviceIndex===0} name={`sd-accordion-${category.id}`} data-service-id={service.id} data-photo-mirror={mirrorFor(service.id)?'true':undefined} data-photo-src={version(photoFor(service.id).variants[0])} data-photo-srcset={photoFor(service.id).variants.map(v=>`${version(v)} ${v.width}w`).join(', ')} data-photo-alt={photoFor(service.id).alt}>
        <summary class="sd-summary"><span class="sd-service-main"><span class="sd-service-name">{service.name}</span>{service.duration&&<> <span class="sd-duration">{service.duration}</span></>}</span><span class="sd-price">{service.priceLabel}</span></summary>
        <div class="sd-description"><p>{service.description}</p></div>
       </details>)}

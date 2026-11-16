@@ -2,6 +2,7 @@ import { numberToken as n, textToken } from "./motion";
 import { orderDeck } from "./deck-order";
 import {enableHorizontalSwipe} from './horizontal-swipe';
 import {setLoading} from './loading';
+import {requestFeedback} from './feedback';
 for (const deck of document.querySelectorAll<HTMLElement>(
   "[data-service-deck]",
 )) {
@@ -33,6 +34,7 @@ for (const deck of document.querySelectorAll<HTMLElement>(
       setLoading(stage,true);
       const image=new Image();image.className='photo-image';image.alt=row.dataset.photoAlt!;
       image.sizes=previous.sizes;image.srcset=row.dataset.photoSrcset!;image.src=row.dataset.photoSrc!;
+      image.dataset.photoMirror=row.dataset.photoMirror||'false';
       image.decoding='async';
       void image.decode().then(()=>{
         if(turn!==photoRevision)return;
@@ -112,7 +114,7 @@ for (const deck of document.querySelectorAll<HTMLElement>(
     animations=panels.map((panel,i)=>panel.animate([{transform:poses[i].transform,opacity:poses[i].opacity},{transform:getComputedStyle(panel).transform,opacity:1}],{duration:n('--motion-card'),easing:textToken('--ease-spring')}));
     void Promise.allSettled(animations.map(animation=>animation.finished)).then(()=>{if(turn===revision)settle();});
   }
-  enableHorizontalSwipe(stack,direction=>{select(compact.matches?order[1]:current+direction,false,-direction);dragged=null;},{enabled:()=>compact.matches,motion:{
+  enableHorizontalSwipe(stack,(direction,event)=>{select(compact.matches?order[1]:current+direction,false,-direction);requestFeedback('select',event);dragged=null;},{enabled:()=>compact.matches,motion:{
     start(){const poses=panels.map(panel=>({transform:getComputedStyle(panel).transform,opacity:getComputedStyle(panel).opacity,leaving:panel.classList.contains('is-leaving')}));interrupted=new Set(panels.filter((_,i)=>poses[i].leaving));++revision;settle();deck.dataset.deckMoving='true';panels.forEach((panel,i)=>{if(poses[i].leaving&&i!==current){panel.style.opacity='0';return;}panel.style.transform=poses[i].transform;panel.style.opacity=poses[i].opacity;});dragged=panels[current];dragBase=new DOMMatrix(poses[current].transform);},
     move(dx){if(dragged)dragged.style.transform=dragBase.translate(dx,Math.abs(dx)*.035,0).rotate(0,0,dx/stack.clientWidth*12).toString();},
     cancel:returnDeck,
@@ -133,6 +135,7 @@ for (const deck of document.querySelectorAll<HTMLElement>(
                 : null;
       if (next === null) return;
       event.preventDefault();
+      if((next+tabs.length)%tabs.length!==current)requestFeedback('select',event);
       select(next, true);
     });
   });

@@ -56,20 +56,17 @@
   transition: transform var(--motion-photo) var(--ease-photo);
 }
 .team-discover {
-  position: absolute;
-  inset-inline: 0;
-  inset-block-end: var(--size-12);
-  width: max-content;
-  margin-inline: auto;
-  padding-inline: var(--size-20);
-  gap: var(--size-8);
-  font-size: var(--size-12);
-  min-height: var(--control-hit);
-  --action-bg: var(--yellow);
-  --action-fg: var(--ink);
-  --action-hover-bg: var(--blue);
-  --action-hover-fg: var(--paper);
+  flex:0 0 var(--size-48);
+  width:var(--size-48);
+  height:var(--size-48);
+  min-height:var(--size-48);
+  padding:var(--size-12);
+  --action-bg:var(--team-current-fg);
+  --action-fg:var(--team-current-bg);
+  --action-hover-bg:var(--team-current-book-bg);
+  --action-hover-fg:var(--team-current-book-fg);
 }
+.team-actions { display:flex;flex-wrap:wrap;align-items:center;gap:var(--size-8);margin-top:auto; }
 .team-copy {
   display: flex;
   flex-direction: column;
@@ -102,8 +99,9 @@
   white-space: nowrap;
 }
 .team-card .team-book {
-  margin-top: auto;
-  width: 100%;
+  flex:1 0 max-content;
+  width:auto;
+  min-height:var(--size-48);
   padding-inline: var(--size-12);
   --action-bg: var(--team-current-book-bg);
   --action-fg: var(--team-current-book-fg);

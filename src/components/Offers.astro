@@ -8,6 +8,8 @@ import Headline from './Headline.astro';
 import RailControls from './RailControls.astro';
 import InfoTip from './InfoTip.astro';
 import site from '../../content/site.json';
+import {bookingURLs} from '../scripts/booking-url';
+const bookingHref=bookingURLs(site.bookingUrl)!.publicUrl;
 
 const { offers } = catalog;
 const tones = design.offerThemes.base;
@@ -36,7 +38,7 @@ const imageURL = (variant: {url: string; sha256: string}) => `${variant.url}?v=$
   <div class="of-slider">
   <p class="sr-only" id="offers-instructions">Листайте акции стрелками или проведите по карточкам. Клавиши влево и вправо переключают акции.</p>
   <div class="of-rail compact-rail" id="offers-rail" tabindex="0" role="region" aria-roledescription="карусель" aria-label="Все акции СОЮЗа" aria-describedby="offers-instructions" data-of-rail data-loop-ready data-rail-index="0" style={`--rail-count:${offers.length}`}>
-    {offers.map((offer, index) => (
+    {offers.map((offer, index) => {const Action=offer.actionType==='booking'?'a':'button';return (
       <article
         class="of-card" style={colorStyle(index)} data-offer-active={index === 0 ? 'true' : 'false'}
         data-offer-tone={tones[index]} data-selection-surface={tones[index]}
@@ -51,21 +53,22 @@ const imageURL = (variant: {url: string; sha256: string}) => `${variant.url}?v=$
         <div class="of-card-copy">
         <h3 class="of-title" id={`offer-title-${offer.id}`}>{offer.titleLines ? offer.titleLines.map((line, index) => <span>{line}{index < offer.titleLines.length - 1 ? ' ' : ''}</span>) : offer.title}</h3>
         <p class="of-summary">{offer.summary}</p>
-          {offer.id === 'honest-price' ? <a class="btn of-action" href="#first-visit">{offer.action}</a> : offer.actionType==='vk'?<a class="btn of-action" href={site.vk} target="_blank" rel="noopener noreferrer" aria-label={offer.action}><span class="mobile-action-full">{offer.action}</span><span class="mobile-action-short">Промокод</span></a>:<button
+          {offer.id === 'honest-price' ? <a class="btn of-action" href="#first-visit">{offer.action}</a> : offer.actionType==='vk'?<a class="btn of-action" href={site.vk} target="_blank" rel="noopener noreferrer" aria-label={offer.action}><span class="mobile-action-full">{offer.action}</span><span class="mobile-action-short">Промокод</span></a>:<Action
             class="btn of-action"
-            type="button"
+            type={offer.actionType==='booking'?undefined:'button'}
+            href={offer.actionType==='booking'?bookingHref:undefined}
             data-ui-kind="filled"
             data-booking={offer.actionType === 'booking' ? true : undefined}
             data-contact={offer.actionType === 'contact' ? true : undefined}
             data-open-reviews={offer.actionType === 'review' ? true : undefined}
-            aria-haspopup={offer.actionType === 'review' ? 'dialog' : undefined}
-            aria-controls={offer.actionType === 'review' ? 'review-dialog' : undefined}
+            aria-haspopup={offer.actionType === 'review'||offer.actionType === 'booking' ? 'dialog' : undefined}
+            aria-controls={offer.actionType === 'review' ? 'review-dialog' : offer.actionType === 'booking'?'booking-drawer':undefined}
             data-context={`Акция: ${offer.title.replace(/^Акция:\s*/u, '')}`}
             aria-label={offer.action}
-          >{offer.actionType === 'booking' || offer.id === 'referral' ? <><span class="mobile-action-full">{offer.action}</span><span class="mobile-action-short">{offer.actionType === 'booking' ? 'Записаться' : 'Подробнее'}</span></> : offer.action}</button>}
+          >{offer.actionType === 'booking' || offer.id === 'referral' ? <><span class="mobile-action-full">{offer.action}</span><span class="mobile-action-short">{offer.actionType === 'booking' ? 'Записаться' : 'Подробнее'}</span></> : offer.action}</Action>}
         </div>
       </article>
-    ))}
+    )})}
   </div>
   <RailControls id="offers-rail" count={offers.length} label="Перелистывание акций" />
   </div>

@@ -41,6 +41,7 @@ test('all built routes have unique metadata, one H1, local image descriptions an
   assert.ok(existsSync(new URL('.'+new URL(attr(image,'content')).pathname,root)));
  }
  const expected=[...productionPages];
+ if(existsSync(new URL('../src/pages/previews/works/',import.meta.url)))expected.push('/previews/works',...Array.from({length:10},(_,i)=>'/previews/works/'+String(i+1).padStart(2,'0')));
  if(existsSync(new URL('../src/pages/previews/',import.meta.url)))expected.push('/previews/contacts','/previews/contacts/overview','/previews/review-extras');
  const routes=files(fileURLToPath(root)).map(file=>'/'+file.slice(fileURLToPath(root).length).replaceAll('\\','/').replace(/(?:^|\/)index\.html$/,'').replace(/\.html$/,''));
  assert.deepEqual(routes.sort(),expected.sort(),'Production routes are exact; local workshop routes exist only with their preview sources');

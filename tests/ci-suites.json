@@ -1,26 +1,177 @@
 {
   "schemaVersion": 1,
-  "productionSourceExcludes": ["src/pages/previews/", "public/previews/", "archive/", "artifacts/", ".local/", "tmp/", "dist/", "deploy/out/", "node_modules/"],
-  "productionForbiddenInputs": ["src/pages/previews", "public/previews", "archive", "artifacts"],
+  "productionSourceExcludes": [
+    "src/pages/previews/",
+    "public/previews/",
+    "archive/",
+    "artifacts/",
+    ".local/",
+    "tmp/",
+    "dist/",
+    "deploy/out/",
+    "node_modules/"
+  ],
+  "productionForbiddenInputs": [
+    "src/pages/previews",
+    "public/previews",
+    "archive",
+    "artifacts"
+  ],
   "runtime": [
-    "analytics.test.mjs", "booking-url.test.mjs", "business-hours65.test.mjs", "deck-order.test.mjs", "design-surfaces.test.mjs", "design.test.mjs", "editorial.test.mjs", "feedback.test.mjs", "gesture-math.test.mjs", "interaction-intent.test.mjs", "iteration12.test.mjs", "iteration21.test.mjs", "iteration22.test.mjs", "material-spring.test.mjs", "metadata.test.mjs", "mobile-navigation.test.mjs", "news.test.mjs", "offers-loop.test.mjs", "offers.test.mjs", "reading-preview.test.mjs", "review-layout.test.mjs", "runtime-assets.test.mjs", "site-integrity.test.mjs", "structure.test.mjs", "style-contract.test.mjs", "team-colors.test.mjs", "typography-html.test.mjs", "typography.test.mjs",
-    {"file":"content.test.mjs","localCases":[{"name":"retained category reference photographs remain available locally","reason":"Legacy category.image references are retained locally; ServiceDeck uses active service-photos variants instead."}]},
-    {"file":"editorial-images.test.mjs","localCases":[{"name":"four owner originals keep their hashes and aspect ratios in responsive editorial slots","reason":"Original owner photographs are kept only in the local provenance archive; runtime derivatives are covered by runtime-assets."}]},
-    {"file":"fair-price-layout.test.mjs","localCases":[{"name":"selected Soviet-clothing duo has traceable portraits and alpha without meadow layers","reason":"Reads the retained original composite artwork; current transparent figures are checked separately at runtime."},{"name":"separate figures preserve the original and retain traceable transparent sources","reason":"Compares private source artwork; public figures and alpha are checked by runtime-assets."}]},
-    {"file":"iteration17.test.mjs","localCases":[{"name":"masters artwork has genuine transparency and recorded local source/delivery hashes","reason":"Requires the original artwork in artifacts; public figure alpha is covered by runtime-assets."}]},
-    {"file":"iteration18.test.mjs","localCases":[{"name":"service posters cover active positions and original photography is retained","reason":"Also reads all retained, unused original photography variants; current active service posters are covered by runtime-assets."}]},
-    {"file":"iteration59.test.mjs","localCases":[{"name":"Darya interview preserves all supplied paragraphs and 24 original photos","reason":"Requires the owner text and original-photo archive; complete authored HTML and public variants are covered by runtime-assets."}]},
-    {"file":"reference.test.mjs","localCases":[{"name":"selected reference resources match recorded exports without requiring the original library","reason":"Includes historical unused mock-up exports that are outside the production asset graph."},{"name":"all six gift illustrations are original vector objects with no embedded raster or external references","reason":"The owner disabled visit gifts and requested a plain placeholder. VisitGifts and its authored art remain retained locally; unused SVG sources are outside the active delivery graph."}]}
+    "66booking-fallback.test.mjs",
+    "66seo-assets.test.mjs",
+    "66interaction.test.mjs",
+    "66works-layout.test.mjs",
+    "analytics.test.mjs",
+    "booking-url.test.mjs",
+    "business-hours65.test.mjs",
+    "deck-order.test.mjs",
+    "design-surfaces.test.mjs",
+    "design.test.mjs",
+    "editorial.test.mjs",
+    "feedback.test.mjs",
+    "gesture-math.test.mjs",
+    "interaction-intent.test.mjs",
+    "iteration12.test.mjs",
+    "iteration21.test.mjs",
+    "iteration22.test.mjs",
+    "material-spring.test.mjs",
+    "metadata.test.mjs",
+    "mobile-navigation.test.mjs",
+    "news.test.mjs",
+    "offers-loop.test.mjs",
+    "offers.test.mjs",
+    "reading-preview.test.mjs",
+    "review-layout.test.mjs",
+    "runtime-assets.test.mjs",
+    "site-integrity.test.mjs",
+    "structure.test.mjs",
+    "style-contract.test.mjs",
+    "team-colors.test.mjs",
+    "typography-html.test.mjs",
+    "typography.test.mjs",
+    {
+      "file": "content.test.mjs",
+      "localCases": [
+        {
+          "name": "retained category reference photographs remain available locally",
+          "reason": "Legacy category.image references are retained locally; ServiceDeck uses active service-photos variants instead."
+        }
+      ]
+    },
+    {
+      "file": "editorial-images.test.mjs",
+      "localCases": [
+        {
+          "name": "four owner originals keep their hashes and aspect ratios in responsive editorial slots",
+          "reason": "Original owner photographs are kept only in the local provenance archive; runtime derivatives are covered by runtime-assets."
+        }
+      ]
+    },
+    {
+      "file": "fair-price-layout.test.mjs",
+      "localCases": [
+        {
+          "name": "selected Soviet-clothing duo has traceable portraits and alpha without meadow layers",
+          "reason": "Reads the retained original composite artwork; current transparent figures are checked separately at runtime."
+        },
+        {
+          "name": "separate figures preserve the original and retain traceable transparent sources",
+          "reason": "Compares private source artwork; public figures and alpha are checked by runtime-assets."
+        }
+      ]
+    },
+    {
+      "file": "iteration17.test.mjs",
+      "localCases": [
+        {
+          "name": "masters artwork has genuine transparency and recorded local source/delivery hashes",
+          "reason": "Requires the original artwork in artifacts; public figure alpha is covered by runtime-assets."
+        }
+      ]
+    },
+    {
+      "file": "iteration18.test.mjs",
+      "localCases": [
+        {
+          "name": "service posters cover active positions and original photography is retained",
+          "reason": "Also reads all retained, unused original photography variants; current active service posters are covered by runtime-assets."
+        }
+      ]
+    },
+    {
+      "file": "iteration59.test.mjs",
+      "localCases": [
+        {
+          "name": "Darya interview preserves all supplied paragraphs and 24 original photos",
+          "reason": "Requires the owner text and original-photo archive; complete authored HTML and public variants are covered by runtime-assets."
+        }
+      ]
+    },
+    {
+      "file": "reference.test.mjs",
+      "localCases": [
+        {
+          "name": "selected reference resources match recorded exports without requiring the original library",
+          "reason": "Includes historical unused mock-up exports that are outside the production asset graph."
+        },
+        {
+          "name": "all six gift illustrations are original vector objects with no embedded raster or external references",
+          "reason": "The owner disabled visit gifts and requested a plain placeholder. VisitGifts and its authored art remain retained locally; unused SVG sources are outside the active delivery graph."
+        }
+      ]
+    }
   ],
   "localProvenance": [
-    {"file":"assets.test.mjs","reason":"Historical unused reference renders and their source hashes."},
-    {"file":"master-article.test.mjs","reason":"Imports private Sofya source manifests at module load; runtime article coverage is retained in runtime-assets."},
-    {"file":"media-delivery.test.mjs","reason":"Compares the retained pre-optimization hero video; runtime MP4 bytes and faststart are checked separately."},
-    {"file":"offer-icons.test.mjs","reason":"Unused legacy offer illustrations and their native source export."},
-    {"file":"offer-posters.test.mjs","reason":"Compares private poster originals; active public poster sets are covered by runtime-assets."},
-    {"file":"reviews-content.test.mjs","reason":"Compares private owner photo and video originals; public variants and full reviews remain checked at runtime."},
-    {"file":"vk-interviews.test.mjs","reason":"Imports captured private VK DOM/original-photo manifests; complete authored routes and public media are covered by runtime-assets."}
+    {
+      "file": "assets.test.mjs",
+      "reason": "Historical unused reference renders and their source hashes."
+    },
+    {
+      "file": "master-article.test.mjs",
+      "reason": "Imports private Sofya source manifests at module load; runtime article coverage is retained in runtime-assets."
+    },
+    {
+      "file": "media-delivery.test.mjs",
+      "reason": "Compares the retained pre-optimization hero video; runtime MP4 bytes and faststart are checked separately."
+    },
+    {
+      "file": "offer-icons.test.mjs",
+      "reason": "Unused legacy offer illustrations and their native source export."
+    },
+    {
+      "file": "offer-posters.test.mjs",
+      "reason": "Compares private poster originals; active public poster sets are covered by runtime-assets."
+    },
+    {
+      "file": "reviews-content.test.mjs",
+      "reason": "Compares private owner photo and video originals; public variants and full reviews remain checked at runtime."
+    },
+    {
+      "file": "vk-interviews.test.mjs",
+      "reason": "Imports captured private VK DOM/original-photo manifests; complete authored routes and public media are covered by runtime-assets."
+    }
   ],
-  "release": ["metadata.test.mjs", "analytics.test.mjs"],
-  "packagePython": ["bootstrap_public_test.py", "font_resources_test.py", "legal_test.py", "news_snapshot_test.py", "release_package_test.py", "shared_shell_test.py", "tilda_update_test.py", "vk_news_api_test.py", "vk_news_test.py"]
+  "release": [
+    "metadata.test.mjs",
+    "analytics.test.mjs"
+  ],
+  "packagePython": [
+    "bootstrap_public_test.py",
+    "font_resources_test.py",
+    "legal_test.py",
+    "news_snapshot_test.py",
+    "release_package_test.py",
+    "shared_shell_test.py",
+    "tilda_update_test.py",
+    "vk_news_api_test.py",
+    "vk_news_test.py",
+    "vk_work_albums_test.py",
+    "vk_app_metadata_test.py",
+    "vk_public_work_photos_test.py",
+    "vk_known_work_albums_test.py",
+    "work_photos_test.py",
+    "owner_work_photos_test.py",
+    "work_titles_test.py"
+  ]
 }

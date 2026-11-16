@@ -71,9 +71,14 @@ export function nativeRail(rail:HTMLElement){let owner=owners.get(rail);if(!owne
 function createNativeRail(rail:HTMLElement){
  const compact=matchMedia('(max-width:960px)'),reduced=matchMedia('(prefers-reduced-motion:reduce)'),listeners=new Set<(index:number)=>void>();
  let current=Number(rail.dataset.railIndex)||0,target:number|null=null,stops:number[]=[],frame=0,measureFrame=0,timer=0,phase='idle',snap='',width=-1,touchHeld=false;
+ let touchStart:{x:number;y:number;index:number}|null=null,touchFeedback:{event:Event;index:number;at:number}|null=null;
  const nearest=(velocity=0)=>Math.max(0,stops.indexOf(nearestRailStop(stops,rail.scrollLeft,velocity)));
  const clamp=(index:number)=>Math.max(0,Math.min(railItems(rail).length-1,index));
- const publish=(index:number)=>{current=clamp(index);rail.dataset.railIndex=String(current);for(const listener of listeners)listener(current)};
+ const confirmTouch=()=>{if(touchFeedback&&current!==touchFeedback.index){if(performance.now()-touchFeedback.at<1000)requestFeedback('select',touchFeedback.event);touchFeedback=null;}};
+ // A later action must never confirm an earlier touch.
+ document.addEventListener('pointerdown',()=>{touchFeedback=null;},{capture:true,passive:true});
+ document.addEventListener('keydown',()=>{touchFeedback=null;},{capture:true});
+ const publish=(index:number)=>{current=clamp(index);rail.dataset.railIndex=String(current);for(const listener of listeners)listener(current);confirmTouch()};
  const track=()=>{if(!compact.matches||phase==='programmatic'||!stops.length)return;const index=nearest();if(index!==current)publish(index)};
  const restore=()=>{rail.style.scrollSnapType=snap;rail.dataset.railSettling='false'};
  const stop=()=>{cancelAnimationFrame(frame);frame=0;clearTimeout(timer);target=null;rail.dataset.railSettling='false'};
@@ -110,12 +115,17 @@ function createNativeRail(rail:HTMLElement){
   if(index>=0)goTo(index,true);
  });
  rail.addEventListener('pointerdown',()=>{stop();phase='native'},{passive:true});
- rail.addEventListener('touchstart',()=>{touchHeld=true},{passive:true});
- for(const type of['touchend','touchcancel'])rail.addEventListener(type,event=>{if((event as TouchEvent).touches.length)return;touchHeld=false;clearTimeout(timer);timer=window.setTimeout(finishNative,130)},{passive:true});
- rail.addEventListener('wheel',()=>{stop();phase='native';restore()},{passive:true});
- new ResizeObserver(([entry])=>{if(Math.abs(entry.contentRect.width-width)<.5)return;width=entry.contentRect.width;stop();phase='idle';restore();scheduleMeasure()}).observe(rail);
+ rail.addEventListener('touchstart',event=>{touchHeld=true;touchFeedback=null;const touch=event.touches[0];touchStart=event.touches.length===1?{x:touch.clientX,y:touch.clientY,index:current}:null;},{passive:true});
+ for(const type of['touchend','touchcancel'])rail.addEventListener(type,event=>{
+  const touchEvent=event as TouchEvent;if(touchEvent.touches.length)return;
+  const touch=touchEvent.changedTouches[0],start=touchStart;touchStart=null;touchHeld=false;
+  if(type==='touchend'&&start&&touch&&Math.abs(touch.clientX-start.x)>Math.max(8,Math.abs(touch.clientY-start.y))){touchFeedback={event,index:start.index,at:performance.now()};confirmTouch();}else touchFeedback=null;
+  clearTimeout(timer);timer=window.setTimeout(finishNative,130);
+ },{passive:true});
+ rail.addEventListener('wheel',()=>{touchFeedback=null;stop();phase='native';restore()},{passive:true});
+ new ResizeObserver(([entry])=>{if(Math.abs(entry.contentRect.width-width)<.5)return;width=entry.contentRect.width;touchFeedback=null;stop();phase='idle';restore();scheduleMeasure()}).observe(rail);
  new MutationObserver(scheduleMeasure).observe(rail,{childList:true});
- compact.addEventListener('change',()=>{stop();phase='idle';restore();scheduleMeasure()});
+ compact.addEventListener('change',()=>{touchFeedback=null;stop();phase='idle';restore();scheduleMeasure()});
  reduced.addEventListener('change',()=>{if(target!==null)goTo(target,true)});
  scheduleMeasure();
  return {get index(){return phase==='native'||phase==='dragging'?nearest():current},get target(){return target},goTo,choose(index:number){if(target===null)publish(index)},subscribe(listener:(index:number)=>void){listeners.add(listener)},track,beginDrag(){stop();phase='dragging';if(rail.style.scrollSnapType!=='none')snap=rail.style.scrollSnapType;rail.style.scrollSnapType='none'},release(velocity=0){goTo(nearest(velocity))},interrupt(){stop();phase='native';restore()},measure:scheduleMeasure};

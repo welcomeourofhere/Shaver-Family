@@ -1,6 +1,6 @@
 {
   "volume": 0.18,
-  "intervalMs": 180,
+  "intervalMs": 48,
   "tones": {
     "tap": {
       "url": "/audio/tap.wav",
@@ -11,25 +11,19 @@
     "select": {
       "url": "/audio/select.wav",
       "hapticPattern": [
-        6,
-        20,
-        8
+        10
       ]
     },
     "open": {
       "url": "/audio/open.wav",
       "hapticPattern": [
-        8,
-        24,
-        14
+        12
       ]
     },
     "close": {
       "url": "/audio/close.wav",
       "hapticPattern": [
-        14,
-        24,
-        8
+        6
       ]
     }
   }

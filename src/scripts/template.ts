@@ -38,6 +38,7 @@ for (const dialog of document.querySelectorAll<HTMLDialogElement>(
 )) {
   dialog.addEventListener("cancel", (event) => {
     event.preventDefault();
+    requestFeedback('close',event);
     void closeDialog(dialog);
   });
   dialog.addEventListener("click", (event) => {

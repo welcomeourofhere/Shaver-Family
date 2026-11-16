@@ -9,7 +9,7 @@ if(typeof document!=='undefined'){
   const controls=[...document.querySelectorAll<HTMLSelectElement>('[data-theme-select]')];
   function apply(){
     document.documentElement.dataset.theme=resolveTheme(choice,system.matches);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content',getComputedStyle(document.documentElement).backgroundColor);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content',getComputedStyle(document.documentElement).getPropertyValue('--surface').trim());
     for(const control of controls){control.value=['light','dark'].includes(choice)?choice:'auto';control.dispatchEvent(new Event('choice:sync'));}
     for(const button of document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]')){button.setAttribute('aria-label',`Включить ${document.documentElement.dataset.theme==='dark'?'светлую':'тёмную'} тему`);button.setAttribute('aria-pressed',String(document.documentElement.dataset.theme==='dark'));}
   }
@@ -18,6 +18,6 @@ if(typeof document!=='undefined'){
   });
   document.addEventListener('click',event=>{if(event.defaultPrevented||!(event.target instanceof Element)||!event.target.closest('[data-theme-toggle]'))return;choice=document.documentElement.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem(themeKey,choice);}catch{}apply();});
   system.addEventListener('change',apply);
-  addEventListener('storage',event=>{if(event.key===themeKey){choice=event.newValue||'auto';apply();}});
+  addEventListener('storage',event=>{if(event.key===themeKey||event.key===null){choice=event.newValue||'auto';apply();}});
   apply();
 }

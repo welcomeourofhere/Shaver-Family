@@ -1,5 +1,5 @@
 export interface StoryImage {alt:string;source:string;sourceSha256:string;variants:{url:string;width:number;height:number;sha256:string}[]}
-export type StoryBlock = {kind:'qa';id:string;question:string;paragraphs:string[];sourceLine:number} | {kind:'photos';images:string[];caption:string} | {kind:'text';paragraphs:string[];sourceLine:number;quoted?:boolean;heading?:boolean};
+export type StoryBlock = {kind:'qa';id:string;question:string;displayQuestion?:string;paragraphs:string[];sourceLine:number} | {kind:'photos';images:string[];caption:string} | {kind:'text';paragraphs:string[];sourceLine:number;quoted?:boolean;heading?:boolean};
 export interface MasterStory {
   schemaVersion:number;slug:string;masterId:string;title:string;description:string;cover:string;
   lead?:string[];coverCaption?:string;

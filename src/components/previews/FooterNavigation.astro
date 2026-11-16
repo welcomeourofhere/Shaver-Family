@@ -1,0 +1,7 @@
+---
+import {footerLinks} from '../../content/footer-concepts';
+import Icon from '../Icon.astro';
+interface Props {links?:typeof footerLinks;arrows?:boolean;label?:string;}
+const {links=footerLinks,arrows=false,label='Разделы сайта'}=Astro.props;
+---
+<nav class:list={['fc-navigation',{'fc-navigation-arrows':arrows}]} aria-label={label}><ul class="fc-nav-list">{links.map(link=><li><a class="fc-nav-link" href={link.href} aria-label={link.label} data-action-full={link.label} data-action-short={link.short}><span data-action-label><span class="fc-label-wide">{link.label}</span><span class="fc-label-short">{link.short}</span></span>{arrows&&<Icon name="right" />}</a></li>)}</ul></nav>

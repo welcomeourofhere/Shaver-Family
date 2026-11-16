@@ -1,8 +1,11 @@
 {
-  "title": "Барбершоп СОЮЗ в Кирове | Мужские стрижки и борода",
-  "description": "Мужские стрижки, оформление бороды и уход в барбершопе СОЮЗ в Кирове. Познакомься с мастерами и запишись онлайн. Владимирская, 132.",
+  "title": "Барбершоп «СОЮЗ» в Кирове | Мужские стрижки и борода",
+  "description": "Мужские стрижки, оформление бороды и СПА в барбершопе «СОЮЗ» в Кирове. Стригут и бреют девушки. Владимирская, 132. Выбери мастера и запишись онлайн.",
   "locale": "ru_RU",
-  "image": "/media/hero/soyuz-intro-poster.webp",
-  "imageAlt": "Барбершоп СОЮЗ в Кирове — интерьер и атмосфера",
-  "status": "local-draft-noindex-production-domain-unconfirmed"
+  "image": "/media/og/soyuz-home.png",
+  "imageAlt": "Фирменный знак и интерьер барбершопа «СОЮЗ» в Кирове",
+  "imageWidth": 1200,
+  "imageHeight": 630,
+  "imageType": "image/png",
+  "status": "source-owned-release-metadata"
 }

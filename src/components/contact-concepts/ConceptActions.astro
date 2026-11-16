@@ -1,12 +1,14 @@
 ---
 import site from '../../../content/site.json';
 import Icon from '../Icon.astro';
+import {bookingURLs} from '../../scripts/booking-url';
+const bookingHref=bookingURLs(site.bookingUrl)!.publicUrl;
 interface Props {route?:boolean;call?:boolean;booking?:boolean;class?:string;}
 const {route=false,call=false,booking=true,class:className=''}=Astro.props;
 const map=`https://yandex.ru/maps/?text=${encodeURIComponent(site.mapQuery)}`;
 ---
 <div class={`cp-actions ${className}`}>
- {booking&&<button class="btn cp-primary" type="button" data-booking>Записаться</button>}
+ {booking&&<a class="btn cp-primary" href={bookingHref} data-booking aria-haspopup="dialog" aria-controls="booking-drawer">Записаться</a>}
  {call&&<a class="btn cp-secondary" href={`tel:${site.phoneLink}`}>Позвонить</a>}
  {route&&<a class="btn cp-secondary" href={map} target="_blank" rel="noopener noreferrer">Маршрут<Icon name="external" /></a>}
 </div>

@@ -1,12 +1,10 @@
-.analytics-choice{position:fixed;z-index:110;left:max(var(--size-16),var(--safe-left));bottom:max(var(--size-16),var(--safe-bottom));width:min(var(--size-440),calc(100% - var(--size-32)));max-height:calc(100dvh - var(--size-32) - var(--safe-top) - var(--safe-bottom));overflow:auto;padding:var(--size-24);border-radius:var(--radius-card);background:var(--blue);color:var(--paper);box-shadow:var(--shadow-card)}
+.analytics-choice{position:fixed;z-index:110;left:max(var(--size-16),var(--safe-left));bottom:max(var(--size-16),var(--safe-bottom));width:min(var(--size-400),calc(100% - var(--size-32)));max-height:calc(100dvh - var(--size-32) - var(--safe-top) - var(--safe-bottom));overflow:auto;padding:var(--size-20);border-radius:var(--radius-card);background:var(--blue);color:var(--paper);box-shadow:var(--shadow-card)}
 .analytics-choice[hidden]{display:none}
-.analytics-choice h2{font:600 var(--size-20)/1.4 var(--font-body);margin-bottom:var(--size-12)}
+.analytics-choice h2{font:600 var(--size-18)/1.4 var(--font-body);margin-bottom:var(--size-8)}
 .analytics-choice p,.cookie-settings p{font-size:var(--size-14);line-height:1.6}
-.analytics-choice-notice{margin-top:var(--size-12)}
 .analytics-choice a,.cookie-settings a{color:inherit;text-decoration:underline;text-underline-offset:var(--size-3);overflow-wrap:anywhere}
-.analytics-choice-actions{display:flex;flex-wrap:wrap;gap:var(--size-12);margin-top:var(--size-20)}
+.analytics-choice-actions{display:flex;flex-wrap:wrap;gap:var(--size-8);margin-top:var(--size-16)}
 .analytics-choice-actions .btn{flex:1 0 auto}
-.analytics-settings-link{flex-basis:100%;min-height:var(--control-hit);padding:var(--size-8) var(--size-12);border:0;background:transparent;color:inherit;font:600 var(--size-14)/1.4 var(--font-body);text-decoration:underline;text-underline-offset:var(--size-3);white-space:nowrap;cursor:pointer}
 .cookie-settings{width:var(--size-600)}
 .cookie-settings .surface-content{padding:0;scrollbar-gutter:auto;scroll-padding-top:calc(var(--size-80) + var(--size-24))}
 .cookie-settings .dialog-head{position:sticky;top:0;z-index:3;align-items:flex-start;margin:0;padding:var(--size-24) var(--material-padding,var(--size-28)) var(--size-16);background:var(--panel-surface)}

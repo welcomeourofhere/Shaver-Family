@@ -6,6 +6,7 @@
     border-color var(--motion-ui) var(--ease-out),
     scale var(--motion-press) var(--ease-out);
 }
+[data-press-target] > [data-press-surface] { transition:scale var(--motion-press) var(--ease-out); }
 :is(
   .header-nav > a,
   .more-menu > summary,
@@ -142,7 +143,8 @@
       .team-portrait,
       .hero-dot,
       .slide-dot,
-      .hero-edge
+      .hero-edge,
+      [data-press-target]
     ):active {
     scale: var(--press-scale);
     transition-duration: var(--motion-press);
@@ -150,6 +152,7 @@
   :is(.review-source, .gift-visual):active {
     scale: var(--press-media-scale);
   }
+  [data-press-target]:not(:disabled,[aria-disabled="true"]):active > [data-press-surface] { scale:var(--press-scale); }
 }
 @media (prefers-reduced-motion: no-preference) {
   .team-card .team-portrait:active img { transform: translate3d(0,0,0) scale(var(--team-photo-press-scale)); }
@@ -166,6 +169,7 @@
 /* Repeated keyboard commands respond directly; pointer interactions keep their motion. */
 :root[data-input-modality="keyboard"] :is(button,a[href],summary,.dock-menu-icon,.dock-close-icon,.choice-trigger .ui-icon),
 :root[data-input-modality="keyboard"] .faq-mark::before,
+:root[data-input-modality="keyboard"] [data-press-surface],
 :root[data-input-modality="keyboard"] :is(.about-card,.about-media,.review-card,.review-gallery,.team-portrait img) { transition:none; }
 @media (hover:hover) and (pointer:fine) {
 .header-logo:hover .header-mark { background:var(--yellow); }

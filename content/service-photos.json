@@ -340,28 +340,29 @@
       "artwork": true
     },
     "coloring-14360785": {
-      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\beard-color-ref-v2.png",
-      "sourceSha256": "da848b27d7949a1e70fc257518a6495d0d5f6276a7120b32334c61342179f7a9",
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\beard-tone-ref-v2.png",
+      "sourceSha256": "cfa1e98433c189d696448af48cac2c0cddf92b3458c446e7756c87f14672f0bc",
       "alt": "Иллюстрация услуги «Окрашивание бороды» в советском плакатном стиле",
       "temporary": false,
       "variants": [
         {
-          "url": "/media/service-posters/beard-color-ref-v2-600.webp",
+          "url": "/media/service-posters/beard-tone-ref-v2-600.webp",
           "width": 600,
           "height": 648,
-          "sha256": "43e4c50f71bc1d6ce1b0e397e7396ecab5a3a7fa77dbc085665c6766b7089dbf",
-          "bytes": 89290
+          "sha256": "7ae0a5abecdef734f622c90e82d86b60079d6703df163a16553d3c77675dc37f",
+          "bytes": 97990
         },
         {
-          "url": "/media/service-posters/beard-color-ref-v2-1200.webp",
+          "url": "/media/service-posters/beard-tone-ref-v2-1200.webp",
           "width": 1200,
           "height": 1295,
-          "sha256": "0b0ebc1f705990c8d1dee1f51a679b2227be2efbf2d8d9c76a5612ab9ab8575a",
-          "bytes": 405096
+          "sha256": "d9b930eca4210d8d46e8b8284a3683bc308c7de320d387235e781598c6d54ce2",
+          "bytes": 452926
         }
       ],
-      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
-      "artwork": true
+      "altSource": "owner-selected service artwork; owner-requested artwork swap, 2026-11-16; original variants retained",
+      "artwork": true,
+      "mirror": true
     },
     "main-267630": {
       "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\cut-beard-spa.png",
@@ -532,27 +533,27 @@
       "artwork": true
     },
     "coloring-11066470": {
-      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\beard-tone-ref-v2.png",
-      "sourceSha256": "cfa1e98433c189d696448af48cac2c0cddf92b3458c446e7756c87f14672f0bc",
+      "source": "J:\\Projects\\СОЮЗ (Website)\\artifacts\\service-posters-2026-11-10\\selected\\beard-color-ref-v2.png",
+      "sourceSha256": "da848b27d7949a1e70fc257518a6495d0d5f6276a7120b32334c61342179f7a9",
       "alt": "Иллюстрация услуги «Тонирование бороды» в советском плакатном стиле",
       "temporary": false,
       "variants": [
         {
-          "url": "/media/service-posters/beard-tone-ref-v2-600.webp",
+          "url": "/media/service-posters/beard-color-ref-v2-600.webp",
           "width": 600,
           "height": 648,
-          "sha256": "7ae0a5abecdef734f622c90e82d86b60079d6703df163a16553d3c77675dc37f",
-          "bytes": 97990
+          "sha256": "43e4c50f71bc1d6ce1b0e397e7396ecab5a3a7fa77dbc085665c6766b7089dbf",
+          "bytes": 89290
         },
         {
-          "url": "/media/service-posters/beard-tone-ref-v2-1200.webp",
+          "url": "/media/service-posters/beard-color-ref-v2-1200.webp",
           "width": 1200,
           "height": 1295,
-          "sha256": "d9b930eca4210d8d46e8b8284a3683bc308c7de320d387235e781598c6d54ce2",
-          "bytes": 452926
+          "sha256": "0b0ebc1f705990c8d1dee1f51a679b2227be2efbf2d8d9c76a5612ab9ab8575a",
+          "bytes": 405096
         }
       ],
-      "altSource": "owner-selected service artwork, service-asset-map.json, 2026-11-10",
+      "altSource": "owner-selected service artwork; owner-requested artwork swap, 2026-11-16; original variants retained",
       "artwork": true
     },
     "hair-beard-12398982": {
@@ -672,7 +673,7 @@
           "sha256": "590e0774c8daedacb1873b417b5b2ddc7766e19aef4b5a84a5e9160bbec7eb14"
         }
       ],
-      "altSource": "owner-selected service artwork, existing mens-cut reused without money per owner instruction, 2026-11-10",
+      "altSource": "owner-selected service artwork; distinct honest-price-service-v2 from the approved poster revisions; original and delivery hashes retained",
       "artwork": true
     },
     "hair-beard-646764": {

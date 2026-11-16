@@ -1,0 +1,27 @@
+---
+import {footerFacts as facts,footerPhoneLines,footerDisplayAddress,footerLinkGroups as groups,type FooterConcept} from '../../content/footer-concepts';
+import Facts from './FooterFacts.astro';
+import Navigation from './FooterNavigation.astro';
+import Actions from './FooterActions.astro';
+import Legal from './FooterLegal.astro';
+import Icon from '../Icon.astro';
+import '../../styles/interactions.css';
+import '../../styles/footer-concepts.css';
+interface Props {concept:FooterConcept;}
+const {concept}=Astro.props;
+---
+<div class="fc-demo">
+ <footer class={`fc-footer fc-${concept.signature}`} data-footer-concept={concept.id} data-selection-surface={concept.tone} style={`--p-density:${concept.density}`}>
+  {concept.id==='01'&&<><div class="fc-masthead-mark"><Facts location={false} hours={false} /></div><Navigation /><div class="fc-masthead-bottom"><Facts logo={false} /><Actions /></div><Legal /></>}
+  {concept.id==='02'&&<><div class="fc-phone-layout"><div class="fc-phone-display"><p class="fc-display-phone">{footerPhoneLines.map(line=><span>{line}</span>)}</p><a class="fc-book fc-call" href={facts.phoneHref} aria-label={`Позвонить в СОЮЗ: ${facts.phone}`}>Позвонить</a><Actions phone={false} booking={false} /></div><div class="fc-phone-directory"><Facts /><Navigation /><Actions phone={false} channels={false} /></div></div><Legal /></>}
+  {concept.id==='03'&&<><div class="fc-gazette-grid"><div class="fc-gazette-column"><Facts /></div><div class="fc-gazette-column"><Navigation links={groups[0]} label="Услуги, мастера и СОЮЗ" /><Actions channels={false} booking={false} /></div><div class="fc-gazette-column"><Navigation links={groups[1]} label="Акции, подарки и сертификаты" /><Actions phone={false} channels={false} /></div><div class="fc-gazette-column"><Navigation links={groups[2]} label="Отзывы, вопросы и контакты" /><Actions phone={false} booking={false} /></div></div><Legal /></>}
+  {concept.id==='04'&&<><div class="fc-ticket-body"><div class="fc-ticket-stub"><Facts /><Actions channels={false} booking={false} /></div><div class="fc-ticket-main"><Navigation /><Actions phone={false} /></div></div><Legal /></>}
+  {concept.id==='05'&&<><Navigation arrows /><div class="fc-wayfinding-base"><Facts /><Actions /></div><Legal /></>}
+  {concept.id==='06'&&<><div class="fc-booking-banner" data-selection-surface="yellow"><a class="fc-banner-link" href={facts.booking} target="_blank" rel="noopener noreferrer" aria-label="Записаться онлайн в СОЮЗ" data-action-full="Записаться в СОЮЗ" data-action-short="Запись"><span data-action-label>Записаться в СОЮЗ</span><Icon name="right" /></a></div><div class="fc-booking-directory"><Facts /><div><Navigation /><Actions booking={false} /></div></div><Legal /></>}
+  {concept.id==='07'&&<><div class="fc-split-left" data-selection-surface="blue"><Facts /><Actions channelStyle="secondary" /></div><div class="fc-split-right" data-selection-surface="yellow"><Navigation /><Legal /></div></>}
+  {concept.id==='08'&&<><div class="fc-columns-mark"><Facts location={false} hours={false} /></div><div class="fc-functional-columns"><div class="fc-functional-column"><Facts logo={false} /><Navigation links={groups[0]} label="Услуги, мастера и СОЮЗ" /></div><div class="fc-functional-column"><Actions phone={false} channels={false} /><Navigation links={groups[1]} label="Акции, подарки и сертификаты" /></div><div class="fc-functional-column"><Actions booking={false} /><Navigation links={groups[2]} label="Отзывы, вопросы и контакты" /></div></div><Legal /></>}
+  {concept.id==='09'&&<><div class="fc-address-directory"><Navigation /><Actions /></div><div class="fc-address-poster"><h2>{facts.city},<br />{footerDisplayAddress}</h2><Facts location={false} /></div><Legal /></>}
+  {concept.id==='10'&&<><div class="fc-compact-top"><Facts /><Actions /></div><div class="fc-compact-bottom"><Navigation /><Legal /></div></>}
+ </footer>
+</div>
+<script>import '../../scripts/action-label';</script>

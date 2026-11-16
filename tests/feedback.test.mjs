@@ -30,11 +30,11 @@ test("feedback preference survives reload and unavailable storage", () => {
   assert.doesNotThrow(() => feedback.saveFeedbackPreference(blocked, false));
 });
 test("rapid feedback is suppressed and disclosure tones follow the pre-activation state", () => {
-  assert.equal(feedback.FEEDBACK_INTERVAL, 180);
+  assert.equal(feedback.FEEDBACK_INTERVAL, 48);
   assert.equal(feedback.canPlayFeedback(0, -Infinity), true);
-  assert.equal(feedback.canPlayFeedback(150, 100), false);
-  assert.equal(feedback.canPlayFeedback(279, 100), false);
-  assert.equal(feedback.canPlayFeedback(280, 100), true);
+  assert.equal(feedback.canPlayFeedback(150, 100), true);
+  assert.equal(feedback.canPlayFeedback(147, 100), false);
+  assert.equal(feedback.canPlayFeedback(148, 100), true);
   assert.equal(feedback.canPlayFeedback(NaN, 100), false);
   assert.equal(feedback.canPlayFeedback(Infinity, 100), false);
   assert.equal(feedback.canPlayFeedback(50, 100), false);
@@ -53,7 +53,7 @@ test("one four-role registry owns local audio, volume, throttle and concise hapt
   for (const [tone, settings] of Object.entries(config.tones)) {
     assert.equal(settings.url, `/audio/${tone}.wav`);
     const pattern = settings.hapticPattern;
-    assert.ok(pattern.length > 0 && pattern.length <= 3 && pattern.length % 2 === 1);
+    assert.equal(pattern.length, 1, 'An accepted action has one physical pulse');
     assert.ok(pattern.every((value) => Number.isInteger(value) && value > 0 && value <= 24));
     assert.ok(pattern.reduce((sum, value) => sum + value, 0) <= 50);
     patterns.add(JSON.stringify(pattern));

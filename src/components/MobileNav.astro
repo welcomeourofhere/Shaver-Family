@@ -6,9 +6,12 @@ import MaterialSurface from './MaterialSurface.astro';
 import '../styles/mobile-nav.css';
 import '../styles/dock-surface.css';
 import {dockActions} from '../scripts/dock-actions';
+import {bookingURLs} from '../scripts/booking-url';
+const bookingHref=bookingURLs(site.bookingUrl)!.publicUrl;
 const {homeHref=''}=Astro.props;
 const initialActions=dockActions(homeHref?'article':'top');
 ---
+<div class="mobile-nav-anchor" data-mobile-nav-anchor>
 <nav class="mobile-nav" aria-label="Действия в текущем разделе" data-mobile-nav data-home-href={homeHref} data-action-count={initialActions.length}>
   <span class="dock-shell" aria-hidden="true"></span>
   <div class="dock-toolbar">
@@ -20,6 +23,7 @@ const initialActions=dockActions(homeHref?'article':'top');
   </div>
   <span class="sr-only" data-dock-status role="status" aria-live="polite"></span>
 </nav>
+</div>
 {!homeHref&&<dialog id="service-categories" class="category-dialog mobile-sheet" aria-labelledby="category-dialog-title"><MaterialSurface>
   <div class="dialog-head"><h2 id="category-dialog-title">Услуги и цены</h2><button class="icon-btn" type="button" data-dismiss aria-label="Закрыть категории"><Icon name="close" /></button></div>
   <div class="dock-categories">{catalog.categories.map((category,index)=><button type="button" data-dock-category={index} aria-label={category.name} aria-pressed={index===0} style={`--category-color:var(--${category.color});--category-fg:var(--${category.color==='yellow'?'ink':'paper'})`}><span>{category.name.replace(' и ', ', ')}</span></button>)}</div>
@@ -28,7 +32,7 @@ const initialActions=dockActions(homeHref?'article':'top');
  <MaterialSurface>
  <div class="dialog-head"><h2 id="promo-title">Первый визит<br/>за полцены</h2><button class="icon-btn" type="button" data-dismiss aria-label="Закрыть"><Icon name="close"/></button></div>
  <p>Скидка {site.firstVisitPercent}% на первый визит по промокоду.</p><button class="promo-code" type="button" data-copy-promo data-promo={site.promo} aria-label={`Скопировать промокод ${site.promo}`}>{site.promo}</button>
- <button class="btn" data-booking data-context={`Первый визит −${site.firstVisitPercent}%, промокод ${site.promo}`} aria-label="Записаться со скидкой"><span class="mobile-action-full">Записаться со скидкой</span><span class="mobile-action-short">Записаться</span></button>
+ <a class="btn" href={bookingHref} data-booking aria-haspopup="dialog" aria-controls="booking-drawer" data-context={`Первый визит −${site.firstVisitPercent}%, промокод ${site.promo}`} aria-label="Записаться со скидкой"><span class="mobile-action-full">Записаться со скидкой</span><span class="mobile-action-short">Записаться</span></a>
  </MaterialSurface>
 </dialog>
 <script>import '../scripts/mobile-nav';</script>

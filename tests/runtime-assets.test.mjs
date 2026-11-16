@@ -49,7 +49,7 @@ test('all six full interviews and used carousel frames render from the public au
   assert.deepEqual(new Set(Object.keys(media)),used);
   for(const id of used)await variants(media[id]);
   const page=parse(readFileSync(new URL(`../dist/masters/${article.slug}/index.html`,import.meta.url),'utf8'));
-  const expected=[article.title,...(article.lead??[]),...article.sections.flatMap(s=>[...(s.intro??[]),...s.blocks.flatMap(b=>b.kind==='qa'?[b.question,...b.paragraphs]:b.kind==='text'?b.paragraphs:[])]),article.closing.title,...article.closing.paragraphs].map(normal).filter(Boolean);
+  const expected=[article.title,...(article.lead??[]),...article.sections.flatMap(s=>[...(s.intro??[]),...s.blocks.flatMap(b=>b.kind==='qa'?[(b.displayQuestion??b.question),...b.paragraphs]:b.kind==='text'?b.paragraphs:[])]),article.closing.title,...article.closing.paragraphs].map(normal).filter(Boolean);
   for(const document of [home,page]){
    const all=nodes(document),stories=all.filter(n=>n.tagName==='article'&&attr(n,'data-article-slug')===article.slug);assert.equal(stories.length,1,article.slug);
    const story=stories[0],copy=normal(text(story));for(const paragraph of expected)assert.ok(copy.includes(paragraph),article.slug+': '+paragraph);

@@ -12,7 +12,25 @@ Fallback data/news.json по контракту использует ../media/ne
 
 gzip.compress(mtime=0) в Python3.12 делегирует создание заголовка платформенному zlib: Windows иUbuntu дают различные OS bytes при одинаковом исходном содержимом. Это вызывало бы одинаковыйbuild/URL с разными wire-хешами и отказ ImmutableConflict при переносе между CI иWindows.
 
-Используется GzipFile(filename='',mtime=0) через BytesIO: нет имени файла и даты, OSbyte255. Параметры codec явно помещены в manifest: format,level,mtime,os,zlibVersion. Канонический JSON этих параметров участвует в build digest. Одинаковые исходные/нормализованные ресурсы и codec дают один build; новая версия zlib получает новый build-префикс. ОС, дата и случайные значения в build не входят. Поколение экспортного алгоритма поднято доv4, чтобы новый способ адресации не переиспользовал старые immutableURL.
+Используется GzipFile(filename='',mtime=0) через BytesIO: нет имени файла и даты, OSbyte255. Параметры codec явно помещены в manifest: format,level,mtime,os,zlibVersion. Канонический JSON этих параметров участвует в build digest. Одинаковые исходные/нормализованные ресурсы, codec и fingerprint экспортера дают один build; новая версия zlib или экспортного renderer получает новый build-префикс. ОС, дата и случайные значения в build не входят. Поколение MIME-адресации v4 не переиспользует старые immutableURL; текущая идентичность renderer v5 описана ниже.
+
+## Native canvas и идентичность экспортера v5
+
+Фактическая browser-проверка опубликованного C обнаружила непрозрачный светлый фон `body.t-body` и `#allrecords.t-records` поверх корректного тёмного root. Прямой HTTP GET технического домена подтвердил реальные native-классы; literal inline background у этих узлов в полученном HTML отсутствовал (`body` имел только `margin:0`). Поэтому источник светлого computed background не объявляется доказанным inline-атрибутом.
+
+Единый HOST_CSS теперь содержит `body.t-body,#allrecords,#t-header,#t-footer{background:transparent!important}`. Прозрачность снимает собственную подложку native-обёрток и делегирует цвет прежнему root; новый параллельный владелец цвета или runtime-переключатель темы не добавляется. Правило попадает в head всех11контентных и2общих native-страниц. Изменение не делается вторым patch в project HEAD или app body.
+
+Прежний build digest учитывал ресурсы и codec, но не HOST_CSS/renderer. Поэтому новая head-логика могла бы получить прежний build и перезаписать локальный C. В v5 digest дополнительно включает `exporter` fingerprint: версию, SHA-256 исходного `prepare-tilda-release.py` после нормализации CRLF→LF, указание этой нормализации и SHA-256 эффективного HOST_CSS. Fingerprint сохраняется в manifest. Изменение host CSS или renderer-кода получает новый build D/E; разные переводы строк одного исходника не создают ложную разницу между Windows и CI.
+
+Алгоритм `asset_key` не изменён: одинаковые бинарные представления вне `media/news/` сохраняют SHA-стабильные URL и байты. Текстовые файлы и относительный news-граф получают новый build-префикс; их переписанные URL и wire-хеши могут измениться ожидаемо. Смена build не объявляется сохранением всех421wire-объектов.
+
+`freeze-release-fixture.py` создаёт **новые** fixtures с `body.t-body` и `#allrecords.t-records`. Опция `--host-background '#fffcf7'` задаёт normal inline opaque background на обеих обёртках: это намеренно усиленная модель host-каскада для RED опубликованного C и GREEN D. Принимается только непрозрачный `#RRGGBB`; значение фиксируется в source.json. Старые C/baseline fixtures не редактируются. Новые HTML/JSON helper записывает точными UTF-8/LF-байтами.
+
+```powershell
+python -X utf8 scripts/freeze-release-fixture.py deploy/out/7a129e64e8086a5face7/manifest.json tmp/candidate65C-opaque-red/dist --host-background '#fffcf7'
+```
+
+Это пример уже созданного RED-входа: повторное использование существующей папки блокируется. Regression units проверяют important transparent reset, смену build при смене HOST_CSS/renderer, переносимость fingerprint по LF/CRLF, стабильность неизменённых бинарных URL и native-классы/opaque fixture. Фактические computed styles и видимые пиксели проверяет отдельный browser host-canvas harness; прохождение unit не заменяет RED/GREEN и последующий публичный readback.
 
 Загрузчик проверяет точный wire SHA и HTTP metadata и останавливается при существующем ключе с другими байтами. Bootstrap проверяет транспортный, декодированный и исходный хеши и не перезаписывает локальные отличающиеся исходники.
 
@@ -24,11 +42,22 @@ gzip.compress(mtime=0) в Python3.12 делегирует создание за�
 
 Отдельный regression подменяет OS MIME detector и проверяет неизменность канонических типов, новый идентификатор представления и стабильность URL между кодовыми сборками. Полный package-gate теперь сравнивает contentType каждого объекта с этим же владельцем. Промежуточный cc3-пакет используется только как проверенный входной public graph для чистой сборки; финальная production-сборка готовит собственный пакетv4.
 
+## Точные байты native-экспорта
+
+На Windows обычный `Path.write_text()` преобразовывал логические LF в CRLF, тогда как `headSha256`/`codeSha256` вычислялись до записи по LF-строке. В первом чистом C это затронуло все13head и3body: нормализованный текст совпадал, физические байты — нет. Прежний package-test через `read_text()` скрывал дефект обратной нормализацией; реальный `prepare-tilda-update.py` с `read_bytes()` правильно отказал с `Page bytes differ from manifest`.
+
+Все записи head/body и создаваемых JSON теперь используют `newline=''`: записываются точные UTF-8-байты сформированной LF-строки без платформенной подмены. Package-test читает native-файлы через `read_bytes().decode('utf-8')`. Дополнительный тест вызывает helper на **действительно созданном текущем пакете**, проверяет13строк и их хеши; `require_uploaded=False` снимает только требование Cloud-report, а не проверку байтов или native-целей. Старый C дал ожидаемый RED в обеих проверках.
+
+Проверка исправления сохраняет предыдущий пакет, указатели и доказательства отдельно, затем повторяет prepare и весь пакетный gate. Изменение переноса строк не меняет dist, логическое HTML-содержимое, asset graph или codec; совпадение build и всех wire-файлов требуется проверить, а не предполагать. Корневой пакет во время загрузки не редактируется: исправленный результат передаётся из изолированной CI-копии.
+
 ## Gates перед публикацией
 
 - Небольшие проверки export-функций:7/7PASS, включая SVGquery/fragment, одинаковую защиту CSS, относительныйnewsURL, стабильность остальных медиа, gzip OS255/mtime0/decode.
 - News-regression сначала упал на прежнем asset_key и прошёл после исправления.
-- Полный release_package_test.py запускается **после нового prepare**. Он сравнивает каждый fallbackvariant с manifestURL, все bytes/hash/codec и11+2страницы. Старый пакетdb23 не соответствует новомуcodec/относительнымnewsURL и не является кандидатом65.
+- Полный release_package_test.py запускается **после нового prepare**. Он сравнивает каждый fallbackvariant с manifestURL, все bytes/hash/codec и11+2страницы, включая физические native-байты и actual-current helper gate. Старый пакетdb23 не соответствует новомуcodec/относительнымnewsURL и не является кандидатом65.
 - Далее upload --apply и публичное чтение всех ресурсов; затем shared перед content,13native readback/публикаций с точными head/bodySHA, производственный smoke и SEO/аналитика. Локальный prepare иunit-тесты не заменяют эти внешние gates.
 
 Экспортные изменения проверены небольшими unit-тестами без подготовки или публикации пакета. Полный подготовленный пакет и новая публичная доставка проверяются основным владельцем выпуска. Независимая браузерная приёмка настроек cookie описана в COOKIE_SETTINGS_65.md и не доказывает доставку этого пакета.
+
+
+Текущая модель host-background применяется кbody.t-body и всем.t-records, включаяsharedheader/footer. ПозднийactualDfooterfinding привёл кE: исходный body-canvas gate был недостаточен для округлённых углов. Усиленныйbrowser gate проверяет4wrapper и3footerpixels; E18native,18technical и18основногоHTTPS прошли. Полная причинная история и границы — HOST_CANVAS_65D.md.

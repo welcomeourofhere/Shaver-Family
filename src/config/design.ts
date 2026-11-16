@@ -23,6 +23,8 @@ export default {
     "--story-columns": `minmax(0, ${goldenRatio}fr) minmax(0, 1fr)`,
     "--split-columns": `minmax(0, 1fr) minmax(0, ${goldenRatio}fr)`,
     "--gift-certificate-weight": `${3 / goldenRatio}fr`,
+    "--footer-navigation-weight":String(Number((goldenRatio ** 2).toFixed(6))),
+    "--footer-contact-weight":String(goldenRatio),
     "--team-photo-base-scale":zoom(8),
     "--review-photo-scale":zoom(6),
     "--team-photo-scale":zoom(6),

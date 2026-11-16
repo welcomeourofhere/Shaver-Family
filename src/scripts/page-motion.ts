@@ -6,7 +6,7 @@ const actors:HTMLElement[]=[];
 const live=new Map<HTMLElement,Animation>();
 for(const section of document.querySelectorAll<HTMLElement>('main>section:not(#top)')){
   const heading=section.querySelector<HTMLElement>('.section-title');
-  const content=section.querySelector<HTMLElement>('.sd-stack,.of-slider,.team-grid,.visit-ticket,.about-stack,.gifts-layout,.reviews-board,.faq-list');
+  const content=section.querySelector<HTMLElement>('.sd-stack,.of-slider,.team-grid,.works-fan,.visit-ticket,.about-stack,.gifts-layout,.reviews-board,.faq-list,.contact-layout');
   for(const [index,item] of [heading,content].entries())if(item){
     item.dataset.revealIndex=String(index);
     item.dataset.revealMode=item===heading&&section.id!=='about'?'move':'fade';
@@ -19,7 +19,7 @@ function reveal(item:HTMLElement,animate:boolean){
   item.dataset.revealed='true';delete item.dataset.revealPending;
   if(!animate||reducedMotion.matches)return;
   const move=item.dataset.revealMode==='move';
-  const frames=move?[{opacity:.65,transform:`translate3d(calc(-1 * ${textToken('--reveal-distance')}),0,0)`},{opacity:1,transform:'translate3d(0,0,0)'}]:[{opacity:.8},{opacity:1}];
+  const frames=move?[{opacity:.2,transform:`translate3d(calc(-1 * ${textToken('--reveal-distance')}),0,0)`},{opacity:1,transform:'translate3d(0,0,0)'}]:[{opacity:.2},{opacity:1}];
   const a=item.animate(frames,{duration:n('--motion-reveal'),delay:Number(item.dataset.revealIndex)*n('--reveal-stagger'),easing:textToken('--ease-out'),fill:'backwards'});
   live.set(item,a);void a.finished.catch(()=>{}).finally(()=>live.delete(item));
 }

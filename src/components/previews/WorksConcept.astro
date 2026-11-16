@@ -1,0 +1,65 @@
+---
+import {workPhotos,workMasters,workSequence,type WorksConcept} from '../../content/works-concepts';
+import MaterialSurface from '../MaterialSurface.astro';
+import Icon from '../Icon.astro';
+import Pair from './WorksPhoto.astro';
+interface Props {concept:WorksConcept;}
+const {concept}=Astro.props;
+const indexOf=(id:string)=>workPhotos.findIndex(photo=>photo.id===id);
+const photos=workSequence;
+const pairMasters=[...new Set(photos.slice(0,2).map(photo=>photo.masterName))].join(' · ');
+const pairTitles=[...new Set(photos.slice(0,2).map(photo=>photo.caption))].join(' · ');
+const srcset=(photo:typeof photos[number])=>photo.variants.map(v=>`${v.url} ${v.width}w`).join(', ');
+---
+<section class={`wp-concept wp-${concept.signature}`} data-works-concept={concept.id} aria-labelledby="works-concept-heading">
+ <h2 id="works-concept-heading"><span class="wp-title-full">{concept.title}</span><span class="wp-title-compact">{concept.compact[0]}<br />{concept.compact[1]}</span></h2>
+ {concept.id==='01'&&<>
+  <div class="wp-journal-lead"><Pair photo={photos[0]} /><div class="wp-journal-side"><Pair photo={photos[1]} position={1} /><Pair photo={photos[2]} position={2} /></div></div>
+  <div class="wp-journal-foot"><p>Форма, детали<br />и свой характер.</p>{photos.slice(3,6).map((photo,index)=><Pair photo={photo} position={index+3} />)}</div>
+ </>}
+ {concept.id==='02'&&<><div class="wp-poster-photos">{photos.slice(0,3).map((photo,index)=><Pair photo={photo} position={index} />)}</div><p class="wp-poster-footer">СОЮЗ · Барбершоп · Киров</p></>}
+ {concept.id==='03'&&<div class="wp-contact-sheet">{photos.slice(0,8).map((photo,index)=><div class="wp-sheet-frame"><span class="wp-frame-id" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><Pair photo={photo} position={index} /></div>)}</div>}
+ {concept.id==='04'&&<div class="wp-wall-grid">{photos.slice(0,6).map((photo,index)=><div class={`wp-wall-cell wp-wall-cell-${index}`}><Pair photo={photo} position={index} /></div>)}<div class="wp-wall-type"><p>Хорошая<br />стрижка —<br />дело чести!</p></div></div>}
+ {concept.id==='05'&&<>
+  <div class="wp-master-tabs" role="tablist" aria-label="Фотографии по барберам"><button type="button" id="wp-master-all" role="tab" aria-selected="true" aria-controls="wp-album" data-wp-master="all">Все</button>{workMasters.map(master=><button type="button" id={`wp-master-${master.id}`} role="tab" aria-selected="false" aria-controls="wp-album" tabindex="-1" data-wp-master={master.id} aria-label={`Фотографии: ${master.name}`}>{master.name.split(' ')[0]}</button>)}</div>
+  <div class="wp-album-grid" id="wp-album" role="tabpanel" aria-labelledby="wp-master-all">{photos.map((photo,index)=><Pair photo={photo} position={index} />)}</div>
+ </>}
+ {concept.id==='06'&&<><div class="wp-scroll" id="wp-photo-rail" tabindex="0" aria-label="Лента фотографий работ">{photos.map((photo,index)=><Pair photo={photo} position={index} />)}</div><div class="wp-rail-controls"><button type="button" data-wp-rail-step="-1" aria-controls="wp-photo-rail" disabled aria-label="Предыдущая фотография"><Icon name="left" /></button><p>Листай фотографии</p><button type="button" data-wp-rail-step="1" aria-controls="wp-photo-rail" aria-label="Следующая фотография"><Icon name="right" /></button></div></>}
+ {concept.id==='07'&&<><div class="wp-diptych-pair"><Pair photo={photos[0]} /><Pair photo={photos[1]} position={1} /></div><div class="wp-diptych-caption"><p>{pairMasters}</p><p>{pairTitles}</p></div><div class="wp-diptych-thumbs">{photos.slice(2,6).map((photo,index)=><Pair photo={photo} position={index+2} />)}</div></>}
+ {concept.id==='08'&&<div class="wp-files-list">{workMasters.map((master,index)=><details class="wp-file" name="work-master-file" open={index===0}><summary><span>{master.name}</span><span class="wp-file-mark" aria-hidden="true"></span></summary><div class="wp-file-images">{workPhotos.filter(photo=>photo.masterId===master.id).slice(0,2).map((photo,i)=><Pair photo={photo} position={index+i} />)}</div></details>)}</div>}
+ {concept.id==='09'&&<>
+  <div class="wp-viewer-stage"><button class="wp-viewer-image" type="button" data-wp-open={indexOf(photos[0].id)} aria-label={`Увеличить фотографию: ${photos[0].masterName}`}><img data-wp-stage-image src={photos[0].src} srcset={srcset(photos[0])} sizes="(max-width:600px) 90vw, 720px" width={photos[0].width} height={photos[0].height} alt={photos[0].alt} /></button><div class="wp-viewer-caption"><p data-wp-stage-caption>{photos[0].masterName}</p><p data-wp-stage-work>{photos[0].caption}</p></div></div>
+  <div class="wp-viewer-thumbs" role="group" aria-label="Выбор фотографии">{photos.slice(0,8).map((photo,index)=><button type="button" data-wp-stage={indexOf(photo.id)} aria-pressed={index===0?'true':'false'} aria-label={`Показать фотографию: ${photo.masterName}`}><img src={photo.variants[0].url} width={photo.variants[0].width} height={photo.variants[0].height} alt="" loading="lazy" /></button>)}</div>
+ </>}
+ {concept.id==='10'&&<><div class="wp-billboard-photos">{[photos[1],photos[0],photos[2]].map((photo,index)=><Pair photo={photo} position={index} />)}</div><p class="wp-billboard-sign">СОЮЗ · хорошие стрижки — норма жизни</p></>}
+</section>
+<dialog class="wp-lightbox" aria-label="Просмотр фотографии" data-wp-dialog>
+ <MaterialSurface><div class="wp-lightbox-head"><p data-wp-dialog-caption></p><button type="button" data-wp-close aria-label="Закрыть фотографию"><Icon name="close" /></button></div><img data-wp-dialog-image width={photos[0].width} height={photos[0].height} alt="" /><div class="wp-lightbox-controls"><button type="button" data-wp-photo-step="-1" aria-label="Предыдущая фотография"><Icon name="left" /></button><output data-wp-photo-count></output><button type="button" data-wp-photo-step="1" aria-label="Следующая фотография"><Icon name="right" /></button></div></MaterialSurface>
+</dialog>
+<script is:inline type="application/json" id="wp-gallery-data" set:html={JSON.stringify(workPhotos.map(photo=>({src:photo.src,srcset:srcset(photo),alt:photo.alt,master:photo.masterName,caption:photo.caption,width:photo.width,height:photo.height}))).replaceAll('<','\\u003c')} />
+<script>
+ import {openDialog,closeDialog,isKeyboardActivation} from '../../scripts/motion';
+ import {nativeRail} from '../../scripts/rail-selection';
+ const data=document.querySelector('#wp-gallery-data');
+ const gallery: {src:string;srcset:string;alt:string;master:string;caption:string;width:number;height:number}[]=JSON.parse(data?.textContent||'[]');
+ const root=document.querySelector<HTMLElement>('[data-works-concept]');
+ const dialog=document.querySelector<HTMLDialogElement>('[data-wp-dialog]');
+ if(root&&dialog&&gallery.length){
+  let selected=0,browsing:number[]=[];
+  const image=dialog.querySelector<HTMLImageElement>('[data-wp-dialog-image]')!;
+  const paint=(index:number)=>{selected=(index+browsing.length)%browsing.length;const photo=gallery[browsing[selected]];image.src=photo.src;image.srcset=photo.srcset;image.alt=photo.alt;image.width=photo.width;image.height=photo.height;dialog.querySelector('[data-wp-dialog-caption]')!.textContent=photo.master;dialog.querySelector('output')!.textContent=`${selected+1} / ${browsing.length}`;};
+  root.addEventListener('click',event=>{const button=(event.target as Element).closest<HTMLButtonElement>('[data-wp-open]');if(button){const source=Number(button.dataset.wpOpen),thumbs=root.querySelectorAll<HTMLButtonElement>('[data-wp-stage]'),candidates=thumbs.length?thumbs:root.querySelectorAll<HTMLButtonElement>('[data-wp-open]');browsing=[...new Set([...candidates].filter(item=>item.getClientRects().length).map(item=>Number(item.dataset.wpStage??item.dataset.wpOpen)))];paint(Math.max(0,browsing.indexOf(source)));openDialog(dialog);}});
+  dialog.querySelector('[data-wp-close]')!.addEventListener('click',()=>void closeDialog(dialog));
+  dialog.querySelectorAll<HTMLButtonElement>('[data-wp-photo-step]').forEach(button=>button.addEventListener('click',()=>paint(selected+Number(button.dataset.wpPhotoStep))));
+  dialog.addEventListener('cancel',event=>{event.preventDefault();void closeDialog(dialog);});
+  dialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();paint(selected+(event.key==='ArrowRight'?1:-1));}});
+  dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)void closeDialog(dialog);});
+ }
+ const tabs=[...document.querySelectorAll<HTMLButtonElement>('[data-wp-master]')];
+ const chooseMaster=(button:HTMLButtonElement)=>{tabs.forEach(tab=>{tab.setAttribute('aria-selected',String(tab===button));tab.tabIndex=tab===button?0:-1;});document.querySelector('.wp-album-grid')?.setAttribute('aria-labelledby',button.id);document.querySelectorAll<HTMLElement>('.wp-album-grid .wp-photo').forEach(photo=>photo.hidden=button.dataset.wpMaster!=='all'&&photo.dataset.masterId!==button.dataset.wpMaster);};
+ tabs.forEach((button,index)=>{button.addEventListener('click',()=>chooseMaster(button));button.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;chooseMaster(tabs[next]);tabs[next].focus();});});
+ if(tabs.length)chooseMaster(tabs[0]);
+ document.querySelectorAll<HTMLButtonElement>('[data-wp-stage]').forEach(button=>button.addEventListener('click',()=>{const photo=gallery[Number(button.dataset.wpStage)],stage=document.querySelector<HTMLImageElement>('[data-wp-stage-image]')!,owner=stage.closest<HTMLButtonElement>('[data-wp-open]')!;stage.src=photo.src;stage.srcset=photo.srcset;stage.alt=photo.alt;owner.dataset.wpOpen=button.dataset.wpStage;owner.setAttribute('aria-label',`Увеличить фотографию: ${photo.master}`);document.querySelector('[data-wp-stage-caption]')!.textContent=photo.master;document.querySelector('[data-wp-stage-work]')!.textContent=photo.caption;document.querySelectorAll('[data-wp-stage]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));}));
+ const rail=document.querySelector<HTMLElement>('.wp-scroll');
+ if(rail){const owner=nativeRail(rail),buttons=[...document.querySelectorAll<HTMLButtonElement>('[data-wp-rail-step]')];owner.subscribe(index=>buttons.forEach(button=>button.disabled=Number(button.dataset.wpRailStep)<0?index===0:index===rail.children.length-1));buttons.forEach(button=>button.addEventListener('click',event=>owner.goTo((owner.target??owner.index)+Number(button.dataset.wpRailStep),isKeyboardActivation(event))));}
+</script>

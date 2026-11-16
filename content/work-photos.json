@@ -1,0 +1,1051 @@
+{
+  "source": "vk-public-wall",
+  "ownerId": -210007626,
+  "verifiedAt": "2026-11-16",
+  "apiRun": 43873941766,
+  "sourceSnapshotSha256": "258245ec06c6e8fbf27ffb5438f5c1af66acfe34f90fb46c29e1405e12231466",
+  "sourceSnapshot": "artifacts/iteration66/vk-works-api/source.json",
+  "scope": "Curated work photos attached to public posts by the six current masters; not a complete album export.",
+  "photos": [
+    {
+      "id": "vk-457242038",
+      "photoId": 457242038,
+      "postId": 1962,
+      "albumId": 311570476,
+      "masterId": "souz-darya",
+      "title": "Crew Cut (Крю-кат) и Beard Trim (Оформление бороды)",
+      "categories": [
+        "haircuts",
+        "beards"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1962",
+      "photoUrl": "https://vk.ru/photo-210007626_457242038",
+      "creditEvidence": "#ТоварищДарья@soyuz_kirov",
+      "captionEvidence": "ДО / ПОСЛЕ — Crew Cut (крю кат) и оформление бороды.",
+      "sourceTextSha256": "b17043192f77d7eb38275a3849a027b8fb3ac5f150d570d5c390e346349f1791",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457242038.jpg",
+      "sourceSha256": "dfea7b00e407675db0f4a39abdcdccf343bd6115d6745c09e0ba3a1674b032db",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457242038-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 24442,
+          "sha256": "3a78d1ce53ae5c9ff9759499bab8cf86fe1c89337c6002fc8df709a57e652137"
+        },
+        {
+          "url": "/media/works/vk-457242038-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 72290,
+          "sha256": "d9bf9a730db27865e5c59ba5f3ab6028d5c60742392ac1a9649c340ff913eba9"
+        },
+        {
+          "url": "/media/works/vk-457242038-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 133654,
+          "sha256": "0598872700548c6ad9f013c6795db31962b9ddefc3a81f9b71fdf80c18a21723"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241914",
+      "photoId": 457241914,
+      "postId": 1948,
+      "albumId": 313537350,
+      "masterId": "souz-svetlana",
+      "title": "Mod Cut (Мод-кат)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1948",
+      "photoUrl": "https://vk.ru/photo-210007626_457241914",
+      "creditEvidence": "#ТоварищСветлана@soyuz_kirov",
+      "captionEvidence": "Мужская стрижка Mod Cut (Мод).",
+      "sourceTextSha256": "4ee0ea91670e495a462cd66c56ba1cf1967303b0ca06dc12c5028a866fdddeea",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241914.jpg",
+      "sourceSha256": "738371193e94a3e5e66cc94f164741f1ce58e4b531fd5ede05e2a39b10554204",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241914-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 11070,
+          "sha256": "04025782542908b9b43fdb97c29daf0a36f7dff0ea853faa51c76f8d6545c215"
+        },
+        {
+          "url": "/media/works/vk-457241914-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 33286,
+          "sha256": "b24a215ff66bd5b7a888f95c2d28d9b3855658956b905331cedbb3409e74df85"
+        },
+        {
+          "url": "/media/works/vk-457241914-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 64114,
+          "sha256": "5a8169693b4d7dff3e6bb3364f6bc972ffb515c39b0d9d587319215dea571307"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241915",
+      "photoId": 457241915,
+      "postId": 1948,
+      "albumId": 313537350,
+      "masterId": "souz-svetlana",
+      "title": "Mod Cut (Мод-кат)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1948",
+      "photoUrl": "https://vk.ru/photo-210007626_457241915",
+      "creditEvidence": "#ТоварищСветлана@soyuz_kirov",
+      "captionEvidence": "Мужская стрижка Mod Cut (Мод).",
+      "sourceTextSha256": "4ee0ea91670e495a462cd66c56ba1cf1967303b0ca06dc12c5028a866fdddeea",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241915.jpg",
+      "sourceSha256": "0e0b3af30d69d4eb530c1d301f7e8c676b4f4ae2212450c1ac7b8c5bb50b4005",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241915-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 10806,
+          "sha256": "ae3427cef6fc9caa10646de1f559105d63c669161f92a111f936a729153da3bf"
+        },
+        {
+          "url": "/media/works/vk-457241915-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 36496,
+          "sha256": "7dea0831bc9d958862855e1311da545d70e71cfdf0a0888e32290149d339a494"
+        },
+        {
+          "url": "/media/works/vk-457241915-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 74776,
+          "sha256": "2c80ae4b09fbf28403d9bd1fc02f3cb02c719d5c5acb2e537eac0f47de1e7e6e"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241827",
+      "photoId": 457241827,
+      "postId": 1919,
+      "albumId": 313537350,
+      "masterId": "souz-svetlana",
+      "title": "Mullet (Маллет)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1919",
+      "photoUrl": "https://vk.ru/photo-210007626_457241827",
+      "creditEvidence": "#ТоварищСветлана@soyuz_kirov",
+      "captionEvidence": "Мужская удлинённая стрижка Mullet (Маллет).",
+      "sourceTextSha256": "cf170ec7d1942532c110092002cd232853d32cbd97b34bc5e6553a1b35d4ab78",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241827.jpg",
+      "sourceSha256": "1ba953334c7dc71b9df52c2fc94dcac2118774e8282f549807c4d6c48ead6698",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241827-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 16578,
+          "sha256": "f51ce32fc0c8a542fc4d962703a826c080db822d48b3ec7820c9cbf9f5cce08e"
+        },
+        {
+          "url": "/media/works/vk-457241827-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 50230,
+          "sha256": "36c74f6677d1c5fa5354ffaa07de0530a25ddb090058c4f991db78598407199e"
+        },
+        {
+          "url": "/media/works/vk-457241827-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 89220,
+          "sha256": "d2a4882093ca5a0d5a32a2a68c424037db555f110eb83998726b8d5a93a2ad17"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241641",
+      "photoId": 457241641,
+      "postId": 1735,
+      "albumId": 312750596,
+      "masterId": "souz-sonya-kid",
+      "title": "Crew Cut (Крю-кат) · High Fade (Высокий фейд)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1735",
+      "photoUrl": "https://vk.ru/photo-210007626_457241641",
+      "creditEvidence": "#ТоварищСоня@soyuz_kirov",
+      "captionEvidence": "Удлинённый Crew Cut с высоким фейдом.",
+      "sourceTextSha256": "2ae825643512c99ca3f730012ab117aa5d32860cb0a38721a7d5da4240a37b37",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241641.jpg",
+      "sourceSha256": "04a6430573eb282190a185fe946651db6dd64f4fe0fe755f671867a37419eb26",
+      "sourceWidth": 1200,
+      "sourceHeight": 1600,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241641-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 8656,
+          "sha256": "1405b344f08e2e7eef9d9e02cc360c63097abeeeec988e76a900dcd05e6e72c2"
+        },
+        {
+          "url": "/media/works/vk-457241641-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 35970,
+          "sha256": "deb02be9a46419d7ac349d5fbe57e8f4953a29d12c92be3242eedae07337a1b8"
+        },
+        {
+          "url": "/media/works/vk-457241641-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 76690,
+          "sha256": "6c773ddd7caaac72607ec570798dbde050a2545471c8eb9ab70a4e108069bc1c"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241618",
+      "photoId": 457241618,
+      "postId": 1713,
+      "albumId": 312750596,
+      "masterId": "souz-sonya-kid",
+      "title": "Full Round Beard (Полная округлая борода) · Handlebar (Хэндлбар)",
+      "categories": [
+        "beards"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1713",
+      "photoUrl": "https://vk.ru/photo-210007626_457241618",
+      "creditEvidence": "#ТоварищСоня@soyuz_kirov",
+      "captionEvidence": "Полная округлая борода, усы хэндлбар и окрашивание седины",
+      "sourceTextSha256": "bc71bbe03cabec594dece30dae8bdb120f6ecb7634c2ed5a02ba1f978f6ea4ed",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241618.jpg",
+      "sourceSha256": "a96086fe3300ea576c243714bbbb0abd33c4a278e3f313934cdba90e233afd16",
+      "sourceWidth": 1919,
+      "sourceHeight": 2558,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241618-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 24114,
+          "sha256": "cfc3d99180b8fc390ff41b47951f3c2d2af245a515d2cb5db5e8a363a97bd25f"
+        },
+        {
+          "url": "/media/works/vk-457241618-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 76884,
+          "sha256": "04b69e3c9facf83fa46314ddccb19d13815306c14ff350d943c7d9331296d250"
+        },
+        {
+          "url": "/media/works/vk-457241618-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 146494,
+          "sha256": "2ff7fa13c646bd9a1f38105fa2fd5b27f6b6e7507e6294671cb972e34ec3a91d"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241986",
+      "photoId": 457241986,
+      "postId": 1955,
+      "albumId": 312750596,
+      "masterId": "souz-sonya-kid",
+      "title": "Soft Curly Mullet (Мягкий кудрявый маллет)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1955",
+      "photoUrl": "https://vk.ru/photo-210007626_457241986",
+      "creditEvidence": "#ТоварищСоня@soyuz_kirov",
+      "captionEvidence": "Мужская стрижка Soft Curly Mullet (мягкий маллет) на кудрявых волосах.",
+      "sourceTextSha256": "8cab242cfb518820ae49c3c51412c60c4abcce31aeed920c05014c00d7dd14eb",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241986.jpg",
+      "sourceSha256": "dce7680e6496e6ba20a29a0a05a431d158101025e3f500d386e70d4ffb9efd64",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241986-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 16364,
+          "sha256": "f1293d3bcf30ad4a6b5c43db050e3e058b377e2453b219b0438fc32532674f5e"
+        },
+        {
+          "url": "/media/works/vk-457241986-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 62600,
+          "sha256": "14c8b8eb064851e844b8b197afd45cad1fd83871e303c9a4ea4af1b6cd3a1483"
+        },
+        {
+          "url": "/media/works/vk-457241986-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 120002,
+          "sha256": "6065d917c600267b8ebd8b0c0be6be5b1b597b5e9a20860707548e61e0df23ba"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241919",
+      "photoId": 457241919,
+      "postId": 1941,
+      "albumId": 312750596,
+      "masterId": "souz-sonya-kid",
+      "title": "Flow (Флоу)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1941",
+      "photoUrl": "https://vk.ru/photo-210007626_457241919",
+      "creditEvidence": "#ТоварищСоня@soyuz_kirov",
+      "captionEvidence": "Мужская удлинённая стрижка Flow (флоу).",
+      "sourceTextSha256": "d25ee90caf800fb737cfcd28b6d7fcfeac1842cc294e67f1bcc60d9e01fd6aa2",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241919.jpg",
+      "sourceSha256": "157dd601c7fd2679ab6f77d2cd63c71863f720f96f7928ea1c6ae87984f3df94",
+      "sourceWidth": 1792,
+      "sourceHeight": 2400,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241919-360.webp",
+          "width": 360,
+          "height": 482,
+          "bytes": 9492,
+          "sha256": "09889f51ec465b4ef09b58b6e20f89f54bea554e7d3291b1c5adabc40cd2a302"
+        },
+        {
+          "url": "/media/works/vk-457241919-720.webp",
+          "width": 720,
+          "height": 964,
+          "bytes": 31608,
+          "sha256": "660eea8cf549006a551c0e393d204d9c1ec65890058f177858c3bbc66dc7796f"
+        },
+        {
+          "url": "/media/works/vk-457241919-1080.webp",
+          "width": 1080,
+          "height": 1446,
+          "bytes": 69074,
+          "sha256": "05a7ee2f9b1f14666aa6f3793e48510e6927c9cb57fdb951dfbf915e8d38a45f"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241816",
+      "photoId": 457241816,
+      "postId": 1911,
+      "albumId": 312750596,
+      "masterId": "souz-sonya-kid",
+      "title": "Wolf Cut (Вульф-кат)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1911",
+      "photoUrl": "https://vk.ru/photo-210007626_457241816",
+      "creditEvidence": "#ТоварищСоня@soyuz_kirov",
+      "captionEvidence": "Мужская стрижка Wolf Cut (вулф кат).",
+      "sourceTextSha256": "fa9f8e6866c8cd6df039acb5f49dc63a63c545e51d4e33255044787a19c330be",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241816.jpg",
+      "sourceSha256": "4a0e6756b7ba43396c334899308598df64f30aa357b852b3b61733d51522b5cb",
+      "sourceWidth": 1920,
+      "sourceHeight": 2559,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241816-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 16284,
+          "sha256": "14ee48c4c63b8c819341b7341fcf02ed147141013c40e898da839a5b4d6a771b"
+        },
+        {
+          "url": "/media/works/vk-457241816-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 58184,
+          "sha256": "355f77d44f52b91d005350201dc57be777a82bcf6cd92da323125fcb61a913ac"
+        },
+        {
+          "url": "/media/works/vk-457241816-1080.webp",
+          "width": 1080,
+          "height": 1439,
+          "bytes": 118588,
+          "sha256": "a9548d15d7337531bd16df0d4e4b87f8fbd5d2a3fe88d32b163a1c42c58d7585"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241434",
+      "photoId": 457241434,
+      "postId": 1548,
+      "albumId": 311695116,
+      "masterId": "souz-milena",
+      "title": "Wavy Flow (Волнистый флоу)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1548",
+      "photoUrl": "https://vk.ru/photo-210007626_457241434",
+      "creditEvidence": "#ТоварищМилена@soyuz_kirov",
+      "captionEvidence": "Wavy Flow с тейпер фейдом на височных и затылочной зонах.",
+      "sourceTextSha256": "4b6a36e17de4c6dd0bd0033ed756cb244b1864966969881ad22040acc2c8a829",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241434.jpg",
+      "sourceSha256": "b911a3e02d690282cd87244633bc08e10261b45511b87063425851aa5304f297",
+      "sourceWidth": 1200,
+      "sourceHeight": 1600,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241434-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 11746,
+          "sha256": "87a92e4271bf1ef085357d470f1e482ddb69312e736493ee5f175ea15697e1f9"
+        },
+        {
+          "url": "/media/works/vk-457241434-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 46504,
+          "sha256": "378fc28b9621a2fc3c3b7ea6fe4b29bb8532a7f38046974134757c5b6dfd6960"
+        },
+        {
+          "url": "/media/works/vk-457241434-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 102562,
+          "sha256": "e4f8076259111e3f524ae8f49b29b46a415685d6b7009064d70ef7603397995a"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241392",
+      "photoId": 457241392,
+      "postId": 1526,
+      "albumId": 311695116,
+      "masterId": "souz-milena",
+      "title": "Caesar Cut (Цезарь) · High Fade (Высокий фейд)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1526",
+      "photoUrl": "https://vk.ru/photo-210007626_457241392",
+      "creditEvidence": "#ТоварищМилена@soyuz_kirov",
+      "captionEvidence": "Цезарь с высоким фейдом.",
+      "sourceTextSha256": "daaa82cf6a8481b6943805abdb5b50ca2644d6185438b237a9b39fa45382475f",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241392.jpg",
+      "sourceSha256": "3530dce96356287af5730a3a9a03f607ace5c39f156e16075644db4626675eb6",
+      "sourceWidth": 1200,
+      "sourceHeight": 1600,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241392-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 7298,
+          "sha256": "dd53f28b6390f2582044041631152df3ca42f0ee3f2abd469785d0c13b156798"
+        },
+        {
+          "url": "/media/works/vk-457241392-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 34962,
+          "sha256": "8dfb8e252b929b74a87d045dc5adc4a2b8262214478b655151b42de9d2108a36"
+        },
+        {
+          "url": "/media/works/vk-457241392-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 81148,
+          "sha256": "1afd97022cca82622de3ed9039c86367a980a57ab9814bb44093ffe2991fac04"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241880",
+      "photoId": 457241880,
+      "postId": 1935,
+      "albumId": 311695116,
+      "masterId": "souz-milena",
+      "title": "Mullet (Маллет)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1935",
+      "photoUrl": "https://vk.ru/photo-210007626_457241880",
+      "creditEvidence": "#ТоварищМилена@soyuz_kirov",
+      "captionEvidence": "Мужская стрижка Mullet (маллет).",
+      "sourceTextSha256": "46089df7aa8d93965250f8df11b9aa0d608f818bd0e3cc57b03d0ede89a0c744",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241880.jpg",
+      "sourceSha256": "8e7249f021171a937c1603cec2b3fcbf41dbb4d8f75e343628257031f6eeb994",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241880-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 16746,
+          "sha256": "867d236fa42fa31408b4da849916b69e0a159d430c03255d75da14d6fc8e4774"
+        },
+        {
+          "url": "/media/works/vk-457241880-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 59934,
+          "sha256": "20cb12075c8ad779aba075e1a9d6f03019e4a7911c59f7d6245b82bc48f02a61"
+        },
+        {
+          "url": "/media/works/vk-457241880-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 112000,
+          "sha256": "bcee6fcfee1403cd81963a069af3943865ed46e1d99945ab41437f2cde127709"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241856",
+      "photoId": 457241856,
+      "postId": 1925,
+      "albumId": 311695116,
+      "masterId": "souz-milena",
+      "title": "Bro Flow (Бро-флоу)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1925",
+      "photoUrl": "https://vk.ru/photo-210007626_457241856",
+      "creditEvidence": "#ТоварищМилена@soyuz_kirov",
+      "captionEvidence": "Мужская удлинённая стрижка Bro Flow (бро-флоу).",
+      "sourceTextSha256": "03784df090d18a3dd05fca68f0cd9efd7014c18bf8bf2993bc21addd2fa2f659",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241856.jpg",
+      "sourceSha256": "e7884b301d39f57a2a12237de6cd32ba11fc9f2cec70677911b492cd99606502",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241856-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 20542,
+          "sha256": "972c3e461bfc2fcd3ce4cc0b433c8e0ecd075d07ee0dae1c984d4b3d90c097dc"
+        },
+        {
+          "url": "/media/works/vk-457241856-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 69954,
+          "sha256": "4b98087aaf2c929ac72a1bb2a224f22073c48ed597ed8794bb2bc66e41e81a75"
+        },
+        {
+          "url": "/media/works/vk-457241856-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 129810,
+          "sha256": "2efc4e3740eabb8c0463b2c67caf4d3af0f847e552acd0c8917a329bfede2aad"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241378",
+      "photoId": 457241378,
+      "postId": 1498,
+      "albumId": 311570476,
+      "masterId": "souz-darya",
+      "title": "Curly Shag (Кудрявый шегги)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1498",
+      "photoUrl": "https://vk.ru/photo-210007626_457241378",
+      "creditEvidence": "#ТоварищДарья@soyuz_kirov",
+      "captionEvidence": "Укороченный кудрявый шегги с элементами модерн-маллета.",
+      "sourceTextSha256": "7349b2f54342f3a245b8993b5183b2a903ff64c8190fce26ad9b5e8a7d1adff5",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241378.jpg",
+      "sourceSha256": "10cb8fd2876318c352f805b02e21bdfafa2fce83e6b47867f4b04ddc3e5efbe1",
+      "sourceWidth": 1200,
+      "sourceHeight": 1600,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241378-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 14598,
+          "sha256": "a60a091e607da6a138e5762e3e4cc0ec14f4f8f118b479e5b3acfd119b0851b5"
+        },
+        {
+          "url": "/media/works/vk-457241378-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 38176,
+          "sha256": "92de6c145cecb522dc20539a244b0ab86528ed15249fe0d9e2cc0e6a338978bc"
+        },
+        {
+          "url": "/media/works/vk-457241378-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 63068,
+          "sha256": "7f07ddfac48676b09487e5f2411d2ad813afac02c4a87cb02ff3193f2087bb46"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241479",
+      "photoId": 457241479,
+      "postId": 1606,
+      "albumId": 312351342,
+      "masterId": "souz-sofya-shalaginova",
+      "title": "Curly Crop (Кудрявый кроп) · Taper Fade (Тейпер-фейд)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1606",
+      "photoUrl": "https://vk.ru/photo-210007626_457241479",
+      "creditEvidence": "#ТоварищСофья@soyuz_kirov",
+      "captionEvidence": "Кудрявый кроп с тейпер фейдом с нуля на висках и затылке.",
+      "sourceTextSha256": "06fc4a8c45c40682f57f001c8b71db96e6299048789e81fd355938d970d9ca5c",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241479.jpg",
+      "sourceSha256": "9a6514ab02339d85a61feaee901a149e9204ca4b1f1d6dc8fc77d28e59cb3f4d",
+      "sourceWidth": 1200,
+      "sourceHeight": 1600,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241479-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 15666,
+          "sha256": "1aeb8ef91b365e9c89f0c05a03ffac88fb450d78ab7904bdadd8103854ae3623"
+        },
+        {
+          "url": "/media/works/vk-457241479-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 58582,
+          "sha256": "7aba450f3f0c024d0346e52a93debe95ae33d884b448e0997496c86048f006c6"
+        },
+        {
+          "url": "/media/works/vk-457241479-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 118626,
+          "sha256": "7902b47505fcc3f8f09bbdf746a82f9321dbb81435e9402cfe0edc4642bde871"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241357",
+      "photoId": 457241357,
+      "postId": 1455,
+      "albumId": -7,
+      "masterId": "souz-sofya-shalaginova",
+      "title": "Curly Crop (Кудрявый кроп) · Taper Fade (Тейпер-фейд)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1455",
+      "photoUrl": "https://vk.ru/photo-210007626_457241357",
+      "creditEvidence": "#ТоварищСофья@soyuz_kirov",
+      "captionEvidence": "Кудрявый кроп с тейпер фейдом. ",
+      "sourceTextSha256": "b8f38b13ee09a34fcc23ad928ca945d71e945260df7fa4b555b27997a07a7a68",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241357.jpg",
+      "sourceSha256": "329d09982073392861a049a31c53664982a5d7d0583a334d33ed32c9a9896d05",
+      "sourceWidth": 1183,
+      "sourceHeight": 1577,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241357-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 13236,
+          "sha256": "96e01eb3298f8cace0d6ec58d52ba57396a81ca93bc689c20601318402262ac8"
+        },
+        {
+          "url": "/media/works/vk-457241357-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 41544,
+          "sha256": "be14efc0312d4bd6ea4d47b15f9f406e37faec8b792f683b7e3f63cef9944ad2"
+        },
+        {
+          "url": "/media/works/vk-457241357-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 71534,
+          "sha256": "6aa7dee62f6b4e80fd3b45e24a8cd472ecd4ca2db0085230246c3660d3e234bd"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241782",
+      "photoId": 457241782,
+      "postId": 1898,
+      "albumId": 297253623,
+      "masterId": "souz-lyubov",
+      "title": "Curly Edgar (Эдгар на кудрявых волосах)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1898",
+      "photoUrl": "https://vk.ru/photo-210007626_457241782",
+      "creditEvidence": "#ТоварищЛюбовь@soyuz_kirov",
+      "captionEvidence": "Мужская стрижка Эдгар на кудрявых волосах.",
+      "sourceTextSha256": "0b56788c2bd41df10ac3116682b1a76755ec12d251bc067e5c8dcfe2bbd46228",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241782.jpg",
+      "sourceSha256": "b53a97cbaa8d2689143ba6b24fc83a8932a4d6dec75dc43b8bf410be8a656037",
+      "sourceWidth": 1920,
+      "sourceHeight": 2560,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241782-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 15242,
+          "sha256": "e958fdaa8e1f96e889ca053023a745308370b0b6ba62de8983dae276ad9e8711"
+        },
+        {
+          "url": "/media/works/vk-457241782-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 56276,
+          "sha256": "261b8da024466853dd06efe91f3ac29fc36b682ecf4334d5a73373f43ffc64b5"
+        },
+        {
+          "url": "/media/works/vk-457241782-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 112478,
+          "sha256": "a8f19ebd3beb94ddea62f791a5006bfc329a9e7851cf730f8ce4c8aa1b80e7ce"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241496",
+      "photoId": 457241496,
+      "postId": 1622,
+      "albumId": 297253623,
+      "masterId": "souz-lyubov",
+      "title": "Textured Crop (Текстурный кроп) · Taper Fade (Тейпер-фейд)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1622",
+      "photoUrl": "https://vk.ru/photo-210007626_457241496",
+      "creditEvidence": "#ТоварищЛюбовь@soyuz_kirov",
+      "captionEvidence": "Текстурный кроп с тейпер фейдом.",
+      "sourceTextSha256": "689f2f3940ed30db97e102d50a97b330229f9539fc6635a02cd80cbfd92a6c26",
+      "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241496.jpg",
+      "sourceSha256": "2381301169cc8d6351f2de05967eebf5679e04f0aa523a7c863fdafb3c411b22",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241496-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 15806,
+          "sha256": "010ce39d29a8b935adbb30a7008dad385a17b6fd2e958a3f25b584096813e862"
+        },
+        {
+          "url": "/media/works/vk-457241496-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 54608,
+          "sha256": "c247d5eb78bc44710426eea5d0f1747fa236a6a197711dc93eade95617b90f15"
+        },
+        {
+          "url": "/media/works/vk-457241496-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 103142,
+          "sha256": "e78e617cff9cb0a30ee9938044212c03068584c1f7f9b7820247d9ca07a53a14"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241988",
+      "photoId": 457241988,
+      "postId": 1955,
+      "albumId": 312750596,
+      "masterId": "souz-sonya-kid",
+      "title": "Soft Curly Mullet (Мягкий кудрявый маллет)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1955",
+      "photoUrl": "https://vk.ru/photo-210007626_457241988",
+      "creditEvidence": "#ТоварищСоня@soyuz_kirov",
+      "captionEvidence": "Мужская стрижка Soft Curly Mullet (мягкий маллет) на кудрявых волосах.",
+      "sourceTextSha256": "8cab242cfb518820ae49c3c51412c60c4abcce31aeed920c05014c00d7dd14eb",
+      "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241988.jpg",
+      "sourceSha256": "47d55a1c8fc9a34620ac69e282ffdd16db303683ceb5bb913dffca0c834df22b",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241988-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 11004,
+          "sha256": "8ce831d3179862b87d707cc1ee444e5177355ce863eacef5bcf671c64ffc8b3a"
+        },
+        {
+          "url": "/media/works/vk-457241988-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 42832,
+          "sha256": "1ac27c11bb4c8bb80d43511706d78528bf5151fd156ac5b4b00a27180f1f3aad"
+        },
+        {
+          "url": "/media/works/vk-457241988-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 81444,
+          "sha256": "8a6b07ce5900b576564a431f5510e946661fbe3e3277ef3184e3c67273a5fa3b"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241879",
+      "photoId": 457241879,
+      "postId": 1935,
+      "albumId": 311695116,
+      "masterId": "souz-milena",
+      "title": "Mullet (Маллет)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1935",
+      "photoUrl": "https://vk.ru/photo-210007626_457241879",
+      "creditEvidence": "#ТоварищМилена@soyuz_kirov",
+      "captionEvidence": "Мужская стрижка Mullet (маллет).",
+      "sourceTextSha256": "46089df7aa8d93965250f8df11b9aa0d608f818bd0e3cc57b03d0ede89a0c744",
+      "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241879.jpg",
+      "sourceSha256": "42cbc0de5da276ea73c44f47e4f625b7b7f7daf17ac71257f54bdc8bcdf6af8a",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241879-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 17194,
+          "sha256": "6bf25c4eea78f82e4a951cfec249d855be50058981bacec25186585db75fa12f"
+        },
+        {
+          "url": "/media/works/vk-457241879-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 61874,
+          "sha256": "b424a7b638d1491b9e2e4cd78f62d414cb20bceb6ea3fdc1751f7b120a8a59b9"
+        },
+        {
+          "url": "/media/works/vk-457241879-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 116776,
+          "sha256": "46bf7e1437aa5b21840079327d3054924f47564b0fce68259c60d741d703b264"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241854",
+      "photoId": 457241854,
+      "postId": 1925,
+      "albumId": 311695116,
+      "masterId": "souz-milena",
+      "title": "Bro Flow (Бро-флоу)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1925",
+      "photoUrl": "https://vk.ru/photo-210007626_457241854",
+      "creditEvidence": "#ТоварищМилена@soyuz_kirov",
+      "captionEvidence": "Мужская удлинённая стрижка Bro Flow (бро-флоу).",
+      "sourceTextSha256": "03784df090d18a3dd05fca68f0cd9efd7014c18bf8bf2993bc21addd2fa2f659",
+      "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241854.jpg",
+      "sourceSha256": "1ecaf5bab696e0cdaa0d4d2a83ded33af4c22a675fc28f7369bcaea732bf66d9",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241854-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 15618,
+          "sha256": "7e945bbd3e197442f35cea5e25ca0cfd139f771bffa2f6782f79087f2102d8ed"
+        },
+        {
+          "url": "/media/works/vk-457241854-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 47838,
+          "sha256": "799734ec75a6956d1b6667d16f2bc8585b084f55726b08e2503a7245bd97b33e"
+        },
+        {
+          "url": "/media/works/vk-457241854-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 83318,
+          "sha256": "4556b96cd8899caaeb77ffcba5b5ae32f379d678eb694bb25910a18c4f667e41"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241825",
+      "photoId": 457241825,
+      "postId": 1919,
+      "albumId": 313537350,
+      "masterId": "souz-svetlana",
+      "title": "Mullet (Маллет)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1919",
+      "photoUrl": "https://vk.ru/photo-210007626_457241825",
+      "creditEvidence": "#ТоварищСветлана@soyuz_kirov",
+      "captionEvidence": "Мужская удлинённая стрижка Mullet (Маллет).",
+      "sourceTextSha256": "cf170ec7d1942532c110092002cd232853d32cbd97b34bc5e6553a1b35d4ab78",
+      "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241825.jpg",
+      "sourceSha256": "9589958610286aaf3f0301b31e0bc6688dc578e837595c8f06665d5688105688",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241825-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 12066,
+          "sha256": "eae57224c022323b2c62eec671c5b7c8ea087f17d6b21053cb20e4929e603782"
+        },
+        {
+          "url": "/media/works/vk-457241825-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 37914,
+          "sha256": "4a5914c7c44d2ae57a038578453e69267e0b622afd604c8ed64877a8ac4a17dd"
+        },
+        {
+          "url": "/media/works/vk-457241825-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 72048,
+          "sha256": "0a197bbc80088d21d31f91693d6dcd27b4500f783264eff4a7bc235a8d7fb48d"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241110",
+      "photoId": 457241110,
+      "postId": 1137,
+      "albumId": -7,
+      "masterId": "souz-sofya-shalaginova",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1137",
+      "photoUrl": "https://vk.ru/photo-210007626_457241110",
+      "creditEvidence": "#ТоварищСофья@soyuz_kirov",
+      "captionEvidence": "Пора что-то менять? Начни со стрижки!",
+      "sourceTextSha256": "8f11b148b4c83639cd02101ddcde1485fade80b92ac70362f19b75d968c3bfd5",
+      "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241110.jpg",
+      "sourceSha256": "130f77586ee140a5149aee01b18f3174c5226c190279b4b6729478e6b61c49a2",
+      "sourceWidth": 1920,
+      "sourceHeight": 2560,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241110-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 14340,
+          "sha256": "6af786bd1f90900a4c8a349a325b0dcdb422063737ddbe137e62479b56a4bc1e"
+        },
+        {
+          "url": "/media/works/vk-457241110-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 52852,
+          "sha256": "eb4f0dcb1c38d324ccb0dba5f31483cc358c5c09772bb210e973bc150aa4d768"
+        },
+        {
+          "url": "/media/works/vk-457241110-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 120740,
+          "sha256": "4b9d8667088e5df91969471a2fde94544bf14bd954bf83defe9ddc6ade2fa254"
+        }
+      ]
+    },
+    {
+      "id": "vk-457241355",
+      "photoId": 457241355,
+      "postId": 1450,
+      "albumId": -7,
+      "masterId": "souz-lyubov",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "postUrl": "https://vk.ru/wall-210007626_1450",
+      "photoUrl": "https://vk.ru/photo-210007626_457241355",
+      "creditEvidence": "#ТоварищЛюбовь@soyuz_kirov",
+      "captionEvidence": "Праздники позади. До следующего Нового года ещё 352 дня, а значит впереди как минимум 12 стрижек. Отсчёт пошел.",
+      "sourceTextSha256": "53c5e21f1df005dcd833459183058946573c16ac142bc187496d4259a9685695",
+      "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241355.jpg",
+      "sourceSha256": "b2934023acdf11d52e6f9dc307d1b66e0e6ef8da98a9dc8d57a78f026e4d66db",
+      "sourceWidth": 1920,
+      "sourceHeight": 2560,
+      "variants": [
+        {
+          "url": "/media/works/vk-457241355-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 14132,
+          "sha256": "7f2690ce42e782c30735e90ad8513d348e69d94f306b602d525015cd1c306658"
+        },
+        {
+          "url": "/media/works/vk-457241355-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 42374,
+          "sha256": "89b3233511e04a0b743851fbd46f1d8bfa0f83cbc3595a71df28d40206a7137c"
+        },
+        {
+          "url": "/media/works/vk-457241355-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 87966,
+          "sha256": "d0c219603e53f900d1f256a7f12a622dc8e79b1aaaf538516a91522a67758c06"
+        }
+      ]
+    }
+  ],
+  "runtime": {
+    "format": "WebP",
+    "quality": 82,
+    "method": 6,
+    "resampling": "Lanczos",
+    "webpVersion": "1.6.0"
+  }
+}

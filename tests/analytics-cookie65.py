@@ -1,11 +1,17 @@
 """Cookie settings against an isolated built site. Vendor code and external providers are stubbed."""
-import argparse,json,mimetypes
+import argparse,hashlib,json,mimetypes,re
 from pathlib import Path
 from urllib.parse import urlsplit
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
-parser=argparse.ArgumentParser();parser.add_argument('--engine',choices=['chromium','firefox','webkit'],default='chromium');parser.add_argument('--build',default='.local/cookie65-dist');args=parser.parse_args()
-BUILD=ROOT/args.build;OUT=ROOT/'tmp/planning/iteration65/cookie';OUT.mkdir(parents=True,exist_ok=True)
+parser=argparse.ArgumentParser();parser.add_argument('--engine',choices=['chromium','firefox','webkit'],default='chromium');parser.add_argument('--build',default='.local/cookie65-dist');parser.add_argument('--label');args=parser.parse_args()
+BUILD=ROOT/args.build
+if args.label:
+ assert re.fullmatch(r'[\w-]+',args.label)
+ OUT=ROOT/'tmp/planning/iteration66/cookie'/args.label;OUT.mkdir(parents=True,exist_ok=False)
+else:OUT=ROOT/'tmp/planning/iteration65/cookie';OUT.mkdir(parents=True,exist_ok=True)
+def build_hashes():return{str(f.relative_to(BUILD)):hashlib.sha256(f.read_bytes()).hexdigest()for f in [BUILD/'index.html',*sorted((BUILD/'_astro').glob('*.js')),*sorted((BUILD/'_astro').glob('*.css'))]}
+source_start=build_hashes()
 with sync_playwright()as p:
  browser=getattr(p,args.engine).launch(**({'channel':'chrome'}if args.engine=='chromium'else{}))
  vendors=[];errors=[]
@@ -31,7 +37,10 @@ with sync_playwright()as p:
   page.wait_for_timeout(450)
  def open_settings(page):
   # Exercise the user-visible cookie control in the floating settings panel.
-  if page.locator('[data-analytics-prompt]').is_visible():page.locator('.analytics-settings-link').click()
+  if page.locator('[data-analytics-prompt]').is_visible():page.locator('[data-analytics-prompt] [data-analytics-settings]').click()
+  elif page.viewport_size['width']<=960:
+   if not page.locator('#mobile-menu').is_visible():page.locator('[data-open-menu]').click();page.wait_for_timeout(350)
+   page.locator('#mobile-menu .menu-contact-row [data-analytics-settings]').click()
   else:
    page.locator('[data-site-settings]').click()
    page.locator('#site-settings-panel [data-analytics-settings]').click()
@@ -48,7 +57,7 @@ with sync_playwright()as p:
  assert page.locator('[data-cookie-service]:checked').count()==0
  page.keyboard.press('Escape');page.wait_for_timeout(80)
  assert not page.locator('#cookie-settings').is_visible();assert vendors==[]
- assert page.locator('.analytics-settings-link').evaluate('(e)=>e===document.activeElement')
+ assert page.locator('[data-analytics-prompt] [data-analytics-settings]').evaluate('(e)=>e===document.activeElement')
  open_settings(page);page.locator('[data-cookie-service=metrika]').check();save(page)
  assert consent(page)['metrika']and not consent(page)['ga4']
  assert len(vendors)==1 and'mc.yandex.ru'in vendors[0]
@@ -104,19 +113,19 @@ with sync_playwright()as p:
  assert page.locator('[data-cookie-service=ga4]').is_checked();blocked.close()
  # Native modal focus stays in the dialog; closing interrupts the common motion.
  motion=browser.new_context(viewport={'width':1440,'height':900},reduced_motion='no-preference');setup(motion)
- page=motion.new_page();ready(page);page.locator('.analytics-settings-link').click();page.wait_for_timeout(40)
+ page=motion.new_page();ready(page);page.locator('[data-analytics-prompt] [data-analytics-settings]').click();page.wait_for_timeout(40)
  for step in range(9):
   page.keyboard.press('Tab')
   # Native modal traversal may visit browser chrome; no outside page control may receive focus.
   assert page.evaluate("()=>document.activeElement===document.body||!!document.activeElement.closest('#cookie-settings')"),(step,page.evaluate("()=>({active:document.activeElement.tagName,open:document.querySelector('#cookie-settings').open})"))
  page.keyboard.press('Escape');page.wait_for_timeout(300)
- assert not page.locator('#cookie-settings').is_visible();assert page.locator('.analytics-settings-link').evaluate('(e)=>e===document.activeElement')
+ assert not page.locator('#cookie-settings').is_visible();assert page.locator('[data-analytics-prompt] [data-analytics-settings]').evaluate('(e)=>e===document.activeElement')
  motion.close()
  # The primary compact entry lives in the expanded native menu, under a second modal.
  nested=[]
  for width,height,movement in [(390,844,'reduce'),(320,568,'no-preference')]:
   compact=browser.new_context(viewport={'width':width,'height':height},reduced_motion=movement);setup(compact)
-  page=compact.new_page();ready(page);page.locator('[data-analytics-choice=denied]').click()
+  page=compact.new_page();ready(page);open_settings(page);page.locator('[data-analytics-withdraw]').click();page.wait_for_timeout(300)
   page.locator('[data-open-menu]').click();page.wait_for_timeout(350)
   entry=page.locator('#mobile-menu .menu-contact-row [data-analytics-settings]')
   assert page.locator('#mobile-menu').evaluate('(e)=>e.matches(":modal")')
@@ -182,9 +191,37 @@ with sync_playwright()as p:
   frames=page.evaluate('disclosureFrames');assert any(v['open']for v in frames)and any(not v['open']for v in frames),frames
   if movement=='no-preference':assert len({v['transform']for v in frames})>3,frames
   page.keyboard.press('Escape');page.wait_for_timeout(300);assert not page.locator('#cookie-settings').is_visible()
-  assert page.locator('.analytics-settings-link').evaluate('e=>e===document.activeElement')
+  assert page.locator('[data-analytics-prompt] [data-analytics-settings]').evaluate('e=>e===document.activeElement')
   interrupted.append({'motion':movement,'frames':frames,'escapeRestoresFocus':True});check.close()
+ # The compact notice has two actions; refusal is available through settings.
+ banners=[]
+ for width,theme in [(390,'light'),(390,'dark'),(1440,'light'),(1440,'dark')]:
+  notice=browser.new_context(viewport={'width':width,'height':844 if width==390 else 900},color_scheme=theme,reduced_motion='reduce');setup(notice)
+  page=notice.new_page();prior=len(vendors);ready(page)
+  prompt=page.locator('[data-analytics-prompt]');assert prompt.is_visible()and len(vendors)==prior
+  result=prompt.evaluate(r"""e=>{const r=e.getBoundingClientRect();return{width:r.width,availableWidth:document.documentElement.getBoundingClientRect().width,title:getComputedStyle(e.querySelector('h2')).fontSize,words:e.querySelector('p').innerText.trim().split(/\s+/).length,overflow:e.scrollWidth>e.clientWidth+1,buttons:[...e.querySelectorAll('button')].map(b=>{const s=getComputedStyle(b),r=b.getBoundingClientRect(),t=document.createRange();t.selectNodeContents(b);return{label:b.innerText,x:r.x,y:r.y,height:r.height,inlinePadding:parseFloat(s.paddingInlineStart),rects:t.getClientRects().length,fits:t.getBoundingClientRect().width<=r.width-parseFloat(s.paddingInlineStart)-parseFloat(s.paddingInlineEnd)+1}})}}""")
+  assert result['width']<=400 and abs(result['width']-min(400,result['availableWidth']-32))<1,result
+  assert result['title']=='18px'and result['words']<=25 and not result['overflow'],result
+  assert [b['label']for b in result['buttons']]==['Разрешить','Настройки'],result
+  assert result['buttons'][1]['x']>result['buttons'][0]['x']and abs(result['buttons'][1]['y']-result['buttons'][0]['y'])<1,result
+  assert all(b['height']>=44 and b['inlinePadding']>=12 and b['rects']==1 and b['fits']for b in result['buttons']),result
+  page.screenshot(path=str(OUT/f'{args.engine}-banner-{width}-{theme}.png'))
+  entry=prompt.locator('[data-analytics-settings]');entry.focus();page.keyboard.press('Enter');page.locator('#cookie-settings').wait_for(state='visible')
+  assert page.locator('[data-cookie-service]:checked').count()==0
+  page.locator('[data-cookie-service=ga4]').focus();page.keyboard.press('Space');page.keyboard.press('Escape');page.wait_for_timeout(100)
+  assert len(vendors)==prior and consent(page)is None,'closing an unsaved keyboard draft loaded analytics'
+  assert entry.evaluate('e=>e===document.activeElement')
+  entry.press('Enter');page.locator('#cookie-settings').wait_for(state='visible');assert page.locator('[data-cookie-service]:checked').count()==0
+  page.locator('[data-analytics-withdraw]').press('Enter');page.wait_for_timeout(300)
+  assert consent(page)['metrika']==False and consent(page)['ga4']==False and len(vendors)==prior
+  page.reload(wait_until='domcontentloaded');page.wait_for_timeout(300)
+  assert not prompt.is_visible()and len(vendors)==prior,'refusal was lost on reload'
+  open_settings(page);assert page.locator('[data-cookie-service]:checked').count()==0
+  page.keyboard.press('Escape');page.wait_for_timeout(100);assert len(vendors)==prior
+  banners.append({'viewport':width,'theme':theme,'defaultVendorRequests':0,'unsavedDraftVendorRequests':0,'keyboardRefusalPersisted':True,'settingsReopened':True,**result})
+  notice.close()
  browser.close()
 assert errors==[],errors
-(OUT/f'{args.engine}.json').write_text(json.dumps({'engine':args.engine,'vendorCodeExecuted':False,'noVendorBeforeChoice':True,'granularChoice':True,'withdrawal':True,'delayedQueueRevocation':True,'legacyMigration':True,'crossTab':True,'noPIIInCustomEvents':True,'safePageLocation':True,'nestedMobileMenu':nested,'geometries':geometries,'disclosureInterruptions':interrupted,'pageErrors':errors},ensure_ascii=False,indent=2),encoding='utf-8')
+source_end=build_hashes();assert source_start==source_end,'tested build changed during cookie QA'
+(OUT/f'{args.engine}.json').write_text(json.dumps({'engine':args.engine,'build':str(BUILD),'sourceStart':source_start,'sourceEnd':source_end,'vendorCodeExecuted':False,'noVendorBeforeChoice':True,'granularChoice':True,'withdrawal':True,'delayedQueueRevocation':True,'legacyMigration':True,'crossTab':True,'noPIIInCustomEvents':True,'safePageLocation':True,'nestedMobileMenu':nested,'geometries':geometries,'disclosureInterruptions':interrupted,'compactBanners':banners,'pageErrors':errors},ensure_ascii=False,indent=2),encoding='utf-8')
 print(f'PASS {args.engine}: separate services, refusal/reopen/withdrawal, pending SDKs, safe events, cross-tab, legacy migration, storage errors, six layouts including 320px+200% text; vendors stubbed')

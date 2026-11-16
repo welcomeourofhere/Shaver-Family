@@ -76,8 +76,9 @@
   background: var(--blue);
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--motion-card) var(--ease-out);
+  transition: opacity var(--motion-context) var(--ease-out);
 }
+.hero-rail[data-selection-instant="true"] .hero-slide { transition:none; }
 .hero-slide[data-hero-active="true"] { opacity: 1; pointer-events: auto; z-index: 1; }
 .hero-news-state {
   position: absolute;
@@ -253,6 +254,7 @@
 }
 .cashback-surface {
   position: absolute;
+  z-index: 0;
   inset: 0;
   overflow: hidden;
   border-radius: var(--radius-card) var(--radius-card) 0 0;
@@ -261,7 +263,9 @@
 .cashback-surface::after {
   content: "";
   position: absolute;
+  z-index: 1;
   inset: 0;
+  border-radius: inherit;
   background: var(--cashback-text-shade);
 }
 .cashback-art-stage {
@@ -285,6 +289,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding: var(--cashback-padding);
+  border-radius: inherit;
 }
 .cashback h2 {
   font: 400 var(--cashback-title)/1 var(--font-display);
@@ -295,6 +300,7 @@
   font-size: var(--cashback-body);
   line-height: 1.2;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 .cashback-link {
   margin-top: auto;
@@ -347,8 +353,8 @@
   .hero-photo { object-position: center 30%; }
   .hero .hero-news-panel { display:none; }
   .hero-news-bodies,.hero-news-panel .hero-news-action { display: none; }
-  .hero-asides { grid-column:1; grid-row:2; width:min(var(--content-max),calc(100% - var(--page-gutter) * 2)); height:auto; margin:var(--size-24) auto 0; grid-template-columns:minmax(0,1fr); grid-template-rows:auto; align-items:stretch; }
-  .first-visit { height: auto; }
+  .hero-asides { grid-column:1; grid-row:2; width:min(var(--content-max),calc(100% - var(--page-gutter) * 2)); min-height:0; height:auto; margin:var(--size-24) auto 0; grid-template-columns:minmax(0,1fr); grid-template-rows:auto; align-items:stretch; }
+  .first-visit { height:auto; grid-template-rows:auto auto auto; align-content:space-between; }
   .first-visit h2 { font-size:var(--headline-size); text-align:center; }
   .cashback h2 { font-size:var(--headline-size); text-align:left; align-self:stretch; width:100%; }
   .cashback p { font-weight:400; }

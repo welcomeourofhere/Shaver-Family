@@ -29,7 +29,8 @@ const bodyHTML=typographyHTML(await Astro.slots.render('default'));
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="robots" content={indexable?'index, follow, max-image-preview:large':'noindex, nofollow'} />
-    <meta name="theme-color" content={design.base['--red']} />
+    <meta name="theme-color" content={design.base['--surface']} />
+    <meta name="color-scheme" content="light dark" />
     <title>{title}</title>
     <meta name="description" content={description} />
     {canonical&&<link rel="canonical" href={canonical} />}
@@ -37,6 +38,7 @@ const bodyHTML=typographyHTML(await Astro.slots.render('default'));
     <meta property="og:description" content={description} />
     <meta property="og:type" content={articleData?"article":"website"} />
     <meta property="og:image" content={socialImage} />
+    {image===seo.image&&<><meta property="og:image:width" content={String(seo.imageWidth)} /><meta property="og:image:height" content={String(seo.imageHeight)} /><meta property="og:image:type" content={seo.imageType} /></>}
     <meta property="og:image:alt" content={imageAlt} />
     {canonical&&<meta property="og:url" content={canonical} />}
     <meta property="og:locale" content={seo.locale} />
@@ -53,8 +55,11 @@ const bodyHTML=typographyHTML(await Astro.slots.render('default'));
       document.documentElement.classList.add('js');
       let saved='auto';try{saved=localStorage.getItem(storageKey)||'auto';}catch{}
       document.documentElement.dataset.theme=saved==='light'||saved==='dark'?saved:matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+      document.querySelector('meta[name="theme-color"]').setAttribute('content',getComputedStyle(document.documentElement).getPropertyValue('--surface').trim());
     </script>
-    <link rel="icon" href="/brand/favicon-red.svg" type="image/svg+xml" />
+    <link rel="icon" href="/brand/favicon-96.png" type="image/png" sizes="96x96" />
+    <link rel="icon" href="/brand/favicon-standard.svg" type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href="/brand/favicon-180.png" sizes="180x180" />
     <link rel="preload" href="/fonts/Manrope-Regular-UI.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/Manrope-Medium-UI.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/Manrope-SemiBold-UI.woff2" as="font" type="font/woff2" crossorigin />

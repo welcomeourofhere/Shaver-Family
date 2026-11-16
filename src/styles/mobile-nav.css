@@ -1,5 +1,6 @@
 /* Mobile actions use safe-area insets; dialog geometry belongs to the shared surface. */
 .mobile-nav { display: none; }
+.mobile-nav-anchor { display:contents; }
 .mobile-action-short { display:none; }
 body { padding-bottom: var(--mobile-nav-space,0px); }
 .promo-dialog,.category-dialog { width: var(--size-440); }
@@ -24,6 +25,16 @@ body { padding-bottom: var(--mobile-nav-space,0px); }
   .mobile-nav-book { background: var(--yellow); color: var(--ink); }
   .mobile-nav button:focus-visible { background: var(--blue); color: var(--paper); }
   .mobile-nav :focus-visible { outline-color: var(--paper); outline-offset: var(--size-2); }
+}
+
+/* A zero-area fixed anchor keeps the painted panel out of Safari's fixed-layer
+   browser-edge sampling. Reparent the anchor with the panel in the dialog. */
+@supports (-webkit-touch-callout:none) {
+ @media (max-width:960px) {
+  .mobile-nav-anchor { display:block; position:fixed; z-index:90; left:0; bottom:0; width:0; height:0; pointer-events:none; }
+  .mobile-nav-anchor .mobile-nav { --dock-frame-width:min(calc(var(--content-max) + var(--size-16)),calc(100vw - var(--size-8))); position:absolute; left:calc((100vw - var(--dock-frame-width)) / 2); right:auto; width:var(--dock-frame-width); margin-inline:0; pointer-events:auto; }
+  .mobile-nav-anchor .mobile-nav[data-suppressed="true"] { pointer-events:none; }
+ }
 }
 
 @media (max-width:960px) and (hover:hover) and (pointer:fine) { .mobile-nav button:hover { background:var(--blue);color:var(--paper); } }

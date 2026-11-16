@@ -1,31 +1,48 @@
 ---
 import site from '../../content/site.json';
 import BusinessHours from './BusinessHours.astro';
-import ContactChannels from './ContactChannels.astro';
 import '../styles/footer.css';
 import {footerNavigation} from '../config/navigation';
 import legal from '../../content/legal/pages.json';
 import operator from '../../content/legal/operator.json';
-const links=footerNavigation.map(link=>[`#${link.id}`,link.id==='gifts'?'Подарки за визиты':link.label]);
-const columns=[[0,3,6],[1,4,7],[2,5,8]];
+import {bookingURLs} from '../scripts/booking-url';
+const bookingHref=bookingURLs(site.bookingUrl)!.publicUrl;
+const popularSections=['services','masters','works','offers','contacts'];
+const links=footerNavigation.filter(link=>popularSections.includes(link.id));
+const contacts=[
+  {label:site.phone,url:`tel:${site.phoneLink}`,id:'phone'},
+  {label:'Онлайн-запись',url:bookingHref,id:'booking'},
+  {label:'Telegram',url:site.telegram,id:'telegram'},
+  {label:'MAX',url:site.maxUrl,id:'max'},
+  {label:'ВКонтакте',url:site.vkMessageUrl,id:'vk'},
+];
 const {homeHref=''}=Astro.props;
 ---
 <footer data-selection-surface="ink" class="footer shell" id="footer"><div class="footer-card">
   <div class="footer-panel">
-    <div class="footer-intro">
+    <div class="footer-summary">
       <a class="footer-logo" href={`${homeHref}#top`} aria-label="СОЮЗ — главная"><span class="footer-brand-mark" aria-hidden="true"></span></a>
-      <div class="footer-location"><a class="footer-address" href={`${homeHref}#contacts`}>{site.city},<br />{site.address}</a><p>Ежедневно <BusinessHours /></p></div>
+      <p class="footer-description">Первый барбершоп в Кирове, где стригут и бреют только девушки.</p>
+      <p class="footer-address">{site.city}, {site.address}</p>
+      <div class="footer-hours"><span>Ежедневно</span><BusinessHours /></div>
     </div>
-    <nav class="footer-groups" aria-label="Навигация подвала">{columns.map(column=><div class="footer-nav-column">{column.map(index=>{const [url,label]=links[index];return <a href={`${homeHref}${url}`} aria-label={label}><span class="footer-nav-full">{label}</span><span class="footer-nav-short">{footerNavigation[index].short}</span></a>})}</div>)}</nav>
-    <div class="footer-contact">
-      <button class="footer-phone" type="button" data-contact aria-label={`Связаться с СОЮЗом, телефон ${site.phone}`}><span class="mobile-action-full">{site.phone}</span><span class="mobile-action-short">Связаться</span></button>
-      <ContactChannels compact showPhone={false} iconsOnly />
-      <div class="footer-booking"><button class="btn btn-yellow" type="button" data-booking aria-label="Записаться онлайн"><span class="footer-book-full">Записаться онлайн</span><span class="footer-book-short">Записаться</span></button></div>
+    <div class="footer-directory">
+      <nav class="footer-group footer-navigation" aria-labelledby="footer-navigation-title">
+        <h2 class="footer-heading" id="footer-navigation-title">Навигация</h2>
+        <div class="footer-links footer-groups">{links.map(link=><a href={`${homeHref}#${link.id}`}>{link.label}</a>)}</div>
+      </nav>
+      <nav class="footer-group footer-contacts" aria-labelledby="footer-contacts-title">
+        <h2 class="footer-heading" id="footer-contacts-title">Связаться</h2>
+        <div class="footer-links footer-contact-links">{contacts.map(contact=><a href={contact.url} target={contact.id==='phone'||contact.id==='booking'?undefined:'_blank'} rel={contact.id==='phone'||contact.id==='booking'?undefined:'noopener noreferrer'} data-contact-channel={contact.id==='booking'?undefined:contact.id} data-booking={contact.id==='booking'||undefined} aria-haspopup={contact.id==='booking'?'dialog':undefined} aria-controls={contact.id==='booking'?'booking-drawer':undefined}>{contact.label}</a>)}</div>
+      </nav>
+      <nav class="footer-group footer-documents" aria-labelledby="footer-documents-title">
+        <h2 class="footer-heading" id="footer-documents-title">Документы</h2>
+        <div class="footer-links footer-legal">{legal.pages.map(page=><a href={`/${page.slug}/`}>{page.title}</a>)}</div>
+      </nav>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© {new Date().getFullYear()} СОЮЗ Барбершоп</p>
-    <p class="footer-identity">{operator.legalName}<br />ИНН {operator.inn} · ОГРНИП {operator.ogrnip}</p>
-    <nav class="footer-legal" aria-label="Юридическая информация">{legal.pages.map(page=><a href={`/${page.slug}`} aria-label={page.title}>{page.title}</a>)}</nav>
+    <p class="footer-copyright">© {new Date().getFullYear()} СОЮЗ Барбершоп</p>
+    <p class="footer-identity"><span>{operator.legalName}</span> · <span>ИНН {operator.inn}</span> · <span>ОГРНИП {operator.ogrnip}</span></p>
   </div>
 </div></footer>

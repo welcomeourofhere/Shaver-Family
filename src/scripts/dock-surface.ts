@@ -8,7 +8,8 @@ type ButtonPose={rect:DOMRect;opacity:number};
 export function createDockSurface(dock:HTMLElement,menu:HTMLDialogElement,perform:(item:DockItem,button:HTMLButtonElement,event:MouseEvent)=>void){
   const compact=matchMedia('(max-width:960px)'),toolbar=dock.querySelector<HTMLElement>('.dock-toolbar')!,shell=dock.querySelector<HTMLElement>('.dock-shell')!,trigger=dock.querySelector<HTMLButtonElement>('[data-open-menu]')!;
   const slots=[...dock.querySelectorAll<HTMLButtonElement>('[data-dock-slot]')],content=menu.querySelector<HTMLElement>(':scope>.surface-viewport')!;
-  const home=document.createComment('mobile dock');dock.before(home);content.classList.add('dock-content');content.hidden=true;dock.prepend(content);menu.dataset.dockOwned='true';
+  const anchor=dock.closest<HTMLElement>('[data-mobile-nav-anchor]')??dock;
+  const home=document.createComment('mobile dock');anchor.before(home);content.classList.add('dock-content');content.hidden=true;dock.prepend(content);menu.dataset.dockOwned='true';
   let expanded=false,initialized=false,context:DockItem[]=[],shown:DockItem[]=[],effects:Animation[]=[],revision=0,fitFrame=0,presentKey='';
   const rect=()=>shell.getBoundingClientRect();
   const buttonPoses=()=>new Map<HTMLElement,ButtonPose>([trigger,...slots.filter(button=>!button.hidden)].map(button=>[button,{rect:button.getBoundingClientRect(),opacity:Number(getComputedStyle(button).opacity)}]));
@@ -98,7 +99,7 @@ export function createDockSurface(dock:HTMLElement,menu:HTMLDialogElement,perfor
     expanded=false;dock.dataset.expanded='false';trigger.setAttribute('aria-expanded','false');trigger.setAttribute('aria-label','Разделы сайта');
     content.inert=true;content.style.cssText=`position:absolute;bottom:${toolbarHeight+gap}px;left:${gap}px;width:${panelWidth}px;pointer-events:none`;
     // The target is neutral; FLIP carries the released sheet offset into the shrinking material.
-    home.after(dock);dock.style.removeProperty('translate');menu.close();presentKey='';present(context,true);morph(before,old,immediate,duration);
+    home.after(anchor);dock.style.removeProperty('translate');menu.close();presentKey='';present(context,true);morph(before,old,immediate,duration);
     if(!immediate&&!instantInteraction()){const fade=content.animate([{opacity},{opacity:0}],{duration:n('--motion-ui'),easing:textToken('--ease-out')});effects.push(fade);try{await fade.finished}catch{}}
     if(!expanded){content.hidden=true;content.inert=false;content.style.cssText='';dock.style.removeProperty('translate');}
     if(compact.matches&&!document.querySelector('dialog:modal'))trigger.focus({preventScroll:true});
@@ -106,7 +107,7 @@ export function createDockSurface(dock:HTMLElement,menu:HTMLDialogElement,perfor
   function open(){
     if(expanded||!compact.matches)return;
     const before=rect(),old=buttonPoses(),duration=n('--motion-dock');
-    expanded=true;dock.dataset.expanded='true';content.hidden=false;content.inert=false;content.style.cssText='';menu.append(dock);menu.showModal();
+    expanded=true;dock.dataset.expanded='true';content.hidden=false;content.inert=false;content.style.cssText='';menu.append(anchor);menu.showModal();
     trigger.setAttribute('aria-expanded','true');trigger.setAttribute('aria-label','Закрыть меню');presentKey='';present([{action:'booking',label:'Записаться',accessible:'Записаться онлайн',controls:'booking-drawer'}],true);morph(before,old,false,duration);
     if(!instantInteraction())effects.push(content.animate([{opacity:0,translate:`0 ${n('--size-8')}px`},{opacity:1,translate:'0 0'}],{duration,easing:textToken('--ease-out')}));
     content.querySelector<HTMLElement>('#menu-title')?.focus({preventScroll:true});

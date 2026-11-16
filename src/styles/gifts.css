@@ -1,6 +1,6 @@
 .gifts-rail { display:contents; }
-.gifts-placeholder { display:grid;place-items:center;grid-template-columns:minmax(0,1fr);grid-column:1/4;grid-row:1/5;min-width:0;width:100%;aspect-ratio:1.5;padding:var(--size-24);border-radius:var(--radius-card);background:var(--ink);color:var(--paper);text-align:center; }
-.gifts-placeholder p { min-width:0;max-width:100%;font:400 var(--size-36)/1.1 var(--font-display);overflow-wrap:anywhere; }
+.gifts-placeholder { position:relative;grid-column:1/4;grid-row:1/5;min-width:0;width:100%;aspect-ratio:1.5;overflow:hidden;border-radius:var(--radius-card);background:var(--ink); }
+.gifts-placeholder-art { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none; }
 .gifts-layout {
   margin-top: max(var(--size-0),calc(var(--certificate-overhang) - var(--certificate-padding) + var(--size-12)));
   display: grid;
@@ -198,10 +198,10 @@
 @media (max-width: 960px) {
   .gifts-layout {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    gap: max(var(--gift-gap), var(--certificate-overhang));
+    grid-template-rows: auto;
+    gap: 0;
   }
-  .gifts-placeholder { grid-column:1;grid-row:1;aspect-ratio:2; }
+  .gifts-placeholder { display:none; }
   .gifts-rail {
     display:block;
     min-width:0;
@@ -224,7 +224,7 @@
   .gift figcaption { font-size:var(--size-13); padding:0; }
   .certificates {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 1;
     contain: none;
   }
   .certificate-scene {

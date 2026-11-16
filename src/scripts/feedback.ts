@@ -14,6 +14,7 @@ export type FeedbackKind = (typeof FEEDBACK_KINDS)[number];
 type FeedbackTone = keyof typeof FEEDBACK_TONES;
 let playRequested: ((tone: FeedbackTone, event: Event) => void) | undefined;
 const handledEvents = new WeakSet<Event>();
+const activations = new WeakMap<Event, { expanded: boolean; pointerType: string }>();
 
 export function requestFeedback(tone: FeedbackTone, event: Event) {
   if (!event.isTrusted || handledEvents.has(event)) return;
@@ -93,7 +94,7 @@ if (typeof document !== "undefined") {
   }
   let enabled = storage ? readFeedbackPreference(storage) : true;
   let lastPlayed = -Infinity;
-  let player: HTMLAudioElement | undefined;
+  const players = new Map<FeedbackTone, HTMLAudioElement>();
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const toggles = () =>
     document.querySelectorAll<HTMLButtonElement>("[data-feedback-toggle]");
@@ -109,7 +110,7 @@ if (typeof document !== "undefined") {
     }
   }
   function stopFeedback() {
-    if (player) {
+    for (const player of players.values()) {
       player.pause();
       player.currentTime = 0;
     }
@@ -119,21 +120,36 @@ if (typeof document !== "undefined") {
       /* Haptics are optional. */
     }
   }
+  function prepareAudio() {
+    if (!enabled || players.size) return;
+    for (const tone of Object.keys(FEEDBACK_TONES) as FeedbackTone[]) {
+      try {
+        const player = new Audio(FEEDBACK_TONES[tone].url);
+        player.preload = 'auto';
+        player.volume = config.volume;
+        players.set(tone, player);
+      } catch { /* Visual controls work without audio support. */ }
+    }
+  }
   function play(tone: FeedbackTone, event: Event) {
     const now = performance.now();
     if (!enabled || !canPlayFeedback(now, lastPlayed)) return;
     lastPlayed = now;
     try {
-      player ??= new Audio();
-      player.pause();
-      player.src = FEEDBACK_TONES[tone].url;
-      player.volume = config.volume;
-      void player.play().catch(() => {});
+      prepareAudio();
+      for (const audio of players.values()) audio.pause();
+      const player = players.get(tone);
+      if (player) {
+        player.currentTime = 0;
+        void player.play().catch(() => {});
+      }
     } catch {
       /* Unsupported or blocked media never prevents an action. */
     }
     // Touch/pen activation only; scrolling and mouse clicks do not vibrate.
-    if (canVibrateFeedback(event, reducedMotion.matches)) {
+    const pointerType = activations.get(event)?.pointerType ||
+      ('pointerType' in event ? String(event.pointerType) : event.type === 'touchend' ? 'touch' : '');
+    if (canVibrateFeedback({ isTrusted: event.isTrusted, pointerType }, reducedMotion.matches)) {
       try {
         navigator.vibrate?.(FEEDBACK_TONES[tone].hapticPattern);
       } catch {
@@ -142,15 +158,32 @@ if (typeof document !== "undefined") {
     }
   }
   playRequested = play;
-  const pointerStates = new WeakMap<HTMLElement, boolean>();
+  let pointerStates = new WeakMap<HTMLElement, { expanded: boolean; pointerType: string }>();
+  const selector = 'button,a[href],summary,input[type="checkbox"],input[type="radio"]';
+  const controlFor = (target: EventTarget | null) => target instanceof Element ? target.closest<HTMLElement>(selector) : null;
   const expandedState = (control: HTMLElement) => control.matches('summary')
     ? !!control.parentElement?.hasAttribute('open')
     : control.getAttribute('aria-expanded') === 'true';
   document.addEventListener('pointerdown', event => {
-    const control = event.target instanceof Element ? event.target.closest<HTMLElement>('button,a[href],summary') : null;
-    if (control) pointerStates.set(control, expandedState(control));
+    pointerStates = new WeakMap();
+    const label = event.target instanceof Element ? event.target.closest('label') : null;
+    const control = controlFor(event.target) || (label?.control?.matches('input[type="checkbox"],input[type="radio"]') ? label.control : null);
+    if (control) pointerStates.set(control, { expanded: expandedState(control), pointerType: event.pointerType });
   }, {capture: true, passive: true});
-  document.addEventListener(
+  document.addEventListener('keydown', () => { pointerStates = new WeakMap(); }, {capture: true});
+  document.addEventListener('pointercancel', () => { pointerStates = new WeakMap(); }, {capture: true, passive: true});
+  document.addEventListener('click', event => {
+    const control = controlFor(event.target);
+    if (!control) return;
+    const pointer = pointerStates.get(control);
+    activations.set(event, {
+      expanded: pointer?.expanded ?? expandedState(control),
+      pointerType: event.pointerType || pointer?.pointerType || '',
+    });
+    pointerStates.delete(control);
+  }, {capture: true});
+  // Window bubbling follows component/document cancellation and retains native user activation.
+  window.addEventListener(
     "click",
     (event) => {
       if (!event.isTrusted || event.defaultPrevented || event.button !== 0)
@@ -158,10 +191,10 @@ if (typeof document !== "undefined") {
       const target = event.target instanceof Element ? event.target : null;
       if (
         !target ||
-        target.closest('input,textarea,select,[contenteditable="true"]')
+        target.closest('textarea,select,input:not([type="checkbox"]):not([type="radio"]),[contenteditable="true"]')
       )
         return;
-      const control = target.closest<HTMLElement>("button,a[href],summary");
+      const control = controlFor(target);
       if (
         !control ||
         control.closest(
@@ -169,26 +202,21 @@ if (typeof document !== "undefined") {
         )
       )
         return;
-      const expanded = event.detail > 0 && pointerStates.has(control) ? pointerStates.get(control)! : expandedState(control);
-      pointerStates.delete(control);
+      const expanded = activations.get(event)?.expanded ?? expandedState(control);
       const tone = controlFeedbackTone(control, expanded);
-      // A microtask can run between trusted DOM listeners. Wait until propagation ends.
-      window.setTimeout(() => {
-        if (event.defaultPrevented) return;
         if (control.matches("[data-feedback-toggle]")) {
           enabled = !enabled;
           if (storage) saveFeedbackPreference(storage, enabled);
           updateSettings();
           if (enabled) {
+            prepareAudio();
             lastPlayed = -Infinity;
             requestFeedback("tap", event);
           } else stopFeedback();
           return;
         }
         requestFeedback(tone, event);
-      }, 0);
     },
-    { capture: true },
   );
   window.addEventListener("storage", (event) => {
     if (event.key !== null && event.key !== FEEDBACK_STORAGE_KEY) return;
@@ -206,4 +234,6 @@ if (typeof document !== "undefined") {
     if (document.hidden) stopFeedback();
   });
   updateSettings();
+  document.addEventListener('pointerdown',prepareAudio,{capture:true,passive:true,once:true});
+  document.addEventListener('keydown',prepareAudio,{capture:true,once:true});
 }

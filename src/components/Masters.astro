@@ -9,6 +9,8 @@ import {masterStories} from '../content/master-articles';
 import MasterStory from './MasterStory.astro';
 import RailControls from './RailControls.astro';
 import Headline from './Headline.astro';
+import UtilityGlyph from './UtilityGlyph.astro';
+import {bookingURLs} from '../scripts/booking-url';
 const reviewPlural = new Intl.PluralRules('ru');
 const reviewLabel = (count: number) => `${count} ${{ one: 'отзыв', few: 'отзыва', many: 'отзывов', other: 'отзыва', zero: 'отзывов', two: 'отзыва' }[reviewPlural.select(count)]}`;
 
@@ -53,10 +55,9 @@ const profiles = data.masters.map((master, index) => {
     {profiles.map(({ master, name, dialogId, openLabel, style }) => (
       <article class="team-card" style={style} data-booking-name={master.bookingNameDative}>
         <div class="team-media">
-          <button class="team-portrait photo-frame" data-loading-media type="button" data-team-open={master.id} aria-label={openLabel} aria-haspopup="dialog" aria-controls={dialogId}>
+          <div class="team-portrait photo-frame" data-loading-media>
             <img class="photo-image" src={master.image} width={master.width} height={master.height} alt={name} loading="lazy" />
-            <span class="btn team-discover" aria-hidden="true">Знакомство</span>
-          </button>
+          </div>
         </div>
         <div class="team-copy">
           <h3 class="team-name">{name}</h3>
@@ -65,9 +66,12 @@ const profiles = data.masters.map((master, index) => {
             <p>{master.experienceLabel}</p>
             <p>{reviewLabel(master.reviewCount)}</p>
           </div>
-          <button class="btn team-book" type="button" data-booking data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Запись к мастеру: ${name}`} aria-label={`Записаться к мастеру: ${name}`} data-action-full="Записаться к мастеру" data-action-short="Записаться">
+          <div class="team-actions">
+          <a class="btn team-book" href={bookingURLs(master.bookingUrl)!.publicUrl} data-booking aria-haspopup="dialog" aria-controls="booking-drawer" data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Запись к мастеру: ${name}`} aria-label={`Записаться к мастеру: ${name}`}>
             <span data-action-label>Записаться</span>
-          </button>
+          </a>
+          <button class="btn team-discover" type="button" data-team-open={master.id} aria-label={openLabel} aria-haspopup="dialog" aria-controls={dialogId}><UtilityGlyph name="question" /></button>
+          </div>
         </div>
       </article>
     ))}
@@ -106,7 +110,7 @@ const profiles = data.masters.map((master, index) => {
       )}
       </>}
       <div class="team-dialog-actions">
-        <button class="btn" type="button" data-booking data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Запись к мастеру: ${name}`} aria-label={`Записаться к ${master.bookingNameDative || name}`} data-personal-booking-short={`К ${master.bookingNameDative || name}`}>Записаться к {master.bookingNameDative || name}</button>
+        <a class="btn" href={bookingURLs(master.bookingUrl)!.publicUrl} data-booking aria-haspopup="dialog" aria-controls="booking-drawer" data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Запись к мастеру: ${name}`} aria-label={`Записаться к ${master.bookingNameDative || name}`} data-personal-booking-short={`К ${master.bookingNameDative || name}`}>Записаться к {master.bookingNameDative || name}</a>
       </div>
       </MaterialSurface>
     </dialog>

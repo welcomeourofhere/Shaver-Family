@@ -5,6 +5,7 @@ import artwork from '../../content/fair-price-artwork.json';
 import slogans from '../../content/honest-price-slogans.json';
 import '../styles/first-visit.css';
 import Headline from './Headline.astro';
+import {bookingURLs} from '../scripts/booking-url';
 const offer = catalog.offers.find(item => item.id === 'honest-price')!;
 const masters = (offer.eligibleMasterIds || []).map(id => team.masters.find(master => master.id === id)!);
 const slogan = slogans.items.find(item => item.id === slogans.selected)!;
@@ -18,7 +19,7 @@ const figures = artwork.separateFigures.items;
       <h3>{(offer.titleLines??[offer.title]).map((line,index)=><>{index>0&&<br />}{line}</>)}</h3>
       <p aria-describedby="fair-terms"><span>Приходи на первый<span class="yellow-mark" aria-hidden="true">*</span> визит к Соне Кид или Свете. В услугу входят мужская стрижка, мытьё головы и укладка. Оцени результат и заплати любую сумму от {offer.minimumPrice} ₽.</span></p>
       <div class="visit-actions">
-        {masters.map(master => <button class="btn" type="button" data-booking data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Честная цена от ${offer.minimumPrice} ₽: ${master.id === 'souz-sonya-kid' ? 'Соня' : 'Света'}`} aria-label={`Записаться по акции «Честная цена» к ${master.id === 'souz-sonya-kid' ? 'Соне' : 'Свете'}`}><span class="visit-book-long">{master.id === 'souz-sonya-kid' ? 'Записаться к Соне' : 'Записаться к Свете'}</span><span class="visit-book-short">{master.id === 'souz-sonya-kid' ? 'К Соне' : 'К Свете'}</span></button>)}
+        {masters.map(master => <a class="btn" href={bookingURLs(master.bookingUrl)!.publicUrl} data-booking aria-haspopup="dialog" aria-controls="booking-drawer" data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Честная цена от ${offer.minimumPrice} ₽: ${master.id === 'souz-sonya-kid' ? 'Соня' : 'Света'}`} aria-label={`Записаться по акции «Честная цена» к ${master.id === 'souz-sonya-kid' ? 'Соне' : 'Свете'}`}><span class="visit-book-long">{master.id === 'souz-sonya-kid' ? 'Записаться к Соне' : 'Записаться к Свете'}</span><span class="visit-book-short">{master.id === 'souz-sonya-kid' ? 'К Соне' : 'К Свете'}</span></a>)}
         <small id="fair-terms"><span class="yellow-mark" aria-hidden="true">*</span> На первый визит именно к выбранному мастеру.</small>
       </div>
     </div>

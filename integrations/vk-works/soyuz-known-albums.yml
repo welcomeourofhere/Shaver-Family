@@ -1,0 +1,36 @@
+name: SOYUZ Known Work Albums
+on:
+  push:
+    branches: ['codex/soyuz-photos-read']
+    paths:
+      - 'soyuz/scripts/vk-known-work-albums.py'
+      - 'soyuz/tests/vk_known_work_albums_test.py'
+      - '.github/workflows/soyuz-known-albums.yml'
+permissions:
+  contents: read
+defaults:
+  run:
+    working-directory: soyuz
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify the fixed album read boundary
+        run: python -m unittest discover -s tests -p 'vk_known_work_albums_test.py'
+      - name: Read verified album IDs without album discovery
+        env:
+          VK_TOKEN: ${{ secrets.VK_TOKEN }}
+        run: python scripts/vk-known-work-albums.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: soyuz-known-work-albums
+          retention-days: 7
+          path: |
+            soyuz/artifacts/vk-known-work-albums.json
+            soyuz/artifacts/vk-known-work-albums.error.json

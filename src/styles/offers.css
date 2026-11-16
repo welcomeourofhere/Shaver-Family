@@ -174,8 +174,6 @@
 }
 
 .of-arrow {
-  --icon-bg: var(--ink);
-  --icon-fg: var(--paper);
   flex: 0 0 auto;
 }
 

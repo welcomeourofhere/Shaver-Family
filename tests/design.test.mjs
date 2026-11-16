@@ -15,7 +15,7 @@ test('utility glyphs retain pinned official Lucide geometry, notices and the sha
   assert.equal(file.url,`https://raw.githubusercontent.com/lucide-icons/lucide/${metadata.commit}/icons/${file.name}.svg`);
   const inner=body.toString().match(/<svg\b[^>]*>([\s\S]*?)<\/svg>/)[1].trim().replace(/>\s+</g,'><');assert.ok(sprite.includes(inner),file.name+' must use the official paths');
  }
- assert.equal((sprite.match(/stroke-width="2"/g)||[]).length,6);
+ assert.equal((sprite.match(/stroke-width="2"/g)||[]).length,metadata.files.length);
  assert.doesNotMatch(sprite,/<(?:script|foreignObject|image|use)\b|\bon\w+=/i);
  assert.match(sprite,/<symbol id="utility-arrow-up"[^>]*><path d="m9 5 7 7-7 7" transform="rotate\(-90 12 12\)"/);
  const license=readFileSync(new URL('LICENSE',source));assert.equal(createHash('sha256').update(license).digest('hex'),metadata.licenseSha256);

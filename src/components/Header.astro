@@ -3,21 +3,24 @@ import site from '../../content/site.json';
 import BusinessHours from './BusinessHours.astro';
 import Icon from './Icon.astro';
 import ContactChannels from './ContactChannels.astro';
+import ContactGlyph from './ContactGlyph.astro';
 import PreferenceControls from './PreferenceControls.astro';
 import MaterialSurface from './MaterialSurface.astro';
 import {navigation} from '../config/navigation';
-const links=navigation.map(link=>[`#${link.id}`,link.label]);
+const primaryIds=['services','masters','works','gifts'];
+const primaryLinks=navigation.filter(link=>primaryIds.includes(link.id));
+const moreLinks=navigation.filter(link=>!['services','masters'].includes(link.id));
 const {homeHref=''}=Astro.props;
 ---
 <header class="site-header shell">
  <div class="header-capsule" data-selection-surface="red">
   <span class="header-shape" aria-hidden="true"></span>
   <nav class="header-nav" aria-label="Основная навигация">
-   {links.slice(0,4).map((link,i)=><a class:list={{'header-nav-extra':i===3}} href={`${homeHref}${link[0]}`}>{link[1]}</a>)}
-   <details class="header-menu more-menu"><summary>Ещё <Icon name="chevron" /></summary><div class="header-menu-panel more-panel"><MaterialSurface>{links.slice(2).map((link,i)=><a class:list={{'more-gifts':i===0,'more-extra':i===1}} href={`${homeHref}${link[0]}`}>{link[1]}</a>)}</MaterialSurface></div></details>
+   {primaryLinks.map(link=><a class:list={{'header-nav-extra':link.id==='works','header-nav-gifts':link.id==='gifts'}} href={`${homeHref}#${link.id}`} aria-label={link.label}>{link.id==='services'?<><span class="header-primary-full">{link.label}</span><span class="header-primary-short">{link.short}</span></>:link.label}</a>)}
+   <details class="header-menu more-menu"><summary>Ещё <Icon name="chevron" /></summary><div class="header-menu-panel more-panel"><MaterialSurface>{moreLinks.map(link=><a class:list={{'more-gifts':link.id==='gifts','more-extra':link.id==='works'}} href={`${homeHref}#${link.id}`}>{link.label}</a>)}</MaterialSurface></div></details>
   </nav>
   <a class="header-logo" href={`${homeHref}#top`} aria-label="СОЮЗ — главная"><span class="header-mark" aria-hidden="true"></span></a>
-  <div class="header-actions"><div class="header-hours"><BusinessHours header /></div><details class="header-menu header-contact"><summary class="header-phone">{site.phone}</summary><div class="header-menu-panel header-contact-panel"><MaterialSurface><ContactChannels compact /></MaterialSurface></div></details><button class="header-book" data-booking>Онлайн-запись</button></div>
+  <div class="header-actions"><div class="header-hours"><BusinessHours header /></div><details class="header-menu header-contact"><summary class="header-phone" aria-label={`Связаться с СОЮЗом, телефон ${site.phone}`}><span class="header-phone-label">{site.phone}</span><ContactGlyph name="phone" /></summary><div class="header-menu-panel header-contact-panel"><MaterialSurface><ContactChannels compact /></MaterialSurface></div></details><a class="header-book" href={site.bookingUrl} data-booking aria-haspopup="dialog" aria-controls="booking-drawer">Онлайн-запись</a></div>
  </div>
 </header>
 <script>import '../scripts/header-menus';</script>
@@ -28,5 +31,5 @@ const {homeHref=''}=Astro.props;
   <div class="menu-contact-row"><a href={`${homeHref}#contacts`} aria-label="Контакты и карта">Контакты</a><PreferenceControls /></div>
  </nav>
  <div class="menu-business"><a href={`tel:${site.phoneLink}`}>{site.phone}</a><span>Ежедневно <BusinessHours /></span></div>
- <button class="btn" data-booking aria-label="Записаться онлайн"><span class="mobile-action-full">Записаться онлайн</span><span class="mobile-action-short">Записаться</span></button>
+ <a class="btn" href={site.bookingUrl} data-booking aria-haspopup="dialog" aria-controls="booking-drawer" aria-label="Записаться онлайн"><span class="mobile-action-full">Записаться онлайн</span><span class="mobile-action-short">Записаться</span></a>
 </MaterialSurface></dialog>

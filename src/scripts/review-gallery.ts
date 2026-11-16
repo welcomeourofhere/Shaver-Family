@@ -57,7 +57,7 @@ export function createReviewGallery(gallery:HTMLElement,signal:AbortSignal){
  if(indicator)bindSlideIndicator(indicator,select,signal);
  gallery.addEventListener('keydown',event=>{
   if(event.target!==gallery)return;
-  if(event.code==='Space'&&(video||phone.matches&&slides.length>1)){event.preventDefault();event.stopPropagation();paused=video&&current===0?!video.paused:!paused;manualPlayback=!paused;playback();}
+  if(event.code==='Space'&&(video||phone.matches&&slides.length>1)){event.preventDefault();event.stopPropagation();paused=video&&current===0?!video.paused:!paused;manualPlayback=!paused;playback();requestFeedback('select',event);}
   if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){
    event.preventDefault();event.stopPropagation();select(event.key==='Home'?0:event.key==='End'?slides.length-1:current+(event.key==='ArrowRight'?1:-1),event);
   }

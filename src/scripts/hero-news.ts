@@ -4,7 +4,7 @@ import { validNewsFeed, newsImageURL,compactNewsPlaceholder,type NewsFeed } from
 
 import {newsActionTone} from "./news-tone";
 import {enableHorizontalSwipe} from './horizontal-swipe';
-import {isMousePointer} from './interaction-intent';
+import {isMousePointer,isKeyboardActivation} from './interaction-intent';
 
 const hero = document.querySelector<HTMLElement>(".hero-scene");
 if (hero) {
@@ -34,7 +34,7 @@ if (hero) {
   [promoAction,promoLabel,promoAction.parentElement].forEach(element=>{if(element)layoutSizes.observe(element)});
   addEventListener('resize',scheduleLayout);
 
-  let current = 0, target = 0, timer = 0, revision = 0, visible = false, hovering = false;
+  let current = 0, target = 0, timer = 0, visible = false, hovering = false;
   let heroDrag:{base:number;dx:number;neighbor:number}|null=null,swipeAnimations:Animation[]=[];
   function clearSwipe(){swipeAnimations.forEach(animation=>animation.cancel());swipeAnimations=[];slides.forEach(slide=>{for(const key of ['transform','opacity','transition'])slide.style.removeProperty(key)});heroDrag=null;}
   function returnSwipe(){
@@ -84,17 +84,17 @@ if (hero) {
     const tone=newsActionTone(current,slides.length);panel.dataset.newsTone=panel.dataset.selectionSurface=tone;
   }
   const togglePlayback=()=>{paused=!paused;schedule();};
-  rail.addEventListener('click',event=>{if(compact.matches&&event.target instanceof Element&&!event.target.closest('button,a'))togglePlayback();},{signal});
-  async function select(next: number, event?: Event) {
+  rail.addEventListener('click',event=>{if(compact.matches&&event.target instanceof Element&&!event.target.closest('button,a')){togglePlayback();requestFeedback('select',event);}},{signal});
+  function select(next: number, event?: Event) {
     if(!newsReady)return;
     if (event) pause();
     const index = (next + slides.length) % slides.length;
-    const request = ++revision;
     target = index;
     if (index === current) { returnSwipe();schedule(); return; }
     clearTimeout(timer);
-    await loadImage(index);
-    if (request !== revision || signal.aborted) return;
+    // Selection is immediate; decoding belongs to the slide's shared media loader.
+    void loadImage(index);
+    rail.dataset.selectionInstant=String(reducedMotion.matches||!!event&&isKeyboardActivation(event));
     if (event) requestFeedback("select", event);
     const previous=current,gesture=heroDrag,poses=gesture?[getComputedStyle(slides[current]).transform,getComputedStyle(slides[index]).transform]:[];
     if(!gesture)clearSwipe();
@@ -124,14 +124,14 @@ if (hero) {
   }
   steps.forEach(button=>button.addEventListener('click',event=>void select(target+Number(button.dataset.railStep),event),{signal}));
   rail.addEventListener("keydown", event => {
-    if(event.code==='Space'&&event.target===rail){event.preventDefault();togglePlayback();return;}
+    if(event.code==='Space'&&event.target===rail){event.preventDefault();togglePlayback();requestFeedback('select',event);return;}
     if (!compact.matches && (event.key === "ArrowLeft" || event.key === "ArrowRight")) {
       event.preventDefault(); void select(target + (event.key === "ArrowLeft" ? -1 : 1), event);
     }
   }, {signal});
   enableHorizontalSwipe(rail,(direction,event)=>void select(target+direction,event),{signal,enabled:()=>newsReady&&!compact.matches,motion:{
     start(){
-      ++revision;target=current;pause();const poses=slides.map(slide=>({transform:getComputedStyle(slide).transform,opacity:getComputedStyle(slide).opacity}));swipeAnimations.forEach(animation=>animation.cancel());swipeAnimations=[];
+      target=current;pause();const poses=slides.map(slide=>({transform:getComputedStyle(slide).transform,opacity:getComputedStyle(slide).opacity}));swipeAnimations.forEach(animation=>animation.cancel());swipeAnimations=[];
       slides.forEach((slide,i)=>{slide.style.transform=poses[i].transform;slide.style.opacity=poses[i].opacity;slide.style.transition='none'});
       const base=new DOMMatrix(poses[current].transform).m41;heroDrag={base,dx:base,neighbor:(current+1)%slides.length};void loadImage((current+1)%slides.length);void loadImage((current+slides.length-1)%slides.length);
     },
@@ -162,7 +162,6 @@ if (hero) {
     if(!pendingFeed||signal.aborted||(newsReady&&(hovering||heroDrag||current!==target||hero!.contains(document.activeElement))))return;
     const {feed,url}=pendingFeed;pendingFeed=null;
     if(Date.parse(feed.generatedAt)<=(Date.parse(hero!.dataset.newsRevision||'')||0))return;
-    revision++;
     for (const [index,item] of feed.items.entries()) {
       if(!slides[index]){const slide=document.createElement('article');slide.className='hero-slide photo-frame';slide.setAttribute('data-loading-media','');rail.append(slide);slides.push(slide);}
       if(!bodies[index]){const body=document.createElement('div');body.className='hero-news-details';const text=document.createElement('p');text.setAttribute('data-news-text','');body.append(document.createElement('time'),text);hero!.querySelector('#hero-news-bodies')!.append(body);bodies.push(body);}

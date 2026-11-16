@@ -1,0 +1,51 @@
+name: SOYUZ VK Public Work Photos
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Read public work-photo candidates from the permitted SOYUZ wall'
+        type: choice
+        options: ['wall-works']
+        required: true
+        default: 'wall-works'
+  push:
+    branches: ['codex/soyuz-photos-read']
+    paths:
+      - 'soyuz/scripts/vk-public-work-photos.py'
+      - 'soyuz/tests/vk_public_work_photos_test.py'
+      - '.github/workflows/soyuz-works.yml'
+permissions:
+  contents: read
+concurrency:
+  group: soyuz-vk-work-albums
+  cancel-in-progress: false
+env:
+  SOYUZ_WORK_MODE: 'wall-works'
+defaults:
+  run:
+    working-directory: soyuz
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify the public-wall read boundary
+        run: python -m unittest discover -s tests -p 'vk_public_work_photos_test.py'
+      - name: Read public work-photo candidates from SOYUZ wall
+        if: ${{ (inputs.mode || env.SOYUZ_WORK_MODE) == 'wall-works' }}
+        env:
+          VK_TOKEN: ${{ secrets.VK_TOKEN }}
+        run: python scripts/vk-public-work-photos.py --output artifacts/vk-public-work-photos.json
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && (inputs.mode || env.SOYUZ_WORK_MODE) == 'wall-works' }}
+        with:
+          name: soyuz-vk-public-work-photos
+          retention-days: 7
+          if-no-files-found: warn
+          path: |
+            soyuz/artifacts/vk-public-work-photos.json
+            soyuz/artifacts/vk-public-work-photos.error.json

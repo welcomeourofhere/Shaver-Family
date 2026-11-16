@@ -44,7 +44,7 @@ for(const [slug,masterId,questions,photos]of expected){
   for(const path of ['dist/index.html',`dist/masters/${slug}/index.html`]){
    const all=nodes(parse(file(path).toString('utf8'))),story=all.find(n=>n.tagName==='article'&&attr(n,'data-article-slug')===slug);assert.ok(story,path);
    const content=normal(text(story));
-   for(const block of source.blocks.filter(b=>b.tag!=='FIGURE'&&b.text.trim()))assert.ok(content.includes(normal(block.text)),`${slug}: missing source block ${block.index}`);
+   for(const block of source.blocks.filter(b=>b.tag!=='FIGURE'&&b.text.trim()))assert.ok(content.includes(normal(article.sections.flatMap(s=>s.blocks).find(b=>b.question===block.text)?.displayQuestion??block.text)),`${slug}: missing source block ${block.index}`);
    assert.equal(nodes(story).filter(n=>n.tagName==='img').length,photos);
    const actual=nodes(story).filter(n=>n.tagName==='img').map(n=>attr(n,'src').split('?')[0]);for(const photo of Object.values(media))assert.ok(actual.some(src=>photo.variants.some(v=>v.url===src)));
   }

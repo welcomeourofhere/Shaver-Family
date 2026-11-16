@@ -5,6 +5,8 @@ import site from '../../content/site.json';
 import BusinessHours from './BusinessHours.astro';
 import contacts from '../../content/contacts.json';
 import '../styles/contacts.css';
+import {bookingURLs} from '../scripts/booking-url';
+const bookingHref=bookingURLs(site.bookingUrl)!.publicUrl;
 const query=encodeURIComponent(site.mapQuery);
 const map=`https://yandex.ru/maps/?text=${query}`;
 const embed=`https://yandex.ru/map-widget/v1/?text=${query}&z=17`;
@@ -22,7 +24,7 @@ const futureMap=`https://yandex.ru/maps/?text=${encodeURIComponent(`${site.city}
      <div><dt>Адрес:</dt>{' '}<dd><a class="contact-address" href={map} target="_blank" rel="noopener noreferrer">{site.city}, {site.address}</a><span class="contact-future">(скоро: <a href={futureMap} target="_blank" rel="noopener noreferrer">{site.futureAddress}</a>)</span></dd></div>
      <div><dt>Телефон:</dt>{' '}<dd><a class="contact-phone" href={`tel:${site.phoneLink}`}>{site.phone}</a></dd></div>
     </dl>
-    <div class="contact-actions"><button class="btn" type="button" data-booking aria-label="Записаться онлайн">Записаться</button><ContactChannels compact iconsOnly showPhone={false} /></div>
+    <div class="contact-actions"><a class="btn" href={bookingHref} data-booking aria-haspopup="dialog" aria-controls="booking-drawer" aria-label="Записаться онлайн">Записаться</a><ContactChannels compact iconsOnly showPhone={false} /></div>
    </article>
    {contacts.people.map(person=>{const [first,...surname]=person.name.split(' ');return <article class="contact-card contact-person" data-contact-person={person.id} data-selection-surface={person.tone}><div class="contact-portrait" data-loading-media><img src={person.image} alt={person.name} width={person.width} height={person.height} loading="lazy" decoding="async" draggable="false" /></div><div class="contact-person-copy"><h3 aria-label={person.name}><span>{first}</span><span>{surname.join(' ')}</span></h3><p>{person.role}</p><div class="contact-person-links"><a href={`tel:${person.phoneTel}`} aria-label={person.phoneDisplay} title={person.phoneDisplay} data-action-short="Тел." data-action-bleed><span data-action-label>{person.phoneDisplay}</span></a><a href={person.telegramUrl} aria-label={person.telegram} title={person.telegram} data-action-short="TG" data-action-bleed target="_blank" rel="noopener noreferrer"><span data-action-label>{person.telegram}</span></a></div></div></article>})}
   </div>

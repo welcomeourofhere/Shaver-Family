@@ -1,10 +1,21 @@
 """Create an immutable local native-wrapper fixture from one exact release package."""
-import argparse,gzip,hashlib,json
+import argparse,gzip,hashlib,json,re
 from pathlib import Path
 from bs4 import BeautifulSoup
 ROOT=Path(__file__).resolve().parents[1]
+
+def host_background(value):
+ if not re.fullmatch(r'#[0-9a-fA-F]{6}',value):raise argparse.ArgumentTypeError('Use an opaque six-digit #RRGGBB color')
+ return value.lower()
+
+def native_document(title,head,body,background=None):
+ tag=BeautifulSoup('', 'html.parser').new_tag('title');tag.string=title
+ style=' style="background-color:'+background+'"'if background else''
+ host='<style data-native-host-background>body.t-body,.t-records{background-color:'+background+'}</style>'if background else''
+ return '<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'+str(tag)+head+host+'</head><body class="t-body"'+style+'><div id="allrecords" class="t-records"'+style+'>'+body+'</div></body></html>'
+
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('manifest',type=Path);parser.add_argument('destination',type=Path);args=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument('manifest',type=Path);parser.add_argument('destination',type=Path);parser.add_argument('--host-background',type=host_background,help='Opaque native background on body and every .t-records, including shared header/footer (#RRGGBB)');args=parser.parse_args()
  dest=args.destination.resolve();assert dest.is_relative_to((ROOT/'tmp').resolve())and not dest.exists(),'Use a new folder under workspace/tmp'
  manifest=json.loads(args.manifest.read_text(encoding='utf-8'));folder=args.manifest.parent
  rows=manifest['files'];paths={r['url']:r.get('sourcePath',r['file'].split('/public-assets/',1)[1])for r in rows}
@@ -23,8 +34,7 @@ def main():
   if shared:body='<div id="t-header" class="t-records">'+native(shared['header'])+'</div>'+native(body)+'<div id="t-footer" class="t-records">'+native(shared['footer'])+'</div>'
   else:body=native(body)
   target=dest/('index.html'if row['route']=='/'else'404.html'if row['route']=='/404'else row['route'].strip('/')+'/index.html');target.parent.mkdir(parents=True,exist_ok=True)
-  title=BeautifulSoup('', 'html.parser').new_tag('title');title.string=row['title']
-  target.write_text('<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'+str(title)+head+'</head><body><div id="allrecords">'+body+'</div></body></html>',encoding='utf-8')
- (dest.parent/'source.json').write_text(json.dumps({'build':manifest['build'],'manifest':str(args.manifest),'nativeWrappers':True,'tildaThirdPartyScripts':False},indent=2),encoding='utf-8')
+  target.write_text(native_document(row['title'],head,body,args.host_background),encoding='utf-8',newline='')
+ (dest.parent/'source.json').write_text(json.dumps({'build':manifest['build'],'manifest':str(args.manifest),'nativeWrappers':True,'nativeBodyClass':'t-body','nativeRecordsClass':'t-records','hostBackground':args.host_background,'hostBackgroundSelectors':['body.t-body','.t-records']if args.host_background else[],'tildaThirdPartyScripts':False},indent=2),encoding='utf-8',newline='')
  print('PASS native fixture',manifest['build'],len(rows),'assets',len(manifest['pages']),'pages')
 if __name__=='__main__':main()

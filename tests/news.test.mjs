@@ -35,7 +35,7 @@ test('responsive news delivery allows three bounded variants up to 1600px',()=>{
 });
 
 test('owner-excluded posts cannot return through a later runtime refresh',()=>{
- for(const id of ['1950','1941','1937','1943','1927','1935','1945','1955','1960']){
+ for(const id of ['1950','1941','1937','1943','1927','1935','1945','1955','1960','1914','1919','1923','1909','1911','1925','1948']){
   const candidate=structuredClone(feed);candidate.items[0].id=id;candidate.items[0].url=`https://vk.ru/wall-210007626_${id}`;
   assert.equal(validNewsFeed(candidate),false);
  }

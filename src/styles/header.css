@@ -9,6 +9,7 @@
     opacity var(--motion-ui) var(--ease-out);
   container-type: inline-size;
   container-name: site-header;
+  font-size: var(--header-meta-font);
 }
 .header-capsule {
   position: relative;
@@ -43,7 +44,7 @@
 }
 .header-nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: var(--size-4);
   min-width: 0;
@@ -66,11 +67,13 @@
 }
 .header-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
   align-items: center;
   gap: var(--size-10);
+  min-width: 0;
 }
+.header-actions > *,.header-nav > * { flex-shrink:0; }
 .header-hours {
   --hours-active-bg: var(--tone-98221e);
   --hours-active-fg: var(--yellow);
@@ -90,7 +93,12 @@
   min-height: var(--size-48);
   padding: var(--size-12);
 }
+.header-phone > .contact-channel-icon { display:none;width:var(--size-20);height:var(--size-20); }
+.header-primary-short { display:none; }
 .header-book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-display);
   font-size: var(--header-book-font);
   line-height: 1.2;
@@ -204,12 +212,20 @@
 .menu-business > span {
   font-size: var(--header-meta-font);
 }
-@container site-header (max-width: 1040px) {
+/* The 13px meta role makes 80em = 1040px; larger text collapses earlier. */
+@container site-header (max-width: 80em) {
   .header-nav > .header-nav-extra { display:none; }
   .more-panel .more-extra { display:flex; }
-}
-@container site-header (max-width: 1000px) {
   .header-hours { display:none; }
+}
+@container site-header (max-width: 60em) {
+  .header-nav > .header-nav-gifts,.header-phone-label { display:none; }
+  .more-panel .more-gifts { display:flex; }
+  .header-phone > .contact-channel-icon { display:block; }
+}
+@container site-header (max-width: 42em) {
+  .header-primary-full { display:none; }
+  .header-primary-short { display:inline; }
 }
 @media (max-width: 960px) {
   .site-header {

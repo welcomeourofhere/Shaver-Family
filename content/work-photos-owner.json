@@ -1,0 +1,1772 @@
+{
+  "schemaVersion": 1,
+  "source": "owner-supplied",
+  "verifiedAt": "2026-11-16",
+  "ownerCreditAuthority": true,
+  "suppliedCount": 31,
+  "photos": [
+    {
+      "ownerFilename": "codex-clipboard-16ad2d0b-ea3f-483c-a772-45e12bca682c.png",
+      "id": "owner-822dc54df2059254",
+      "masterId": "souz-lyubov",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-16ad2d0b-ea3f-483c-a772-45e12bca682c.png",
+      "sourceSha256": "822dc54df205925442a89b66ba032975070a29074485febd108c57552d514b5c",
+      "pixelSha256": "0ba7cba357e45a5eeec06e8a4545fa68c78433b3a7a49c0e042ba3332785d989",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 1,
+      "ownerGroup": 1,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-16ad2d0b-ea3f-483c-a772-45e12bca682c.png",
+        "group": 1,
+        "masterId": "souz-lyubov"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-822dc54df2059254-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 16944,
+          "sha256": "793630e53118e4161ba6b272ae33e40e20e223cb5c1df5c6f6216a49130f2fc4"
+        },
+        {
+          "url": "/media/works/owner-822dc54df2059254-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 56570,
+          "sha256": "1bdcc6c2c1bf2ec9315c572ef131e6cad3adfcbbbfbd74b2f83c989b75438c8b"
+        },
+        {
+          "url": "/media/works/owner-822dc54df2059254-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 106966,
+          "sha256": "921959949a63136549d2fafefea05bafa2c0849421d87ffe840678ad4bbf6f33"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-e61f5831-7f0a-4ccf-9da0-2109b08f975a.png",
+      "id": "owner-f63483b904fe7420",
+      "masterId": "souz-lyubov",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-e61f5831-7f0a-4ccf-9da0-2109b08f975a.png",
+      "sourceSha256": "f63483b904fe7420764c75b4aa3d07040cd6cf090431903e86d8aef7cc45bd9e",
+      "pixelSha256": "5103b901d085dfcb645f620d0a67936d10219ccea5018b8833a12d40292c371e",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 2,
+      "ownerGroup": 1,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-e61f5831-7f0a-4ccf-9da0-2109b08f975a.png",
+        "group": 1,
+        "masterId": "souz-lyubov"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-f63483b904fe7420-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 16342,
+          "sha256": "fdf202f04d2c2236ecacfd1aec839bf4099cc4729d706e49b0c869e84e73ceb6"
+        },
+        {
+          "url": "/media/works/owner-f63483b904fe7420-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 48218,
+          "sha256": "e5637021d6535a45d26af596a9d1354717a7028cef4c400a1942590d4a593ba0"
+        },
+        {
+          "url": "/media/works/owner-f63483b904fe7420-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 86908,
+          "sha256": "df8ee2ba10d70bc269af3a257d76008f1b0ef6dc6d57d14678e7916889f110c3"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-c4e0d535-9d80-4b7d-9115-78801f4b485e.png",
+      "id": "owner-69647d59748f7fb5",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-c4e0d535-9d80-4b7d-9115-78801f4b485e.png",
+      "sourceSha256": "69647d59748f7fb55668193e58c091b1ba3b954fb56e183d63ad1c71d99dac88",
+      "pixelSha256": "19f95c105c8c56684faeb95c4302d79ed791cdfda4959a6c58a0445565b56518",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 3,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-c4e0d535-9d80-4b7d-9115-78801f4b485e.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-69647d59748f7fb5-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 12964,
+          "sha256": "eb97928d61788f1ece3f5341ec3a97967f98743736b116ea083566f68a9688e1"
+        },
+        {
+          "url": "/media/works/owner-69647d59748f7fb5-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 49322,
+          "sha256": "29def105d7214119a98394c91f82b72068fb1c38636c9fd4f37da043409c25c6"
+        },
+        {
+          "url": "/media/works/owner-69647d59748f7fb5-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 97410,
+          "sha256": "219e9a160cef377c763bedaf7c1206b1662f909317bdeaa84a0332d76e1fa70a"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-9c6f045c-f424-4359-9752-67e90264de6b.png",
+      "id": "owner-0a4482273b40db49",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-9c6f045c-f424-4359-9752-67e90264de6b.png",
+      "sourceSha256": "0a4482273b40db497a339932db7a9b9be7f3cb2a9749d2eaf3a5d74015c1d499",
+      "pixelSha256": "02d697e84a8c5889af667b5aa5e0d7309ba77070d90c5aa8c7592c93aa8d5fca",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 4,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-9c6f045c-f424-4359-9752-67e90264de6b.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-0a4482273b40db49-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 15114,
+          "sha256": "6a6637e6c4d32d4f541ce7d4f5460e8994f500ff557a150e7f32f68fc44d98cd"
+        },
+        {
+          "url": "/media/works/owner-0a4482273b40db49-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 51978,
+          "sha256": "75116889d423fa9225a3299a602f10c6f4b175f8c72660f8bc656f113e5ed09d"
+        },
+        {
+          "url": "/media/works/owner-0a4482273b40db49-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 106796,
+          "sha256": "bf8c926a0f2a0574fd04862132b15e08d5f87148113d7c668edd543f0a02f9aa"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-459336fb-eeaf-4f29-b6e8-b7cc625a57fc.png",
+      "id": "owner-b96bc0a3b80d3f35",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-459336fb-eeaf-4f29-b6e8-b7cc625a57fc.png",
+      "sourceSha256": "b96bc0a3b80d3f35f808d107fa516ec1a62a0a212adad23926c9e619bcbe2343",
+      "pixelSha256": "33c0c8cbc1f712d3e5a58545c35e6a5ecca302376316ed193b369c07561180ad",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 5,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-459336fb-eeaf-4f29-b6e8-b7cc625a57fc.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-b96bc0a3b80d3f35-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 12128,
+          "sha256": "11ae2453c42e5a46fb6e908a6bab2e53e984f86f119afbae4d9cd6ab94b38322"
+        },
+        {
+          "url": "/media/works/owner-b96bc0a3b80d3f35-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 36654,
+          "sha256": "800ba2360e1c9fb92058be31ff8250c9a7ba9f9f3ca96f5cc51d6cd5dedd4875"
+        },
+        {
+          "url": "/media/works/owner-b96bc0a3b80d3f35-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 66030,
+          "sha256": "e80338559915118d9fa900b7e8a972933dfc0bdc485cf11fc47b37ef9bf4172a"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-26aac676-fe45-438a-bef2-d2223c258d34.png",
+      "id": "owner-7bec5b929c8711d5",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-26aac676-fe45-438a-bef2-d2223c258d34.png",
+      "sourceSha256": "7bec5b929c8711d5c16a14029dd784d348f1fea9dc8819c422a82f8c6aec8e14",
+      "pixelSha256": "3bdc8c1c6175960d128bca06a8bea05c54f96ea48dcc59c3fb57a0ea68a10a73",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 6,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Soft Curly Mullet (Мягкий кудрявый маллет)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "verified-same-frame-author-caption",
+        "postId": 1955,
+        "text": "Мужская стрижка Soft Curly Mullet (мягкий маллет) на кудрявых волосах."
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-26aac676-fe45-438a-bef2-d2223c258d34.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241987",
+          "photoId": 457241987,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241987.jpg",
+          "sourceSha256": "1eb45d4bde18c4e920f388910a8d1ffb86111274272db040320cb0e32db56b52",
+          "match": "exact-pixels",
+          "currentRuntime": false,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 0.0,
+          "dhashDistance": 0,
+          "postId": 1955,
+          "postUrl": "https://vk.ru/wall-210007626_1955",
+          "postTextSha256": "8cab242cfb518820ae49c3c51412c60c4abcce31aeed920c05014c00d7dd14eb"
+        }
+      ],
+      "variants": [
+        {
+          "url": "/media/works/owner-7bec5b929c8711d5-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 12996,
+          "sha256": "ffd1abe3da08ae6ccb1691dffdaaee540763b443ea79fc86b1eb72a31eea457f"
+        },
+        {
+          "url": "/media/works/owner-7bec5b929c8711d5-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 49392,
+          "sha256": "66fcd6bd9974558ca1d6bd308edfd97324624a128dccf922d77d7cb2c2e24dde"
+        },
+        {
+          "url": "/media/works/owner-7bec5b929c8711d5-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 100928,
+          "sha256": "4d133fefe074f9383e0717a79b18556f6af63d498e59dbe87a3750f78e809f28"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-62e997f3-7e70-499e-b039-3fd27a8dcf66.png",
+      "id": "owner-a76b3a877761cc1d",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-62e997f3-7e70-499e-b039-3fd27a8dcf66.png",
+      "sourceSha256": "a76b3a877761cc1d1085bc7f8ad9450fee8ea008500314a8e7aec5e34f62576f",
+      "pixelSha256": "a29d90b63e7ce3938127baf01219c3105d84493712c208ade970b88b6f484154",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 8,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-62e997f3-7e70-499e-b039-3fd27a8dcf66.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-a76b3a877761cc1d-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 18342,
+          "sha256": "9ea04078e552e773d2770bdf5e72ebeb774eb91eeff97761f98063dd98614b52"
+        },
+        {
+          "url": "/media/works/owner-a76b3a877761cc1d-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 72058,
+          "sha256": "b14595645e200620cbbfa0248fc09a7f6215f947cce7e81b4b951a87087177fb"
+        },
+        {
+          "url": "/media/works/owner-a76b3a877761cc1d-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 140546,
+          "sha256": "54169e00012e320c374c0e2a06381edb0788d19601a15bf1cae5ca91479bbee9"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-3c6940bf-2d85-4364-a61d-bbde13dfea5b.png",
+      "id": "owner-3a72bc7e6aae8d8e",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-3c6940bf-2d85-4364-a61d-bbde13dfea5b.png",
+      "sourceSha256": "3a72bc7e6aae8d8e8317d3ff5c64d00334799836c0bdc3f28d4c8c4076e58142",
+      "pixelSha256": "c0ac13df3c40a00d61d9b719eeea061324c574f66d61895a133d8d1d161cdaf7",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 9,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-3c6940bf-2d85-4364-a61d-bbde13dfea5b.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-3a72bc7e6aae8d8e-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 19194,
+          "sha256": "37ee945f6be575f703daf77e98b3a2f1cbc6c0f3e12f73a74fc121fe818caf4d"
+        },
+        {
+          "url": "/media/works/owner-3a72bc7e6aae8d8e-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 68468,
+          "sha256": "83b6a8b43a693e6f569e8b89335d08031306dffb44db73eb3fb4b5ba28d5ac5e"
+        },
+        {
+          "url": "/media/works/owner-3a72bc7e6aae8d8e-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 145498,
+          "sha256": "e72d0e9d6cba27bb3628413940152fb0f7c7b66b3f4b5fb301f642e3c6722ae0"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-8eacc5a3-c1db-4c44-911e-b0b74f64f741.png",
+      "id": "owner-c744c2d74dc71e48",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-8eacc5a3-c1db-4c44-911e-b0b74f64f741.png",
+      "sourceSha256": "c744c2d74dc71e48076d8698e4a1cfbef720edc573656a149d4224c40fdaebfa",
+      "pixelSha256": "191d24cd37b166db9278df6a75d67286a130435165d615e3d1680ea61e75dbe7",
+      "sourceWidth": 1280,
+      "sourceHeight": 1714,
+      "source": "owner-supplied",
+      "ownerIndex": 10,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Flow (Флоу)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "verified-same-frame-author-caption",
+        "postId": 1941,
+        "text": "Мужская удлинённая стрижка Flow (флоу)."
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-8eacc5a3-c1db-4c44-911e-b0b74f64f741.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241918",
+          "photoId": 457241918,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241918.jpg",
+          "sourceSha256": "357a87689f45cb7add7cb10ae95b780c413595af90f42756cbfcc8a37af8571f",
+          "match": "visual-same-frame",
+          "currentRuntime": false,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 1.51,
+          "dhashDistance": 3,
+          "postId": 1941,
+          "postUrl": "https://vk.ru/wall-210007626_1941",
+          "postTextSha256": "d25ee90caf800fb737cfcd28b6d7fcfeac1842cc294e67f1bcc60d9e01fd6aa2"
+        }
+      ],
+      "variants": [
+        {
+          "url": "/media/works/owner-c744c2d74dc71e48-360.webp",
+          "width": 360,
+          "height": 482,
+          "bytes": 9348,
+          "sha256": "462f9c64778eafa286f151cb97043fde4da32d7c460e720664330afdd08a3f45"
+        },
+        {
+          "url": "/media/works/owner-c744c2d74dc71e48-720.webp",
+          "width": 720,
+          "height": 964,
+          "bytes": 31526,
+          "sha256": "d3aa210cbbf8c8929f8e9ed0ed414b07bfe82e7f8b930d1d29094aef80d690d3"
+        },
+        {
+          "url": "/media/works/owner-c744c2d74dc71e48-1080.webp",
+          "width": 1080,
+          "height": 1446,
+          "bytes": 66826,
+          "sha256": "27e7c00725e836fd25671153bb209c95f75ed55917a9780a6a33c31f855fae81"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-6b2fb492-729a-4cb5-8093-ac09cc9deb91.png",
+      "id": "owner-1b5fda132870a16d",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-6b2fb492-729a-4cb5-8093-ac09cc9deb91.png",
+      "sourceSha256": "1b5fda132870a16d3267e1b7c991239975459b5d410925ae3173057888ba7aa4",
+      "pixelSha256": "7ef5806a224f081432096ec4f40de2c0dbb03298cd92c54253523b8239c1002c",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 11,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-6b2fb492-729a-4cb5-8093-ac09cc9deb91.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-1b5fda132870a16d-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 21306,
+          "sha256": "3ec9a79b074234947dc20669ff651d1c409ed8b86216361c9797e49c7a9873f3"
+        },
+        {
+          "url": "/media/works/owner-1b5fda132870a16d-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 84898,
+          "sha256": "2f4cff9e1ec3b0dae4f21318bf437cf6a0b52f13ef10a418ce0edb4f313d8f8c"
+        },
+        {
+          "url": "/media/works/owner-1b5fda132870a16d-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 159268,
+          "sha256": "55fb4dab1b982f170fbe9ebeef8d818c10446f55410ef0e102e4713424af0a5f"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-a8de65c0-47b1-497c-aa7b-6795a270e6d4.png",
+      "id": "owner-30a587983419ddd8",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-a8de65c0-47b1-497c-aa7b-6795a270e6d4.png",
+      "sourceSha256": "30a587983419ddd85fc0820f3186e2c85beaa7e0e62e8459cb1f2ac2b4f087fb",
+      "pixelSha256": "3b3471305f9868d969adf17ea73c65963394934f118b1985a78e788930ea67eb",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 12,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-a8de65c0-47b1-497c-aa7b-6795a270e6d4.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-30a587983419ddd8-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 24254,
+          "sha256": "b291e5383defb0646cee139c576a0152e8c9577bebf31ff5be8681f1363e145d"
+        },
+        {
+          "url": "/media/works/owner-30a587983419ddd8-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 86546,
+          "sha256": "1cf9aceeefde1c417c249d8f9b981809ca2d94f703e64b19db5eaa7e9d5a4378"
+        },
+        {
+          "url": "/media/works/owner-30a587983419ddd8-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 158132,
+          "sha256": "c3cdc199efc0679c408e269d961dba92301978280303313b6d88a427fa1ca609"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-f5648c6b-f2b3-4eb3-ac86-4c4b6113ca75.png",
+      "id": "owner-704ecb4354628002",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-f5648c6b-f2b3-4eb3-ac86-4c4b6113ca75.png",
+      "sourceSha256": "704ecb4354628002fefaf7e2ac5cf524fa4eb204c38de1ffe12a8a4290c00073",
+      "pixelSha256": "fafa1041f985fde7d3a2cd057f233e0b8536d6add0d33a83dc1bcfd87fbc89b8",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 13,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-f5648c6b-f2b3-4eb3-ac86-4c4b6113ca75.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241566",
+          "photoId": 457241566,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241566.jpg",
+          "sourceSha256": "8f3bc3c0dd849086f7e76799fa11f90da12e471e5468d374fe1150f2afe1bf43",
+          "match": "exact-pixels",
+          "currentRuntime": false,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 0.0,
+          "dhashDistance": 0,
+          "postId": 1678,
+          "postUrl": "https://vk.ru/wall-210007626_1678",
+          "postTextSha256": "d78c1a4756a2618e317cd42def3f2d0676e91049d55b0fe9381c98c6d388f4e1"
+        }
+      ],
+      "variants": [
+        {
+          "url": "/media/works/owner-704ecb4354628002-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 14912,
+          "sha256": "cd9c9b6ef4d7afd831cd32843a33aaafa402871ca552036e4a88988fc7a4fcc2"
+        },
+        {
+          "url": "/media/works/owner-704ecb4354628002-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 54606,
+          "sha256": "c5bfd531b87b7cb6be6855c6e699f4d0c484f2f1063233a85d771bf0222bc786"
+        },
+        {
+          "url": "/media/works/owner-704ecb4354628002-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 104412,
+          "sha256": "1af234f8d8ec4a80d1a0baaa9fc189c92f0839e2bfb3bd3ebf9e5e848ae1da12"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-229b072e-c4d7-4d18-beba-46e4c0a6e667.png",
+      "id": "owner-e83b0163a6ab8a42",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-229b072e-c4d7-4d18-beba-46e4c0a6e667.png",
+      "sourceSha256": "e83b0163a6ab8a42003e28bd55df8876e273ff48e97d97c7e1dfef139bae6523",
+      "pixelSha256": "4bca689a332bdecde8f9edcae44c58febd654f8132aa4419863c24bb4277b476",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 14,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-229b072e-c4d7-4d18-beba-46e4c0a6e667.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241563",
+          "photoId": 457241563,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241563.jpg",
+          "sourceSha256": "7498f33ea8fc0d5bb767bf95db5422f0fc03501748b163b4b4e18103b94d8851",
+          "match": "exact-pixels",
+          "currentRuntime": false,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 0.0,
+          "dhashDistance": 0,
+          "postId": 1678,
+          "postUrl": "https://vk.ru/wall-210007626_1678",
+          "postTextSha256": "d78c1a4756a2618e317cd42def3f2d0676e91049d55b0fe9381c98c6d388f4e1"
+        }
+      ],
+      "variants": [
+        {
+          "url": "/media/works/owner-e83b0163a6ab8a42-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 11386,
+          "sha256": "d498f423c55004d1e8a61534826b9483b663c6e0c2ba8edf6f47c85702c23a39"
+        },
+        {
+          "url": "/media/works/owner-e83b0163a6ab8a42-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 36314,
+          "sha256": "3b943b9ab1418248d476ea6a079d15ff0e1bfa0d9112eb5a66c2139670b27b28"
+        },
+        {
+          "url": "/media/works/owner-e83b0163a6ab8a42-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 65984,
+          "sha256": "cfe9af37a2356290222762acc0d1a2765b74c5290e8a04205a81660c1f6b3f2a"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-5ca5994d-a775-4ff1-b3a0-95d22f4ea001.png",
+      "id": "owner-a8190f53f86ec843",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-5ca5994d-a775-4ff1-b3a0-95d22f4ea001.png",
+      "sourceSha256": "a8190f53f86ec8439dc5d6a091eed2cbf1fc2192e02551fdb3a8032ef2ca8493",
+      "pixelSha256": "18dff63d9bcc750eeddc2b1b10be1c78b55bf9556669d0a0506df77bb55cbb74",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 15,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-5ca5994d-a775-4ff1-b3a0-95d22f4ea001.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241564",
+          "photoId": 457241564,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241564.jpg",
+          "sourceSha256": "9809e34bac5af8e3a32cc5da6a662291ba3bed91a4f0b643ac937a3000ca5fb8",
+          "match": "exact-pixels",
+          "currentRuntime": false,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 0.0,
+          "dhashDistance": 0,
+          "postId": 1678,
+          "postUrl": "https://vk.ru/wall-210007626_1678",
+          "postTextSha256": "d78c1a4756a2618e317cd42def3f2d0676e91049d55b0fe9381c98c6d388f4e1"
+        }
+      ],
+      "variants": [
+        {
+          "url": "/media/works/owner-a8190f53f86ec843-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 14626,
+          "sha256": "111ceda086b2b87cea2f264a5152527e5527e1bde4b2ddc6f46e77b8b21c445a"
+        },
+        {
+          "url": "/media/works/owner-a8190f53f86ec843-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 42496,
+          "sha256": "c9520aa49d8a715eaefd3c9ae21d653fcbdda32b94514b330f0eaec23231d339"
+        },
+        {
+          "url": "/media/works/owner-a8190f53f86ec843-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 81792,
+          "sha256": "d64783c6f2a310bebb3acf80dc11a15df7d6d2a6278e52d2387cc02a52c64717"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-1d6f6f36-800e-4532-b2a4-353469c7668d.png",
+      "id": "owner-825016b8af01835b",
+      "masterId": "souz-sofya-shalaginova",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-1d6f6f36-800e-4532-b2a4-353469c7668d.png",
+      "sourceSha256": "825016b8af01835be6d214f2bc062f8355611e9343bf110a7f648c221bc85eba",
+      "pixelSha256": "587c8f7110ff2fb56a48d47e248007b4cf360d3f8d462142524c7d61a5aceeb3",
+      "sourceWidth": 1280,
+      "sourceHeight": 1707,
+      "source": "owner-supplied",
+      "ownerIndex": 17,
+      "ownerGroup": 3,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-1d6f6f36-800e-4532-b2a4-353469c7668d.png",
+        "group": 3,
+        "masterId": "souz-sofya-shalaginova"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241124",
+          "photoId": 457241124,
+          "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241124.jpg",
+          "sourceSha256": "32311042f7235608f918daddd9ba7aab8d194a6462dbcab6a582a7b3f62a3410",
+          "match": "visual-same-frame",
+          "currentRuntime": false,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 1.575,
+          "dhashDistance": 3,
+          "postId": 1184,
+          "postUrl": "https://vk.ru/wall-210007626_1184",
+          "postTextSha256": "6220cef3cc2e6a719ecb06d82afa8f196aff53de5eeaf345dc5628a43b062a5e"
+        }
+      ],
+      "variants": [
+        {
+          "url": "/media/works/owner-825016b8af01835b-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 11446,
+          "sha256": "80c4510148ff8a96ebcdf89be65226823ef34758c7b493ed620df351a64a3500"
+        },
+        {
+          "url": "/media/works/owner-825016b8af01835b-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 54280,
+          "sha256": "3fbb07185dcc2b748bd354df89aa2b8ea1f5dc0edab3726fad598ba5f2d00b69"
+        },
+        {
+          "url": "/media/works/owner-825016b8af01835b-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 143472,
+          "sha256": "c77f1fe9b717a1891f6c85491880fd122df6ab80dc1dba68e954ea4111017d90"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-c2e4439a-32c2-4667-990a-b248bf7f485d.png",
+      "id": "owner-a3295cd3223db81a",
+      "masterId": "souz-sofya-shalaginova",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-c2e4439a-32c2-4667-990a-b248bf7f485d.png",
+      "sourceSha256": "a3295cd3223db81a325111456627c7f424aa3b2ff18d590466f9a9f9b9e13540",
+      "pixelSha256": "3fb7de02be3784aaa24a678aaf2dc6ebad3ac2b9212078baff0cfed6f66b9b2f",
+      "sourceWidth": 1280,
+      "sourceHeight": 1707,
+      "source": "owner-supplied",
+      "ownerIndex": 18,
+      "ownerGroup": 3,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-c2e4439a-32c2-4667-990a-b248bf7f485d.png",
+        "group": 3,
+        "masterId": "souz-sofya-shalaginova"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241063",
+          "photoId": 457241063,
+          "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241063.jpg",
+          "sourceSha256": "0fbe1844d6932688bd255795c0048a17aa007938bc18123263ba1c72a2bf99b0",
+          "match": "visual-same-frame",
+          "currentRuntime": false,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 1.42,
+          "dhashDistance": 2,
+          "postId": 1058,
+          "postUrl": "https://vk.ru/wall-210007626_1058",
+          "postTextSha256": "f4f140165d65b3d0e26351d5bc707a404b1d6633976af4c8e21f3fb4b16e49dc"
+        }
+      ],
+      "variants": [
+        {
+          "url": "/media/works/owner-a3295cd3223db81a-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 10826,
+          "sha256": "a2247054ce788bf669e088ff38c16d00256395f7cf0f1b9da0b78949dd780a10"
+        },
+        {
+          "url": "/media/works/owner-a3295cd3223db81a-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 35056,
+          "sha256": "eae6786660a366c3cb777a9a8f43e873254de2165cbc7f4bee5e3d50f24d2456"
+        },
+        {
+          "url": "/media/works/owner-a3295cd3223db81a-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 95438,
+          "sha256": "4ca8c56bb65a6c24fecb83ba3ad402b7013116dfeccaa4ae535312a833abbf77"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-3f33d838-35ae-4d59-9f7e-0b3c1dfdbcfe.png",
+      "id": "owner-c244069cb3947f79",
+      "masterId": "souz-sofya-shalaginova",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-3f33d838-35ae-4d59-9f7e-0b3c1dfdbcfe.png",
+      "sourceSha256": "c244069cb3947f796adcf2896d6b5937f8321c5e0793155ac2166256ac18fa06",
+      "pixelSha256": "912d147bb0acf730bccd6c0ed8166614e50259e17b1d8b28e041eb248ff9de12",
+      "sourceWidth": 1280,
+      "sourceHeight": 1707,
+      "source": "owner-supplied",
+      "ownerIndex": 19,
+      "ownerGroup": 3,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-3f33d838-35ae-4d59-9f7e-0b3c1dfdbcfe.png",
+        "group": 3,
+        "masterId": "souz-sofya-shalaginova"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241344",
+          "photoId": 457241344,
+          "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241344.jpg",
+          "sourceSha256": "5f2f5f24fe26958e9ad02283f981fae908c90421961865d40573175780d17656",
+          "match": "visual-same-frame",
+          "currentRuntime": false,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 1.548,
+          "dhashDistance": 0,
+          "postId": 1346,
+          "postUrl": "https://vk.ru/wall-210007626_1346",
+          "postTextSha256": "dd4134fd8bc65b5f9e25365121b412cbef28cdf228573549b56666c472572ebc"
+        }
+      ],
+      "variants": [
+        {
+          "url": "/media/works/owner-c244069cb3947f79-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 14776,
+          "sha256": "752cd83312d66c84f0a0517f0ba024fd027bde2391ab53941dbda167b02c1d72"
+        },
+        {
+          "url": "/media/works/owner-c244069cb3947f79-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 59966,
+          "sha256": "df391b9eecaf448b67c98978205dbcfa2c831495c6d861d86fc4665a2a116150"
+        },
+        {
+          "url": "/media/works/owner-c244069cb3947f79-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 150774,
+          "sha256": "93950495c97237b510263a3127560d21a56f0cc89573fdf8fb56d696b1c58ed0"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-ed261e33-3539-43f8-9812-1a8f48fcbc71.png",
+      "id": "owner-107569a2c0c1e193",
+      "masterId": "souz-milena",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-ed261e33-3539-43f8-9812-1a8f48fcbc71.png",
+      "sourceSha256": "107569a2c0c1e193e3cdc97fce915a25b8ed33ba3a50c68b7b57782fe1186ff0",
+      "pixelSha256": "592c4899a0c1676eb978e00ad76e9bc10a90786e1dcf197d5224c4da61f0db96",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 25,
+      "ownerGroup": 4,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-ed261e33-3539-43f8-9812-1a8f48fcbc71.png",
+        "group": 4,
+        "masterId": "souz-milena"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-107569a2c0c1e193-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 14460,
+          "sha256": "4e60e2fe4998b22ec5ca2e3c4c430221e59cecd413afd936a0232441afad7ac3"
+        },
+        {
+          "url": "/media/works/owner-107569a2c0c1e193-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 51402,
+          "sha256": "adc46cea916e0aa28da44f14cd484f68289f7823283c2b8b5f9ce43b64ea43c5"
+        },
+        {
+          "url": "/media/works/owner-107569a2c0c1e193-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 102132,
+          "sha256": "71be8505cd20a0f60d451e4ff52a9bb4a0a339d7988f65b1c2234b3d56d5e4b4"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-b0609a27-8009-4f09-8997-545d84768797.png",
+      "id": "owner-99d73555c67d9592",
+      "masterId": "souz-milena",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-b0609a27-8009-4f09-8997-545d84768797.png",
+      "sourceSha256": "99d73555c67d959290861eb77df08dfc50909027f214156efdba5b9e565fa48d",
+      "pixelSha256": "44b47c0f0e5f084029933099b928fdc98de6cf69306e937d7e103e20b96b69d8",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 26,
+      "ownerGroup": 4,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-b0609a27-8009-4f09-8997-545d84768797.png",
+        "group": 4,
+        "masterId": "souz-milena"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-99d73555c67d9592-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 16300,
+          "sha256": "f656c072a8f408893944623cbe41cd6d7ec75da3349e912165315117c7996f4e"
+        },
+        {
+          "url": "/media/works/owner-99d73555c67d9592-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 69010,
+          "sha256": "05524417d49b2ab3cb787fcd68f26b2374e9d3a568069cdc0174a1298cf90ff4"
+        },
+        {
+          "url": "/media/works/owner-99d73555c67d9592-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 137128,
+          "sha256": "0f5eadc96b6196f3f51676496c757d05ccec42c2a09b5c822e6ac765c583059b"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-f74de1cf-0c49-426e-8e6c-c22f5af9f7ae.png",
+      "id": "owner-f30cb8138fe83b7b",
+      "masterId": "souz-lyubov",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-f74de1cf-0c49-426e-8e6c-c22f5af9f7ae.png",
+      "sourceSha256": "f30cb8138fe83b7ba4ae728f7ec65cba5ce037e832aaa2ac5c1920f7f347b729",
+      "pixelSha256": "682adff6b559f5f18677ef0de756ab4659c62807c21c6b6d6e5ed94496fc42cc",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 28,
+      "ownerGroup": 5,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "owner-work-photo-generic-label"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-f74de1cf-0c49-426e-8e6c-c22f5af9f7ae.png",
+        "group": 5,
+        "masterId": "souz-lyubov"
+      },
+      "frameMatches": [],
+      "variants": [
+        {
+          "url": "/media/works/owner-f30cb8138fe83b7b-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 14050,
+          "sha256": "61e59303a5e3d1c1b97121be0eb80fe9d4dda521b37d06dd2ce25587ed714941"
+        },
+        {
+          "url": "/media/works/owner-f30cb8138fe83b7b-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 46598,
+          "sha256": "a875e9a61ba934a5dc7dafd2aab714f184b5a0ec570315f5cde9c6949826f4d8"
+        },
+        {
+          "url": "/media/works/owner-f30cb8138fe83b7b-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 91414,
+          "sha256": "1ab00fdac8fc80d51d5646b2ae6cd2ef6742f68a2d6210956c8364b5fb0d7f11"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-ae163923-84fd-4585-b648-280363ee9d5d.png",
+      "id": "owner-8541356904c71c9c",
+      "masterId": "souz-darya",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-ae163923-84fd-4585-b648-280363ee9d5d.png",
+      "sourceSha256": "8541356904c71c9c282dd6baffb9235b49d39aef89040f131e15caa4a66dd804",
+      "pixelSha256": "7e3cdb15d5bf2fce03d2143ef3b160fb9596e93d1917e7a1e0514e814bf76a54",
+      "sourceWidth": 1280,
+      "sourceHeight": 1707,
+      "source": "owner-supplied",
+      "ownerIndex": 29,
+      "ownerGroup": 6,
+      "status": "verified-owner",
+      "title": "Crop (Удлинённый кроп)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "verified-same-frame-author-caption",
+        "postId": 1778,
+        "text": "В качестве общей базы выбрали удлинённый кроп."
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-ae163923-84fd-4585-b648-280363ee9d5d.png",
+        "group": 6,
+        "masterId": "souz-darya"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241750",
+          "photoId": 457241750,
+          "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241750.jpg",
+          "sourceSha256": "d4c2661de11c6616cc25382f9b1910d90c666e2fca0574377f61017ee7b2bdcb",
+          "match": "visual-same-frame",
+          "currentRuntime": false,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 1.365,
+          "dhashDistance": 2,
+          "postId": 1778,
+          "postUrl": "https://vk.ru/wall-210007626_1778",
+          "postTextSha256": "25672b1036e85e26a218c589013de4a33d748382bd918fb1e292d671e62f05cb"
+        }
+      ],
+      "variants": [
+        {
+          "url": "/media/works/owner-8541356904c71c9c-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 14766,
+          "sha256": "7af9cd41d0349d3be8606ce7ed94c554ce9f5b2507a4a738379cc0c730124be3"
+        },
+        {
+          "url": "/media/works/owner-8541356904c71c9c-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 43568,
+          "sha256": "dcb988364361cc8603e326a0cbcab2354e4aa87889c1051f42e190e49fe1a5c5"
+        },
+        {
+          "url": "/media/works/owner-8541356904c71c9c-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 82632,
+          "sha256": "0c6e0334a88f40b00eccd05118a77267e1ea59c2321c66c893af345692daeb7c"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-05e4fac5-f29e-4f81-98de-8a3981273579.png",
+      "id": "owner-2db6417bd913f595",
+      "masterId": "souz-darya",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-05e4fac5-f29e-4f81-98de-8a3981273579.png",
+      "sourceSha256": "2db6417bd913f595a147b4b42c5999efb30b5a617360fa8648884e794174adcf",
+      "pixelSha256": "4336ca3fd124576874c68a9fc6a9e48c18b4c4cafa015c74ff88ebd1a350c5c6",
+      "sourceWidth": 1280,
+      "sourceHeight": 1707,
+      "source": "owner-supplied",
+      "ownerIndex": 30,
+      "ownerGroup": 6,
+      "status": "verified-owner",
+      "title": "Crop (Удлинённый кроп)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "verified-same-frame-author-caption",
+        "postId": 1778,
+        "text": "В качестве общей базы выбрали удлинённый кроп."
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-05e4fac5-f29e-4f81-98de-8a3981273579.png",
+        "group": 6,
+        "masterId": "souz-darya"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241751",
+          "photoId": 457241751,
+          "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241751.jpg",
+          "sourceSha256": "286d7d683e5b79d073d5eeba5b020958c59a7cdbbb6e08949d8f5cbab7e23ad0",
+          "match": "visual-same-frame",
+          "currentRuntime": false,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 1.347,
+          "dhashDistance": 0,
+          "postId": 1778,
+          "postUrl": "https://vk.ru/wall-210007626_1778",
+          "postTextSha256": "25672b1036e85e26a218c589013de4a33d748382bd918fb1e292d671e62f05cb"
+        }
+      ],
+      "variants": [
+        {
+          "url": "/media/works/owner-2db6417bd913f595-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 12862,
+          "sha256": "41f1624bc6da816aff274e12b9656ddeafff5273dfccc8c08de1fc7169b75385"
+        },
+        {
+          "url": "/media/works/owner-2db6417bd913f595-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 39670,
+          "sha256": "3d73b8eed1aafb58cbfb0f45b98eb2feb0801b29994231d77ed8312c3b55e094"
+        },
+        {
+          "url": "/media/works/owner-2db6417bd913f595-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 79580,
+          "sha256": "7b46e820738d544ccfd373b3c85e8d69d118dcdfd26fa502fc00969f85784f5e"
+        }
+      ]
+    },
+    {
+      "ownerFilename": "codex-clipboard-e3b18b28-29bf-4bed-937c-7660929a2872.png",
+      "id": "owner-66c9b9ecc17aae25",
+      "masterId": "souz-darya",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-e3b18b28-29bf-4bed-937c-7660929a2872.png",
+      "sourceSha256": "66c9b9ecc17aae25cb848eefe0cdb1e866a29788eb3838ab301c963aaa2ad9e9",
+      "pixelSha256": "7f4d64caf4ece7486e0dd876135947dae37595bfbffc1338065dc59d16f9612b",
+      "sourceWidth": 1280,
+      "sourceHeight": 1707,
+      "source": "owner-supplied",
+      "ownerIndex": 31,
+      "ownerGroup": 6,
+      "status": "verified-owner",
+      "title": "Crop (Удлинённый кроп)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "verified-same-frame-author-caption",
+        "postId": 1778,
+        "text": "В качестве общей базы выбрали удлинённый кроп."
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-e3b18b28-29bf-4bed-937c-7660929a2872.png",
+        "group": 6,
+        "masterId": "souz-darya"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241752",
+          "photoId": 457241752,
+          "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241752.jpg",
+          "sourceSha256": "2518b70d2a7e44570415a28decc99a7c6fdc3282a65629a0308811755b3e1752",
+          "match": "visual-same-frame",
+          "currentRuntime": false,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 1.385,
+          "dhashDistance": 3,
+          "postId": 1778,
+          "postUrl": "https://vk.ru/wall-210007626_1778",
+          "postTextSha256": "25672b1036e85e26a218c589013de4a33d748382bd918fb1e292d671e62f05cb"
+        }
+      ],
+      "variants": [
+        {
+          "url": "/media/works/owner-66c9b9ecc17aae25-360.webp",
+          "width": 360,
+          "height": 480,
+          "bytes": 12276,
+          "sha256": "1cc7ef631c01ff6eca1b6b74716930ec1d7ff790e286abec8b139bf7a793913e"
+        },
+        {
+          "url": "/media/works/owner-66c9b9ecc17aae25-720.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 40644,
+          "sha256": "eabbef12c9fb495ca98f66cc4a653913766e1f609a746ef376a0eed799afd599"
+        },
+        {
+          "url": "/media/works/owner-66c9b9ecc17aae25-1080.webp",
+          "width": 1080,
+          "height": 1440,
+          "bytes": 84500,
+          "sha256": "b1937d5522e4739e2594a010e67e424b2d1cb0d6471bd90a29dec41beff35230"
+        }
+      ]
+    }
+  ],
+  "duplicates": [
+    {
+      "ownerFilename": "codex-clipboard-b5a3ee73-68a6-4ef6-b695-22019f34d106.png",
+      "id": "owner-106506c67459590f",
+      "masterId": "souz-sonya-kid",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-b5a3ee73-68a6-4ef6-b695-22019f34d106.png",
+      "sourceSha256": "106506c67459590f4a604aa32a3bba2c8416d2e4e7692ae43b9b117ef031c57b",
+      "pixelSha256": "22c07307d571e25c1132f10075d3964009b3c6135de1fa3fd68b4c66d2907874",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 7,
+      "ownerGroup": 2,
+      "status": "verified-owner",
+      "title": "Soft Curly Mullet (Мягкий кудрявый маллет)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "retained-verified-runtime-title",
+        "vkId": "vk-457241986"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-b5a3ee73-68a6-4ef6-b695-22019f34d106.png",
+        "group": 2,
+        "masterId": "souz-sonya-kid"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241986",
+          "photoId": 457241986,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241986.jpg",
+          "sourceSha256": "dce7680e6496e6ba20a29a0a05a431d158101025e3f500d386e70d4ffb9efd64",
+          "match": "exact-pixels",
+          "currentRuntime": true,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 0.0,
+          "dhashDistance": 0,
+          "postId": 1955,
+          "postUrl": "https://vk.ru/wall-210007626_1955",
+          "postTextSha256": "8cab242cfb518820ae49c3c51412c60c4abcce31aeed920c05014c00d7dd14eb"
+        }
+      ],
+      "variants": [],
+      "duplicateOf": "vk-457241986",
+      "decision": "reuse-existing-runtime"
+    },
+    {
+      "ownerFilename": "codex-clipboard-641610fb-17d0-4350-b354-7e20000963fd.png",
+      "id": "owner-dd6d071bd5ab7e6c",
+      "masterId": "souz-sofya-shalaginova",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-641610fb-17d0-4350-b354-7e20000963fd.png",
+      "sourceSha256": "dd6d071bd5ab7e6c9534934c2304a18a0e9f8abd5fb8cff7567756c47792ee20",
+      "pixelSha256": "dfa84f2cbe68167836de3b441d56781525fbc6e3cf2bc0592c269cd791349fb1",
+      "sourceWidth": 1280,
+      "sourceHeight": 1707,
+      "source": "owner-supplied",
+      "ownerIndex": 16,
+      "ownerGroup": 3,
+      "status": "verified-owner",
+      "title": "Haircut (Стрижка)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "retained-verified-runtime-title",
+        "vkId": "vk-457241110"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-641610fb-17d0-4350-b354-7e20000963fd.png",
+        "group": 3,
+        "masterId": "souz-sofya-shalaginova"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241110",
+          "photoId": 457241110,
+          "sourceFile": "artifacts/iteration66/vk-works-api/additional/457241110.jpg",
+          "sourceSha256": "130f77586ee140a5149aee01b18f3174c5226c190279b4b6729478e6b61c49a2",
+          "match": "visual-same-frame",
+          "currentRuntime": true,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 1.422,
+          "dhashDistance": 4,
+          "postId": 1137,
+          "postUrl": "https://vk.ru/wall-210007626_1137",
+          "postTextSha256": "8f11b148b4c83639cd02101ddcde1485fade80b92ac70362f19b75d968c3bfd5"
+        }
+      ],
+      "variants": [],
+      "duplicateOf": "vk-457241110",
+      "decision": "reuse-existing-runtime"
+    },
+    {
+      "ownerFilename": "codex-clipboard-d6cd82f7-f3c6-4ef6-8aef-1ea5fddfd3a6.png",
+      "id": "owner-ad5f1b2bc15f3a04",
+      "masterId": "souz-sofya-shalaginova",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-d6cd82f7-f3c6-4ef6-8aef-1ea5fddfd3a6.png",
+      "sourceSha256": "ad5f1b2bc15f3a04cb92f380c7f0f2f8ec3e261760409a3cd75ba6f6cbe6ed9f",
+      "pixelSha256": "9512ad07279c6eb671dc0c53f93abf2dfbbba2496e8cc42962c6315aeb53a88e",
+      "sourceWidth": 1183,
+      "sourceHeight": 1577,
+      "source": "owner-supplied",
+      "ownerIndex": 20,
+      "ownerGroup": 3,
+      "status": "verified-owner",
+      "title": "Curly Crop (Кудрявый кроп) · Taper Fade (Тейпер-фейд)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "retained-verified-runtime-title",
+        "vkId": "vk-457241357"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-d6cd82f7-f3c6-4ef6-8aef-1ea5fddfd3a6.png",
+        "group": 3,
+        "masterId": "souz-sofya-shalaginova"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241357",
+          "photoId": 457241357,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241357.jpg",
+          "sourceSha256": "329d09982073392861a049a31c53664982a5d7d0583a334d33ed32c9a9896d05",
+          "match": "visual-same-frame",
+          "currentRuntime": true,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 0.064,
+          "dhashDistance": 0,
+          "postId": 1455,
+          "postUrl": "https://vk.ru/wall-210007626_1455",
+          "postTextSha256": "b8f38b13ee09a34fcc23ad928ca945d71e945260df7fa4b555b27997a07a7a68"
+        }
+      ],
+      "variants": [],
+      "duplicateOf": "vk-457241357",
+      "decision": "reuse-existing-runtime"
+    },
+    {
+      "ownerFilename": "codex-clipboard-73309d3c-2be4-42c5-bafb-0f6ebba258c3.png",
+      "id": "owner-fb0ff526c9712b1e",
+      "masterId": "souz-sofya-shalaginova",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-73309d3c-2be4-42c5-bafb-0f6ebba258c3.png",
+      "sourceSha256": "fb0ff526c9712b1e188f5bc95de443a1a37608dea3435b4309f7d579cc0283c0",
+      "pixelSha256": "95890fd569beb742baa6c9e6c8d25e048513e3d60ad759ab389cf1cb69033a9f",
+      "sourceWidth": 1200,
+      "sourceHeight": 1600,
+      "source": "owner-supplied",
+      "ownerIndex": 21,
+      "ownerGroup": 3,
+      "status": "verified-owner",
+      "title": "Curly Crop (Кудрявый кроп) · Taper Fade (Тейпер-фейд)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "retained-verified-runtime-title",
+        "vkId": "vk-457241479"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-73309d3c-2be4-42c5-bafb-0f6ebba258c3.png",
+        "group": 3,
+        "masterId": "souz-sofya-shalaginova"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241479",
+          "photoId": 457241479,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241479.jpg",
+          "sourceSha256": "9a6514ab02339d85a61feaee901a149e9204ca4b1f1d6dc8fc77d28e59cb3f4d",
+          "match": "exact-pixels",
+          "currentRuntime": true,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 0.0,
+          "dhashDistance": 0,
+          "postId": 1606,
+          "postUrl": "https://vk.ru/wall-210007626_1606",
+          "postTextSha256": "06fc4a8c45c40682f57f001c8b71db96e6299048789e81fd355938d970d9ca5c"
+        }
+      ],
+      "variants": [],
+      "duplicateOf": "vk-457241479",
+      "decision": "reuse-existing-runtime"
+    },
+    {
+      "ownerFilename": "codex-clipboard-c70ec0b0-e637-41c3-9ac6-e413a1533161.png",
+      "id": "owner-100a26633f4ccff8",
+      "masterId": "souz-milena",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-c70ec0b0-e637-41c3-9ac6-e413a1533161.png",
+      "sourceSha256": "100a26633f4ccff89ffc2688d7b57badcd04fd98d4e333a1c106cad1680a1ea1",
+      "pixelSha256": "83afb4677a62e9e13b9a0472cde58902547305b996562b340ffd333571024110",
+      "sourceWidth": 1200,
+      "sourceHeight": 1600,
+      "source": "owner-supplied",
+      "ownerIndex": 22,
+      "ownerGroup": 4,
+      "status": "verified-owner",
+      "title": "Caesar Cut (Цезарь) · High Fade (Высокий фейд)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "retained-verified-runtime-title",
+        "vkId": "vk-457241392"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-c70ec0b0-e637-41c3-9ac6-e413a1533161.png",
+        "group": 4,
+        "masterId": "souz-milena"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241392",
+          "photoId": 457241392,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241392.jpg",
+          "sourceSha256": "3530dce96356287af5730a3a9a03f607ace5c39f156e16075644db4626675eb6",
+          "match": "exact-pixels",
+          "currentRuntime": true,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 0.0,
+          "dhashDistance": 0,
+          "postId": 1526,
+          "postUrl": "https://vk.ru/wall-210007626_1526",
+          "postTextSha256": "daaa82cf6a8481b6943805abdb5b50ca2644d6185438b237a9b39fa45382475f"
+        }
+      ],
+      "variants": [],
+      "duplicateOf": "vk-457241392",
+      "decision": "reuse-existing-runtime"
+    },
+    {
+      "ownerFilename": "codex-clipboard-7bd6e3ce-7792-4ba8-9525-7e3d05fb9c1f.png",
+      "id": "owner-0a76b2fc7f68d01a",
+      "masterId": "souz-milena",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-7bd6e3ce-7792-4ba8-9525-7e3d05fb9c1f.png",
+      "sourceSha256": "0a76b2fc7f68d01af5eb044e106f3eb4c9c94ac7f977d3be2dcfb8f9ecf774e9",
+      "pixelSha256": "96baca45573b205316a462800ead029a7b4d5a6c723043d91d66227bc6fbfe42",
+      "sourceWidth": 1200,
+      "sourceHeight": 1600,
+      "source": "owner-supplied",
+      "ownerIndex": 23,
+      "ownerGroup": 4,
+      "status": "verified-owner",
+      "title": "Wavy Flow (Волнистый флоу)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "retained-verified-runtime-title",
+        "vkId": "vk-457241434"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-7bd6e3ce-7792-4ba8-9525-7e3d05fb9c1f.png",
+        "group": 4,
+        "masterId": "souz-milena"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241434",
+          "photoId": 457241434,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241434.jpg",
+          "sourceSha256": "b911a3e02d690282cd87244633bc08e10261b45511b87063425851aa5304f297",
+          "match": "exact-pixels",
+          "currentRuntime": true,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 0.0,
+          "dhashDistance": 0,
+          "postId": 1548,
+          "postUrl": "https://vk.ru/wall-210007626_1548",
+          "postTextSha256": "4b6a36e17de4c6dd0bd0033ed756cb244b1864966969881ad22040acc2c8a829"
+        }
+      ],
+      "variants": [],
+      "duplicateOf": "vk-457241434",
+      "decision": "reuse-existing-runtime"
+    },
+    {
+      "ownerFilename": "codex-clipboard-a9fad484-af76-4cc4-ab95-d1bd5c2c049b.png",
+      "id": "owner-5ea4ac8461c02e71",
+      "masterId": "souz-milena",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-a9fad484-af76-4cc4-ab95-d1bd5c2c049b.png",
+      "sourceSha256": "5ea4ac8461c02e7110a3dd7e5dfb6b6522de0ff9ea9f33414a8cba8fa59a6771",
+      "pixelSha256": "8225477ea1c6d52b239167ac07d62126bada2ec26efc4f8f08ad0644e2aa3ca3",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 24,
+      "ownerGroup": 4,
+      "status": "verified-owner",
+      "title": "Bro Flow (Бро-флоу)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "retained-verified-runtime-title",
+        "vkId": "vk-457241854"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-a9fad484-af76-4cc4-ab95-d1bd5c2c049b.png",
+        "group": 4,
+        "masterId": "souz-milena"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241854",
+          "photoId": 457241854,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241854.jpg",
+          "sourceSha256": "1ecaf5bab696e0cdaa0d4d2a83ded33af4c22a675fc28f7369bcaea732bf66d9",
+          "match": "exact-pixels",
+          "currentRuntime": true,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 0.0,
+          "dhashDistance": 0,
+          "postId": 1925,
+          "postUrl": "https://vk.ru/wall-210007626_1925",
+          "postTextSha256": "03784df090d18a3dd05fca68f0cd9efd7014c18bf8bf2993bc21addd2fa2f659"
+        }
+      ],
+      "variants": [],
+      "duplicateOf": "vk-457241854",
+      "decision": "reuse-existing-runtime"
+    },
+    {
+      "ownerFilename": "codex-clipboard-af54d050-1b98-4a20-8a71-d466abe2137a.png",
+      "id": "owner-01bfe7a8b0d467ea",
+      "masterId": "souz-lyubov",
+      "sourceFile": "artifacts/iteration66/owner-work-photos/originals/codex-clipboard-af54d050-1b98-4a20-8a71-d466abe2137a.png",
+      "sourceSha256": "01bfe7a8b0d467ea63e138c8a03d7097da399844b5cd2a92d9db8a0cc2c151d4",
+      "pixelSha256": "dd99537344a15b3d40dbb72dfe2130d06d9e7d4091f895c52372e3220e27adac",
+      "sourceWidth": 1086,
+      "sourceHeight": 1448,
+      "source": "owner-supplied",
+      "ownerIndex": 27,
+      "ownerGroup": 5,
+      "status": "verified-owner",
+      "title": "Textured Crop (Текстурный кроп) · Taper Fade (Тейпер-фейд)",
+      "categories": [
+        "haircuts"
+      ],
+      "titleEvidence": {
+        "kind": "retained-verified-runtime-title",
+        "vkId": "vk-457241496"
+      },
+      "evidence": {
+        "kind": "owner-supplied-master-group",
+        "filename": "codex-clipboard-af54d050-1b98-4a20-8a71-d466abe2137a.png",
+        "group": 5,
+        "masterId": "souz-lyubov"
+      },
+      "frameMatches": [
+        {
+          "vkId": "vk-457241496",
+          "photoId": 457241496,
+          "sourceFile": "artifacts/iteration66/vk-works-api/originals/457241496.jpg",
+          "sourceSha256": "2381301169cc8d6351f2de05967eebf5679e04f0aa523a7c863fdafb3c411b22",
+          "match": "exact-pixels",
+          "currentRuntime": true,
+          "confirmed": true,
+          "review": "primary-and-independent-visual-review",
+          "mae96x128": 0.0,
+          "dhashDistance": 0,
+          "postId": 1622,
+          "postUrl": "https://vk.ru/wall-210007626_1622",
+          "postTextSha256": "689f2f3940ed30db97e102d50a97b330229f9539fc6635a02cd80cbfd92a6c26"
+        }
+      ],
+      "variants": [],
+      "duplicateOf": "vk-457241496",
+      "decision": "reuse-existing-runtime"
+    }
+  ],
+  "overrides": [],
+  "deduplication": {
+    "currentRuntimeCount": 24,
+    "referenceFilesCount": 51,
+    "ownerPixelDuplicates": 0,
+    "newFramesToRetainedReferences": 12,
+    "sameFrameRetainedButNotRuntime": 11,
+    "reuseExistingRuntime": 8,
+    "comparison": "Exact EXIF-oriented RGB pixels where possible; perceptual measures only generate candidates, followed by two visual reviews. Same person or haircut alone is never a duplicate."
+  },
+  "runtime": {
+    "format": "WebP",
+    "quality": 82,
+    "method": 6,
+    "resampling": "Lanczos",
+    "webpVersion": "1.6.0",
+    "colourPolicy": "Unmodified RGB source; no grading, crop or sharpening"
+  }
+}

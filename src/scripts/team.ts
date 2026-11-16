@@ -3,6 +3,7 @@ import {enableRailMouseDrag} from './native-rail-drag.ts';
 import './personal-booking-label';
 import { closeBooking } from "./booking";
 import { closeDialog, openDialog } from "./motion";
+import {requestFeedback} from './feedback';
 
 for (const button of document.querySelectorAll<HTMLButtonElement>(
   "[data-team-open]",
@@ -34,7 +35,8 @@ if(rail) {
   rail.addEventListener('keydown',event=>{
     if(!compact.matches||!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
     event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?cards.length-1:Math.max(0,Math.min(cards.length-1,selected+(event.key==='ArrowRight'?1:-1)));
+    if(next!==selected)requestFeedback('select',event);
     nativeRail(rail).goTo(next,true);
-    cards[next].querySelector<HTMLButtonElement>('.team-portrait')?.focus({preventScroll:true});
+    cards[next].querySelector<HTMLAnchorElement>('.team-book')?.focus({preventScroll:true});
   });
 }

@@ -1,0 +1,43 @@
+{
+  "generator": "Built-in image_gen",
+  "revision": "worker2",
+  "asOf": "2026-11-16",
+  "source": "artifacts/iteration66/construction-worker2/original.png",
+  "sourceSha256": "9e2543413d11022863091dbc2f0a4105d893eb8cd8c8158d450f2f3931ff3ac0",
+  "sourceWidth": 1536,
+  "sourceHeight": 1024,
+  "sourceBytes": 1219773,
+  "prompt": "artifacts/iteration66/construction-worker2/prompt.txt",
+  "alt": "Рабочий с малярным валиком, минималистичный рисунок в серых тонах.",
+  "decorative": true,
+  "runtime": {
+    "format": "WebP",
+    "quality": 82,
+    "method": 6,
+    "resampling": "Lanczos",
+    "webpVersion": "1.6.0"
+  },
+  "variants": [
+    {
+      "url": "/media/gifts/construction-worker-480.webp",
+      "width": 480,
+      "height": 320,
+      "bytes": 4288,
+      "sha256": "97000aa7df468a6a55a9ea2ea914ef0245259b65fff9ddfadbf6467b283a46ef"
+    },
+    {
+      "url": "/media/gifts/construction-worker-960.webp",
+      "width": 960,
+      "height": 640,
+      "bytes": 9828,
+      "sha256": "2c188227f6a62d9d6316cd9d842218e76c543f9f88008ffd62a2372f13604f6b"
+    },
+    {
+      "url": "/media/gifts/construction-worker-1440.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 15262,
+      "sha256": "c115a5cb39cb048cd4f1c630903dfb94593f5fd961f370fea2d05cf5d2c66d7a"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import SiteFrame from '../../layouts/SiteFrame.astro';
 import MasterStory from '../../components/MasterStory.astro';
 import {masterStories,type MasterStory as Story} from '../../content/master-articles';
 import team from '../../../content/team.json';
+import {bookingURLs} from '../../scripts/booking-url';
 export function getStaticPaths() {
   return masterStories.map(article=>({params:{slug:article.slug},props:{article}}));
 }
@@ -15,7 +16,7 @@ const articleData={'@context':'https://schema.org','@type':'Article',headline:ar
     <main class="shell story-page" id="main">
       <div id="top"><a class="text-btn story-back" href="/#masters" aria-label="К мастерам СОЮЗа"><span class="mobile-action-full">← К мастерам СОЮЗа</span><span class="mobile-action-short">К мастерам</span></a></div>
       <MasterStory article={article} />
-      <div class="story-actions"><button class="btn" type="button" data-booking data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Запись к мастеру: ${master.name}`} aria-label={`Записаться к ${master.bookingNameDative || master.name}`} data-personal-booking-short={`К ${master.bookingNameDative || master.name}`}>Записаться к {master.bookingNameDative || master.name}</button><a class="text-btn" href="/#masters">Все мастера</a></div>
+      <div class="story-actions"><a class="btn" href={bookingURLs(master.bookingUrl)!.publicUrl} data-booking aria-haspopup="dialog" aria-controls="booking-drawer" data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Запись к мастеру: ${master.name}`} aria-label={`Записаться к ${master.bookingNameDative || master.name}`} data-personal-booking-short={`К ${master.bookingNameDative || master.name}`}>Записаться к {master.bookingNameDative || master.name}</a><a class="text-btn" href="/#masters">Все мастера</a></div>
     </main>
   <script>import '../../scripts/personal-booking-label';</script>
 </SiteFrame>

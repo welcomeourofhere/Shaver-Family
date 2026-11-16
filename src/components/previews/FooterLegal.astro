@@ -1,0 +1,7 @@
+---
+import {footerFacts as facts,footerLegal,footerOperator as operator} from '../../content/footer-concepts';
+---
+<div class="fc-legal">
+ <nav class="fc-legal-links" aria-label="Юридическая информация">{footerLegal.map(page=><a href={page.href}>{page.title}</a>)}</nav>
+ <div class="fc-requisites"><p>© {new Date().getFullYear()} {facts.brand} Барбершоп</p><p>{operator.name}<br />ИНН {operator.inn} · ОГРНИП {operator.ogrnip}</p></div>
+</div>

@@ -1,0 +1,10 @@
+---
+import {footerFacts as facts} from '../../content/footer-concepts';
+interface Props {logo?:boolean;location?:boolean;hours?:boolean;}
+const {logo=true,location=true,hours=true}=Astro.props;
+---
+<div class="fc-facts">
+ {logo&&<a class="fc-logo" href="/#top" aria-label="СОЮЗ — главная"><span class="fc-brand-mark" aria-hidden="true"></span></a>}
+ {location&&<address><a class="fc-location" href="/#contacts">{facts.city},<br />{facts.address}</a></address>}
+ {hours&&<p class="fc-hours">Ежедневно {facts.hours}</p>}
+</div>

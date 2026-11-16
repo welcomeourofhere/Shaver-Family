@@ -1,22 +1,38 @@
-node_modules/
-dist/
-deploy/out/
-.astro/
-.local/
-tmp/
-archive/
-.agents/
+# Generated outputs, local tools and originals do not belong to the source branch.
+/node_modules/
+/dist/
+/deploy/out/
+/.astro/
+/.local/
+/tmp/
+/archive/
+/artifacts/
+/.artifacts/
+/.agents/
+/.superpowers/
+/test-results/
+/games/
+/src/pages/previews/
 .env*
 !.env.example
-test-results/
-.superpowers/
-.artifacts/
 __pycache__/
 *.py[cod]
 
-# Local originals and restored binary delivery files stay outside the source branch.
-artifacts/
-public/**
-!public/**/
-!public/**/*.svg
-public/previews/
+# Canonical source_files() includes Markdown documentation, including docs/archive.
+/docs/**
+!/docs/**/
+!/docs/**/*.md
+
+# Authored public paths from source_files()/media-lock; all other public files are restored.
+/public/**
+!/public/brand/
+!/public/brand/contact-icons.svg
+!/public/brand/favicon-red.svg
+!/public/brand/favicon-standard.svg
+!/public/brand/favicon-wordmark-source.svg
+!/public/brand/logo-dark.svg
+!/public/brand/logo-light.svg
+!/public/brand/logo-paper.svg
+!/public/brand/lucide-LICENSE.txt
+!/public/brand/transparent.svg
+!/public/brand/utility-icons.svg

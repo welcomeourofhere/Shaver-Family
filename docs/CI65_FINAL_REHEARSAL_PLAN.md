@@ -1,74 +1,61 @@
-# Чистое воспроизведение CI65 — текущее состояние и оставшиеся gates
+# Чистое воспроизведение CI65 — выполненные этапы и оставшиеся gates
 
-Обновлено16ноября2026 по фактическим файлам и сообщениям root. Clean CI **уже начат**, но финальный runtime/release/package ещё не принят. Опубликован только выпуск64 `db23e622f97223556f77`. Успешный локальный rehearsal не означает GitHub Actions, загрузку финального пакета или публикацию65.
+16.11.2026, опубликован выпуск65 E `945ad6ddd3e70d5cc3c4`, manifest SHA256 `e9af475c845d1adebf868b28361b745811612b78bfb3901161a50605dbf1dabb`. Через официальный MCP опубликованы13/13 страниц, shared перед content; после публикации13/13 HEAD/code прочитаны с точным совпадением. Cloud421/421 проверен, root registry указываетE. NativeE18 прошёл с прозрачными body/#allrecords/#t-header/#t-footer и тремя footer-pixel проверками в каждом случае. ActualE18/18 technical HTTPS GREEN; Header3/3 сохранил gap8px, radius20px, фон#252525 и8px status-dot. После добавленного владельцем исключения Happ/Xray основной https://soyuz.hair также прошёл18/18 усиленных canvas/footercorner cases в3движках, обе темы и390/961/1440px; HTTP12/12PASS,177currentresources. Доказательства: HOST_CANVAS_65D.md и tmp/planning/iteration65/host-canvas/E-main-public/. Финальные sourceE commit/Actions и локальный Git adoption ожидаются; remote пока509fed9…/Actions43800396980success.
 
-## Что существует и выполнено
+## Независимая среда и сохранённая история
 
-Фактический снимок — `.local/release65/ci65-final-snapshot.json`, а не файл в корне.local. Каталог `.local/ci65-final` существует. В нём собственные node_modules и.venv; рабочие зависимости основного проекта не копировались и не подменялись symlink.
+Каталог `.local/ci65-final` существует и использует собственные node_modules/.venv. Зависимости основного проекта не копировались и не подменялись symlink. `.local/release65/ci65-final-environment.json` фиксирует Node24.22.1, pnpm10.34.9, Astro5.18.2, TypeScript5.9.3, Python3.12.10, beautifulsoup4 4.14.3, tinycss2 1.5.1, fonttools4.68.0, brotli1.2.0, Pillow12.3.0 и zlib1.3.1. Build scripts разрешены дляesbuild/sharp; agent-browser install script выключен.
 
-Промежуточный пакетB `cc3db610afd8e81ca768` использован как проверенный bootstrap-вход. Его manifest содержит424 объекта доставки. Восстановленный public-граф содержит384 пути, лишних файлов0, хеши проверены; журналbootstrap сообщает384 pinned assets и376 восстановленных файлов. Это не финальный пакетC и не доказательство публикации65.
+B `cc3db610afd8e81ca768` был толькоbootstrap:424wire-объекта,384пути public,376восстановленных файлов,0лишних. Первыйruntime остановился на неактивном `public/reference/gift-1.svg`. Root перенёс provenance-case вlocalCases, сохранив runtime-проверку собранной заглушки. После этого окончательный combined source прошёл полный clean CI. Snapshot `.local/release65/ci65-final-snapshot.json` содержит627путей и SHA256 `517c48d59e855e9d5cc26fa025667bed8fe99a3534a3ce38ed6f005a69ac4851`. Старые attempt1 и промежуточный phase final-focus-and-MIME-v4 остаются историей, а не текущим блокером.
 
-Снимок с phase `final-focus-and-MIME-v4` фиксирует627 исходных путей и побайтную сверку payload `github-tree.for-ci-refresh.json`, SHA256 `5f866b4a2cb111c845e1b0dedc5573112c9891c1c3f172ab1dbe7807b5a2c5db`. Входной media-lock имеетSHA256 `bdf2bd25ad15af71e19ae53a4748f8a66ef6d0ce3a0eedaa068316765290602a`, public source graph — `723f4e36f700317ba3e7d01bc0a32f85ea12dbb5be370169262a3913c5a9a211`. Эти значения относятся к сохранённому промежуточному снимку; заменять ими ожидаемый хеш следующего combined source нельзя.
+Public source graph384, SHA256 `723f4e36f700317ba3e7d01bc0a32f85ea12dbb5be370169262a3913c5a9a211`, не расширялся оригиналами/preview. Production-only whitelist исключает.local,tmp,dist,node_modules,deploy/out,корневыеarchive/artifacts иsrc/pages/previews. Public восстанавливается из принятого lock и точного набора авторскихSVG/лицензий. Обе лицензииLucide и `deploy/project-head.html` сохранены. Текущий Git-контракт `* -text` сохраняет authored bytes без отключения diff; stage допускается только по проверенному source pathspec, безadd-A.
 
-Вsnapshot явно стоят `sourceRefreshRequired:true`, `finalCandidate:false`; он superseded последующими footer refresh и исправлением классификации gift-case. Завершены ownership, source boundary, Astro check и обычная сборка. Первый runtime остановился на проверке `all six gift illustrations are original vector objects with no embedded raster or external references`: она пыталась прочесть неотправляемый `public/reference/gift-1.svg`.
+## ВыполненныйC и исправление экспортных метаданных
 
-Root исправил `tests/ci-suites.json`: эта проверка неактивных сохранённых gift-оригиналов теперь localCases. Проверка собранного шаблона остаётся runtime. Само исправление классификации не является успешным повторным runtime; нужен свежий combined source и новый полный проход. Исходные подарки и исторические журналы не удалялись.
+Clean CI создалC `7a129e64e8086a5face7`:121Astro/0,99runtime assertions,4release assertions,9Python suites/41PASS.11content+2shared,421asset,57 320 419wire-байт. Root принял копию побайтно. Фактические case filters и argv сохранены безenv/секретов; inventory35runtime/7local/9Python исключает ошибочный provenance из runtime.
 
-## Готовая независимая среда
+Позже выявлен CRLF-дефект: read_text скрывал отличие actual HEAD/body bytes от нормализованногоSHA. Экспортёр теперь записывает canonical UTF-8 LF; byte-level assertions и actual package helper проверяют записанные байты. УточнениеaltSource обозначает постеры какartwork без подмены бинарных оригиналов. C также выявил реальный дефект тёмной темы на Тильде: opaque body/#allrecords. Поэтому C не является финальной host-приёмкой, даже при зелёном прежнем native QA.
 
-`.local/release65/ci65-final-environment.json` подтверждает:
+## ИсторияD — host-only delta и ограниченная проверка
 
-| Среда | Фактическая версия / граница |
+Фактический новый отчёт — `.local/release65/ci65D-20261116T061827Z/D-candidate.json`; steps — соседнийgates.json. Этот срез содержит633исходных пути, source payload SHA256 `0208059e85140b7eb34dfaaa51f44a282c1073641a7ed214920fe339e43d88e1`. Последующие CURRENT-docs учитываются отдельно и не приписываются этому payload.
+
+| Gate | РезультатD |
 |---|---|
-|Node|24.22.1|
-|pnpm|10.34.9, вызван через pnpm11 dlx pnpm@10.34.9|
-|Astro / TypeScript|5.18.2 /5.9.3 из собственного node_modules|
-|Python|3.12.10, собственная `.local/ci65-final/.venv`|
-|Python packages|beautifulsoup4 4.14.3, tinycss2 1.5.1, fonttools 4.68.0, brotli 1.2.0, Pillow12.3.0|
-|zlib|1.3.1|
+|Ownership|35runtime/7local/9Python, exit0|
+|Source boundary|384public-пути, exit0; оригиналы иpreview не добавлены|
+|Release assertions|4PASS|
+|Prepare/package|9Python suites/46PASS, canonical actual-byte HEAD/body hashes|
+|Host reset|13HEAD содержат transparent reset дляbody/#allrecords|
+|Compiled inputs|421sourceSHA/client inputs C=D;13body семантически совпадают с учётомuuid/build-prefix|
+|Astro/build|Не запускались повторно для host-only delta; это не новый121Astro/99runtime прогонD|
+|Пакет|D d4040c957966781f777c,11content+2shared,421wire,57 320 426байт|
+|Root adoption|Побайтная копия принята; ранний uploaded:false вD-adoption.json — срез до последующих внешних действий|
+|Opaque fixture|18/18PASS|
+|ActualD browser|Исторические body-canvas18/18PASS:3движка ×390/961/1440 ×2темы. Внешнийt-footer не был покрыт; позднее найден светлый угол. Это не финальная host-приёмка|
+|Actual Header|3/3PASS: фон#252525,радиус20px,gap8px,красныйclosed-dot8px; root просмотрелFirefox-скрин|
 
-Зависимости сохранены при проверенном refresh исходников. Повторная установка не нужна только ради новогоJS/CSS; изменение package/lock требует отдельной проверки и собственного frozen-lockfile install. Разрешённые build scripts — esbuild/sharp; agent-browser install script выключен.
+C37native jobs, ручные3-engine/touch, настоящий SDK transport и24лабораторных benchmark samples сохраняются как доказательства с их исходной средой и версией. Точное равенство compiled inputs позволяет не повторять клиентскую сборку, но не превращает замерыC в замерыD. SDK HTML доставлялся synthetic fixture; это не подтверждает публичный HTTPS или ingestion кабинетов. Физические устройства исключены владельцем.
 
-## Что ожидается от root и clean CI
+## E — текущий опубликованный host-fix
 
-Окончательный combined source ожидает source-freeze общего modal/resize QA. После сигнала root нужно принять точные путь иSHA256 нового payload, побайтно сверить каждый авторский файл и контролируемо обновить существующий исходный срез с сохранением независимых зависимостей. Старые627путей и старыйSHA не считаются автоматически окончательными.
+D `d4040c957966781f777c` исправил opaque body/#allrecords, но его18/18 actual canvas и Header3/3 не покрыли внешние светлые углы native#t-footer в тёмной теме. Этот дефект найден финальным просмотром; D остаётся ограниченной историей, а не итоговой host-приёмкой. E расширяет единственный HOST_CSS reset на body/#allrecords/#t-header/#t-footer. Все421 compiled inputs совпадают сD;13body точно совпадают после замены build-prefix,13HEAD отличаются только расширенным reset. C37native jobs, SDK transport и24benchmark samples сохраняют исходную область и не называются новыми измерениямиE.
 
-`prepare-source-tree.py --materialize` отказывает при существующем destination. Нельзя повторять старый шаг «каталог не существует», принудительно очищать текущий CI или молча перезаписывать отличный источник. Любой refresh получает новый отчёт о наборе путей/байтах. Сохранённые snapshot, attempt1 и прежние каталоги остаются историческими доказательствами.
+Clean CI E: ownership35/7/9,source384,release4,9Python/46PASS. ПовторныйAstro build для этого host-only delta не заявлен. NativeE18GREEN проверяет прозрачность всех4wrapper и3footerpixels в каждом случае. Official publish13/13 и13postpublishHEAD/codeEXACT завершены, Cloud421/421, registryE. ActualE18/18 technical HTTPS GREEN; Header3/3 сохранил gap8px, radius20px, фон#252525 и8px status-dot. После добавленного владельцем исключения Happ/Xray основной https://soyuz.hair также прошёл18/18 усиленных canvas/footercorner cases в3движках, обе темы и390/961/1440px; HTTP12/12PASS,177currentresources. Доказательства: HOST_CANVAS_65D.md и tmp/planning/iteration65/host-canvas/E-main-public/.
 
-Сверка исключает.local,tmp,dist,node_modules,deploy/out,archive,artifacts,src/pages/previews иpublic/previews из авторского набора. Public восстанавливается только из принятого lock плюс явно объявленные authored SVG/лицензии. Оригиналы фото/видео и неактивные provenance-ресурсы в cold CI не добавляются ради прохождения неверного runtime-case. Обе лицензииLucide и явный authored input `deploy/project-head.html` должны присутствовать. `.gitattributes` сохраняет байты public через-text, включая CRLF авторскихSVG.
+## MIME, доставка и публикация
 
-## Оставшаяся последовательность
+Canonical MIMEv4 задаёт font/woff2,font/woff,font/ttf,font/otf,image/webp,image/jpeg,image/png,image/avif независимо от Windows mimetypes. MIME входит в build digest и immutable identity `SHA256(MIME + NUL + source bytes)`. Исправленный MIME получает новыйURL, старый immutable объект не перезаписывается. Gzip использует пустойfilename,mtime0,OS255; zlibVersion входит вdigest. Относительные newsJSON/image ссылки сохраняют общий build-prefix. ЭкспортёрD имеет revision5 дляcanonical LF/host reset; это не отменяет MIMEv4-контракт.
 
-Каждая команда выполняется сcwd `.local/ci65-final`, получает новый отдельный журнал и допускает следующий шаг только приexit0. `SOYUZ_RELEASE` отсутствует в первой сборке и установлен только для второй. `PYTHON` в package-группе указывает на абсолютный путь собственного venv Python.
+Root подтвердилCloud421/421wire SHA,MIME,encoding/cache. Девять отдельных MIME/CORS-запросов дляfont/woff2,font/ttf,image/webp по3origins прошли в своей проверенной области. Точный E перенесён в13nativeHEAD/T123 через официальныйMCP, shared опубликованы перед11content. Postpublish13/13HEAD/code exact; registry теперьE. Actual technical HTTP12cases прошли:11страниц+unknown404, currentEasset closure, Twitter/lang/alt/canonical. ActualD canvas18/18 и Header3/3 в HOST_CANVAS_65D.md остаются ограниченной историей: затем найден внешний светлыйt-footer. ActualE18/18 technical HTTPS GREEN; Header3/3 сохранил gap8px, radius20px, фон#252525 и8px status-dot. После добавленного владельцем исключения Happ/Xray основной https://soyuz.hair также прошёл18/18 усиленных canvas/footercorner cases в3движках, обе темы и390/961/1440px; HTTP12/12PASS,177currentresources. Доказательства: HOST_CANVAS_65D.md и tmp/planning/iteration65/host-canvas/E-main-public/.
 
-| Шаг | Команда | Требуемый результат |
-|---|---|---|
-|Сверка refreshed source|`node scripts/check-ci.mjs check`|Свежая ownership/classification, включая исключение локального gift-case.|
-|Public boundary|`node scripts/check-ci.mjs source`|Каждый public sourceSha256 совпадает с принятым lock; запрещённых входов нет. Если lock изменился, сначала заново выполнить проверенный bootstrap.|
-|Типы|`pnpm check`|Чистые Astro/TS исходники без previews.|
-|Обычная сборка|`pnpm build`|Собственный dist текущего combined source.|
-|Runtime|`node scripts/check-ci.mjs runtime`|Все выбранные runtime cases прошли; local provenance не замаскирован под runtime.|
-|Release-сборка|`pnpm build` с `SOYUZ_RELEASE=1`|Release metadata и аналитика той же изолированной версии.|
-|Release assertions|`node scripts/check-ci.mjs release`|Metadata/analytics assertions прошли.|
-|СозданиеC|`.venv/Scripts/python.exe scripts/prepare-tilda-release.py`|Новый собственный `deploy/out/<build>` и локальный deploy/current нового CI.|
-|Package gate|`node scripts/check-ci.mjs package` с `PYTHON=<абсолютный venv python>`|Все9 Python suites прошли по созданномуC.|
+## Осталось закрыть
 
-Фактический inventory сейчас —35 runtime suites,7 local provenance suites и9 Python suites; его повторно фиксирует свежийcheck. Все дальнейшие build-id, количества и хеши берутся из результатаC, а не копируются изB.
+- [x] СохранитьD18/Header3 как bounded history с найденным footer-дефектом; D не финальная host-приёмка.
+- [x] ActualE18/18 technical HTTPS GREEN; Header3/3 сохранил gap8px, radius20px, фон#252525 и8px status-dot. После добавленного владельцем исключения Happ/Xray основной https://soyuz.hair также прошёл18/18 усиленных canvas/footercorner cases в3движках, обе темы и390/961/1440px; HTTP12/12PASS,177currentresources. Доказательства: HOST_CANVAS_65D.md и tmp/planning/iteration65/host-canvas/E-main-public/.
+- [ ] Зафиксировать окончательный исходныйE в изолированной codex/soyuz-release, получить собственный Actions-result и подключить локальныйGit к точному source snapshot. Пока remote509fed9… и run43800396980success относятся к первому срезу; SF main не менялся.
+- [x] Повторить поисковыеUI: GSCsitemap16Nov принят, но «Не получено»,0URL; Яндексfreshreadonly/Adddisabled, sitemap не отправлен.
+- [ ] Дождаться внешнего полученияGoogle sitemap/разрешить доступную отправкуЯндекса и зафиксировать результат без обещанияиндексации. GSC LIVE09:10:23/RequestIndexpriorityqueue не доказывает already indexed.
+- [x] Владелец самостоятельно добавил сайт в исключения Happ/Xray. После этого основной HTTPS прошёл HTTP12/12 и18/18 browser canvas/footercorner cases в3движках. Агент не менял VPN, DNS или проверку сертификата. Прежний timeout сохранён как история маршрута, а не текущий отказ сайта.
 
-При runtime следует сохранить реальные argv spawnSync, включая anchored `--test-name-pattern`, через приватный preload, вызывающий исходный spawnSync без изменения результата. Пишутся только команды и аргументы, безenv/секретов. Сверить фактически выбранные и исключённые имена сAST `test(...)` и новым ci-suites.json. Сам check-ci требует ненулевойpass и ожидаемыеSubtest; один список конфигурации не заменяет выполненные тесты.
-
-## MIMEv4 и immutable identity
-
-ПакетC создаётся текущим экспортёромv4. Canonical CONTENT_TYPES задаёт font/woff2,font/woff,font/ttf,font/otf,image/webp,image/jpeg,image/png,image/avif и остальные типы без зависимости от Windows mimetypes. MIME участвует в build digest и в адресации бинарного представления `SHA256(MIME + NUL + source bytes)`.
-
-Исправление MIME не перезаписывает metadata старого immutable объекта. Новая identity создаёт новыйURL правильного представления; неизменённые бинарные ресурсы затем стабильны между кодовыми сборками. NewsJSON и относительные `../media/news/` сохраняют общий build-префикс. Оригиналы и старые Cloud-объекты не удаляются.
-
-Gzip использует GzipFile с пустым filename,mtime0,OSbyte255. Codec, включая zlibVersion, входит в digest. Поэтому новыйC не обязан совпастьbuild-id сB или с другой средойzlib; wire/content/source hashes и codec фиксируются отдельно. Подробнее — `EXPORT_CONTRACT_65.md`.
-
-## ПриёмкаC и последующие внешние действия
-
-Clean CI передаёт root собственный package manifest, build-id/codec, source payloadSHA, media-lockSHA, bootstrap boundary, actual-case filters, TAP summaries и журналы. До этогоC не принят и не называется опубликованным. Общие рабочие dist/deploy/current и published registry не заменяются результатом rehearsal автоматически.
-
-После принятияC root отдельно выполняет Cloud upload/read-back всех wire hashes,MIME,CORS,encoding/cache; затем shared header/footer перед content,13native HEAD/T123 readback и публикаций, public UI/SEO/analytics QA. `prepare-tilda-update.py` готовит только проверяемый payload под.local сexpected-before hashes; сам он не публикует и не продвигает registry. Его9-suite package gate включает проверки неполной/чужой/дублированной Cloud-верификации и неверныхtargets.
-
-ОбновлениеGSC от root: robotsreport после reload отображает https://soyuz.hair/robots.txt,16.11.2026 02:34,«Получен»,168Б,проблемы«-». Это подтверждает новыйfetchrobots после requestedrecrawl, не индексацию страниц и не публикацию65.
+Исторические snapshot и журналы не переписываются. GitHubCI, Cloud upload, native fixture, actual technical HTTP и публичная браузерная приёмка остаются разными доказательствами. Реальные записи/покупки не создаются.
