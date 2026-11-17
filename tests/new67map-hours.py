@@ -99,7 +99,7 @@ def main():
   if report['frozenRejected']:raise RuntimeError('Stopped after HMR rejection')
  def verify_src(page):
   f=page.locator('#contacts-map-frame');src=f.get_attribute('src')or f.get_attribute('data-map-src');u=urlsplit(src);q=parse_qs(u.query)
-  assert u.hostname=='yandex.ru'and u.path=='/map-widget/v1/'and q.get('oid')==[BUSINESS] and q.get('ol')==['biz'] and q.get('ll')==['49.669973,58.588674'],src
+  assert u.hostname=='yandex.ru'and u.path=='/map-widget/v1/'and q.get('oid')==[BUSINESS] and q.get('ol')==['biz'] and q.get('ll')==['49.669973,58.588674'] and q.get('scroll')==['false'],src
   assert f.get_attribute('referrerpolicy')=='strict-origin-when-cross-origin'
   assert page.locator('.contact-map').get_attribute('data-map-provider')=='yandex'
   assert page.locator('.contact-address').get_attribute('href')=='https://yandex.ru/maps/org/soyuz/116019915414/'
@@ -136,7 +136,8 @@ def main():
   assert after['credit']['top']>=after['frame']['bottom']-1,after
   assert all(after['creditText'][side]>=after['host'][side]-1 for side in ['left','top'])and all(after['creditText'][side]<=after['host'][side]+1 for side in ['right','bottom']),after
   assert after['frame']['height']>200 and after['frame']['width']>200,after
-  assert f.evaluate('e=>getComputedStyle(e).pointerEvents')=='none'and f.get_attribute('tabindex')=='-1'and f.get_attribute('aria-hidden')=='true'
+  compact=row['width']<=960
+  assert f.evaluate('e=>getComputedStyle(e).pointerEvents')==('none'if compact else'auto')and f.get_attribute('tabindex')==('-1'if compact else'0')and f.get_attribute('aria-hidden')==str(compact).lower()
   page.screenshot(path=str(out/(row['name']+'.png')));row.update(embed=src,loader=centres,geometry=after,controlledYandexResponse=True,actualMarkerVerified=False,textScaleScope='map credit')
   wheel(page,host,row)
   if row['width']<=960:gesture(page,c,host,row)

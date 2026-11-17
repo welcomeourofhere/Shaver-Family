@@ -3,6 +3,8 @@ import Headline from './Headline.astro';
 import ContactChannels from './ContactChannels.astro';
 import site from '../../content/site.json';
 import BusinessHours from './BusinessHours.astro';
+import Icon from './Icon.astro';
+import MaterialSurface from './MaterialSurface.astro';
 import contacts from '../../content/contacts.json';
 import {contactMap,contactMapEmbed} from '../content/contact-map';
 import '../styles/contacts.css';
@@ -15,12 +17,12 @@ const futureMap=`https://yandex.ru/maps/?text=${encodeURIComponent(`${site.city}
 <section class="section shell contact-section" id="contacts" aria-labelledby="contacts-title">
  <Headline class="section-title" id="contacts-title" name="contacts" />
  <div class="contact-layout">
-  <div class="contact-map" data-loading-component data-map-state="idle" data-map-provider="yandex">
+  <div class="contact-map-slot"><div class="contact-map" data-loading-component data-map-state="idle" data-map-provider="yandex">
    <iframe id="contacts-map-frame" title={`Яндекс Карты — СОЮЗ, ${site.city}, ${site.address}`} data-map-src={embed} aria-hidden="true" tabindex="-1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
    <div class="contact-map-fallback" hidden role="status"><p>Карта временно недоступна.</p><a class="btn btn-cream" href={map} target="_blank" rel="noopener noreferrer">Яндекс Карты</a></div>
    <noscript><iframe title={`Яндекс Карты — СОЮЗ, ${site.city}, ${site.address}`} src={embed} loading="lazy" aria-hidden="true" tabindex="-1" referrerpolicy="strict-origin-when-cross-origin"></iframe></noscript>
-   <a class="contact-map-credit" href={map} target="_blank" rel="noopener noreferrer">СОЮЗ в Яндекс Картах</a>
-  </div>
+   <a class="contact-map-credit" href={map} target="_blank" rel="noopener noreferrer"><span class="map-credit-inline">СОЮЗ в Яндекс Картах</span><span class="map-credit-expand">Развернуть карту</span></a>
+  </div></div>
   <div class="contact-stack">
    <article class="contact-card contact-visit" data-selection-surface="red" data-surface="dark" aria-labelledby="contact-address-title">
     <h3 id="contact-address-title">СОЮЗ</h3>
@@ -35,4 +37,10 @@ const futureMap=`https://yandex.ru/maps/?text=${encodeURIComponent(`${site.city}
   </div>
  </div>
 </section>
+<dialog id="contacts-map-dialog" class="contact-map-dialog" aria-labelledby="contacts-map-title">
+ <MaterialSurface>
+  <div class="dialog-head"><h2 id="contacts-map-title">Карта СОЮЗа</h2><button class="icon-btn" type="button" data-dismiss autofocus aria-label="Закрыть карту"><Icon name="close" /></button></div>
+  <div data-map-expanded-content></div>
+ </MaterialSurface>
+</dialog>
 <script>import '../scripts/action-label';import '../scripts/contact-map';</script>

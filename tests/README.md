@@ -185,6 +185,10 @@ iteration37-swipes.mjs продолжает быть общим touch-набор
 Проход59 — `python tests/iteration59-browser.py` (QA_ENGINE=chromium/firefox/webkit, QA_URL) и `python tests/iteration59-responsive.py` (QA_URL).98Node/12Python. Проверяются интервью Дарьи, часы, FAQ и многошаговый ПК-drag с возвратом/отменой. Ограничение качества публичного источника ВК описано в docs/ITERATION_59.md и не считается PASS полноразмерных оригиналов.
 
 
+### Проход70: услуги и карта
+
+`python -X utf8 tests/new70services-map.py --origin http://127.0.0.1:PORT/ --label NEW_LABEL --engine chromium` проверяет четыре сочетания услуг и шесть карты. Повторить последовательно дляFirefox/WebKit; trusted touch относится только кCDP/Chromium. Измеряется минимум высоты и нижней границы услуг на каждомRAF между реальными нажатиями всех строк всех категорий. Карта использует явно названный cross-origin fixture с touch-action:none: это проверка собственной обвязки, не тайлов поставщика. `--actual-provider --only map` добавляет два обычных стационарных просмотра настоящей карты без внешних действий. `--pilot` допускает HMR только для диагностики; compiled-приёмка его отклоняет. Все отчёты в отдельной новой папке artifacts/iteration70, исходные RED сохраняются.
+
 ### Проход68: первый визит
 
 `python -X utf8 tests/new68initial-layout.py --fixture tmp/frozen68-j/native --label unique-label --engine webkit` проверяет геометрию перед/после запуска compiled-модулей, cookie X и фокус на320/390/600 в обеих темах. Доставка — явно обозначенная public-host fixture, entry-gate не переписывает ESM dependencies; это не измерение производительности/публичного HTTPS. Engine также chromium/firefox; `--single` — один диагностический случай. Артефакты не перезаписываются.

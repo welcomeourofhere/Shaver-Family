@@ -65,3 +65,8 @@ N прошёл все чистые gates, но завершающая защит
 Q717249e230c3440a947f собран чисто:583ресурса,67 000 260B,manifest3dc3bb804278d1d893c4974b701b8f4e9558aceba3bd3d43d1031243065795b9; rootNode183/183,Astro142/0/0/0,runtime/release/package прошли. Обычныеmedia ranges повторяют действующие CSS-размеры, включая4px scrollbar-запас. Chrome9/9DPR, Firefox/WebKit12/12native-selection, noJS2/2 —0JS, все браузеры закрыты. Отрицательный WebKitP сохранён; физический Safari этим не проверен. Артефакты compiled-q69-poster-dpr-green, .local/release69/poster-native-q.json и compiled-q69-nojs.
 
 Пакет включает тот же проверенный JS/CSS M; отдельно сверяются583source-assets и26фрагментов. M99/36/34 и парный24-sample lab сохраняют свои исходные метки, не называются новыми Q-измерениями. До фактических CI/source/readback/public gates Q не считается опубликованным. Общие открытые вопросы цели — P1 меню/desktop paint, кабинеты/поиск, server headers/TLS/field data — сохраняются.
+
+
+## Дополнение70: Q отменён до публикации
+
+После новых указаний об услугах и разблокировке карты Qне выпускается. Его CI44050610710 завершилсяSUCCESS, артефакт сверён с583ресурсами/26фрагментами; локальный отказ от выпуска не означает ошибкуCI. Шесть собственных уже сохранённых Tilda-черновиков возвращены точно кJ с предварительным сравнением HEAD/code и повторным чтением. ПубликацийQнет, текущий registry и публичный сайт остаютсяJ. Receipt: .local/release69/tilda-q-superseded-rollback.json. Девять настоящих публичных образцовJ завершены, исходные данные — artifacts/iteration68/public-j69-baseline-a/results.json, анализ — artifacts/iteration69/public-j-baseline-analysis.json. Продолжение исправлений и новой приёмки — ITERATION_70.md.

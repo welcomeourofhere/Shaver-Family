@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "build": "717249e230c3440a947f",
-  "assetBase": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/",
+  "build": "c3b8c5861c9bf5af1df5",
+  "assetBase": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/",
   "files": [
     {
       "sourcePath": "audio/67/close.wav",
@@ -38,7 +38,7 @@
     {
       "sourcePath": "brand/contact-icons.svg",
       "sourceSha256": "c5b545be4d05d71dd832305e7d75ef394f315bb98dbb2778fe99ad988716cfbe",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/brand/contact-icons.svg",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/brand/contact-icons.svg",
       "sha256": "179f72a017b49fefe04b343b5ada1de4c0d1b2178b71224b2bb15c1e47c15bec",
       "contentSha256": "c5b545be4d05d71dd832305e7d75ef394f315bb98dbb2778fe99ad988716cfbe",
       "contentEncoding": "gzip"
@@ -70,7 +70,7 @@
     {
       "sourcePath": "brand/favicon-red.svg",
       "sourceSha256": "b73c1eee7a861e8b4c9944bee4f9b54bd8f7a5882f6601779ef3157c6c8af72c",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/brand/favicon-red.svg",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/brand/favicon-red.svg",
       "sha256": "acd74925a4ec7925edd8021c26efc801c8a01cde39c4bd9cc08913b144f619db",
       "contentSha256": "b73c1eee7a861e8b4c9944bee4f9b54bd8f7a5882f6601779ef3157c6c8af72c",
       "contentEncoding": "gzip"
@@ -78,7 +78,7 @@
     {
       "sourcePath": "brand/favicon-standard.svg",
       "sourceSha256": "bf1fda2799b1a3c3196c991e49b701dc35e2baba41f5f32ca2a0febbb56bd5be",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/brand/favicon-standard.svg",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/brand/favicon-standard.svg",
       "sha256": "4cd16eb68ca63c6203d2926d4fa2f8a510d13767c0a040240fa552ea41555886",
       "contentSha256": "bf1fda2799b1a3c3196c991e49b701dc35e2baba41f5f32ca2a0febbb56bd5be",
       "contentEncoding": "gzip"
@@ -86,7 +86,7 @@
     {
       "sourcePath": "brand/logo-dark.svg",
       "sourceSha256": "c96d6389826532bc921517fc4980a4d04e66abca4e4f6e95a8f6136016120908",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/brand/logo-dark.svg",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/brand/logo-dark.svg",
       "sha256": "33bbea1703b0cb0fc174d75b1c228109288a8656922b218cece00766f300f2bf",
       "contentSha256": "c96d6389826532bc921517fc4980a4d04e66abca4e4f6e95a8f6136016120908",
       "contentEncoding": "gzip"
@@ -94,7 +94,7 @@
     {
       "sourcePath": "brand/logo-light.svg",
       "sourceSha256": "1f85dfae24812c17022651ab85c1d98d1f26db6867ac9087d3f1dcc39614b610",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/brand/logo-light.svg",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/brand/logo-light.svg",
       "sha256": "ec8edf414d2883f03158bb63af6a1a4afa610ea6962772f8ade5f8e5f168113d",
       "contentSha256": "1f85dfae24812c17022651ab85c1d98d1f26db6867ac9087d3f1dcc39614b610",
       "contentEncoding": "gzip"
@@ -102,7 +102,7 @@
     {
       "sourcePath": "brand/logo-paper.svg",
       "sourceSha256": "cb1bbf56f874433460d2dc50bbdb5a342f3e2e1b3bdd6e0339df68b9ad1e58ab",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/brand/logo-paper.svg",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/brand/logo-paper.svg",
       "sha256": "e3a3f06108a3952cf3916253f9c8ebe47ecbcb372d41a6e11e2463f4ef83abe9",
       "contentSha256": "cb1bbf56f874433460d2dc50bbdb5a342f3e2e1b3bdd6e0339df68b9ad1e58ab",
       "contentEncoding": "gzip"
@@ -126,7 +126,7 @@
     {
       "sourcePath": "brand/logo-square.svg",
       "sourceSha256": "64f2a181805f09e3a3a4b663205034f08ba2b4c276fd8f95f985b6407338930a",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/brand/logo-square.svg",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/brand/logo-square.svg",
       "sha256": "5046d972b77b11110647aea617e388b9d1fd762922e2e2897c523cb008170e0f",
       "contentSha256": "64f2a181805f09e3a3a4b663205034f08ba2b4c276fd8f95f985b6407338930a",
       "contentEncoding": "gzip"
@@ -134,7 +134,7 @@
     {
       "sourcePath": "brand/lucide-LICENSE.txt",
       "sourceSha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/brand/lucide-LICENSE.txt",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/brand/lucide-LICENSE.txt",
       "sha256": "65e42487f075d4f95ecffc1ba0b8cfc7c4c30cd0146f19ec526a707fc37e3cff",
       "contentSha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
       "contentEncoding": "gzip"
@@ -142,7 +142,7 @@
     {
       "sourcePath": "brand/transparent.svg",
       "sourceSha256": "38faf4153750fdb3d8b4ac3c34650dce4c2128f5c7b1dce0c1f5efb5c2522809",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/brand/transparent.svg",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/brand/transparent.svg",
       "sha256": "559633bdaf1d78ea055d98b85c08c5e5aa69e58c35aa146abc97b92ba07ac6b3",
       "contentSha256": "38faf4153750fdb3d8b4ac3c34650dce4c2128f5c7b1dce0c1f5efb5c2522809",
       "contentEncoding": "gzip"
@@ -150,15 +150,15 @@
     {
       "sourcePath": "brand/utility-icons.svg",
       "sourceSha256": "c35987af555748f06885484e1d5be428f4456666f9576baf01eb7eaf847e761f",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/brand/utility-icons.svg",
-      "sha256": "0bf7e4f3fe0e769fe005f47461a749fc8ec0d26658a861054ac41b2c6a4b19a7",
-      "contentSha256": "fcd50a53294994deda353507e8e08fa453f1afe5f23a6b822927c701aaec0f88",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/brand/utility-icons.svg",
+      "sha256": "490e90bfcdc60bea45fcdbd3ff967aa94161ef6e70a7877e814175530fd1d699",
+      "contentSha256": "8a4e42ecc00f910fbd6820666cbf570a8b740535641b8933204ce5a4845db023",
       "contentEncoding": "gzip"
     },
     {
       "sourcePath": "data/news.json",
       "sourceSha256": "4c3b381f936fd3e908599bc10d83885dfd605e711bab44f43e1bc983a45177d2",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/data/news.json",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/data/news.json",
       "sha256": "5961ed3c93593aee071e8c839817b1d688a0e72f131554123c59cb170212aaf5",
       "contentSha256": "4c3b381f936fd3e908599bc10d83885dfd605e711bab44f43e1bc983a45177d2",
       "contentEncoding": "gzip"
@@ -2102,7 +2102,7 @@
     {
       "sourcePath": "media/news/1778-6daee37f8b56-1600.webp",
       "sourceSha256": "6daee37f8b562de11e9b6de6dbcef830746601a3a3fca4846f514633a3dec226",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1778-6daee37f8b56-1600.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1778-6daee37f8b56-1600.webp",
       "sha256": "6daee37f8b562de11e9b6de6dbcef830746601a3a3fca4846f514633a3dec226",
       "contentSha256": "6daee37f8b562de11e9b6de6dbcef830746601a3a3fca4846f514633a3dec226",
       "contentEncoding": null
@@ -2110,7 +2110,7 @@
     {
       "sourcePath": "media/news/1778-998e1e43c4aa-640.webp",
       "sourceSha256": "998e1e43c4aa9e0d4033e81809cdf02227b8bf6a981e3021674264f1d43a6db7",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1778-998e1e43c4aa-640.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1778-998e1e43c4aa-640.webp",
       "sha256": "998e1e43c4aa9e0d4033e81809cdf02227b8bf6a981e3021674264f1d43a6db7",
       "contentSha256": "998e1e43c4aa9e0d4033e81809cdf02227b8bf6a981e3021674264f1d43a6db7",
       "contentEncoding": null
@@ -2118,7 +2118,7 @@
     {
       "sourcePath": "media/news/1778-cd73c6841d45-1280.webp",
       "sourceSha256": "cd73c6841d4537d32408019e0234abc4fb219c6eb51857618d6b116e7706fb29",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1778-cd73c6841d45-1280.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1778-cd73c6841d45-1280.webp",
       "sha256": "cd73c6841d4537d32408019e0234abc4fb219c6eb51857618d6b116e7706fb29",
       "contentSha256": "cd73c6841d4537d32408019e0234abc4fb219c6eb51857618d6b116e7706fb29",
       "contentEncoding": null
@@ -2126,7 +2126,7 @@
     {
       "sourcePath": "media/news/1882-1aa32a1ebf00-1280.webp",
       "sourceSha256": "1aa32a1ebf003240ea6461232d10909f02cf3712401143f3f0e922049552cfbd",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1882-1aa32a1ebf00-1280.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1882-1aa32a1ebf00-1280.webp",
       "sha256": "1aa32a1ebf003240ea6461232d10909f02cf3712401143f3f0e922049552cfbd",
       "contentSha256": "1aa32a1ebf003240ea6461232d10909f02cf3712401143f3f0e922049552cfbd",
       "contentEncoding": null
@@ -2134,7 +2134,7 @@
     {
       "sourcePath": "media/news/1882-64cf99848532-640.webp",
       "sourceSha256": "64cf99848532728aae8d9006231c4beed602ea0ba209e01b72891b03e7e8c1fa",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1882-64cf99848532-640.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1882-64cf99848532-640.webp",
       "sha256": "64cf99848532728aae8d9006231c4beed602ea0ba209e01b72891b03e7e8c1fa",
       "contentSha256": "64cf99848532728aae8d9006231c4beed602ea0ba209e01b72891b03e7e8c1fa",
       "contentEncoding": null
@@ -2142,7 +2142,7 @@
     {
       "sourcePath": "media/news/1882-f2329cf07026-1600.webp",
       "sourceSha256": "f2329cf07026fe95332be0b83acdd5eb95935c9d96f8ce1abc59a9d442c0aade",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1882-f2329cf07026-1600.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1882-f2329cf07026-1600.webp",
       "sha256": "f2329cf07026fe95332be0b83acdd5eb95935c9d96f8ce1abc59a9d442c0aade",
       "contentSha256": "f2329cf07026fe95332be0b83acdd5eb95935c9d96f8ce1abc59a9d442c0aade",
       "contentEncoding": null
@@ -2150,7 +2150,7 @@
     {
       "sourcePath": "media/news/1898-425e5ac54d62-1600.webp",
       "sourceSha256": "425e5ac54d62a2c35cb83ef279b552c63ffc1233c2f24b7f442abd7dfd175134",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1898-425e5ac54d62-1600.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1898-425e5ac54d62-1600.webp",
       "sha256": "425e5ac54d62a2c35cb83ef279b552c63ffc1233c2f24b7f442abd7dfd175134",
       "contentSha256": "425e5ac54d62a2c35cb83ef279b552c63ffc1233c2f24b7f442abd7dfd175134",
       "contentEncoding": null
@@ -2158,7 +2158,7 @@
     {
       "sourcePath": "media/news/1898-45bfda9c8401-1280.webp",
       "sourceSha256": "45bfda9c84018bfe6cf2ebe43c6685c0ffbce48b20ad2472932440c0820694db",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1898-45bfda9c8401-1280.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1898-45bfda9c8401-1280.webp",
       "sha256": "45bfda9c84018bfe6cf2ebe43c6685c0ffbce48b20ad2472932440c0820694db",
       "contentSha256": "45bfda9c84018bfe6cf2ebe43c6685c0ffbce48b20ad2472932440c0820694db",
       "contentEncoding": null
@@ -2166,7 +2166,7 @@
     {
       "sourcePath": "media/news/1898-d399fb8518db-640.webp",
       "sourceSha256": "d399fb8518dbcde5ec2dd30e4e3a3f0484c9348165a31022af544fd9a0be542c",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1898-d399fb8518db-640.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1898-d399fb8518db-640.webp",
       "sha256": "d399fb8518dbcde5ec2dd30e4e3a3f0484c9348165a31022af544fd9a0be542c",
       "contentSha256": "d399fb8518dbcde5ec2dd30e4e3a3f0484c9348165a31022af544fd9a0be542c",
       "contentEncoding": null
@@ -2174,7 +2174,7 @@
     {
       "sourcePath": "media/news/1899-67dcc2b6f2dd-640.webp",
       "sourceSha256": "67dcc2b6f2dde6a6522a48f0a4ac130fc63cabb770d1783e2dbc2753e1d97f17",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1899-67dcc2b6f2dd-640.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1899-67dcc2b6f2dd-640.webp",
       "sha256": "67dcc2b6f2dde6a6522a48f0a4ac130fc63cabb770d1783e2dbc2753e1d97f17",
       "contentSha256": "67dcc2b6f2dde6a6522a48f0a4ac130fc63cabb770d1783e2dbc2753e1d97f17",
       "contentEncoding": null
@@ -2182,7 +2182,7 @@
     {
       "sourcePath": "media/news/1899-ce555e235b70-1600.webp",
       "sourceSha256": "ce555e235b7064356863472bbd764fc6c68a589ec6dfd62095c1798287e2754d",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1899-ce555e235b70-1600.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1899-ce555e235b70-1600.webp",
       "sha256": "ce555e235b7064356863472bbd764fc6c68a589ec6dfd62095c1798287e2754d",
       "contentSha256": "ce555e235b7064356863472bbd764fc6c68a589ec6dfd62095c1798287e2754d",
       "contentEncoding": null
@@ -2190,7 +2190,7 @@
     {
       "sourcePath": "media/news/1899-fa7f659fd296-1280.webp",
       "sourceSha256": "fa7f659fd2969211cbc9108fdbcd402b525fbf21b53606a08fa1e99668c8522a",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1899-fa7f659fd296-1280.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1899-fa7f659fd296-1280.webp",
       "sha256": "fa7f659fd2969211cbc9108fdbcd402b525fbf21b53606a08fa1e99668c8522a",
       "contentSha256": "fa7f659fd2969211cbc9108fdbcd402b525fbf21b53606a08fa1e99668c8522a",
       "contentEncoding": null
@@ -2198,7 +2198,7 @@
     {
       "sourcePath": "media/news/1902-14e62d7b6b2f-1600.webp",
       "sourceSha256": "14e62d7b6b2fb09c77981d0790acd706e4fe3c7d425744f0052d62af69e2dc49",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1902-14e62d7b6b2f-1600.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1902-14e62d7b6b2f-1600.webp",
       "sha256": "14e62d7b6b2fb09c77981d0790acd706e4fe3c7d425744f0052d62af69e2dc49",
       "contentSha256": "14e62d7b6b2fb09c77981d0790acd706e4fe3c7d425744f0052d62af69e2dc49",
       "contentEncoding": null
@@ -2206,7 +2206,7 @@
     {
       "sourcePath": "media/news/1902-1c1f1f777205-640.webp",
       "sourceSha256": "1c1f1f777205e4ca3a30cdd3e758c127205c019aaa1aa7de9dc311d1ab11b010",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1902-1c1f1f777205-640.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1902-1c1f1f777205-640.webp",
       "sha256": "1c1f1f777205e4ca3a30cdd3e758c127205c019aaa1aa7de9dc311d1ab11b010",
       "contentSha256": "1c1f1f777205e4ca3a30cdd3e758c127205c019aaa1aa7de9dc311d1ab11b010",
       "contentEncoding": null
@@ -2214,7 +2214,7 @@
     {
       "sourcePath": "media/news/1902-b55cf5082952-1280.webp",
       "sourceSha256": "b55cf5082952d7628237f315d8d066f5a05c529fd547abd2f7a9565081736738",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1902-b55cf5082952-1280.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1902-b55cf5082952-1280.webp",
       "sha256": "b55cf5082952d7628237f315d8d066f5a05c529fd547abd2f7a9565081736738",
       "contentSha256": "b55cf5082952d7628237f315d8d066f5a05c529fd547abd2f7a9565081736738",
       "contentEncoding": null
@@ -2222,7 +2222,7 @@
     {
       "sourcePath": "media/news/1921-34427d240129-640.webp",
       "sourceSha256": "34427d2401291fb2cc8a51fe88ad7992a506f10a98720e664c7879ade9571c2d",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1921-34427d240129-640.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1921-34427d240129-640.webp",
       "sha256": "34427d2401291fb2cc8a51fe88ad7992a506f10a98720e664c7879ade9571c2d",
       "contentSha256": "34427d2401291fb2cc8a51fe88ad7992a506f10a98720e664c7879ade9571c2d",
       "contentEncoding": null
@@ -2230,7 +2230,7 @@
     {
       "sourcePath": "media/news/1921-8864fb5c9872-1600.webp",
       "sourceSha256": "8864fb5c9872bc9be09e2c4877af031fc95e626b946c5aaa27950a2077fc7560",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1921-8864fb5c9872-1600.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1921-8864fb5c9872-1600.webp",
       "sha256": "8864fb5c9872bc9be09e2c4877af031fc95e626b946c5aaa27950a2077fc7560",
       "contentSha256": "8864fb5c9872bc9be09e2c4877af031fc95e626b946c5aaa27950a2077fc7560",
       "contentEncoding": null
@@ -2238,7 +2238,7 @@
     {
       "sourcePath": "media/news/1921-aac0daaacce7-1280.webp",
       "sourceSha256": "aac0daaacce7228510639ce904b1642d11ebfe17fb72e164cae613ec5f6e91aa",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1921-aac0daaacce7-1280.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1921-aac0daaacce7-1280.webp",
       "sha256": "aac0daaacce7228510639ce904b1642d11ebfe17fb72e164cae613ec5f6e91aa",
       "contentSha256": "aac0daaacce7228510639ce904b1642d11ebfe17fb72e164cae613ec5f6e91aa",
       "contentEncoding": null
@@ -2246,7 +2246,7 @@
     {
       "sourcePath": "media/news/1933-382ebcc1210e-1280.webp",
       "sourceSha256": "382ebcc1210ec3fed1add6e6379e9fb796c975d48d972c225f654aff6457cef4",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1933-382ebcc1210e-1280.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1933-382ebcc1210e-1280.webp",
       "sha256": "382ebcc1210ec3fed1add6e6379e9fb796c975d48d972c225f654aff6457cef4",
       "contentSha256": "382ebcc1210ec3fed1add6e6379e9fb796c975d48d972c225f654aff6457cef4",
       "contentEncoding": null
@@ -2254,7 +2254,7 @@
     {
       "sourcePath": "media/news/1933-6bb252ed9752-640.webp",
       "sourceSha256": "6bb252ed9752cdae7a3d2a4b48cd0860bc0f0d8bd3e473b74b6f9afc4dea8cac",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1933-6bb252ed9752-640.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1933-6bb252ed9752-640.webp",
       "sha256": "6bb252ed9752cdae7a3d2a4b48cd0860bc0f0d8bd3e473b74b6f9afc4dea8cac",
       "contentSha256": "6bb252ed9752cdae7a3d2a4b48cd0860bc0f0d8bd3e473b74b6f9afc4dea8cac",
       "contentEncoding": null
@@ -2262,7 +2262,7 @@
     {
       "sourcePath": "media/news/1933-f9625ad89a48-1600.webp",
       "sourceSha256": "f9625ad89a481ee3913f18d2991121d6c215b8d7388ad148a14b7dd85bee4149",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1933-f9625ad89a48-1600.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1933-f9625ad89a48-1600.webp",
       "sha256": "f9625ad89a481ee3913f18d2991121d6c215b8d7388ad148a14b7dd85bee4149",
       "contentSha256": "f9625ad89a481ee3913f18d2991121d6c215b8d7388ad148a14b7dd85bee4149",
       "contentEncoding": null
@@ -2270,7 +2270,7 @@
     {
       "sourcePath": "media/news/1954-5cdc993a4e3f-640.webp",
       "sourceSha256": "5cdc993a4e3fa3bf622da1b25d1cc9f2872ae176c8123ff6755cc489e216bda1",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1954-5cdc993a4e3f-640.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1954-5cdc993a4e3f-640.webp",
       "sha256": "5cdc993a4e3fa3bf622da1b25d1cc9f2872ae176c8123ff6755cc489e216bda1",
       "contentSha256": "5cdc993a4e3fa3bf622da1b25d1cc9f2872ae176c8123ff6755cc489e216bda1",
       "contentEncoding": null
@@ -2278,7 +2278,7 @@
     {
       "sourcePath": "media/news/1954-c4ba378b5009-1086.webp",
       "sourceSha256": "c4ba378b5009383215bab8ac7797b11c042b6de2d84d091052b8c7a28612ad89",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1954-c4ba378b5009-1086.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1954-c4ba378b5009-1086.webp",
       "sha256": "c4ba378b5009383215bab8ac7797b11c042b6de2d84d091052b8c7a28612ad89",
       "contentSha256": "c4ba378b5009383215bab8ac7797b11c042b6de2d84d091052b8c7a28612ad89",
       "contentEncoding": null
@@ -2286,7 +2286,7 @@
     {
       "sourcePath": "media/news/1958-763ab953419e-1280.webp",
       "sourceSha256": "763ab953419eb8b816880eeb71c56450eefa911e76e518ae7adc1f72ae9fad3e",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1958-763ab953419e-1280.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1958-763ab953419e-1280.webp",
       "sha256": "763ab953419eb8b816880eeb71c56450eefa911e76e518ae7adc1f72ae9fad3e",
       "contentSha256": "763ab953419eb8b816880eeb71c56450eefa911e76e518ae7adc1f72ae9fad3e",
       "contentEncoding": null
@@ -2294,7 +2294,7 @@
     {
       "sourcePath": "media/news/1958-a6f6b7f71f2f-1600.webp",
       "sourceSha256": "a6f6b7f71f2f3eb3f49f2c54dcbebdfc084e05b1cf38bfe0a4f506cfef61403c",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1958-a6f6b7f71f2f-1600.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1958-a6f6b7f71f2f-1600.webp",
       "sha256": "a6f6b7f71f2f3eb3f49f2c54dcbebdfc084e05b1cf38bfe0a4f506cfef61403c",
       "contentSha256": "a6f6b7f71f2f3eb3f49f2c54dcbebdfc084e05b1cf38bfe0a4f506cfef61403c",
       "contentEncoding": null
@@ -2302,7 +2302,7 @@
     {
       "sourcePath": "media/news/1958-bd5de21ad059-640.webp",
       "sourceSha256": "bd5de21ad059d79e496490e354b09b55e9a2a7d519acc0c139d5240f9cc736d5",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1958-bd5de21ad059-640.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1958-bd5de21ad059-640.webp",
       "sha256": "bd5de21ad059d79e496490e354b09b55e9a2a7d519acc0c139d5240f9cc736d5",
       "contentSha256": "bd5de21ad059d79e496490e354b09b55e9a2a7d519acc0c139d5240f9cc736d5",
       "contentEncoding": null
@@ -2310,7 +2310,7 @@
     {
       "sourcePath": "media/news/1962-344fe24f42df-640.webp",
       "sourceSha256": "344fe24f42dfa717cbc76b879b69425114966f24a116f30366ed8eb9175ffb89",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1962-344fe24f42df-640.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1962-344fe24f42df-640.webp",
       "sha256": "344fe24f42dfa717cbc76b879b69425114966f24a116f30366ed8eb9175ffb89",
       "contentSha256": "344fe24f42dfa717cbc76b879b69425114966f24a116f30366ed8eb9175ffb89",
       "contentEncoding": null
@@ -2318,7 +2318,7 @@
     {
       "sourcePath": "media/news/1962-54573c1a6e43-1086.webp",
       "sourceSha256": "54573c1a6e43ccc9f225e55968d9f6696ffe6b51bf9765f2175439351d319199",
-      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/717249e230c3440a947f/media/news/1962-54573c1a6e43-1086.webp",
+      "url": "https://storage.yandexcloud.net/shaver/Soyuz/releases/c3b8c5861c9bf5af1df5/media/news/1962-54573c1a6e43-1086.webp",
       "sha256": "54573c1a6e43ccc9f225e55968d9f6696ffe6b51bf9765f2175439351d319199",
       "contentSha256": "54573c1a6e43ccc9f225e55968d9f6696ffe6b51bf9765f2175439351d319199",
       "contentEncoding": null
