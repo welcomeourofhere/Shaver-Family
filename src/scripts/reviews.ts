@@ -16,6 +16,7 @@ if(board){
  const byId=new Map(all.map(card=>[card.id,card])),galleries=new Map(cards.map(card=>[card,createReviewGallery(card.querySelector<HTMLElement>('[data-review-gallery]')!,signal)]));
  const more=document.querySelector<HTMLButtonElement>('[data-review-more]');
  let tiles:ReviewTile[]=[],key='',frame=0,readingFrame=0,selectedId='',fontsReady=false,expanded=false;
+ let readingQueue:HTMLElement[]=[];
  bento.setAttribute('aria-busy','true');
  const measurements=new WeakMap<HTMLElement,{key:string;height:number}>();
  const visibleCards=()=>[...bento.querySelectorAll<HTMLElement>(':scope>[data-review-tile]')].filter(item=>!item.hidden);
@@ -30,7 +31,8 @@ if(board){
  }
  function reading(){
   readingFrame=0;
-  for(const card of cards){
+  // Intrinsic text measurement is split across frames while the reserved loader stays in place.
+  for(const card of readingQueue.splice(0,1)){
    const prose=card.querySelector<HTMLElement>('.review-prose')!,button=card.querySelector<HTMLButtonElement>('[data-review-read]')!,gallery=card.querySelector<HTMLElement>('[data-review-gallery]')!;
    if(card.hidden){gallery.inert=true;galleries.get(card)!.playback();continue;}
    const expanded=phone.matches&&card.dataset.reading==='true',copy=card.querySelector<HTMLElement>('.review-copy')!,quote=prose.querySelector<HTMLElement>('blockquote')!;
@@ -58,16 +60,22 @@ if(board){
    readingProgress(card,prose);
    galleries.get(card)!.playback();
   }
-  if(fontsReady){bento.dataset.bentoReady='true';bento.setAttribute('aria-busy','false');}
+  if(readingQueue.length)readingFrame=requestAnimationFrame(reading);
+  else if(fontsReady){bento.dataset.bentoReady='true';bento.setAttribute('aria-busy','false');}
  }
- const scheduleReading=()=>{if(!readingFrame)readingFrame=requestAnimationFrame(reading)};
+ const scheduleReading=(priority?:HTMLElement)=>{
+  if(signal.aborted)return;
+  if(priority)readingQueue=[priority,...readingQueue.filter(card=>card!==priority)];
+  else cards.forEach(card=>{if(!readingQueue.includes(card))readingQueue.push(card)});
+  if(!readingFrame)readingFrame=requestAnimationFrame(reading);
+ };
  function readingProgress(card:HTMLElement,prose:HTMLElement){const range=prose.scrollHeight-prose.clientHeight;card.style.setProperty('--review-scroll-progress',String(range>0?prose.scrollTop/range:0));updateReadingEdges(prose);}
  for(const card of cards){
   const prose=card.querySelector<HTMLElement>('.review-prose')!;
   prose.addEventListener('scroll',()=>readingProgress(card,prose),{signal,passive:true});
   enableReadingScroll(prose,()=>true,signal,{edgeChain:'buffered'});
   card.querySelector<HTMLButtonElement>('[data-review-read]')!.addEventListener('click',()=>{
-   beginReadingTransition(card,prose,scheduleReading);card.dataset.reading=String(card.dataset.reading!=='true');prose.scrollTop=0;scheduleReading();
+   beginReadingTransition(card,prose,()=>scheduleReading(card));card.dataset.reading=String(card.dataset.reading!=='true');prose.scrollTop=0;scheduleReading(card);
   },{signal});
  }
  const controls=connectRailControls(bento);
@@ -106,8 +114,8 @@ if(board){
   expanded=!expanded;more.setAttribute('aria-expanded',String(expanded));more.textContent=expanded?'Скрыть отзывы':'Показать ещё';schedule();
  },{signal});
  const size=new ResizeObserver(schedule);size.observe(bento);
- const copySizes=new ResizeObserver(scheduleReading);cards.forEach(card=>{copySizes.observe(card.querySelector('.review-prose')!);copySizes.observe(card.querySelector('blockquote')!);});
+ const copySizes=new ResizeObserver(entries=>{for(const entry of entries){const card=entry.target.closest<HTMLElement>('[data-review-card]');if(card)scheduleReading(card);}});cards.forEach(card=>{copySizes.observe(card.querySelector('.review-prose')!);copySizes.observe(card.querySelector('blockquote')!);});
  phone.addEventListener('change',schedule,{signal});
  void document.fonts.ready.then(()=>{fontsReady=true;cards.forEach(card=>measurements.delete(card));scheduleReading();});layout();
- document.addEventListener('astro:before-swap',()=>{lifetime.abort();size.disconnect();copySizes.disconnect();cancelAnimationFrame(frame);cancelAnimationFrame(readingFrame);},{once:true});
+ document.addEventListener('astro:before-swap',()=>{lifetime.abort();size.disconnect();copySizes.disconnect();cancelAnimationFrame(frame);cancelAnimationFrame(readingFrame);readingQueue=[];},{once:true});
 }

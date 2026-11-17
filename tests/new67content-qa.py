@@ -60,6 +60,7 @@ def main():
     parser.add_argument('--build', help='Declared frozen package identity; observed URL identities are recorded separately')
     parser.add_argument('--only', default=','.join(SECTIONS))
     parser.add_argument('--provider-pin', action='store_true', help='Actual-provider read-only capture; human pin review remains explicit')
+    parser.add_argument('--poster-dpr', action='store_true', help='With --only posters: 390/600/960px at DPR1/2/3')
     parser.add_argument('--self-check', action='store_true', help='Pure helper checks only; starts no browser')
     args = parser.parse_args()
     if args.self_check:
@@ -84,6 +85,9 @@ def main():
     social = json.loads((ROOT / 'content/seo-assets.json').read_text(encoding='utf-8'))
     offer_ids = [offer['id'] for offer in offers]
     poster_ids = {Path(urlsplit(v['url']).path).name: item['id'] for item in poster_sources for v in item['variants']}
+    poster_variants = {Path(urlsplit(v['url']).path).name: v for item in poster_sources for v in item['variants']}
+    poster_widths = {item['id']: sorted(v['width'] for v in item['variants']) for item in poster_sources}
+    assert not args.poster_dpr or sections == ['posters'], 'Use --poster-dpr with --only posters'
     report = {'origin': args.origin, 'declaredBuild': args.build, 'utc': datetime.now(timezone.utc).isoformat(),
               'engine': 'Chromium/channel=chrome', 'sections': sections, 'sourceStart': hashes(),
               'cases': [], 'pageErrors': [], 'providerChecks': [], 'frozenRejected': False,
@@ -96,10 +100,11 @@ def main():
         part = urlsplit(url)
         return part.netloc == parsed_origin.netloc or part.hostname == 'storage.yandexcloud.net' and '/Soyuz/' in part.path
 
-    def run(browser, name, action, width=1440, theme='light', js=True, touch=False, actual_provider=False):
+    def run(browser, name, action, width=1440, theme='light', js=True, touch=False, actual_provider=False, dpr=1):
         row = {'name': name, 'width': width, 'theme': theme, 'javaScript': js, 'touch': touch,
                'pass': False, 'pageErrors': [], 'ownRequestFailures': [], 'blockedProviders': [], 'posterRequests': [], 'documents': []}
-        context = browser.new_context(viewport={'width': width, 'height': 1000}, color_scheme=theme,
+        row['dpr'] = dpr
+        context = browser.new_context(viewport={'width': width, 'height': 1000}, color_scheme=theme, device_scale_factor=dpr,
                                       reduced_motion='reduce', java_script_enabled=js, is_mobile=touch, has_touch=touch)
         def guard(route):
             host = urlsplit(route.request.url).hostname or ''
@@ -232,6 +237,18 @@ def main():
         requested = {item['id'] for item in row['posterRequests']}
         assert requested and len(requested) < len(offer_ids) and requested <= allowed, (requested, allowed, before)
         assert set(before['assigned']) <= allowed, before
+        page.wait_for_function("[...document.querySelectorAll('[data-of-rail] .of-photo>img')].slice(0,2).every(e=>e.complete&&e.naturalWidth>1)")
+        def selected_image(image):
+            value = image.evaluate("e=>({src:e.currentSrc,renderedWidth:e.getBoundingClientRect().width,dpr:devicePixelRatio,sizes:e.sizes,complete:e.complete,naturalWidth:e.naturalWidth})")
+            basename = Path(urlsplit(value['src']).path).name
+            variant = poster_variants[basename]
+            widths = poster_widths[poster_ids[basename]]
+            expected = next((w for w in widths if w >= value['renderedWidth'] * value['dpr'] - 1), widths[-1])
+            value.update(resourceWidth=variant['width'],expectedWidth=expected,smallestAdequateVariant=variant['width']==expected)
+            assert value['complete'] and value['naturalWidth'] > 1 and variant['width'] >= expected, value
+            if args.poster_dpr:assert value['smallestAdequateVariant'], value
+            return value
+        row['initialImages'] = [selected_image(page.locator('[data-of-rail] .of-photo>img').nth(i)) for i in range(2)]
         target = 2
         if compact:
             rail = page.locator('[data-of-rail]');rect = rail.bounding_box();assert rect
@@ -252,7 +269,7 @@ def main():
         page.wait_for_function('(id)=>{const e=document.querySelector(`[data-offer-id="${id}"] .of-photo>img`);return e.complete&&e.naturalWidth>1&&!e.dataset.offerSrc}', arg=offer_ids[target])
         assert Path(urlsplit(image.get_attribute('src')).path).name in poster_ids
         assert offer_ids[target] in {item['id'] for item in row['posterRequests']}, row['posterRequests']
-        row.update(initial=before, initialRequested=sorted(requested), allowedInitial=sorted(allowed), selectedAfterInput=target, selectedSrc=image.get_attribute('src'))
+        row.update(initial=before, initialRequested=sorted(requested), allowedInitial=sorted(allowed), selectedAfterInput=target, selectedSrc=image.get_attribute('src'), selectedImage=selected_image(image))
 
     def nojs_case(page, context, row, ready):
         ready()
@@ -341,8 +358,11 @@ def main():
                     run(browser, 'back-history-' + item['slug'], back_case(item['slug']))
                     run(browser, 'back-nojs-' + item['slug'], back_case(item['slug'], True), 390, js=False)
             for width in [390, 1440]:
-                if 'posters' in sections:run(browser, f'poster-window-{width}', posters_case, width, touch=width <= 960)
+                if 'posters' in sections and not args.poster_dpr:run(browser, f'poster-window-{width}', posters_case, width, touch=width <= 960)
                 if 'nojs' in sections:run(browser, f'nojs-content-{width}', nojs_case, width, js=False)
+            if args.poster_dpr:
+                for width in [390,600,960]:
+                    for dpr in [1,2,3]:run(browser, f'poster-window-{width}-dpr{dpr}', posters_case, width, touch=True, dpr=dpr)
             if 'metadata' in sections:run(browser, 'square-metadata', metadata_case)
             if 'map' in sections:
                 for width in [390, 800]:run(browser, f'map-touch-{width}', map_case, width, touch=True)

@@ -30,14 +30,21 @@ def content_type(path):return CONTENT_TYPES.get(Path(path).suffix.lower(),'appli
 def exporter_fingerprint():
     # Source snapshots normalize newlines; preserve that identity across OSes.
     source=Path(__file__).read_bytes().replace(b'\r\n',b'\n')
-    return {'version':5,'sourceSha256':sha(source),'sourceNormalization':'UTF-8 LF','hostCssSha256':sha(HOST_CSS.encode('utf-8'))}
-def build_identity(prepared):
-    digest=hashlib.sha256(b'SOYUZ public assets v5 exporter identity')
+    return {'version':6,'sourceSha256':sha(source),'sourceNormalization':'UTF-8 LF','hostCssSha256':sha(HOST_CSS.encode('utf-8'))}
+def build_identity(prepared,pages=()):
+    digest=hashlib.sha256(b'SOYUZ public assets and HTML v6 exporter identity')
     for value in (CODEC,exporter_fingerprint()):digest.update(json.dumps(value,sort_keys=True,separators=(',',':')).encode())
     for path in sorted(prepared):
         body=prepared[path];kind=Path(path).suffix.lower()
         normalized=public_urls(body.decode('utf-8'),'@ASSET_BASE@/').encode('utf-8')if kind in TEXT else body
         digest.update(path.encode());digest.update(content_type(path).encode());digest.update(normalized)
+    for page in sorted(pages,key=lambda item:item['source']):
+        html=public_urls(page['html'].replace('\r\n','\n'),'@ASSET_BASE@/')
+        ids=list(dict.fromkeys(re.findall(r'info-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}',html)))
+        for index,identifier in enumerate(ids):
+            if html.count(identifier)!=2:raise ValueError('Expected one tooltip control and one panel: '+page['source'])
+            html=html.replace(identifier,f'info-UUID-{index}')
+        digest.update(b'\0HTML\0'+page['source'].encode()+b'\0'+html.encode())
     return digest.hexdigest()[:20]
 def gzip_bytes(body):
     buffer=BytesIO()
@@ -140,7 +147,7 @@ def main():
         body=(DIST/path).read_bytes();kind=Path(path).suffix.lower()
         if kind=='.css':body=protected_css(body.decode('utf-8')).encode()
         prepared[path]=body
-    build=build_identity(prepared);prefix=CONFIG['prefix']+build+'/'
+    build=build_identity(prepared,pages);prefix=CONFIG['prefix']+build+'/'
     base=f'https://storage.yandexcloud.net/{CONFIG["bucket"]}/{prefix}'
     urls={path:f'https://storage.yandexcloud.net/{CONFIG["bucket"]}/'+asset_key(path,prepared[path],build)for path in assets}
     out=ROOT/'deploy/out'/build;out.mkdir(parents=True,exist_ok=True)

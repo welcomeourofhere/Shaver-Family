@@ -44,6 +44,20 @@ class ReleasePackageTest(unittest.TestCase):
   before=package.build_identity({})
   with patch.object(package.Path,'read_bytes',return_value=b'changed renderer\n'):after=package.build_identity({})
   self.assertNotEqual(before,after)
+ def test_html_only_changes_get_a_distinct_release_identity(self):
+  prepared={'_astro/entry.js':b'console.log("same")'}
+  before=[{'source':'index.html','html':'<img sizes="350px">'}]
+  after=[{'source':'index.html','html':'<img sizes="300px">'}]
+  self.assertNotEqual(package.build_identity(prepared,before),package.build_identity(prepared,after))
+ def test_html_identity_preserves_content_and_normalizes_only_paired_tooltip_ids(self):
+  first='info-00000000-0000-4000-8000-000000000001';second='info-00000000-0000-4000-8000-000000000002'
+  html=f'<button aria-describedby="{first}">Details</button>\r\n<aside id="{first}">Terms</aside>'
+  before=[{'source':'index.html','html':html}]
+  after=[{'source':'index.html','html':html.replace(first,second).replace('\r\n','\n')}]
+  self.assertEqual(package.build_identity({},before),package.build_identity({},after))
+  after[0]['html']=after[0]['html'].replace('Terms','Changed terms')
+  self.assertNotEqual(package.build_identity({},before),package.build_identity({},after))
+  with self.assertRaises(ValueError):package.build_identity({},[{'source':'index.html','html':f'<aside id="{first}">Terms</aside>'}])
  def test_fixture_reproduces_native_classes_and_opaque_project_background(self):
   spec=importlib.util.spec_from_file_location('freeze_fixture',ROOT/'scripts/freeze-release-fixture.py');freeze=importlib.util.module_from_spec(spec);spec.loader.exec_module(freeze)
   document=freeze.native_document('Host test','<style>'+package.HOST_CSS+'</style>','<div id="t-header" class="t-records"></div><main>Content</main><div id="t-footer" class="t-records"></div>',freeze.host_background('#FFFCF7'))

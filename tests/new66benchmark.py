@@ -24,8 +24,12 @@ parser.add_argument('--map-run',type=int,choices=[1,2,3],help='Replace one expli
 parser.add_argument('--merge-replacement',nargs=2,type=Path,metavar=('ORIGINAL','REPLACEMENT'),help='Write a new accepted summary, preserving both raw reports; launches no browser')
 parser.add_argument('--floating-ab',action='store_true',help='Six diagnostic map samples; OFF changes only the compiled adaptive-floating branch guard in a response fixture')
 parser.add_argument('--static-from',type=Path,help='Analyse existing accepted resources/CSS/manifest only; launches no browser or compression')
+parser.add_argument('--startup-ms',type=int,choices=[8000,10000],default=8000,help='Exact page-clock startup window; TBT starts at FCP')
+parser.add_argument('--seed',type=int,help='Optional fixed Uint32 random seed shared by both versions')
+parser.add_argument('--include-about-jump',action='store_true',help='Start scroll observation before the About anchor jump, including deferred section startup')
 args=parser.parse_args()
 assert re.fullmatch(r'[\w-]+',args.label)
+assert args.seed is None or 0<=args.seed<=0xffffffff
 URLS={'E':args.baseline,'66':args.candidate}
 FOLDERS={'E':args.baseline_folder.resolve(),'66':args.candidate_folder.resolve()}
 for url in URLS.values():assert urlsplit(url).scheme=='http' and urlsplit(url).hostname in ['127.0.0.1','localhost'] and not urlsplit(url).query
@@ -127,6 +131,7 @@ def resource_report(records,cutoff=None):
 def setup(browser,label,profile):
     context=browser.new_context(viewport={'width':profile['width'],'height':profile['height']},is_mobile=profile['phone'],has_touch=profile['phone'],device_scale_factor=1,color_scheme='light',reduced_motion='no-preference',service_workers='block')
     context.add_init_script(INIT)
+    if args.seed is not None:context.add_init_script("(()=>{if(top!==window)return;const native=crypto.getRandomValues.bind(crypto);crypto.getRandomValues=a=>{if(a instanceof Uint32Array&&a.length===1){a[0]=%d;return a}return native(a)}})()"%args.seed)
     fixture_hits=[]
     if args.floating_ab:
         body=FLOATING_FIXTURE['source'] if FLOATING_VARIANT=='on' else FLOATING_FIXTURE['patched']
@@ -138,7 +143,7 @@ def setup(browser,label,profile):
     context.route('https://raw.githubusercontent.com/**',lambda route:route.abort())
     for pattern in ['https://www.googletagmanager.com/**','https://*.google-analytics.com/**','https://mc.yandex.ru/**','https://mc.yandex.com/**']:
         context.route(pattern,lambda route:route.abort())
-    page=context.new_page();records={};errors=[];host=urlsplit(URLS[label]).netloc
+    page=context.new_page();page.bring_to_front();records={};errors=[];host=urlsplit(URLS[label]).netloc
     def page_error(error):
         stack=error.stack or '';category='own' if host in stack else 'provider' if re.search(r'https?://',stack) else 'unknown'
         errors.append({'message':str(error),'stack':stack,'category':category})
@@ -186,15 +191,20 @@ def cold(browser,label,profile,run):
     context,page,cdp,records,errors,_=setup(browser,label,profile)
     row={'kind':'cold','candidate':label,'profile':profile,'run':run}
     try:
-        begin=time.monotonic();page.goto(URLS[label],wait_until='domcontentloaded',timeout=30000);wait_window(page,begin,8000)
+        begin=time.monotonic();page.goto(URLS[label],wait_until='domcontentloaded',timeout=30000);wait_window(page,begin,args.startup_ms)
+        page.wait_for_function('end=>performance.now()>=end',arg=args.startup_ms,timeout=2000)
         data=page.evaluate("""() => ({now:performance.now(),timeOrigin:performance.timeOrigin,lab,ready:document.readyState,fonts:document.fonts.status,
           paints:performance.getEntriesByType('paint').map(e=>({name:e.name,time:e.startTime})),
           navigation:performance.getEntriesByType('navigation').map(e=>({responseStart:e.responseStart,domContentLoaded:e.domContentLoadedEventEnd,load:e.loadEventEnd})),
           video:[...document.querySelectorAll('video')].filter(v=>v.getAttribute('src')).map(v=>({src:v.currentSrc,ready:v.readyState,time:v.currentTime,paused:v.paused})),
           newsState:document.querySelector('.hero-scene').dataset.newsState,newsId:document.querySelector('.hero-slide[data-hero-active=true]')?.dataset.newsId,
           domElements:document.getElementsByTagName('*').length,reviewCards:document.querySelectorAll('.review-card').length,consent:localStorage.getItem('soyuz.analytics.v2')})""")
-        cutoff=min(data['now'],8000);lcp=[x for x in data['lab']['lcp'] if x['time']<=cutoff];early=[x for x in lcp if x['time']<6000]
-        row.update(windowMs=cutoff,ready=data['ready'],fonts=data['fonts'],paint=data['paints'],navigation=data['navigation'],
+        cutoff=args.startup_ms;lcp=[x for x in data['lab']['lcp'] if x['time']<=cutoff];early=[x for x in lcp if x['time']<6000]
+        fcp=next((p['time']for p in data['paints']if p['name']=='first-contentful-paint'),None)
+        if fcp is None or not lcp:row['incompleteLoadProbe']=data
+        assert fcp is not None and lcp,'Missing FCP/LCP in the complete page-clock window'
+        tbt=sum(max(0,min(cutoff,t['time']+t['duration'])-max(fcp,t['time']+50))for t in data['lab']['long'])
+        row.update(fcpMs=fcp,timespanTbtMs=tbt,longTaskEntries=data['lab']['long'],windowMs=cutoff,ready=data['ready'],fonts=data['fonts'],paint=data['paints'],navigation=data['navigation'],
                    lcpMs=lcp[-1]['time'] if lcp else None,lcpBefore6sMs=early[-1]['time'] if early else None,lcpCandidates=lcp,
                    cls=cls_score([x for x in data['lab']['shifts'] if x['time']<=cutoff]),layoutShifts=data['lab']['shifts'],
                    longTasks=long_summary([x for x in data['lab']['long'] if x['time']<=cutoff]),cpu=metrics(cdp),
@@ -212,11 +222,14 @@ def map_sample(browser,label,run):
         page.goto(URLS[label],wait_until='domcontentloaded',timeout=30000);page.evaluate('document.fonts.ready');page.wait_for_timeout(400)
         if args.floating_ab:assert len(diagnostics['fixtureHits'])==1,diagnostics['fixtureHits']
         geometry=page.locator('.contact-map').evaluate('e=>{const r=e.getBoundingClientRect();return{top:r.top+scrollY,width:r.width,height:r.height}}')
+        frame_id=cdp.send('Page.getFrameTree')['frameTree']['frame']['id'] if args.floating_ab else None
+        def start_window():
+            if args.floating_ab:cdp.send('Profiler.start')
+            return metrics(cdp),time.monotonic(),page.evaluate('lab.gaps=[];lab.recordFrames=true;performance.now()'),page.evaluate('performance.timeOrigin')
+        window=start_window()if args.include_about_jump else None
         page.locator('#about').evaluate("e=>e.scrollIntoView({block:'start',behavior:'instant'})");page.wait_for_timeout(200)
         start_y=page.evaluate('scrollY');distance=max(0,geometry['top']-start_y-250)
-        frame_id=cdp.send('Page.getFrameTree')['frameTree']['frame']['id'] if args.floating_ab else None
-        if args.floating_ab:cdp.send('Profiler.start')
-        before=metrics(cdp);begin=time.monotonic();mark=page.evaluate('lab.gaps=[];lab.recordFrames=true;performance.now()');time_origin=page.evaluate('performance.timeOrigin')
+        before,begin,mark,time_origin=window if window is not None else start_window()
         steps=[];goal=geometry['top']-250
         for _ in range(60):
             y=page.evaluate('scrollY');remaining=goal-y
@@ -275,7 +288,7 @@ def summary(rows):
             for label in URLS:
                 selected=[r for r in rows if r['kind']==kind and r['profile']['name']==name and r['candidate']==label]
                 valid=[r for r in selected if not r.get('failure') and not r.get('ownFailures') and not r.get('ownPageErrors')]
-                fields=['lcpMs','lcpBefore6sMs','cls','completedNonVideoBodyBytes'] if kind=='cold' else ['callbackGapP95Ms','callbackGapsOver50','completedNonVideoBodyBytes']
+                fields=['fcpMs','lcpMs','lcpBefore6sMs','timespanTbtMs','cls','completedNonVideoBodyBytes'] if kind=='cold' else ['callbackGapP95Ms','callbackGapsOver50','completedNonVideoBodyBytes']
                 pair[label]={'sampleCount':len(selected),'validOwnSamples':len(valid),'medians':{field:median([r.get(field) for r in valid]) for field in fields},
                              'providerFailures':sum(bool(r.get('providerFailures')) for r in selected)}
                 if kind=='map':pair[label]['providerDocumentLoadedSamples']=sum(bool(r.get('providerDocumentLoaded')) for r in selected)
@@ -358,12 +371,12 @@ if args.floating_ab:FLOATING_FIXTURE=floating_fixture()
 hashes={label:digest(folder) for label,folder in FOLDERS.items()}
 feeds={label:json.loads((folder/'data/news.json').read_text(encoding='utf-8')) for label,folder in FOLDERS.items()}
 news_slots={label:[{'id':item['id'],'text':item['text'],'image':item['image']} for item in feed['items'][:2]] for label,feed in feeds.items()}
-plan={'profiles':PROFILES,'mapProfile':MAP_PROFILE,'samples':6 if args.floating_ab else 2 if args.map_run else 24,'replacementMapRun':args.map_run,'floatingAB':args.floating_ab,
+plan={'profiles':PROFILES,'mapProfile':MAP_PROFILE,'samples':6 if args.floating_ab else 2 if args.map_run else 24,'replacementMapRun':args.map_run,'floatingAB':args.floating_ab,'startupWindowMs':args.startup_ms,'seed':args.seed,'includeAboutJump':args.include_about_jump,'explicitForeground':True,
       'floatingFixture':{k:v for k,v in FLOATING_FIXTURE.items() if k not in ['source','patched']} if FLOATING_FIXTURE else None,
       'urls':URLS,'folders':{k:str(v) for k,v in FOLDERS.items()},'hashesBefore':hashes,
       'sources':{k:json.loads((v.parent/'source.json').read_text(encoding='utf-8')) for k,v in FOLDERS.items()},
       'newsIds':{k:[x['id'] for x in v['items']] for k,v in feeds.items()},'firstTwoNewsPayloadsEqual':news_slots['E']==news_slots['66'],
-      'conditions':'Cold Chrome contexts, light, DPR1, normal motion, cache disabled. Slow only: CPU4,150ms protocol latency,200000B/s down,93750B/s up. 8s cold + safe actions;12s actual about-to-map. Analytics refused; GitHub endpoint blocked equally to select own frozen local snapshot. Static local transport; no production TLS/compression equivalence.',
+      'conditions':f'Cold Chrome contexts, explicit foreground, light, DPR1, normal motion, cache disabled. Slow only: CPU4,150ms protocol latency,200000B/s down,93750B/s up. {args.startup_ms}ms page-clock cold + safe actions;12s actual About-to-map, anchor included={args.include_about_jump}. Analytics refused; GitHub endpoint blocked equally to select own frozen local snapshot. Static local transport; no production TLS/compression equivalence.',
       'fieldData':False,'physicalDevice':False,'published':False}
 (OUT/'plan.json').write_text(json.dumps(plan,ensure_ascii=False,indent=2),encoding='utf-8')
 if args.prepare_only:
@@ -395,4 +408,5 @@ finally:
     (OUT/'results.json').write_text(json.dumps(final,ensure_ascii=False,indent=2),encoding='utf-8')
 assert hashes==after,'Frozen input changed during measurement'
 assert len(rows)==plan['samples'],len(rows)
+assert not any(r.get('failure')or r.get('ownFailures')or r.get('ownPageErrors')or r.get('interactionFailure')for r in rows),'Inspect retained failed samples; no automatic retry'
 print(json.dumps({'samples':len(rows),'unchanged':True,'summary':final['summary'],'results':str(OUT/'results.json')},ensure_ascii=False))
