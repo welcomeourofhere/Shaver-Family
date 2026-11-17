@@ -109,6 +109,7 @@
   position: relative;
   border-radius: var(--radius-control);
 }
+.sd-service[data-service-opening] { overflow:clip; }
 .sd-service[open] {
   background:var(--service-selected-bg);
   color:var(--service-selected-fg);

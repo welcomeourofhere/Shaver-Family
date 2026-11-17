@@ -55,7 +55,7 @@ with sync_playwright() as playwright:
             page.goto(args.origin, wait_until='domcontentloaded')
             data = snapshot(page)
             check(f'early-theme-{os_theme}-{saved}', data['theme'] == expected and data['color'] == data['surface'], data)
-            check(f'zoom-and-scheme-{os_theme}-{saved}', data['scheme'] == 'light dark' and 'viewport-fit=cover' in data['viewport'] and 'user-scalable=no' not in data['viewport'] and 'maximum-scale=1' not in data['viewport'], data)
+            check(f'zoom-and-scheme-{os_theme}-{saved}', data['scheme'] == expected and 'viewport-fit=cover' in data['viewport'] and 'user-scalable=no' not in data['viewport'] and 'maximum-scale=1' not in data['viewport'], data)
             context.close()
 
         if args.checks == 'all':

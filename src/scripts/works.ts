@@ -3,7 +3,7 @@ import {projectedSwipeDistance} from './gesture-math';
 import {workOffset,workIndex,workOrder,workDepth,workDragTravel} from './works-layout';
 import {stepSpring} from '../config/spring';
 import {reducedMotion,instantInteraction,isKeyboardActivation,numberToken} from './motion';
-import {requestFeedback} from './feedback';
+import {requestFeedback,beginSlideFeedback,type SlideFeedback} from './feedback';
 
 const root=document.querySelector<HTMLElement>('[data-works]');
 if(root){
@@ -14,10 +14,12 @@ if(root){
  const controls=root.querySelector<HTMLElement>('[data-work-controls]')!,count=controls.querySelector<HTMLOutputElement>('[data-work-count]')!,steps=[...controls.querySelectorAll<HTMLButtonElement>('[data-work-step]')];
  const author=root.querySelector<HTMLElement>('[data-work-author]')!,caption=root.querySelector<HTMLElement>('.works-caption [data-work-caption]')!,empty=root.querySelector<HTMLElement>('[data-work-empty]')!;
  const tabs=[...root.querySelectorAll<HTMLButtonElement>('[data-work-master-tab]')];let master='all';
- const wide=matchMedia('(min-width:961px)'),medium=matchMedia('(min-width:421px)');
+ let neighborLimit=Number.parseInt(getComputedStyle(root).getPropertyValue('--works-neighbor-limit'))||1;
  let current=-1,position=0,target=0,velocity=0,onScreen=false,frame=0,lastFrame=0,dragFrame=0;
- let dragStart=0,dragStep=1,dragDistance=0,dragOrigin=0,dragChanged=false,cancelSwipe=()=>{};
- const depth=()=>workDepth(order.length,wide.matches?4:medium.matches?2:1);
+  let dragStart=0,dragStep=1,dragDistance=0,cancelSwipe=()=>{};
+  let slideGesture:SlideFeedback|null=null;
+  const finishGesture=(cancelled=false)=>{if(cancelled)slideGesture?.cancel();else slideGesture?.finish();slideGesture=null;};
+ const depth=()=>workDepth(order.length,neighborLimit);
  function stop(){cancelAnimationFrame(frame);cancelAnimationFrame(dragFrame);frame=dragFrame=0;lastFrame=0;fan.dataset.workMoving='false';}
  function render(){
   const index=order.length?workIndex(position,order.length):-1,edge=depth(),fadeEnd=Math.min(edge+.5,Math.max(.5,order.length/2));
@@ -29,7 +31,8 @@ if(root){
    card.hidden=!visible;card.dataset.workSlot=String(slot);card.style.setProperty('--work-offset',String(offset));card.style.setProperty('--work-distance',String(distance));card.style.zIndex=String(100-Math.round(distance*10));
    card.dataset.workDistance=String(distance);card.dataset.workVisible=String(visible);card.inert=!visible;card.setAttribute('aria-hidden',String(!visible));
   }
-  if(current===index)return;
+   slideGesture?.cross(index);
+   if(current===index)return;
   current=index;
   for(const card of cards){const selected=card===order[current];card.dataset.workCurrent=String(selected);card.tabIndex=selected?0:-1;card.setAttribute('aria-current',String(selected));}
   author.textContent=order[current]?.dataset.workMaster??'';caption.textContent=order[current]?.dataset.workCaption??'';
@@ -37,12 +40,12 @@ if(root){
  }
  function tick(now:number){
   const state=stepSpring(position,velocity,target,lastFrame?(now-lastFrame)/1000:1/60);lastFrame=now;position=state.value;velocity=state.velocity;render();
-  if(position===target&&velocity===0){frame=0;lastFrame=0;fan.dataset.workMoving='false';return;}
+   if(position===target&&velocity===0){frame=0;lastFrame=0;fan.dataset.workMoving='false';finishGesture();return;}
   frame=requestAnimationFrame(tick);
  }
  function settle(next:number,event?:Event){
   target=next;cancelAnimationFrame(dragFrame);dragFrame=0;
-  if(instantInteraction()||event&&isKeyboardActivation(event)||!onScreen||document.hidden){stop();position=target;velocity=0;render();return;}
+   if(instantInteraction()||event&&isKeyboardActivation(event)||!onScreen||document.hidden){stop();position=target;velocity=0;render();finishGesture();return;}
   fan.dataset.workMoving='true';if(!frame){lastFrame=0;frame=requestAnimationFrame(tick);}
  }
  function select(next:number,event:Event){
@@ -50,7 +53,7 @@ if(root){
   if(isKeyboardActivation(event))order[current].focus({preventScroll:true});
  }
  function applyMaster(){
-  const selected=order[current];cancelSwipe();stop();
+   const selected=order[current];finishGesture(true);cancelSwipe();stop();
   order=sequence.filter(card=>master==='all'||card.dataset.workMasterId===master);
   slots=new Map(order.map((card,index)=>[card,index]));position=target=Math.max(0,order.indexOf(selected));velocity=0;current=-2;
   layoutStyle.setProperty('--works-total',String(order.length));layoutStyle.setProperty('--works-available-depth',String(workDepth(order.length,4)));
@@ -79,16 +82,16 @@ if(root){
   tab.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;chooseMaster(tabs[next],event);tabs[next].focus({preventScroll:true});},{signal});
  });
  root.querySelector<HTMLButtonElement>('[data-work-reset]')!.addEventListener('click',event=>{event.preventDefault();chooseMaster(tabs[0],event);},{signal});
- function renderDrag(){dragFrame=0;position=dragStart-dragDistance/dragStep;target=Math.round(position);velocity=0;render();if(current!==dragOrigin)dragChanged=true;}
+  function renderDrag(){dragFrame=0;position=dragStart-dragDistance/dragStep;target=Math.round(position);velocity=0;render();}
  cancelSwipe=enableHorizontalSwipe(fan,()=>{}, {signal,enabled:()=>order.length>1,motion:{
-  start(event){stop();dragStart=position;dragOrigin=current;dragChanged=false;const a=workOffset(current,position,order.length),next=(current+(a>0?-1:1)+order.length)%order.length,b=workOffset(next,position,order.length),width=order[current].offsetWidth,spacing=depth()?Math.abs((new DOMMatrix(getComputedStyle(order[next]).transform).m41-new DOMMatrix(getComputedStyle(order[current]).transform).m41)/(b-a)):width;dragStep=workDragTravel(width,spacing,event.pointerType==='touch',numberToken('--size-84'));},
+   start(event){finishGesture(true);stop();dragStart=position;slideGesture=beginSlideFeedback(current,event);const a=workOffset(current,position,order.length),next=(current+(a>0?-1:1)+order.length)%order.length,b=workOffset(next,position,order.length),width=order[current].offsetWidth,spacing=depth()?Math.abs((new DOMMatrix(getComputedStyle(order[next]).transform).m41-new DOMMatrix(getComputedStyle(order[current]).transform).m41)/(b-a)):width;dragStep=workDragTravel(width,spacing,event.pointerType==='touch',numberToken('--size-84'));},
   move(dx){dragDistance=dx;if(!dragFrame)dragFrame=requestAnimationFrame(renderDrag);},
-  release(dx,speed,event){cancelAnimationFrame(dragFrame);dragDistance=dx;renderDrag();velocity=-speed*1000/dragStep;settle(Math.round(dragStart-projectedSwipeDistance(dx,speed,dragStep)/dragStep),event);if(dragChanged||workIndex(target,order.length)!==dragOrigin)requestFeedback('select',event);},
-  cancel(event){cancelAnimationFrame(dragFrame);dragFrame=0;velocity=0;settle(Math.round(position),event);},
+   release(dx,speed,event){cancelAnimationFrame(dragFrame);dragDistance=dx;renderDrag();velocity=-speed*1000/dragStep;settle(Math.round(dragStart-projectedSwipeDistance(dx,speed,dragStep)/dragStep),event);},
+   cancel(event){finishGesture(true);cancelAnimationFrame(dragFrame);dragFrame=0;velocity=0;settle(Math.round(position),event);},
  }});
- function reset(){cancelSwipe();stop();target=position=Math.round(position);velocity=0;render();}
+  function reset(){neighborLimit=Number.parseInt(getComputedStyle(root!).getPropertyValue('--works-neighbor-limit'))||1;finishGesture(true);cancelSwipe();stop();target=position=Math.round(position);velocity=0;render();}
  const visibility=new IntersectionObserver(([entry])=>{onScreen=entry.isIntersecting;if(!onScreen)reset();});visibility.observe(root);
- wide.addEventListener('change',reset,{signal});medium.addEventListener('change',reset,{signal});reducedMotion.addEventListener('change',reset,{signal});
+ reducedMotion.addEventListener('change',reset,{signal});
  document.addEventListener('visibilitychange',()=>{if(document.hidden)reset();},{signal});addEventListener('resize',reset,{signal});
  document.addEventListener('astro:before-swap',()=>{controller.abort();visibility.disconnect();stop();},{once:true,signal});
  render();

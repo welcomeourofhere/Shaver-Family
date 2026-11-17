@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { visibleOfferRange } from "../src/scripts/offer-range.ts";
 import design from '../src/config/design.json' with { type: 'json' };
+import site from '../content/site.json' with { type: 'json' };
 
 test('fixed offer surfaces use brand colors without repeating cyclic neighbors', () => {
   const {base} = design.offerThemes;
@@ -44,7 +45,7 @@ test("all ten source offer IDs are present once, with full conditions and local 
     assert.ok(offer.description.length > offer.summary.length);
     assert.doesNotMatch(
       JSON.stringify(offer),
-      /https?:|BOOKING_|shaver|taplink|vk\.com|D404|30%/i,
+      /https?:|BOOKING_|shaver|taplink|vk\.com|D404/i,
     );
     assert.ok(["blue", "red", "ink"].includes(offer.color));
   }
@@ -67,12 +68,17 @@ test('the coffee offer keeps the review dialog while optional review fillers are
   assert.doesNotMatch(html,/class="reviews-intro"/);
 });
 
-test("SOYUZ first visit overrides the source offer with 50 percent and СССР", () => {
+test("SOYUZ first visit uses the owner-confirmed 30 percent and СССР", () => {
   const firstVisit = catalog.offers.find((offer) => offer.id === "first-visit");
-  assert.match(firstVisit.title, /50%/);
+  assert.equal(site.firstVisitPercent, 30);
+  assert.equal(firstVisit.value, `−${site.firstVisitPercent}%`);
+  for(const text of [firstVisit.title,firstVisit.summary,firstVisit.description]){
+    assert.ok(text.includes(`${site.firstVisitPercent}%`));
+    assert.doesNotMatch(text,/50%|полцены/);
+  }
   assert.match(firstVisit.description, /СССР/);
   assert.match(firstVisit.description, /один раз/);
-  assert.equal(catalog.metadata.localFirstVisit.percent, 50);
+  assert.equal(catalog.metadata.localFirstVisit.percent, 30);
   assert.equal(catalog.metadata.localFirstVisit.promo, "СССР");
 });
 

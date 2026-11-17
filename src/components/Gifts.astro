@@ -6,7 +6,7 @@ import construction from '../../content/construction-poster.json';
 <section class="section shell" id="gifts" aria-labelledby="gifts-title">
  <Headline class="section-title" id="gifts-title" name="gifts" />
  <div class="gifts-layout">
-  <div class="gifts-placeholder" aria-label="Программа подарков за визиты готовится"><img class="gifts-placeholder-art" src={construction.variants[0].url} srcset={construction.variants.map(image=>`${image.url} ${image.width}w`).join(', ')} sizes="(min-width:961px) 64vw, 1px" width={construction.sourceWidth} height={construction.sourceHeight} alt="" aria-hidden="true" loading="lazy" decoding="async" /></div>
+  <div class="gifts-placeholder" role="img" aria-label="Программа подарков за визиты готовится"><img class="gifts-placeholder-art" src={construction.variants[0].url} srcset={construction.variants.map(image=>`${image.url} ${image.width}w`).join(', ')} sizes="(min-width:961px) 64vw, 1px" width={construction.sourceWidth} height={construction.sourceHeight} alt="" aria-hidden="true" loading="lazy" decoding="async" /></div>
   <Certificates />
  </div>
 </section>

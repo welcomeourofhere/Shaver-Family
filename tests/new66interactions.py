@@ -10,6 +10,7 @@ from urllib.parse import urlsplit
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
+FEEDBACK = json.loads((ROOT / 'src/config/feedback.json').read_text(encoding='utf-8'))
 parser = argparse.ArgumentParser()
 parser.add_argument('--origin', default='http://127.0.0.1:4321/')
 parser.add_argument('--label', required=True)
@@ -29,13 +30,13 @@ report = {'origin': args.origin, 'engine': 'chromium-channel-chrome', 'cases': [
 SPY = """(() => {
   if(window.top!==window)return;
   if(localStorage.getItem('soyuz_feedback_enabled')===null)localStorage.setItem('soyuz_feedback_enabled','true');
-  window.__qaAudio=[];window.__qaVibrate=[];window.__qaInput=[];
-  const record=e=>{const item={type:e.type,trusted:e.isTrusted,pointer:e.pointerType||'',detail:e.detail,
+  window.__qaAudio=[];window.__qaVibrate=[];window.__qaInput=[];window.__qaFrame=0;function qaFrame(){__qaFrame++;requestAnimationFrame(qaFrame)}requestAnimationFrame(qaFrame);
+  const record=e=>{const item={type:e.type,trusted:e.isTrusted,pointer:e.pointerType||'',detail:e.detail,at:performance.now(),frame:__qaFrame,
     target:e.target?.id||e.target?.className||e.target?.tagName,defaultPrevented:e.defaultPrevented,deltaX:e.deltaX,deltaY:e.deltaY};
     __qaInput.push(item);setTimeout(()=>item.defaultPrevented=e.defaultPrevented,0);};
   for(const type of ['pointerdown','pointerup','pointercancel','touchstart','touchend','touchcancel','click','keydown','wheel'])
     addEventListener(type,record,{capture:true,passive:true});
-  HTMLMediaElement.prototype.play=function(){if(this.src.includes('/audio/'))__qaAudio.push({src:new URL(this.src).pathname,volume:this.volume,at:performance.now()});return Promise.resolve()};
+  HTMLMediaElement.prototype.play=function(){if(this.src.includes('/audio/'))__qaAudio.push({src:new URL(this.src).pathname,volume:this.volume,at:performance.now(),frame:__qaFrame});return Promise.resolve()};
   Object.defineProperty(navigator,'vibrate',{configurable:true,value:pattern=>{__qaVibrate.push({pattern,at:performance.now()});return true}});
   const decode=HTMLImageElement.prototype.decode;
   window.__holdHeroDecode=false;window.__pendingHeroDecode=[];
@@ -75,9 +76,12 @@ def evidence(page):
 def expect(page, tone=None, haptic=None):
     page.wait_for_timeout(90)
     value = evidence(page)
-    assert [x['src'] for x in value['audio']] == ([f'/audio/{tone}.wav'] if tone else []), value
+    assert [x['src'] for x in value['audio']] == ([FEEDBACK['tones'][tone]['url']] if tone else []), value
     assert [x['pattern'] for x in value['haptics']] == ([haptic] if haptic else []), value
     assert all(x['volume'] == .18 for x in value['audio']), value
+    if value['audio']:
+        source=next((e for e in reversed(value['input'])if e['trusted']and e['type']in['click','keydown','pointerup','touchend']),None)
+        if source:value['inputToRequest']={'ms':value['audio'][0]['at']-source['at'],'frames':value['audio'][0]['frame']-source['frame'],'inputType':source['type']}
     return value
 
 
@@ -181,7 +185,7 @@ with sync_playwright() as playwright:
 
         def label_touch():
             reset(page);touch(cdp,point(page,'#qa-label',.85))
-            value=expect(page,'tap',[8]);assert page.locator('#qa-check').is_checked(),value
+            value=expect(page,'select',[10]);assert page.locator('#qa-check').is_checked(),value
             return value
         case(page,'native label forwarding has one cue',label_touch)
 
@@ -205,6 +209,24 @@ with sync_playwright() as playwright:
             touch(cdp,point(page,'[data-mobile-nav] [data-open-menu]'));page.wait_for_function("!document.querySelector('#mobile-menu').open")
             return {'mute':muted,'unmute':enabled}
         case(page,'mute suppresses actions and unmute signals once',menu_mute)
+
+        def hero_promo():
+            reset(page);touch(cdp,point(page,'.dock-toolbar>[data-dock-slot][data-action="promo"]:not([hidden])'));opened=expect(page,'open',[12])
+            assert page.locator('#promo-dialog').evaluate('e=>e.open')and not page.locator('#booking-drawer').evaluate('e=>e.open')
+            assert opened['inputToRequest']['frames']==0 and opened['inputToRequest']['ms']>=0,opened
+            reset(page);page.keyboard.press('Escape');closed=expect(page,'close');page.wait_for_function("!document.querySelector('#promo-dialog').open")
+            return {'open':opened,'close':closed,'copiedPromo':False,'bookingOpened':False}
+        case(page,'actual Hero promo opens once immediately and closes without phantom booking',hero_promo)
+
+        def menu_navigation():
+            touch(cdp,point(page,'[data-mobile-nav] [data-open-menu]'));page.wait_for_function("document.querySelector('#mobile-menu').open")
+            reset(page);touch(cdp,point(page,'#mobile-menu nav a[href$="#services"]'));value=expect(page,'select',[10])
+            page.wait_for_function("!document.querySelector('#mobile-menu').open")
+            page.wait_for_function("location.hash==='#services'")
+            assert page.url.endswith('#services'),page.url
+            assert value['inputToRequest']['frames']==0 and value['inputToRequest']['ms']>=0,value
+            return value
+        case(page,'actual menu navigation uses one immediate context-selection cue',menu_navigation)
 
         def service_tab_touch():
             reset(page);touch(cdp,point(page,'#services [data-sd-tab="1"]'))

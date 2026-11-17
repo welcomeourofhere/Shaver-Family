@@ -76,6 +76,10 @@ const profiles = data.masters.map((master, index) => {
       </article>
     ))}
   </div>
+  <script is:inline>
+    // Choose the entry order while parsing, before the rail measures its real cards.
+    (()=>{const rail=document.currentScript.previousElementSibling;if(!(rail instanceof HTMLElement)||rail.id!=='masters-rail')return;const cards=[...rail.children];for(let index=cards.length-1;index>0;index--){const next=Math.floor(Math.random()*(index+1));[cards[index],cards[next]]=[cards[next],cards[index]];}rail.append(...cards);})();
+  </script>
   <RailControls id="masters-rail" count={profiles.length} label="Выбор мастера" />
   {profiles.map(({ master, profile, story, name, dialogId }) => (
     <dialog class:list={["team-dialog",{"team-story-dialog":!!story}]} id={dialogId} aria-labelledby={`${dialogId}-title`}>

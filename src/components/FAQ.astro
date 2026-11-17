@@ -4,6 +4,7 @@ import site from '../../content/site.json';
 import catalogue from '../../content/service-catalog.json';
 import '../styles/faq.css';
 import Headline from './Headline.astro';
+import LinkedText from './LinkedText.astro';
 
 const services=catalogue.categories.flatMap(category=>category.services);
 const service=(id:string)=>{const item=services.find(item=>item.id===id);if(!item)throw new Error(`Missing FAQ service ${id}`);return item;};
@@ -19,12 +20,11 @@ const format=(text:string)=>text.replace(/\{(\w+)\}/g,(_,key:string)=>{if(!(key 
       {content.items.map((item,index) => (
         <details class="faq-item" name="soyuz-faq" id={`faq-${item.id}`} data-faq-tone={['red','blue','ink'][index%3]} data-selection-surface={['red','blue','ink'][index%3]} data-faq-rest={index>=5?true:undefined} hidden={index>=5}>
           <summary aria-label={`${item.mobileLabel}. ${item.question}`}><span class="faq-question-full">{item.question}</span><span class="faq-question-short">{item.mobileLabel}</span><span class="faq-mark" aria-hidden="true"></span></summary>
-          <div class="faq-answer">{item.answer.map((paragraph) => <p>{format(paragraph)}</p>)}</div>
+          <div class="faq-answer">{item.answer.map((paragraph) => <p><LinkedText text={format(paragraph)} /></p>)}</div>
         </details>
       ))}
       <button class="btn faq-more" type="button" data-faq-more aria-expanded="false" aria-label="Показать остальные вопросы">Ещё вопросы</button>
     </div>
   </div>
 </section>
-<noscript><style is:inline>.faq-item[data-faq-rest][hidden]{display:block!important}.faq-more{display:none}</style></noscript>
 <script>import '../scripts/faq';</script>

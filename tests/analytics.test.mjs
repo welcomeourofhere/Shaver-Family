@@ -6,8 +6,8 @@ test('only the two public SOYUZ hosts produce custom analytics events',()=>{
  for(const host of['localhost','127.0.0.1','stay-tan-habanero.tilda.ws','shaverfamily.ru','soyuz.hair.example.com'])assert.equal(publicAnalyticsHost(host),false);
 });
 test('contact analytics returns a channel without exporting private path or query data',()=>{
- for(const [url,channel]of[['tel:+79229090043','phone'],['https://vk.me/soyuz_kirov','vk'],['https://t.me/example?private=fixture','telegram'],['https://max.ru/u/fixture','max']])assert.equal(contactChannel(url),channel);
- for(const url of['invalid','https://example.com','https://vk.ru.example.com','https://o16013.yclients.ru/certificates'])assert.equal(contactChannel(url),undefined);
+ for(const [url,channel]of[['tel:+79229090043','phone'],['mailto:private@example.com','email'],['https://yandex.ru/maps/?rtext=~58.588674%2C49.669973','maps'],['https://yandex.ru/maps/org/soyuz/116019915414/','maps'],['https://vk.me/soyuz_kirov','vk'],['https://t.me/example?private=fixture','telegram'],['https://max.ru/u/fixture','max']])assert.equal(contactChannel(url),channel);
+ for(const url of['invalid','https://example.com','https://vk.ru.example.com','https://yandex.ru/maps-fake/','https://yandex.ru.example.com/maps/','https://o16013.yclients.ru/certificates'])assert.equal(contactChannel(url),undefined);
 });
 test('analytics grants are versioned, per service and expire after 180 days',()=>{
  const now=Date.UTC(2026,10,16),choice=makeAnalyticsConsent(true,false,now);

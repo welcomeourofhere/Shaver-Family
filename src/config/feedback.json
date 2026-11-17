@@ -3,25 +3,25 @@
   "intervalMs": 48,
   "tones": {
     "tap": {
-      "url": "/audio/tap.wav",
+      "url": "/audio/67/tap.wav",
       "hapticPattern": [
         8
       ]
     },
     "select": {
-      "url": "/audio/select.wav",
+      "url": "/audio/67/select.wav",
       "hapticPattern": [
         10
       ]
     },
     "open": {
-      "url": "/audio/open.wav",
+      "url": "/audio/67/open.wav",
       "hapticPattern": [
         12
       ]
     },
     "close": {
-      "url": "/audio/close.wav",
+      "url": "/audio/67/close.wav",
       "hapticPattern": [
         6
       ]

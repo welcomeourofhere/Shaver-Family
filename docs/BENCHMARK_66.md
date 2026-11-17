@@ -1,5 +1,26 @@
 # Лабораторное сравнение E и66
 
+## Финальный production5d
+
+16.11.2026. После публикационной подготовки выполнен новый изолированный набор24парных samples на неизменном `5d36176754bbdd000991` (`4390`, `tmp/frozen66-clean5d-native/native`) против сохранённого65E (`4381`). Сценарий/условия прежние:3coldпрофиля×3пары и3пары подхода к настоящей карте; Chrome/Windows,rawлокальная передачаHTML/CSS,slowphoneCPU4+150ms/200000B/s. Параллельных браузерных заданий не было; папки до/после неизменны. Доказательство — `tmp/planning/iteration66/benchmark/production5d-paired-a/results.json`.
+
+| Медиана трёх samples | E | Production5d |
+|---|---:|---:|
+| Desktop LCP,ms | 300 | 248 |
+| Phone LCP,ms | 144 | 156 |
+| Slowphone LCP,ms | 3268 | 3412 |
+| CLS,все coldпрофили | 0 | 0 |
+| Map p95 RAFcallbackgap,ms | 16.8 | 20.8 |
+| Map callbackgaps>50ms | 1 | 0 |
+
+Все18coldобразцов имеют validOwnSamples/validInteractions,собственных ошибок нет. У карты6/6documentloaded; providerfailures сохранены отдельно,не приписаны UIсайта. Интервалыcallback не являютсяFPS. Slowphoneостаток+144ms/+4.4% не скрывается,но rawлокальная доставка не равна публичнойCloud/Tildaсо сжатием. Максимальные наблюдённые eventdurations E→66:desktop40→24ms,phone120→72ms,slowphone416→400ms;это ограниченный лабораторный отклик,не полевойINP.
+
+Статический разбор финальной CSS:182934rawB/26902encodedCloudB,1078контекстных правил,точных межфайловых дублей0. Прирост медианного cold nonvideoтрафика76762B =59777HTML+6816CSS+10169JS;images/fontsΔ0. Worksне загружает фото приcoldвнеэкрана. В HTML/33clientJSнетprovenance/viewLimits/хешей/имёнисходников:payloadпредставляет47SSRкарточек,подписи и controls. Замер+144ms не приписывается причинно одному компоненту. Отчёты — `works-payload-audit/` и `production5d-static-a/`.
+
+После публикации настоящая главная `https://soyuz.hair/` ответилаHTTP200/gzip:102128wireB/579955decodedB,47works/7tabs,JSbuild5dбезE. Все11HTMLмаршрутов HTTPпроверки такжеgzip;это подтверждение доставки,не новый coldbenchmark. Прежниеd72/adaptiveON/OFFизмерения ниже сохраняют свою историческую область.
+
+## Предыдущий диагностический кандидат
+
 16.11.2026. Принятый основной набор —24 samples:18 cold-load и6 подходов к настоящей карте. Отдельный каузальный ON/OFF-набор —6 диагностических samples. **В исходном CI66 обнаружен и подтверждён дорогой adaptive floating hotpath.** Root подготовил исправление; его последующая проверка учитывается отдельно и не подменяется этими цифрами.
 
 Это Chrome на Windows с локальными native-оболочками, а не полевая статистика, физический телефон или измерение FPS. В локальном сервере CSS/HTML передаются **без gzip**. Абсолютный slowphone LCP3.3s нельзя приписывать опубликованной Cloud/Tilda-доставке.

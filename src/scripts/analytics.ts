@@ -3,7 +3,7 @@ type Metrika=((...args:unknown[])=>void)&{a?:IArguments[];l?:number};
 type CounterWindow=Window&{soyuzAnalytics?:{ga4?:string;metrika?:string};dataLayer?:IArguments[];gtag?:(...args:unknown[])=>void;ym?:Metrika};
 export const analyticsConsentKey='soyuz.analytics.v2';
 export const analyticsNoticeVersion='2026-11-16';
-const consentLifetime=180*24*60*60*1000;
+export const consentLifetime=180*24*60*60*1000;
 export type AnalyticsConsent={version:2;notice:string;updatedAt:number;expiresAt:number;metrika:boolean;ga4:boolean};
 export function readAnalyticsConsent(raw:string|null,now=Date.now()):AnalyticsConsent|null{
  try{const value=JSON.parse(raw??'null');
@@ -13,7 +13,7 @@ export function readAnalyticsConsent(raw:string|null,now=Date.now()):AnalyticsCo
 export function makeAnalyticsConsent(metrika:boolean,ga4:boolean,now=Date.now()):AnalyticsConsent{return{version:2,notice:analyticsNoticeVersion,updatedAt:now,expiresAt:now+consentLifetime,metrika,ga4};}
 export function publicAnalyticsHost(host:string){return host==='soyuz.hair'||host==='www.soyuz.hair';}
 export function contactChannel(address:string){
- try{const url=new URL(address);if(url.protocol==='tel:')return'phone';if(['vk.com','vk.ru','vk.me'].includes(url.hostname))return'vk';if(url.hostname==='t.me')return'telegram';if(url.hostname==='max.ru')return'max';}catch{}
+ try{const url=new URL(address);if(url.protocol==='tel:')return'phone';if(url.protocol==='mailto:')return'email';if(url.hostname==='yandex.ru'&&(url.pathname==='/maps'||url.pathname.startsWith('/maps/')))return'maps';if(['vk.com','vk.ru','vk.me'].includes(url.hostname))return'vk';if(url.hostname==='t.me')return'telegram';if(url.hostname==='max.ru')return'max';}catch{}
  return undefined;
 }
 if(typeof window!=='undefined'){
@@ -23,7 +23,7 @@ if(typeof window!=='undefined'){
  const inputs=[...document.querySelectorAll<HTMLInputElement>('[data-cookie-service]')];
  const state=document.querySelector<HTMLElement>('[data-cookie-state]');
  let consent:AnalyticsConsent|null=null,settingsTrigger:HTMLElement|null=null,pendingMetrika:Metrika|undefined;
- let gaStarted=false,metrikaStarted=false,gaQueued=false,gaScriptReady=false,choiceSaved=true,expiryTimer=0;
+ let gaStarted=false,metrikaStarted=false,gaQueued=false,gaScriptReady=false,choiceSaved=true,expiryTimer=0,noticeDismissed=false;
  const gaValid=!!config.ga4&&/^G-[A-Z0-9]+$/.test(config.ga4),ymValid=!!config.metrika&&/^\d+$/.test(config.metrika);
  function loadChoice(){
   choiceSaved=true;
@@ -46,7 +46,7 @@ if(typeof window!=='undefined'){
  }
  function apply(){
   clearTimeout(expiryTimer);
-  if(consent){if(consent.expiresAt<=Date.now())consent=null;else expiryTimer=window.setTimeout(()=>apply(),Math.min(consent.expiresAt-Date.now(),2147483647));}
+  if(consent){if(consent.expiresAt<=Date.now()){consent=null;noticeDismissed=false;}else expiryTimer=window.setTimeout(()=>apply(),Math.min(consent.expiresAt-Date.now(),2147483647));}
   const gaAllowed=live&&consent?.ga4===true,metrikaAllowed=live&&consent?.metrika===true;
   if(gaValid)(w as unknown as Record<string,unknown>)[`ga-disable-${config.ga4}`]=!gaAllowed;
   if(gaValid&&gaAllowed&&!gaStarted){
@@ -77,7 +77,10 @@ if(typeof window!=='undefined'){
    try{if(pendingMetrika&&w.ym===pendingMetrika)pendingMetrika.a=[];else if(wasStarted)w.ym?.(Number(config.metrika),'destruct');}catch{}
    clearCookies('metrika');
   }
-  if(prompt)prompt.hidden=!live||consent!==null;
+  const visible=live&&consent===null&&!noticeDismissed;
+  if(document.dispatchEvent(new CustomEvent('soyuz:analytics-prompt',{cancelable:true,detail:{visible}}))){
+   document.documentElement.dataset.cookiePrompt=String(visible);if(prompt)prompt.hidden=!visible;
+  }
  }
  function safeReferrer(){try{const url=new URL(document.referrer);return url.origin+url.pathname;}catch{return'';}}
  function syncControls(){
@@ -87,10 +90,13 @@ if(typeof window!=='undefined'){
  }
  async function choose(metrika:boolean,ga4:boolean){
   consent=makeAnalyticsConsent(metrika,ga4);
+  noticeDismissed=false;
   choiceSaved=true;
   try{localStorage.setItem(analyticsConsentKey,JSON.stringify(consent));localStorage.removeItem('soyuz.analytics.v1');}catch{choiceSaved=false;}
+  const fromPrompt=!!prompt?.contains(document.activeElement);
   apply();syncControls();
   if(dialog?.open){const{closeDialog}=await import('./motion');await closeDialog(dialog);}
+  else if(fromPrompt)[document.querySelector<HTMLButtonElement>('[data-site-settings]'),document.querySelector<HTMLButtonElement>('[data-open-menu]')].find(button=>button?.getClientRects().length&&!button.closest('[hidden],[inert]'))?.focus({preventScroll:true});
  }
  dialog?.addEventListener('close',()=>{
   const target=[settingsTrigger,document.querySelector<HTMLButtonElement>('[data-site-settings]'),document.querySelector<HTMLButtonElement>('[data-open-menu]')].find(button=>button?.isConnected&&button.getClientRects().length&&!button.closest('[hidden],[inert]'));
@@ -103,7 +109,7 @@ if(typeof window!=='undefined'){
   if(event.target.closest('[data-analytics-save]')){void choose(inputs.some(input=>input.dataset.cookieService==='metrika'&&input.checked),inputs.some(input=>input.dataset.cookieService==='ga4'&&input.checked));return;}
   if(event.target.closest('[data-analytics-withdraw]')){void choose(false,false);return;}
   const trigger=event.target.closest<HTMLElement>('[data-analytics-settings]');
-  if(trigger&&dialog){settingsTrigger=trigger;syncControls();void import('./motion').then(({openDialog})=>{openDialog(dialog);dialog.querySelector<HTMLButtonElement>('[data-dismiss]')?.focus({preventScroll:true});});}
+  if(trigger&&dialog){settingsTrigger=trigger;if(prompt?.contains(trigger)&&matchMedia('(max-width:960px)').matches){noticeDismissed=true;apply();}syncControls();void import('./motion').then(({openDialog})=>{openDialog(dialog);dialog.querySelector<HTMLButtonElement>('[data-dismiss]')?.focus({preventScroll:true});});}
  });
  addEventListener('storage',event=>{if(event.key===analyticsConsentKey||event.key==='soyuz.analytics.v1'||event.key===null){loadChoice();apply();if(!dialog?.open)syncControls();}});
  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&consent&&consent.expiresAt<=Date.now()){consent=null;apply();syncControls();}});

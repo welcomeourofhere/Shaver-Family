@@ -11,7 +11,6 @@ import {planReviewBatches,planReviewCarousel,reviewLayoutRules} from '../scripts
 import {previewParagraphCount} from '../scripts/reading-preview';
 import '../styles/reviews.css';
 import LoadingIndicator from './LoadingIndicator.astro';
-import design from '../config/design';
 const extras=reviewExtrasEnabled?reviewExtras:[];
 const rules=reviewLayoutRules(reviews);
 const initial=planReviewBatches(reviews.map(r=>r.id),extras.map(e=>e.id),4,50,rules);
@@ -21,19 +20,13 @@ const initialIds=new Set(initial.initialIds);
 const carouselTiles=new Map(planReviewCarousel(reviews.map(r=>r.id),50,rules).map(tile=>[tile.id,tile]));
 const middleTiles=new Map(middle.tiles.map(tile=>[tile.id,tile]));
 const narrowTiles=new Map(narrow.tiles.map(tile=>[tile.id,tile]));
-const quadToken=design.base['--review-quad-min'];
-const quadMinimum=(design.base as Record<string,string>)[quadToken.slice(4,-1)];
-const tripleToken=design.base['--review-triple-min'];
-const tripleMinimum=(design.base as Record<string,string>)[tripleToken.slice(4,-1)];
-const initialCSS=`@container reviews (width < ${quadMinimum}){#reviews-rail{--review-columns:3;--review-rows:var(--review-initial-rows-middle)}#reviews-rail>.review-card{--tile-x:var(--tile-middle-x);--tile-y:var(--tile-middle-y);--tile-w:var(--tile-middle-w);--tile-h:var(--tile-middle-h);--tile-initial:var(--tile-initial-middle)}}@container reviews (width < ${tripleMinimum}){#reviews-rail{--review-columns:2;--review-rows:var(--review-initial-rows-narrow)}#reviews-rail>.review-card{--tile-x:var(--tile-narrow-x);--tile-y:var(--tile-narrow-y);--tile-w:var(--tile-narrow-w);--tile-h:var(--tile-narrow-h);--tile-initial:var(--tile-initial-narrow)}}`;
 const initialTiles=new Map(initial.tiles.map(tile=>[tile.id,tile]));
 const tileProps=(id:string)=>{const tile=initialTiles.get(id)??carouselTiles.get(id)!,small=narrowTiles.get(id),mid=middleTiles.get(id);return {'data-review-tone':tile.tone,'data-selection-surface':tile.tone,'data-review-shape':`${tile.w}x${tile.h}`,style:`--tile-wide-x:${tile.x+1};--tile-wide-y:${tile.y+1};--tile-wide-w:${tile.w};--tile-wide-h:${tile.h};--tile-initial-wide:${initial.initialIds.includes(id)?'grid':'none'};--tile-middle-x:${(mid?.x??0)+1};--tile-middle-y:${(mid?.y??0)+1};--tile-middle-w:${mid?.w??1};--tile-middle-h:${mid?.h??1};--tile-initial-middle:${middle.initialIds.includes(id)?'grid':'none'};--tile-narrow-x:${(small?.x??0)+1};--tile-narrow-y:${(small?.y??0)+1};--tile-narrow-w:${small?.w??1};--tile-narrow-h:${small?.h??1};--tile-initial-narrow:${narrow.initialIds.includes(id)?'grid':'none'}`};};
 ---
 <section class="section shell" id="reviews" aria-labelledby="reviews-title">
  <Headline class="section-title" id="reviews-title" name="reviews" />
- <style is:inline set:html={initialCSS} />
  <div class="reviews-board">
-  <div class="reviews-rail compact-rail" id="reviews-rail" aria-label="Отзывы гостей" data-review-bento data-rail-index="0" style={`--rail-count:${reviews.length+extras.length};--review-initial-rows-wide:${initial.initialRows};--review-initial-rows-middle:${middle.initialRows};--review-initial-rows-narrow:${narrow.initialRows}`}>
+  <div class="reviews-rail compact-rail" id="reviews-rail" role="group" aria-label="Отзывы гостей" data-review-bento data-rail-index="0" style={`--rail-count:${reviews.length+extras.length};--review-initial-rows-wide:${initial.initialRows};--review-initial-rows-middle:${middle.initialRows};--review-initial-rows-narrow:${narrow.initialRows}`}>
    {reviews.map((review,index)=>{
     const photos=media.reviews.find(item=>item.id===review.id)!.photos as {alt?:string;variants:{url:string;width:number;height:number}[]}[];
     const count=photos.length+(review.videoLocal?1:0);
@@ -61,6 +54,5 @@ const tileProps=(id:string)=>{const tile=initialTiles.get(id)??carouselTiles.get
  </div>
  <button class="btn reviews-more" type="button" data-review-more aria-expanded="false" aria-controls="reviews-rail">Показать ещё</button>
 </section>
-<noscript><style is:inline>#reviews-rail{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none!important;grid-auto-rows:var(--review-unit)}#reviews-rail>.review-card{display:grid!important;grid-column:auto!important;grid-row:span 2!important}.reviews-more,.reviews-board>.rail-controls{display:none}</style></noscript>
 <ReviewDialog />
 <script>import '../scripts/reviews';</script>

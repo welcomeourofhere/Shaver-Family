@@ -15,7 +15,7 @@ export default defineConfig({
         usePolling: true,
         interval: 250,
         binaryInterval: 1000,
-        ignored: ["**/tmp/**", "**/archive/**", "**/.local/**", "**/dist/**", "**/games/**"],
+        ignored: ["**/tmp/**", "**/archive/**", "**/.local/**", "**/dist/**", "**/games/**", "**/artifacts/**", "**/.artifacts/**", "**/deploy/out/**", "**/test-results/**", "**/.venv/**", "**/.git/**"],
       },
     },
   },

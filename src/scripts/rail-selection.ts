@@ -1,5 +1,5 @@
 import {isKeyboardActivation} from './interaction-intent.ts';
-import {requestFeedback} from './feedback.ts';
+import {requestFeedback,beginSlideFeedback,type SlideFeedback} from './feedback.ts';
 import {spring,springProgress} from '../config/spring.ts';
 import {nearestRailStop} from './gesture-math.ts';
 import {numberToken} from './design-tokens.ts';
@@ -71,14 +71,15 @@ export function nativeRail(rail:HTMLElement){let owner=owners.get(rail);if(!owne
 function createNativeRail(rail:HTMLElement){
  const compact=matchMedia('(max-width:960px)'),reduced=matchMedia('(prefers-reduced-motion:reduce)'),listeners=new Set<(index:number)=>void>();
  let current=Number(rail.dataset.railIndex)||0,target:number|null=null,stops:number[]=[],frame=0,measureFrame=0,timer=0,phase='idle',snap='',width=-1,touchHeld=false;
- let touchStart:{x:number;y:number;index:number}|null=null,touchFeedback:{event:Event;index:number;at:number}|null=null;
+ let touchStart:{x:number;y:number;index:number}|null=null,slideGesture:SlideFeedback|null=null;
  const nearest=(velocity=0)=>Math.max(0,stops.indexOf(nearestRailStop(stops,rail.scrollLeft,velocity)));
  const clamp=(index:number)=>Math.max(0,Math.min(railItems(rail).length-1,index));
- const confirmTouch=()=>{if(touchFeedback&&current!==touchFeedback.index){if(performance.now()-touchFeedback.at<1000)requestFeedback('select',touchFeedback.event);touchFeedback=null;}};
+ const cancelGesture=()=>{slideGesture?.cancel();slideGesture=null;touchStart=null;};
+ const finishGesture=()=>{slideGesture?.finish();slideGesture=null;};
  // A later action must never confirm an earlier touch.
- document.addEventListener('pointerdown',()=>{touchFeedback=null;},{capture:true,passive:true});
- document.addEventListener('keydown',()=>{touchFeedback=null;},{capture:true});
- const publish=(index:number)=>{current=clamp(index);rail.dataset.railIndex=String(current);for(const listener of listeners)listener(current);confirmTouch()};
+ document.addEventListener('pointerdown',cancelGesture,{capture:true,passive:true});
+ document.addEventListener('keydown',cancelGesture,{capture:true});
+ const publish=(index:number)=>{current=clamp(index);rail.dataset.railIndex=String(current);for(const listener of listeners)listener(current);slideGesture?.cross(current)};
  const track=()=>{if(!compact.matches||phase==='programmatic'||!stops.length)return;const index=nearest();if(index!==current)publish(index)};
  const restore=()=>{rail.style.scrollSnapType=snap;rail.dataset.railSettling='false'};
  const stop=()=>{cancelAnimationFrame(frame);frame=0;clearTimeout(timer);target=null;rail.dataset.railSettling='false'};
@@ -88,11 +89,12 @@ function createNativeRail(rail:HTMLElement){
   if(phase==='idle'&&compact.matches)publish(Math.min(current,cards.length-1));
  }
  const scheduleMeasure=()=>{if(!measureFrame)measureFrame=requestAnimationFrame(measure)};
- function goTo(index:number,instant=false){
+ function goTo(index:number,instant=false,fromGesture=false){
+   if(!fromGesture)cancelGesture();
   stop();if(measureFrame){cancelAnimationFrame(measureFrame);measure();}else if(!stops.length)measure();if(!stops.length)return;
   index=clamp(index);target=index;phase='programmatic';if(rail.style.scrollSnapType!=='none')snap=rail.style.scrollSnapType;rail.style.scrollSnapType='none';publish(index);
   const from=rail.scrollLeft,to=stops[index],start=performance.now();
-  const finish=()=>{rail.scrollLeft=to;target=null;phase='idle';frame=0;restore();publish(index)};
+   const finish=()=>{rail.scrollLeft=to;target=null;phase='idle';frame=0;restore();publish(index);if(fromGesture)finishGesture()};
   if(instant||reduced.matches||!compact.matches||Math.abs(to-from)<.5){finish();return;}
   rail.dataset.railSettling='true';
   const duration=numberToken('--motion-rail');
@@ -102,8 +104,8 @@ function createNativeRail(rail:HTMLElement){
   clearTimeout(timer);if(phase==='programmatic'||phase==='dragging'||touchHeld||!compact.matches||!stops.length)return;
   const index=nearest();
   // Native snap may round a fractional stop. Writing it again can emit scroll/scrollend forever.
-  if(Math.abs(rail.scrollLeft-stops[index])<1){stop();phase='idle';restore();if(index!==current)publish(index);return;}
-  goTo(index);
+   if(Math.abs(rail.scrollLeft-stops[index])<1){stop();phase='idle';restore();if(index!==current)publish(index);finishGesture();return;}
+   goTo(index,false,true);
  }
  rail.style.setProperty('--rail-count',String(railItems(rail).length));rail.classList.add('compact-rail');
  rail.addEventListener('scroll',()=>{if(phase==='programmatic'||!compact.matches)return;track();if(phase==='dragging')return;phase='native';clearTimeout(timer);timer=window.setTimeout(finishNative,130)},{passive:true});
@@ -114,19 +116,26 @@ function createNativeRail(rail:HTMLElement){
   const index=railItems(rail).findIndex(card=>card.contains(control));
   if(index>=0)goTo(index,true);
  });
- rail.addEventListener('pointerdown',()=>{stop();phase='native'},{passive:true});
- rail.addEventListener('touchstart',event=>{touchHeld=true;touchFeedback=null;const touch=event.touches[0];touchStart=event.touches.length===1?{x:touch.clientX,y:touch.clientY,index:current}:null;},{passive:true});
+ rail.addEventListener('pointerdown',()=>{stop();phase='native';track()},{passive:true});
+ rail.addEventListener('touchstart',event=>{touchHeld=compact.matches;cancelGesture();if(!compact.matches)return;const touch=event.touches[0];touchStart=event.touches.length===1?{x:touch.clientX,y:touch.clientY,index:current}:null;},{passive:true});
+ rail.addEventListener('touchmove',event=>{
+   if(!compact.matches||!touchStart||event.touches.length!==1)return;
+   if(!slideGesture){const touch=event.touches[0],dx=Math.abs(touch.clientX-touchStart.x),dy=Math.abs(touch.clientY-touchStart.y);if(Math.max(dx,dy)<8)return;if(dy>=dx){cancelGesture();return;}slideGesture=beginSlideFeedback(touchStart.index,event);}
+   slideGesture.cross(current);
+ },{passive:true});
  for(const type of['touchend','touchcancel'])rail.addEventListener(type,event=>{
+   if(!compact.matches){touchHeld=false;cancelGesture();return;}
   const touchEvent=event as TouchEvent;if(touchEvent.touches.length)return;
   const touch=touchEvent.changedTouches[0],start=touchStart;touchStart=null;touchHeld=false;
-  if(type==='touchend'&&start&&touch&&Math.abs(touch.clientX-start.x)>Math.max(8,Math.abs(touch.clientY-start.y))){touchFeedback={event,index:start.index,at:performance.now()};confirmTouch();}else touchFeedback=null;
+   if(type==='touchcancel')cancelGesture();
+   else if(!slideGesture&&start&&touch&&Math.abs(touch.clientX-start.x)>Math.max(8,Math.abs(touch.clientY-start.y))){slideGesture=beginSlideFeedback(start.index,event);slideGesture.cross(current);}
   clearTimeout(timer);timer=window.setTimeout(finishNative,130);
  },{passive:true});
- rail.addEventListener('wheel',()=>{touchFeedback=null;stop();phase='native';restore()},{passive:true});
- new ResizeObserver(([entry])=>{if(Math.abs(entry.contentRect.width-width)<.5)return;width=entry.contentRect.width;touchFeedback=null;stop();phase='idle';restore();scheduleMeasure()}).observe(rail);
+ rail.addEventListener('wheel',()=>{cancelGesture();stop();phase='native';restore()},{passive:true});
+ new ResizeObserver(([entry])=>{if(Math.abs(entry.contentRect.width-width)<.5)return;width=entry.contentRect.width;cancelGesture();stop();phase='idle';restore();scheduleMeasure()}).observe(rail);
  new MutationObserver(scheduleMeasure).observe(rail,{childList:true});
- compact.addEventListener('change',()=>{touchFeedback=null;stop();phase='idle';restore();scheduleMeasure()});
+ compact.addEventListener('change',()=>{cancelGesture();stop();phase='idle';restore();scheduleMeasure()});
  reduced.addEventListener('change',()=>{if(target!==null)goTo(target,true)});
  scheduleMeasure();
- return {get index(){return phase==='native'||phase==='dragging'?nearest():current},get target(){return target},goTo,choose(index:number){if(target===null)publish(index)},subscribe(listener:(index:number)=>void){listeners.add(listener)},track,beginDrag(){stop();phase='dragging';if(rail.style.scrollSnapType!=='none')snap=rail.style.scrollSnapType;rail.style.scrollSnapType='none'},release(velocity=0){goTo(nearest(velocity))},interrupt(){stop();phase='native';restore()},measure:scheduleMeasure};
+ return {get index(){return phase==='native'||phase==='dragging'?nearest():current},get target(){return target},goTo,choose(index:number){if(target===null)publish(index)},subscribe(listener:(index:number)=>void){listeners.add(listener)},track,beginDrag(event:PointerEvent){stop();slideGesture=beginSlideFeedback(current,event);phase='dragging';if(rail.style.scrollSnapType!=='none')snap=rail.style.scrollSnapType;rail.style.scrollSnapType='none'},release(velocity=0,cancelled=false){if(cancelled)cancelGesture();goTo(nearest(velocity),false,!cancelled)},interrupt(){cancelGesture();stop();phase='native';restore()},measure:scheduleMeasure};
 }

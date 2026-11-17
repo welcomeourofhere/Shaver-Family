@@ -21,24 +21,52 @@ test('search copy names the actual business, services and current address withou
 
 test('social and icon derivatives retain their inputs, pixel dimensions and immutable hashes',()=>{
  const source=json('content/seo-assets.json'),seo=json('content/seo.json');
+ assert.equal(source.version,2);
  assert.equal(sha(bytes(source.generator)),source.generatorSha256);
+ assert.equal(sha(bytes(source.squareLogo.generator)),source.squareLogo.generatorSha256);
  for(const input of source.sources)assert.equal(sha(bytes(input.path)),input.sha256,input.path);
- const design=json(source.designInputs.source);
- assert.deepEqual(source.designInputs,{source:'src/config/design.json',red:design.base['--red'],paper:design.base['--paper'],goldenRatio:design.scale.goldenRatio});
  assert.equal(sha(bytes('public/brand/favicon-red.svg')),'b73c1eee7a861e8b4c9944bee4f9b54bd8f7a5882f6601779ef3157c6c8af72c');
  assert.equal(seo.image,'/'+source.social.path.replace(/^public\//,''));
- assert.deepEqual([seo.imageWidth,seo.imageHeight,seo.imageType],[1200,630,'image/png']);
- for(const file of [source.social,...source.favicon.rasters]){
+ assert.equal(seo.logo,'/'+source.logo.path.replace(/^public\//,''));
+ assert.deepEqual([seo.imageWidth,seo.imageHeight,seo.imageType],[1000,1000,'image/png']);
+ assert.deepEqual([seo.logoWidth,seo.logoHeight,seo.logoType],[512,512,'image/png']);
+ for(const file of [source.social,source.logo,source.legacySocial,...source.favicon.rasters,...source.squareLogo.files.filter(row=>row.path.endsWith('.png'))]){
   const data=bytes(file.path);
   assert.equal(data.subarray(1,4).toString(),'PNG');
   assert.deepEqual([data.readUInt32BE(16),data.readUInt32BE(20)],[file.width,file.height]);
   assert.equal(data.length,file.bytes);assert.equal(sha(data),file.sha256);
  }
  assert.deepEqual(source.favicon.rasters.map(row=>row.width),[48,96,180]);
- assert.ok(source.social.bytes<400000,'The social image stays under 400 kB');
- const canvas=source.textGeometry.canvas,ratio=json('src/config/design.json').scale.goldenRatio;
+ assert.equal(source.social.sha256,'48906358d132f81940749497ff81a03b17cc4c62a2b0ef4bd2b89144f5c5e738');
+ assert.equal(source.social.bytes,38052,'The native square PNG is copied byte-for-byte');
+ const legacy=source.legacySocial,design=json(legacy.designInputs.source);
+ assert.deepEqual(legacy.designInputs,{source:'src/config/design.json',red:design.base['--red'],paper:design.base['--paper'],goldenRatio:design.scale.goldenRatio});
+ assert.equal(legacy.sha256,'d849a963205ce3633dd098fddb690bb01634bea01277560918f2e01e26c8ee95','Keep the wide legacy preview unchanged');
+ const canvas=legacy.textGeometry.canvas,ratio=design.scale.goldenRatio;
  assert.equal(canvas.background,'rgb(196, 47, 42)');assert.equal(canvas.photoTop,0);
  assert.ok(Math.abs(canvas.columns[0]/canvas.columns[1]-ratio)<.001,'The composition uses the shared golden ratio');
+});
+
+test('square badge keeps the native artwork, opaque red corners and self-contained vector',async()=>{
+ const source=json('content/seo-assets.json'),square=source.squareLogo;
+ assert.equal(square.sources[0].sha256,'6efb3830e369b37d0d34c4c86a39df4441ce7af9b5d17198532cfbe676843941');
+ assert.equal(square.sources[1].sha256,source.social.sha256);
+ assert.equal(square.raster.native1000BytesUnchanged,true);
+ assert.equal(square.svgCleanup.allRemainingXmlIdentical,true);
+ assert.equal(square.svgCleanup.fontDependencies,0);
+ assert.deepEqual(square.files.map(row=>[row.width,row.height]),[[1000,1000],[1000,1000],[512,512],[192,192]]);
+ const vector=square.files.find(row=>row.path.endsWith('.svg')),data=bytes(vector.path),text=data.toString();
+ assert.equal(data.length,vector.bytes);assert.equal(sha(data),vector.sha256);
+ assert.doesNotMatch(text,/<(?:image|script|text|foreignObject)\b|<!DOCTYPE|@font-face|\bon\w+=/i);
+ assert.match(text,/viewBox="0 0 1000 1000"/);
+ assert.match(text,/#F6E8D3/);assert.match(text,/#FFCC29/);assert.match(text,/#C42F2A/);
+ for(const row of square.files.filter(file=>file.path.endsWith('.png'))){
+  const {data,info}=await sharp(bytes(row.path)).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+  for(const [x,y]of [[0,0],[info.width-1,0],[0,info.height-1],[info.width-1,info.height-1]]){
+   const offset=(y*info.width+x)*4;
+   assert.deepEqual([...data.subarray(offset,offset+4)],[196,47,42,255],row.path);
+  }
+ }
 });
 
 test('favicon uses the ready-made circle with original letter fields, without requiring private originals in CI',async()=>{

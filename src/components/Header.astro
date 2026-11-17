@@ -23,13 +23,13 @@ const {homeHref=''}=Astro.props;
   <div class="header-actions"><div class="header-hours"><BusinessHours header /></div><details class="header-menu header-contact"><summary class="header-phone" aria-label={`Связаться с СОЮЗом, телефон ${site.phone}`}><span class="header-phone-label">{site.phone}</span><ContactGlyph name="phone" /></summary><div class="header-menu-panel header-contact-panel"><MaterialSurface><ContactChannels compact /></MaterialSurface></div></details><a class="header-book" href={site.bookingUrl} data-booking aria-haspopup="dialog" aria-controls="booking-drawer">Онлайн-запись</a></div>
  </div>
 </header>
-<script>import '../scripts/header-menus';</script>
+<script>import '../scripts/header-menus';import '../scripts/action-label';</script>
 <dialog id="mobile-menu" class="mobile-menu mobile-sheet" aria-labelledby="menu-title"><MaterialSurface>
- <span class="menu-grip" aria-hidden="true"></span><div class="dialog-head"><h2 id="menu-title" tabindex="-1">СОЮЗ</h2><button class="icon-btn" data-dismiss aria-label="Закрыть меню"><Icon name="close" /></button></div>
+ <span class="menu-grip" aria-hidden="true"></span><div class="dialog-head"><h2 class="sr-only" id="menu-title" tabindex="-1">Разделы сайта</h2><button class="icon-btn" data-dismiss aria-label="Закрыть меню"><Icon name="close" /></button></div>
  <nav aria-label="Разделы сайта">
   {navigation.filter(link=>link.id!=='contacts').map(link=><a href={`${homeHref}#${link.id}`} aria-label={link.label}><span class="menu-label-full">{link.label}</span><span class="menu-label-short">{link.short}</span><Icon name="right" /></a>)}
   <div class="menu-contact-row"><a href={`${homeHref}#contacts`} aria-label="Контакты и карта">Контакты</a><PreferenceControls /></div>
  </nav>
- <div class="menu-business"><a href={`tel:${site.phoneLink}`}>{site.phone}</a><span>Ежедневно <BusinessHours /></span></div>
+ <div class="menu-business"><a href={`tel:${site.phoneLink}`} aria-label={`Позвонить по телефону ${site.phone}`} data-action-full={site.phone} data-action-short="Позвонить"><span data-action-label>{site.phone}</span></a><span><BusinessHours /></span></div>
  <a class="btn" href={site.bookingUrl} data-booking aria-haspopup="dialog" aria-controls="booking-drawer" aria-label="Записаться онлайн"><span class="mobile-action-full">Записаться онлайн</span><span class="mobile-action-short">Записаться</span></a>
 </MaterialSurface></dialog>

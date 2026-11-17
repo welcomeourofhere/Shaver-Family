@@ -2,6 +2,7 @@ import design from './design.json' with { type: 'json' };
 
 // CSS transitions and scripted motion sample the same damped oscillator.
 export const spring = design.spring;
+const materialDamping=Math.max(spring.windowDamping,2*Math.sqrt(spring.stiffness*spring.mass));
 export function springProgress(progress: number, damping=spring.damping): number {
   if (progress <= 0) return 0;
   if (progress >= 1) return 1;
@@ -18,6 +19,11 @@ export function springProgress(progress: number, damping=spring.damping): number
   };
   return response(progress * spring.settleMs / 1000) / response(spring.settleMs / 1000);
 }
+// Bounded material cannot overshoot a size floor or an alpha endpoint.
+// Critical damping lets all properties use the full shared duration before settling.
+export function boundedSpringProgress(progress:number):number {
+  return springProgress(progress,materialDamping);
+}
 const sampleSpring=(damping:number)=>`linear(${Array.from({length:spring.samples+1},(_,i)=>springProgress(i/spring.samples,damping).toFixed(6)).join(",")})`;
 // Material strain follows the velocity of the same spring, not a second wobble.
 export function springShape(progress:number, strength:number, damping=spring.damping, widthWeight=1/design.scale.goldenRatio) {
@@ -26,6 +32,13 @@ export function springShape(progress:number, strength:number, damping=spring.dam
   const frequency=Math.sqrt(spring.stiffness/spring.mass)*spring.settleMs/1000;
   const strain=strength*(springProgress(end,damping)-springProgress(start,damping))/(end-start)/frequency;
   return {x:1-strain*widthWeight,y:1+strain};
+}
+// A bounded displacement supplies the material tension while the same spring's
+// velocity supplies its release. The painted layer deforms; its hit target does not.
+export function boundedMaterialShape(progress:number,strength:number) {
+  const p=boundedSpringProgress(progress),velocity=springShape(progress,strength,materialDamping);
+  const tension=strength*p*(1-p);
+  return{x:velocity.x-tension/design.scale.goldenRatio,y:velocity.y+tension};
 }
 export const windowSpringCSS=sampleSpring(spring.windowDamping);
 export const popoverSpringCSS=sampleSpring(spring.popoverDamping);

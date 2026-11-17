@@ -5,6 +5,7 @@ import { validNewsFeed, newsImageURL,compactNewsPlaceholder,type NewsFeed } from
 import {newsActionTone} from "./news-tone";
 import {enableHorizontalSwipe} from './horizontal-swipe';
 import {isMousePointer,isKeyboardActivation} from './interaction-intent';
+import {heroVideoPlayback} from './hero-video-playback';
 
 const hero = document.querySelector<HTMLElement>(".hero-scene");
 if (hero) {
@@ -48,6 +49,8 @@ if (hero) {
     void Promise.allSettled(running.map(animation=>animation.finished)).then(()=>{if(swipeAnimations===running)clearSwipe()});
   }
   let paused = reducedMotion.matches;
+  let videoPaused=reducedMotion.matches,videoExplicit=false;
+  const playback=heroVideoPlayback(video);
   const lifetime = new AbortController();
   const {signal} = lifetime;
 
@@ -67,8 +70,8 @@ if (hero) {
     clearTimeout(timer);
     const playing = newsReady && !compact.matches && !paused && !reducedMotion.matches;
     hero!.dataset.heroPaused = String(!playing || !visible || hovering || document.hidden);
-    const playVideo=compact.matches&&current===0&&visible&&!paused&&!document.hidden&&!reducedMotion.matches;
-    if(playVideo){if(!video.getAttribute('src'))video.src=video.dataset.videoSrc!;void video.play().catch(()=>{/* The poster remains available when autoplay is unavailable. */});}else video.pause();
+    const playVideo=compact.matches&&current===0&&visible&&!videoPaused&&!document.hidden&&(!reducedMotion.matches||videoExplicit);
+    playback.sync(playVideo);
     position.setAttribute("aria-live", playing ? "off" : "polite");
     if (!playing || !visible || hovering || document.hidden) return;
     void loadImage((current + 1) % slides.length);
@@ -83,8 +86,8 @@ if (hero) {
     steps.forEach(button=>{button.disabled=!newsReady||slides.length<2});
     const tone=newsActionTone(current,slides.length);panel.dataset.newsTone=panel.dataset.selectionSurface=tone;
   }
-  const togglePlayback=()=>{paused=!paused;schedule();};
-  rail.addEventListener('click',event=>{if(compact.matches&&event.target instanceof Element&&!event.target.closest('button,a')){togglePlayback();requestFeedback('select',event);}},{signal});
+  const togglePlayback=()=>{if(compact.matches){videoPaused=video.dataset.heroVideoPlayback==='blocked'?false:!videoPaused;videoExplicit=!videoPaused;}else paused=!paused;schedule();};
+  rail.addEventListener('click',event=>{if(!event.defaultPrevented&&compact.matches&&event.target instanceof Element&&!event.target.closest('button,a')){togglePlayback();requestFeedback('select',event);}},{signal});
   function select(next: number, event?: Event) {
     if(!newsReady)return;
     if (event) pause();
@@ -141,18 +144,18 @@ if (hero) {
   }});
   hero.addEventListener("pointerenter", event => { if (isMousePointer(event)) { hovering = true; schedule(); } }, {signal});
   hero.addEventListener("pointerleave", () => { hovering = false; schedule(); }, {signal});
-  hero.addEventListener("focusin", pause, {signal});
+  hero.addEventListener("focusin", ()=>{if(!compact.matches)pause()}, {signal});
   const observer = new IntersectionObserver(([entry]) => {
     visible = entry.isIntersecting && entry.intersectionRatio >= .5; schedule();
   }, {threshold: [0, .5]});
   observer.observe(hero);
   document.addEventListener("visibilitychange", schedule, {signal});
-  reducedMotion.addEventListener("change",()=>{clearSwipe();pause()}, {signal});
+  reducedMotion.addEventListener("change",()=>{clearSwipe();if(reducedMotion.matches)videoPaused=true;videoExplicit=false;pause()}, {signal});
   const configureHero=()=>{hero.setAttribute('aria-label',compact.matches?'Видео из барбершопа СОЮЗ':'Публикации СОЮЗа во ВКонтакте');if(compact.matches)hero.removeAttribute('aria-roledescription');else hero.setAttribute('aria-roledescription','карусель');position.hidden=compact.matches;rail.setAttribute('aria-label',compact.matches?'Атмосфера СОЮЗа. Пробел — пауза или продолжение видео.':'Публикации ВК. Стрелки влево и вправо — сменить слайд, пробел — пауза и продолжение');if(compact.matches&&current!==0)void select(0);if(!compact.matches)void loadImage(current);schedule();scheduleLayout();};
   compact.addEventListener('change',configureHero,{signal});configureHero();
-  window.addEventListener("pagehide", () => {clearTimeout(timer);video.pause()}, {signal});
+  window.addEventListener("pagehide", () => {clearTimeout(timer);playback.sync(false)}, {signal});
   window.addEventListener("pageshow", schedule, {signal});
-  document.addEventListener("astro:before-swap", () => { clearTimeout(timer); observer.disconnect(); lifetime.abort(); clearSwipe(); layoutSizes.disconnect();cancelAnimationFrame(layoutFrame);removeEventListener('resize',scheduleLayout); }, {once: true, signal});
+  document.addEventListener("astro:before-swap", () => { clearTimeout(timer);playback.sync(false);observer.disconnect(); lifetime.abort(); clearSwipe(); layoutSizes.disconnect();cancelAnimationFrame(layoutFrame);removeEventListener('resize',scheduleLayout); }, {once: true, signal});
   schedule();
 
   // Public snapshot refresh never interrupts reading, dragging or a focused control.

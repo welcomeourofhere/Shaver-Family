@@ -200,6 +200,7 @@ b,strong { font-weight:600; }
   display: grid;
   place-items: center;
   width: var(--arrow-size);
+  flex-shrink: 0;
   min-height: var(--arrow-size);
   padding: 0;
   border-radius: 50%;
@@ -226,9 +227,10 @@ b,strong { font-weight:600; }
   color: var(--ink);
   padding: var(--size-14) var(--size-20);
 }
-.skip:focus {
+.skip:focus-visible {
   transform: none;
 }
+:root[data-input-modality="pointer"] .skip:focus { transform:translateY(-120%); }
 [hidden] {
   display: none !important;
 }
@@ -265,6 +267,7 @@ dialog::backdrop {
   gap: var(--size-20);
   margin-bottom: var(--size-24);
 }
+.dialog-head > .icon-btn { align-self:flex-start; }
 .dialog-head h2 {
   font-family: var(--font-display);
   font-size: var(--size-30);

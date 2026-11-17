@@ -8,6 +8,22 @@ const length = (steps: number) => `${Number((unit * steps).toFixed(6))}px`;
 const roundModule = (value: number) => length(Math.round(value / unit));
 const fraction = (power:number) => Number((goldenRatio ** -power).toFixed(6));
 const zoom = (power:number) => String(Number((1 + goldenRatio ** -power).toFixed(6)));
+export const actionForeground=(color:string)=>['yellow','paper'].includes(color)?'ink':'paper';
+// Dock partners come from the existing brand/surface registry. Other actions
+// retain their current roles; neutral-menu partners avoid its paper backing.
+const actionPalette=[...new Set([...Object.keys(source.selectionBySurface),...Object.values(source.actionBySurface).flatMap(Object.values)])];
+const dockPartners=Object.fromEntries(Object.entries(source.actionBySurface).flatMap(([tone,roles])=>['panel','menu'].flatMap(mode=>{
+  const primary=roles.primary,secondary=roles.blue,backing=mode==='menu'?'paper':tone;
+  const active=actionPalette.filter(color=>![backing,primary,secondary].includes(color));
+  const partners={primary,secondary,'primary-active':active[0],'secondary-active':active[1]??active[0]};
+  return Object.entries(partners).flatMap(([role,color])=>[
+    [`--dock-${tone}-${mode}-${role}-bg`,`var(--${color})`],
+    [`--dock-${tone}-${mode}-${role}-fg`,`var(--${actionForeground(color)})`],
+  ]);
+})));
+const dockDefaults=Object.fromEntries(['primary','secondary','primary-active','secondary-active'].flatMap(role=>['bg','fg'].map(channel=>[
+  `--dock-${role}-${channel}`,`var(--dock-red-panel-${role}-${channel})`,
+])));
 const primitives = Object.fromEntries(
   dimensions.map((size) => [`--size-${size}`, length(size / 4)]),
 );
@@ -40,6 +56,8 @@ export default {
     "--certificate-overhang": roundModule(unit * goldenRatio ** 6),
     "--gift-icon-size": `${(100 / goldenRatio) * 0.7}%`,
     ...source.base,
+    ...dockPartners,
+    ...dockDefaults,
     "--ease-spring": springCSS,
     "--ease-drawer-spring": drawerSpringCSS,
     "--ease-window-spring": windowSpringCSS,

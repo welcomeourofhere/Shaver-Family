@@ -6,17 +6,19 @@ import {visibleRailIndex,railItems} from '../src/scripts/rail-selection.ts';
 import {navigation,footerNavigation} from '../src/config/navigation.ts';
 
 test('the compact bar has one to three meaningful actions and keeps each original owner',()=>{
-  const cases={top:['services','booking'],services:['categories','service-booking'],masters:['master-story','master-booking'],offers:['offer-prev','offer-action','offer-next'],'first-visit':['visit-sonya','visit-sveta'],certificates:['certificate-next','certificate-buy'],reviews:['review-write'],article:['masters','article-booking'],about:['booking'],faq:['contact'],gifts:['certificates']};
+  const cases={top:['promo','booking'],services:['categories','service-booking'],masters:['master-story','master-booking'],works:['work-prev','work-booking','work-next'],offers:['offer-prev','offer-action','offer-next'],contacts:['map-route','booking'],footer:['map-route','booking'],'first-visit':['visit-sonya','visit-sveta'],certificates:['certificate-next','certificate-buy'],reviews:['review-write'],article:['masters','article-booking'],about:['booking'],faq:['contact'],gifts:['certificates']};
   for(const [section,expected] of Object.entries(cases)) {
     const actions=dockActions(section);
     assert.deepEqual(actions.map(item=>item.action),expected);
     assert.ok(actions.every(item=>item.label.trim()&&!/[\r\n]/u.test(item.label)));
   }
-  assert.deepEqual(dockActions('unknown'),dockActions('top'));
+  assert.deepEqual(dockActions('unknown').map(item=>item.action),['services','booking']);
+  assert.equal(dockActions('top')[0].label,'Промокод');
   assert.deepEqual(dockActions('welcome-offer').map(item=>item.action),['promo','welcome-booking']);
   assert.deepEqual(dockActions('cashback').map(item=>item.action),['cashback-info']);
   assert.deepEqual([...new Set(Object.keys(cases).map(section=>dockActions(section).length))].sort(),[1,2,3]);
   assert.equal(dockActions('offers').find(item=>item.primary)?.action,'offer-action');
+  assert.equal(dockActions('works').find(item=>item.primary)?.action,'work-booking');
   assert.equal(dockActions('masters').find(item=>item.action==='master-story')?.label,'Знакомство');
 });
 

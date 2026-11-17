@@ -10,6 +10,17 @@ ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('package',ROOT/'scripts/prepare-tilda-release.py');package=importlib.util.module_from_spec(spec);spec.loader.exec_module(package)
 
 class ReleasePackageTest(unittest.TestCase):
+ def test_shared_chrome_uses_native_tilda_landmarks_without_changing_inner_markup(self):
+  soup=BeautifulSoup('<a class="skip" href="#main">К содержанию</a><header id="site-top" class="site-header shell" data-owner="header"><nav aria-label="Разделы"><a href="#services">Услуги</a></nav></header><dialog id="mobile-menu" data-mobile="kept"><a href="#contacts">Контакты</a></dialog><main data-booking-page><article><footer class="article-footer">Автор</footer></article></main><footer class="footer shell" data-owner="footer"><a href="/privacy-policy">Документы</a></footer>','html.parser')
+  shared=package.split_shared_chrome(soup)
+  header=BeautifulSoup(shared['header'],'html.parser');footer=BeautifulSoup(shared['footer'],'html.parser')
+  self.assertEqual(header.select_one('.site-header').name,'div');self.assertEqual(footer.select_one('.footer').name,'div')
+  self.assertEqual(header.select_one('.site-header')['id'],'site-top');self.assertEqual(header.select_one('.site-header')['data-owner'],'header');self.assertEqual(footer.select_one('.footer')['data-owner'],'footer')
+  self.assertEqual(header.select_one('nav')['aria-label'],'Разделы');self.assertEqual(header.select_one('nav a')['href'],'/#services')
+  self.assertEqual(header.select_one('a')['class'],['skip']);self.assertEqual(header.select_one('.skip')['href'],'#main');self.assertIsNone(soup.select_one('.skip'))
+  self.assertEqual(header.select_one('#mobile-menu').name,'dialog');self.assertEqual(header.select_one('#mobile-menu')['data-mobile'],'kept');self.assertEqual(header.select_one('#mobile-menu a')['href'],'/#contacts')
+  self.assertEqual(footer.select_one('a')['href'],'/privacy-policy');self.assertFalse(header.select('header,footer'));self.assertFalse(footer.select('header,footer'))
+  self.assertEqual(soup.select_one('footer.article-footer').get_text(),'Автор');self.assertFalse(soup.select('.site-header,.footer,#mobile-menu,[data-booking-page]'))
  def test_native_host_canvas_delegates_opaque_background_to_root(self):
   rules=package.tinycss2.parse_stylesheet(package.HOST_CSS,skip_whitespace=True,skip_comments=True)
   rule=next(rule for rule in rules if rule.type=='qualified-rule'and 'body.t-body'in package.tinycss2.serialize(rule.prelude).split(','))

@@ -1,10 +1,11 @@
 ---
 import '../styles/system.css';
-import design from '../config/design';
+import design,{actionForeground} from '../config/design';
 import LoadingIndicator from '../components/LoadingIndicator.astro';
 import seo from '../../content/seo.json';
 import site from '../../content/site.json';
 import {typographyHTML} from '../content/typography-html';
+import {syncBrowserTheme} from '../scripts/browser-theme';
 const [opens,closes]=site.hours.split(/\s*[—–-]\s*/);
 const business={'@context':'https://schema.org','@type':'HairSalon',name:`Барбершоп ${site.brand}`,url:Astro.site?.href,'@id':Astro.site?`${Astro.site.href}#barbershop`:undefined,description:seo.description,telephone:site.phoneLink,address:{'@type':'PostalAddress',streetAddress:site.address,addressLocality:site.city,addressCountry:'RU'},sameAs:[site.vk],openingHoursSpecification:{'@type':'OpeningHoursSpecification',dayOfWeek:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],opens,closes}};
 const declarations = (tokens: object) => Object.entries(tokens).map(([key,value])=>`${key}:${value}`).join(';');
@@ -13,15 +14,25 @@ const designCSS = `:root{${declarations(design.base)}}` + design.responsive.map(
 // Resolve shadow aliases on the colored surface so its local tint reaches descendants.
 const shadowTokens=Object.fromEntries(Object.entries(design.base).filter(([name])=>name.includes('shadow')&&!['--shadow-base','--shadow-tint'].includes(name)));
 const selectionCSS=Object.entries(design.selectionBySurface).map(([tone,colors])=>`[data-selection-surface="${tone}"]{--selection-bg:var(--${colors.background});--selection-fg:var(--${colors.foreground});--shadow-tint:color-mix(in srgb,var(--${tone}) 28%,var(--shadow-base));${declarations(shadowTokens)}}`).join('');
-const actionCSS=Object.entries(design.actionBySurface).map(([tone,roles])=>`[data-selection-surface="${tone}"]{--focus-ring:var(--${tone==='yellow'?'ink':'paper'});${tone==='yellow'?'--action-primary-bg:var(--red);--action-primary-fg:var(--paper);':''}${Object.entries(roles).map(([role,color])=>`--action-${role}-hover-bg:var(--${color});--action-${role}-hover-fg:var(--${['yellow','paper'].includes(color)?'ink':'paper'})`).join(';')}}`).join('');
+const actionCSS=Object.entries(design.actionBySurface).map(([tone,roles])=>`[data-selection-surface="${tone}"]{--focus-ring:var(--${tone==='yellow'?'ink':'paper'});${tone==='yellow'?'--action-primary-bg:var(--red);--action-primary-fg:var(--paper);':''}${Object.entries(roles).map(([role,color])=>`--action-${role}-hover-bg:var(--${color});--action-${role}-hover-fg:var(--${actionForeground(color)})`).join(';')}}`).join('');
 const themeCSS = `[data-theme="dark"]{${declarations(design.dark)}}`;
+const quadToken=design.base['--review-quad-min'];
+const quadMinimum=(design.base as Record<string,string>)[quadToken.slice(4,-1)];
+const tripleToken=design.base['--review-triple-min'];
+const tripleMinimum=(design.base as Record<string,string>)[tripleToken.slice(4,-1)];
+const reviewInitialCSS=`@container reviews (width < ${quadMinimum}){#reviews-rail{--review-columns:3;--review-rows:var(--review-initial-rows-middle)}#reviews-rail>.review-card{--tile-x:var(--tile-middle-x);--tile-y:var(--tile-middle-y);--tile-w:var(--tile-middle-w);--tile-h:var(--tile-middle-h);--tile-initial:var(--tile-initial-middle)}}@container reviews (width < ${tripleMinimum}){#reviews-rail{--review-columns:2;--review-rows:var(--review-initial-rows-narrow)}#reviews-rail>.review-card{--tile-x:var(--tile-narrow-x);--tile-y:var(--tile-narrow-y);--tile-w:var(--tile-narrow-w);--tile-h:var(--tile-narrow-h);--tile-initial:var(--tile-initial-narrow)}}`;
+// Astro appends bundled CSS after authored head tags; root IDs preserve the no-JS cascade.
+const noScriptCSS='#reviews-rail{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none!important;grid-auto-rows:var(--review-unit)}#reviews-rail>.review-card{display:grid!important;grid-column:auto!important;grid-row:span 2!important}#reviews .reviews-more,#reviews .reviews-board>.rail-controls{display:none}.faq-item[data-faq-rest][hidden]{display:block!important}#faq .faq-more{display:none}';
 interface Props {title?:string;description?:string;image?:string;imageAlt?:string;articleData?:Record<string,unknown>;noindex?:boolean;}
 const {title=seo.title,description=seo.description,image=seo.image,imageAlt=seo.imageAlt,articleData,noindex=false}=Astro.props;
 const canonical=Astro.site?new URL(Astro.url.pathname.replace(/\/$/,'')||'/',Astro.site).href:undefined;
 const indexable=Boolean(Astro.site)&&!noindex&&!Astro.url.pathname.startsWith('/previews/');
 const socialImage=new URL(image,Astro.site??Astro.url).href;
-const articleStructured=articleData?{...articleData,mainEntityOfPage:canonical,image:socialImage,publisher:{'@type':'Organization',name:`Барбершоп ${site.brand}`,url:Astro.site?.href}}:undefined;
+const brandLogo={'@type':'ImageObject',url:new URL(seo.logo,Astro.site??Astro.url).href,width:seo.logoWidth,height:seo.logoHeight};
+const businessStructured={...business,image:new URL(seo.image,Astro.site??Astro.url).href,logo:brandLogo};
+const articleStructured=articleData?{...articleData,mainEntityOfPage:canonical,image:socialImage,publisher:{'@type':'Organization',name:`Барбершоп ${site.brand}`,url:Astro.site?.href,logo:brandLogo}}:undefined;
 const bodyHTML=typographyHTML(await Astro.slots.render('default'));
+const themeBootstrap=`(()=>{document.documentElement.classList.add('js');let saved='auto';try{saved=localStorage.getItem(${JSON.stringify(design.theme.storageKey)})||'auto';}catch{}document.documentElement.dataset.theme=saved==='light'||saved==='dark'?saved:matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';(${syncBrowserTheme.toString()})();})();`;
 ---
 <!doctype html>
 <html lang="ru">
@@ -43,20 +54,15 @@ const bodyHTML=typographyHTML(await Astro.slots.render('default'));
     {canonical&&<meta property="og:url" content={canonical} />}
     <meta property="og:locale" content={seo.locale} />
     <meta property="og:site_name" content={`Барбершоп ${site.brand}`} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content={image===seo.image?'summary':'summary_large_image'} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <meta name="twitter:image:alt" content={imageAlt} />
-    <script type="application/ld+json" set:html={JSON.stringify(business).replaceAll('<','\\u003c')} />
+    <script type="application/ld+json" set:html={JSON.stringify(businessStructured).replaceAll('<','\\u003c')} />
     <style is:inline set:html={designCSS+themeCSS+selectionCSS+actionCSS} />
     {articleStructured && <script type="application/ld+json" set:html={JSON.stringify(articleStructured).replaceAll("<","\\u003c")} />}
-    <script is:inline define:vars={{storageKey:design.theme.storageKey}}>
-      document.documentElement.classList.add('js');
-      let saved='auto';try{saved=localStorage.getItem(storageKey)||'auto';}catch{}
-      document.documentElement.dataset.theme=saved==='light'||saved==='dark'?saved:matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
-      document.querySelector('meta[name="theme-color"]').setAttribute('content',getComputedStyle(document.documentElement).getPropertyValue('--surface').trim());
-    </script>
+    <script is:inline set:html={themeBootstrap} />
     <link rel="icon" href="/brand/favicon-96.png" type="image/png" sizes="96x96" />
     <link rel="icon" href="/brand/favicon-standard.svg" type="image/svg+xml" sizes="any" />
     <link rel="apple-touch-icon" href="/brand/favicon-180.png" sizes="180x180" />
@@ -64,6 +70,8 @@ const bodyHTML=typographyHTML(await Astro.slots.render('default'));
     <link rel="preload" href="/fonts/Manrope-Medium-UI.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/Manrope-SemiBold-UI.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/Molot-UI.ttf" as="font" type="font/ttf" crossorigin />
+    <style is:inline set:html={reviewInitialCSS} />
+    <noscript><style is:inline set:html={noScriptCSS} /></noscript>
   </head>
   <body><Fragment set:html={bodyHTML} /><template data-loading-template><LoadingIndicator /></template><script>import '../scripts/loading';import '../scripts/analytics';</script></body>
 </html>

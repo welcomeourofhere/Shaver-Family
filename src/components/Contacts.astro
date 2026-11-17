@@ -4,18 +4,23 @@ import ContactChannels from './ContactChannels.astro';
 import site from '../../content/site.json';
 import BusinessHours from './BusinessHours.astro';
 import contacts from '../../content/contacts.json';
+import {contactMap,contactMapEmbed} from '../content/contact-map';
 import '../styles/contacts.css';
 import {bookingURLs} from '../scripts/booking-url';
 const bookingHref=bookingURLs(site.bookingUrl)!.publicUrl;
-const query=encodeURIComponent(site.mapQuery);
-const map=`https://yandex.ru/maps/?text=${query}`;
-const embed=`https://yandex.ru/map-widget/v1/?text=${query}&z=17`;
+const map=contactMap.source;
+const embed=contactMapEmbed;
 const futureMap=`https://yandex.ru/maps/?text=${encodeURIComponent(`${site.city}, ${site.futureAddress}`)}`;
 ---
 <section class="section shell contact-section" id="contacts" aria-labelledby="contacts-title">
  <Headline class="section-title" id="contacts-title" name="contacts" />
  <div class="contact-layout">
-  <div class="contact-map" data-loading-media><iframe title={`Яндекс Карты — СОЮЗ, ${site.city}, ${site.address}`} data-map-src={embed} aria-hidden="true" tabindex="-1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><noscript><iframe title={`Яндекс Карты — СОЮЗ, ${site.city}, ${site.address}`} src={embed} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></noscript></div>
+  <div class="contact-map" data-loading-component data-map-state="idle" data-map-provider="yandex">
+   <iframe id="contacts-map-frame" title={`Яндекс Карты — СОЮЗ, ${site.city}, ${site.address}`} data-map-src={embed} aria-hidden="true" tabindex="-1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+   <div class="contact-map-fallback" hidden role="status"><p>Карта временно недоступна.</p><a class="btn btn-cream" href={map} target="_blank" rel="noopener noreferrer">Яндекс Карты</a></div>
+   <noscript><iframe title={`Яндекс Карты — СОЮЗ, ${site.city}, ${site.address}`} src={embed} loading="lazy" aria-hidden="true" tabindex="-1" referrerpolicy="strict-origin-when-cross-origin"></iframe></noscript>
+   <a class="contact-map-credit" href={map} target="_blank" rel="noopener noreferrer">СОЮЗ в Яндекс Картах</a>
+  </div>
   <div class="contact-stack">
    <article class="contact-card contact-visit" data-selection-surface="red" data-surface="dark" aria-labelledby="contact-address-title">
     <h3 id="contact-address-title">СОЮЗ</h3>

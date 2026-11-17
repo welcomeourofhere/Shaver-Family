@@ -12,12 +12,39 @@ export const FEEDBACK_KINDS = [
 ] as const;
 export type FeedbackKind = (typeof FEEDBACK_KINDS)[number];
 type FeedbackTone = keyof typeof FEEDBACK_TONES;
-let playRequested: ((tone: FeedbackTone, event: Event) => void) | undefined;
+let playRequested: ((tone: FeedbackTone, event: Event,slide?:boolean) => void) | undefined;
 const handledEvents = new WeakSet<Event>();
 const activations = new WeakMap<Event, { expanded: boolean; pointerType: string }>();
+let lastPlayed = -Infinity;
+type SlideGesture={event:Event;position:number;pending:number;closed:boolean;frame:number};
+let activeSlide:SlideGesture|null=null;
+function cancelSlideFeedback(){if(activeSlide)cancelAnimationFrame(activeSlide.frame);activeSlide=null;}
+
+/** Emit the last committed selection per paint; never replay skipped indices after the gesture. */
+export function beginSlideFeedback(position:number,event:Event){
+  cancelSlideFeedback();
+  const gesture:SlideGesture={event,position:Math.round(position),pending:Math.round(position),closed:false,frame:0};
+  if(event.isTrusted&&Number.isFinite(position)){activeSlide=gesture;handledEvents.add(event);}
+  return {
+    cross(position:number){
+      if(activeSlide!==gesture||gesture.closed||!Number.isFinite(position))return 0;
+      gesture.pending=Math.round(position);
+      if(!gesture.frame)gesture.frame=requestAnimationFrame(()=>{
+        gesture.frame=0;if(activeSlide!==gesture)return;
+        if(gesture.pending!==gesture.position){gesture.position=gesture.pending;playRequested?.('select',gesture.event,true);}
+        if(gesture.closed)activeSlide=null;
+      });
+      return gesture.pending===gesture.position?0:1;
+    },
+    finish(){gesture.closed=true;if(activeSlide===gesture&&!gesture.frame)activeSlide=null;},
+    cancel(){gesture.closed=true;if(activeSlide===gesture)cancelSlideFeedback();},
+  };
+}
+export type SlideFeedback=ReturnType<typeof beginSlideFeedback>;
 
 export function requestFeedback(tone: FeedbackTone, event: Event) {
   if (!event.isTrusted || handledEvents.has(event)) return;
+  cancelSlideFeedback();
   handledEvents.add(event);
   playRequested?.(tone, event);
 }
@@ -58,6 +85,9 @@ export function feedbackTone(
   if (kind === "disclosure") return expanded ? "close" : "open";
   return kind === "selection" || kind === "media" ? "select" : "tap";
 }
+export function navigationFeedbackTone(address:string,origin:string):"select"|"open"|"tap"{
+  try{const url=new URL(address,origin);return /^https?:$/.test(url.protocol)&&url.origin===origin?'select':'open';}catch{return'tap';}
+}
 export function classifyFeedback(control: HTMLElement): FeedbackKind {
   const explicit = control.dataset.uiKind;
   if (FEEDBACK_KINDS.includes(explicit as FeedbackKind))
@@ -69,7 +99,7 @@ export function classifyFeedback(control: HTMLElement): FeedbackKind {
     )
   )
     return "media";
-  if (control.matches('[role="tab"],[role="option"],[aria-pressed],[aria-selected],[data-rail-step],[data-dock-category]'))
+  if (control.matches('input[type="checkbox"],input[type="radio"],[role="tab"],[role="option"],[aria-pressed],[aria-selected],[data-rail-step],[data-dock-category]'))
     return "selection";
   if (control.matches(".icon-btn,.sd-arrow,[data-rail],[data-dismiss]"))
     return "icon";
@@ -93,7 +123,6 @@ if (typeof document !== "undefined") {
     /* Preferences remain usable for this visit. */
   }
   let enabled = storage ? readFeedbackPreference(storage) : true;
-  let lastPlayed = -Infinity;
   const players = new Map<FeedbackTone, HTMLAudioElement>();
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const toggles = () =>
@@ -110,6 +139,7 @@ if (typeof document !== "undefined") {
     }
   }
   function stopFeedback() {
+    cancelSlideFeedback();
     for (const player of players.values()) {
       player.pause();
       player.currentTime = 0;
@@ -128,27 +158,31 @@ if (typeof document !== "undefined") {
         player.preload = 'auto';
         player.volume = config.volume;
         players.set(tone, player);
+        player.load();
       } catch { /* Visual controls work without audio support. */ }
     }
   }
-  function play(tone: FeedbackTone, event: Event) {
+  function play(tone: FeedbackTone, event: Event,slide=false) {
     const now = performance.now();
-    if (!enabled || !canPlayFeedback(now, lastPlayed)) return;
-    lastPlayed = now;
-    try {
+    if (!enabled) return;
+    const sound=canPlayFeedback(now,lastPlayed);
+    if(!sound&&!slide)return;
+    const link=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('a[href]'):null;
+    if(tone==='tap'&&link&&!link.hasAttribute('download'))tone=navigationFeedbackTone(link.href,location.origin);
+    if(sound){lastPlayed=now;try {
       prepareAudio();
       for (const audio of players.values()) audio.pause();
       const player = players.get(tone);
       if (player) {
-        player.currentTime = 0;
+        if (player.currentTime !== 0) player.currentTime = 0;
         void player.play().catch(() => {});
       }
     } catch {
       /* Unsupported or blocked media never prevents an action. */
-    }
+    }}
     // Touch/pen activation only; scrolling and mouse clicks do not vibrate.
     const pointerType = activations.get(event)?.pointerType ||
-      ('pointerType' in event ? String(event.pointerType) : event.type === 'touchend' ? 'touch' : '');
+      ('pointerType' in event ? String(event.pointerType) : event.type.startsWith('touch') ? 'touch' : '');
     if (canVibrateFeedback({ isTrusted: event.isTrusted, pointerType }, reducedMotion.matches)) {
       try {
         navigator.vibrate?.(FEEDBACK_TONES[tone].hapticPattern);
@@ -165,12 +199,15 @@ if (typeof document !== "undefined") {
     ? !!control.parentElement?.hasAttribute('open')
     : control.getAttribute('aria-expanded') === 'true';
   document.addEventListener('pointerdown', event => {
+    cancelSlideFeedback();
     pointerStates = new WeakMap();
     const label = event.target instanceof Element ? event.target.closest('label') : null;
     const control = controlFor(event.target) || (label?.control?.matches('input[type="checkbox"],input[type="radio"]') ? label.control : null);
     if (control) pointerStates.set(control, { expanded: expandedState(control), pointerType: event.pointerType });
   }, {capture: true, passive: true});
-  document.addEventListener('keydown', () => { pointerStates = new WeakMap(); }, {capture: true});
+  document.addEventListener('keydown', () => { cancelSlideFeedback();pointerStates = new WeakMap(); }, {capture: true});
+  document.addEventListener('focusin',cancelSlideFeedback,{capture:true});
+  document.addEventListener('wheel',cancelSlideFeedback,{capture:true,passive:true});
   document.addEventListener('pointercancel', () => { pointerStates = new WeakMap(); }, {capture: true, passive: true});
   document.addEventListener('click', event => {
     const control = controlFor(event.target);
@@ -234,6 +271,8 @@ if (typeof document !== "undefined") {
     if (document.hidden) stopFeedback();
   });
   updateSettings();
+  // Fetch/decode the small local cues before the first accepted action; never play to unlock.
+  prepareAudio();
   document.addEventListener('pointerdown',prepareAudio,{capture:true,passive:true,once:true});
   document.addEventListener('keydown',prepareAudio,{capture:true,once:true});
 }

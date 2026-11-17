@@ -1,13 +1,13 @@
 # Выпуск 66: точный production-пакет
 
-16.11.2026. Канонический кандидат `5d36176754bbdd000991` получен из чистого SOYUZ-only source whitelist: без private preview routes, архивов, оригиналов и локальных инструментов. До публикации публичный registry остаётся на65E `945ad6ddd3e70d5cc3c4`. Пакет acad является предыдущим локальным кандидатом; его проверки не переименовываются в production5d.
+16.11.2026. Канонический выпуск `5d36176754bbdd000991` опубликован в13страницах shared-first; после публикации13HEAD/code перечитаны EXACT, publishedregistry переведён на5d. Пакет получен из чистого SOYUZ-only source whitelist: без private preview routes, архивов, оригиналов и локальных инструментов. Sourcecommit50d94c8127d0e5936afc5530fd5ba7100462d72b, GitHubActions43913148725SUCCESS воспроизвёл тотжеbuild5d/577assets. ЛокальныйGit безопасно подключён к этомукоммиту через fetch/read-treeбезcheckout/перезаписиworktree,719trackedfiles. Пакет acad является предыдущим локальным кандидатом; его проверки не переименовываются в production5d. Последующие уточнения владельца (30%,placeholder,Android/resizing/SEO) являются новым проходом67, пока не опубликованы.
 
 ## Исходники и пакет
 
 - Root: Astro140 без диагностик, Node150/150, private/release/package проверки пройдены.
 - Чистая production-копия: frozen install,539 закреплённых исходных public-ассетов (530 восстановлены из Облака), source boundary/hash gate, Astro135 без диагностик, private runtime, release metadata/analytics и16Python package suites пройдены. Разница140/135 относится к пяти исключённым локальным preview routes.
 - Финальный manifest:11content+2shared native targets,577delivery assets. Cloud577/577 проверен поSHA256,MIME,Content-Encoding и immutable cache. Старые неизменяемые объекты не переписывались.
-- В Тильде13production5dчерновиков: перед записью все13совпали с прежнимd72, после записи HEAD и code перечитаны с точным совпадением. Это пока не публикация; published registry не изменялся.
+- В Тильде перед записью все13production5dцелей совпали с прежнимd72; после сохранения и отдельно после публикации HEAD/code перечитаны EXACT. Публикационные ответы и registry — `artifacts/iteration66/tilda-production5d-published.json` и `deploy/tilda-pages.json`.
 
 ## Проверка точной native-оболочки
 
@@ -29,4 +29,6 @@ Origin `http://127.0.0.1:4390/`, `tmp/frozen66-clean5d-native/native`, непр�
 
 Полное чтение альбомов существующими ключами не выполнено. Диагностика подтвердила photosправа нового communityключа; отказ метода связан с доступным типом авторизации/profiletype. Повторный communityключ или IDприложения не запрашиваются. Это отдельная внешняя граница, не отсутствие фотографий для текущего сайта.
 
-Следующие gates: финальный source/Actions, публикация shared-first, точный post-readback/native registry и настоящий HTTPS. Бенчмарк и внешняя индексация учитываются отдельно от функциональных проверок.
+ПубличныйHTTPS:13HTTPcasesPASS,11HTMLgzip;Works12actualгруппPASS/47реально декодированныхCloudкадров/6фильтров,Header6полныхpopupкадровPASSбезподмен. РеальныеSDKпослеизбирательногосогласия: YMHTTP200,GAHTTP204;booking_open/certificate_open/contact_click принятыtransport,дочойса0requests,невыбранныйvendor0requests,0JS. Это не dashboardingestion/запись/оплата. Доказательство — `artifacts/iteration66/analytics/public5d-a/report.json`.
+
+Actualcanvasпервой390lightпопытки остановился до проверок на30s ожиданииdockOwned; исходныйtimeout сохранён. Единственная31sдиагностика его не повторила:33ownmodulesHTTP200,0JS,ownerготов на всех пяти временныхточках. Причина первогоотказа не установлена. Отдельно встаромharness найденнеактуальныйcookieотказ:путь обновлённа«Настройки»→«Безаналитики»,assertsиdockwaitнеослаблялись. Новаяполнаяactualcanvasприёмка остаётсядляследующего кандидата67; старыйnative18невыдаётсязаpublic18. Бенчмарк и внешняяиндексация учитываются отдельно.

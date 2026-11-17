@@ -1,0 +1,63 @@
+{
+  "origin": "original-procedural-synthesis",
+  "createdOn": "2026-11-05",
+  "generator": "scripts/prepare-feedback.py",
+  "generatorSha256": "7dba8d8bb9966970bef100fccaa44e76e875bc1f45d0c9e235cc4a0a5f7c9739",
+  "method": "Deterministic additive/noise synthesis using Python standard library; no third-party recordings, melodies, voices or network sources.",
+  "direction": "Quiet warm radio/organ family: lower register, softened attacks and reduced harmonics; original retro cues without copied melodies.",
+  "format": {
+    "encoding": "PCM signed 16-bit little-endian",
+    "channels": 1,
+    "sampleRateHz": 44100
+  },
+  "clips": [
+    {
+      "kind": "tap",
+      "url": "/audio/tap.wav",
+      "description": "Muted warm radio-button click",
+      "operation": "original-procedural-synthesis",
+      "bytes": 5336,
+      "sha256": "48498ba4a0a0801f4023372bd6c1c65072f357c98b1883d0517d84cb6021c7a6",
+      "samples": 2646,
+      "durationMs": 60.0,
+      "peak": 0.220001,
+      "rms": 0.046969
+    },
+    {
+      "kind": "select",
+      "url": "/audio/select.wav",
+      "description": "Two soft low radio notes, G3–C4",
+      "operation": "original-procedural-synthesis",
+      "bytes": 11334,
+      "sha256": "3351e5d8ca4b26b3f26dd19e3ffd3bfece74755d621eafa7b0324fc6aa8fc520",
+      "samples": 5645,
+      "durationMs": 128.004535,
+      "peak": 0.23999,
+      "rms": 0.088105
+    },
+    {
+      "kind": "open",
+      "url": "/audio/open.wav",
+      "description": "Warm muted-organ ascending phrase, G3–C4–E4",
+      "operation": "original-procedural-synthesis",
+      "bytes": 18390,
+      "sha256": "f7c00b72db8cd016dc4a2f14a1a737e2ceda84647b5618ceabea3af7389b0ec6",
+      "samples": 9173,
+      "durationMs": 208.004535,
+      "peak": 0.23999,
+      "rms": 0.134964
+    },
+    {
+      "kind": "close",
+      "url": "/audio/close.wav",
+      "description": "Warm muted-organ descending phrase, E4–C4–G3",
+      "operation": "original-procedural-synthesis",
+      "bytes": 18390,
+      "sha256": "a422b50cf6697fcf2a360b64a391afdf4ad5835918782ced3e869ad4ee38ab74",
+      "samples": 9173,
+      "durationMs": 208.004535,
+      "peak": 0.23999,
+      "rms": 0.140292
+    }
+  ]
+}

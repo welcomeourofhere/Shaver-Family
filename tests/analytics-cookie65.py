@@ -193,14 +193,18 @@ with sync_playwright()as p:
   page.keyboard.press('Escape');page.wait_for_timeout(300);assert not page.locator('#cookie-settings').is_visible()
   assert page.locator('[data-analytics-prompt] [data-analytics-settings]').evaluate('e=>e===document.activeElement')
   interrupted.append({'motion':movement,'frames':frames,'escapeRestoresFocus':True});check.close()
- # The compact notice has two actions; refusal is available through settings.
+ # One compact shell starts with the notice; X saves a refusal without granting a service.
  banners=[]
  for width,theme in [(390,'light'),(390,'dark'),(1440,'light'),(1440,'dark')]:
   notice=browser.new_context(viewport={'width':width,'height':844 if width==390 else 900},color_scheme=theme,reduced_motion='reduce');setup(notice)
   page=notice.new_page();prior=len(vendors);ready(page)
   prompt=page.locator('[data-analytics-prompt]');assert prompt.is_visible()and len(vendors)==prior
-  result=prompt.evaluate(r"""e=>{const r=e.getBoundingClientRect();return{width:r.width,availableWidth:document.documentElement.getBoundingClientRect().width,title:getComputedStyle(e.querySelector('h2')).fontSize,words:e.querySelector('p').innerText.trim().split(/\s+/).length,overflow:e.scrollWidth>e.clientWidth+1,buttons:[...e.querySelectorAll('button')].map(b=>{const s=getComputedStyle(b),r=b.getBoundingClientRect(),t=document.createRange();t.selectNodeContents(b);return{label:b.innerText,x:r.x,y:r.y,height:r.height,inlinePadding:parseFloat(s.paddingInlineStart),rects:t.getClientRects().length,fits:t.getBoundingClientRect().width<=r.width-parseFloat(s.paddingInlineStart)-parseFloat(s.paddingInlineEnd)+1}})}}""")
-  assert result['width']<=400 and abs(result['width']-min(400,result['availableWidth']-32))<1,result
+  result=prompt.evaluate(r"""e=>{const r=e.getBoundingClientRect();return{width:r.width,availableWidth:document.documentElement.getBoundingClientRect().width,title:getComputedStyle(e.querySelector('h2')).fontSize,words:e.querySelector('p').innerText.trim().split(/\s+/).length,overflow:e.scrollWidth>e.clientWidth+1,buttons:[...e.querySelectorAll('.analytics-choice-actions button')].map(b=>{const s=getComputedStyle(b),r=b.getBoundingClientRect(),t=document.createRange();t.selectNodeContents(b);return{label:b.innerText,x:r.x,y:r.y,height:r.height,inlinePadding:parseFloat(s.paddingInlineStart),rects:t.getClientRects().length,fits:t.getBoundingClientRect().width<=r.width-parseFloat(s.paddingInlineStart)-parseFloat(s.paddingInlineEnd)+1}})}}""")
+  if width>960:assert result['width']<=400 and abs(result['width']-min(400,result['availableWidth']-32))<1,result
+  else:
+   assert prompt.evaluate("e=>e.closest('[data-mobile-nav]')!==null")
+   assert not page.locator('.dock-toolbar').is_visible()
+   assert page.locator('.dock-shell').count()==1
   assert result['title']=='18px'and result['words']<=25 and not result['overflow'],result
   assert [b['label']for b in result['buttons']]==['Разрешить','Настройки'],result
   assert result['buttons'][1]['x']>result['buttons'][0]['x']and abs(result['buttons'][1]['y']-result['buttons'][0]['y'])<1,result
@@ -210,8 +214,11 @@ with sync_playwright()as p:
   assert page.locator('[data-cookie-service]:checked').count()==0
   page.locator('[data-cookie-service=ga4]').focus();page.keyboard.press('Space');page.keyboard.press('Escape');page.wait_for_timeout(100)
   assert len(vendors)==prior and consent(page)is None,'closing an unsaved keyboard draft loaded analytics'
-  assert entry.evaluate('e=>e===document.activeElement')
-  entry.press('Enter');page.locator('#cookie-settings').wait_for(state='visible');assert page.locator('[data-cookie-service]:checked').count()==0
+  if width>960:assert entry.evaluate('e=>e===document.activeElement')
+  else:
+   assert not prompt.is_visible()and page.locator('.dock-toolbar').is_visible()
+   assert page.locator('[data-open-menu]').evaluate('e=>e===document.activeElement')
+  open_settings(page);assert page.locator('[data-cookie-service]:checked').count()==0
   page.locator('[data-analytics-withdraw]').press('Enter');page.wait_for_timeout(300)
   assert consent(page)['metrika']==False and consent(page)['ga4']==False and len(vendors)==prior
   page.reload(wait_until='domcontentloaded');page.wait_for_timeout(300)

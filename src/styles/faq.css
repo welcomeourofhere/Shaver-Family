@@ -17,5 +17,7 @@
 .faq-mark::before { content:""; width:var(--size-8); height:var(--size-8); border-right:var(--size-2) solid currentColor; border-bottom:var(--size-2) solid currentColor; transform:translateY(calc(-1 * var(--size-2))) rotate(.125turn); transition:transform var(--motion-ui) var(--ease-out); }
 .faq-item[open] .faq-mark::before { transform:translateY(var(--size-2)) rotate(.625turn); }
 .faq-answer { display:grid; gap:var(--size-16); padding:0 var(--size-20) var(--size-24); font-size:var(--size-16); line-height:1.65; }
+.faq-answer a { color:color-mix(in srgb,var(--yellow) 30%,white); text-decoration:underline; text-underline-offset:.18em; text-decoration-thickness:var(--size-1); }
+.faq-answer a:hover,.faq-answer a:focus-visible { color:var(--paper); text-decoration-thickness:var(--size-2); }
 .faq-more { justify-self:center; margin-top:var(--size-12); }
 @media (max-width:960px) { .faq-layout { grid-template-columns:minmax(0,1fr); gap:var(--size-28); } .faq-item > summary { min-height:var(--size-64); font-size:var(--size-16); } }

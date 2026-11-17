@@ -1,5 +1,5 @@
 """Check the site's themed canvas through real/native Tilda host wrappers."""
-import argparse,io,json,re
+import argparse,io,json,re,time
 from pathlib import Path
 from urllib.parse import urlsplit
 from PIL import Image
@@ -16,10 +16,29 @@ assert re.fullmatch(r'[\w-]+',args.label),args.label
 OUT=ROOT/'tmp/planning/iteration65/host-canvas'/args.label/args.engine
 OUT.mkdir(parents=True,exist_ok=False)
 report={'origin':args.origin,'engine':args.engine,'label':args.label,'cases':[],
-        'requestInterception':False,'styleInjection':False,'bookingSubmitted':False}
+        'requestInterception':False,'styleInjection':False,'bookingSubmitted':False,
+        'passed':False,'initializationDiagnostics':[]}
 
 def save():
  (OUT/'result.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+
+def safe_url(value):
+ u=urlsplit(value);return f'{u.scheme}://{u.netloc}{u.path}'
+
+def safe_error(value):
+ return re.sub(r'https?://[^\s)\"]+',lambda match:safe_url(match.group(0)),str(value))
+
+def own_url(value):
+ u=urlsplit(value);return u.hostname in ['soyuz.hair','www.soyuz.hair','127.0.0.1','localhost'] or u.hostname=='storage.yandexcloud.net' and u.path.startswith('/shaver/Soyuz/')
+
+def dock_diagnostics(page):
+ return page.evaluate('''()=>({ready:document.readyState,visibility:document.visibilityState,theme:document.documentElement.dataset.theme,
+  counts:{menu:document.querySelectorAll('#mobile-menu').length,mobileDockId:document.querySelectorAll('#mobile-dock').length,dataMobileNav:document.querySelectorAll('[data-mobile-nav]').length},
+  menus:[...document.querySelectorAll('#mobile-menu')].map(e=>({tag:e.tagName,dataset:{...e.dataset},open:e.open,children:[...e.children].map(c=>({tag:c.tagName,class:c.className}))})),
+  docks:[...document.querySelectorAll('[data-mobile-nav]')].map(e=>({id:e.id,dataset:{...e.dataset},content:!!e.querySelector('.dock-content'),toolbar:!!e.querySelector('.dock-toolbar'),shell:!!e.querySelector('.dock-shell'),slots:e.querySelectorAll('[data-dock-slot]').length})),
+  scripts:[...document.scripts].filter(s=>s.src.includes('Soyuz')||s.src.includes('MobileNav')).map(s=>({src:s.src.split('?')[0],type:s.type,async:s.async,defer:s.defer})),
+  scriptResources:performance.getEntriesByType('resource').filter(r=>r.initiatorType==='script'&&(r.name.includes('Soyuz')||r.name.includes('MobileNav'))).map(r=>({url:r.name.split('?')[0],duration:r.duration})),
+  worksInitialized:document.querySelector('.works-fan')?.hasAttribute('data-work-position')})''')
 
 with sync_playwright()as p:
  browser=getattr(p,args.engine).launch(**({'channel':'chrome'}if args.engine=='chromium'else{}))
@@ -28,11 +47,27 @@ with sync_playwright()as p:
    context=browser.new_context(viewport={'width':390,'height':900},color_scheme=theme,reduced_motion='reduce')
    context.add_init_script("localStorage.setItem('soyuz_theme','"+theme+"')")
    page=context.new_page();page.bring_to_front()
+   diagnostic={'theme':theme,'startViewport':390,'motion':'reduce','pageErrors':[],'consoleErrors':[],'requestFailures':[],'scriptResponses':[]}
+   report['initializationDiagnostics'].append(diagnostic)
+   page.on('pageerror',lambda error,entry=diagnostic:entry['pageErrors'].append({'message':safe_error(error),'stack':safe_error(error.stack or '')}))
+   page.on('console',lambda message,entry=diagnostic:entry['consoleErrors'].append(safe_error(message.text)) if message.type=='error' else None)
+   page.on('requestfailed',lambda request,entry=diagnostic:entry['requestFailures'].append({'url':safe_url(request.url),'failure':request.failure,'type':request.resource_type,'own':own_url(request.url)}))
+   page.on('response',lambda response,entry=diagnostic:entry['scriptResponses'].append({'url':safe_url(response.url),'status':response.status,'type':response.request.resource_type,'own':own_url(response.url)}) if response.request.resource_type in ['script','document'] or response.status>=400 else None)
    try:
+    started=time.monotonic()
     page.goto(args.origin,wait_until='domcontentloaded',timeout=45000)
+    diagnostic['afterDclMs']=round((time.monotonic()-started)*1000);diagnostic['afterDcl']=dock_diagnostics(page)
     page.evaluate('document.fonts.ready')
+    diagnostic['afterFontsMs']=round((time.monotonic()-started)*1000);diagnostic['afterFonts']=dock_diagnostics(page)
     page.wait_for_function("document.querySelector('#mobile-menu')?.dataset.dockOwned==='true'",timeout=30000)
-    if page.locator('[data-analytics-prompt]').is_visible():page.locator('[data-analytics-choice=denied]').click()
+    diagnostic['dockReadyMs']=round((time.monotonic()-started)*1000)
+    if page.locator('[data-analytics-prompt]').is_visible():
+     diagnostic['cookieChoice']='withdraw-via-settings'
+     page.locator('[data-analytics-prompt] [data-analytics-settings]').click()
+     page.wait_for_function("document.querySelector('#cookie-settings')?.open===true")
+     page.locator('#cookie-settings [data-analytics-withdraw]').click()
+     page.wait_for_function("document.querySelector('#cookie-settings')?.open===false && document.querySelector('[data-analytics-prompt]')?.hidden===true")
+     diagnostic['cookieSettingsClosed']=True
     for width in [390,961,1440]:
      page.bring_to_front();page.set_viewport_size({'width':width,'height':900})
      page.evaluate('()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
@@ -71,8 +106,19 @@ with sync_playwright()as p:
      except Exception as error:row['failures'].append(str(error))
      report['cases'].append(row);save()
      print('FAIL'if row['failures']else'PASS',args.label,args.engine,theme,width,flush=True)
-   finally:context.close()
- finally:browser.close()
+   except Exception as error:
+    diagnostic['exception']=safe_error(error)
+    try:page.screenshot(path=str(OUT/f'{theme}-initialization-failure.png'))
+    except Exception as screenshot_error:diagnostic['screenshotError']=safe_error(screenshot_error)
+    raise
+   finally:
+    try:diagnostic['finalState']=dock_diagnostics(page)
+    except Exception as state_error:diagnostic['finalStateError']=safe_error(state_error)
+    try:context.close()
+    finally:save()
+ finally:
+  try:browser.close()
+  finally:save()
 report['failedCases']=sum(bool(row['failures'])for row in report['cases'])
 report['passed']=len(report['cases'])==6 and report['failedCases']==0
 save()

@@ -1,4 +1,5 @@
 import config from '../config/design.json' with {type:'json'};
+import {syncBrowserTheme} from './browser-theme.ts';
 export const themeKey=config.theme.storageKey;
 export function resolveTheme(choice:string|null,darkSystem:boolean){
   return choice==='dark'||choice==='light'?choice:darkSystem?'dark':'light';
@@ -9,7 +10,7 @@ if(typeof document!=='undefined'){
   const controls=[...document.querySelectorAll<HTMLSelectElement>('[data-theme-select]')];
   function apply(){
     document.documentElement.dataset.theme=resolveTheme(choice,system.matches);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content',getComputedStyle(document.documentElement).getPropertyValue('--surface').trim());
+    syncBrowserTheme();
     for(const control of controls){control.value=['light','dark'].includes(choice)?choice:'auto';control.dispatchEvent(new Event('choice:sync'));}
     for(const button of document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]')){button.setAttribute('aria-label',`Включить ${document.documentElement.dataset.theme==='dark'?'светлую':'тёмную'} тему`);button.setAttribute('aria-pressed',String(document.documentElement.dataset.theme==='dark'));}
   }

@@ -5,7 +5,7 @@ export {numberToken,textToken};
 export {isKeyboardActivation} from './interaction-intent';
 export const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 let keyboardInput=false;
-function setInput(keyboard:boolean){if(keyboardInput===keyboard)return;keyboardInput=keyboard;document.documentElement.dataset.inputModality=keyboard?'keyboard':'pointer';}
+function setInput(keyboard:boolean){const modality=keyboard?'keyboard':'pointer';if(keyboardInput===keyboard&&document.documentElement.dataset.inputModality===modality)return;keyboardInput=keyboard;document.documentElement.dataset.inputModality=modality;}
 addEventListener('keydown',event=>{if(!['Shift','Control','Alt','Meta'].includes(event.key))setInput(true);},{capture:true});
 addEventListener('pointerdown',()=>setInput(false),{capture:true,passive:true});
 export const instantInteraction=()=>reducedMotion.matches||keyboardInput;

@@ -42,8 +42,8 @@ with sync_playwright()as p:
    for _ in range(30):settling.append(state(page));page.wait_for_timeout(16)
    after=rest(page);assert after['index']==1 and after['sounds']==base['sounds']+1 and after['vibrations']==base['vibrations']+(0 if motion=='reduce' else 1),after;assert all(-.01<=s['position']<1.5 for s in settling),settling
    cases.append({'case':'fast flick bounded to one selected card without a phantom intermediate selection','motion':motion,'width':width,'settling':settling,'after':after})
-   base=home(page);x,y=start(page,cdp);samples=moves(page,cdp,x,y,[-90*n/6 for n in range(1,7)]);after=finish(page,cdp,True)
-   assert after['sounds']==base['sounds'] and after['vibrations']==base['vibrations'] and not after['dragging'],after;cases.append({'case':'touch cancellation has no feedback and clears capture/drag','motion':motion,'width':width,'after':after})
+   base=home(page);x,y=start(page,cdp);samples=moves(page,cdp,x,y,[-90*n/6 for n in range(1,7)]);committed=state(page);after=finish(page,cdp,True)
+   assert after['sounds']==committed['sounds'] and after['vibrations']==committed['vibrations'] and not after['dragging'],after;cases.append({'case':'touch cancellation adds no feedback after already rendered crossings and clears capture/drag','motion':motion,'width':width,'committed':committed,'after':after})
    check=state(page);assert check['frameBackground']=='rgba(0, 0, 0, 0)'and check['imageRadius']=='0px'and check['frameRadius']!='0px'and check['border']==check['frameBorder']=='0px'and not check['overflow'],check
    if width==390:
     base=home(page);x,y=start(page,cdp);samples=moves(page,cdp,x,y,[-10,-20,-12,-5],40);page.wait_for_timeout(120);after=finish(page,cdp);assert after['index']==0 and after['sounds']==base['sounds'],after;cases.append({'case':'small reversal remains the same selection','motion':motion,'samples':samples,'after':after})
@@ -60,8 +60,8 @@ with sync_playwright()as p:
   # Mouse deliberately keeps the compact visual fan spacing and multi-card travel.
   context=b.new_context(viewport={'width':1440,'height':1000},reduced_motion=motion);context.add_init_script('window.sounds66=[];window.vibrations66=[];HTMLMediaElement.prototype.play=function(){if(this.src.includes("/audio/"))window.sounds66.push(this.src);return Promise.resolve()}');page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.goto(args.origin,wait_until='domcontentloaded');page.locator('.works-fan').scroll_into_view_if_needed();page.wait_for_timeout(200);base=state(page);x,y=center(page);page.mouse.move(x,y);page.mouse.down();samples=[]
   for n in range(1,31):page.mouse.move(x-n*13,y);page.wait_for_timeout(16);samples.append(state(page))
-  assert len({s['index']for s in samples})>=3 and all(s['sounds']==base['sounds']and not s['overflow']for s in samples),samples
-  page.screenshot(path=str(OUT/f'{motion}-desktop-held.png'));page.mouse.up();after=rest(page);assert after['sounds']==base['sounds']+1;cases.append({'case':'desktop continuous held multi-card travel retained with one accepted feedback','motion':motion,'samples':samples,'after':after});context.close()
+  assert len({s['index']for s in samples})>=3 and all(not s['overflow']for s in samples)and samples[-1]['sounds']>base['sounds'],samples
+  page.screenshot(path=str(OUT/f'{motion}-desktop-held.png'));page.mouse.up();after=rest(page);page.wait_for_timeout(150);assert state(page)['sounds']==after['sounds'];cases.append({'case':'desktop rendered crossings sound during held travel without a delayed replay tail','motion':motion,'samples':samples,'after':after});context.close()
  b.close()
 assert not errors,errors
 assert hashes()==before,'Works source changed during real gesture verification'

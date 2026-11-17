@@ -9,7 +9,7 @@ const cards = [
 ];
 ---
 <section class="certificates" data-selection-surface="blue" id="certificates" aria-labelledby="certificate-title">
-  <div class="certificate-scene" data-certificate-scene aria-label="Рассмотреть подарочные карты">
+  <div class="certificate-scene" role="group" data-certificate-scene aria-label="Рассмотреть подарочные карты">
     <div class="certificate-stack">
       {cards.map((card, index) => <button class={`certificate-object ${index === 0 ? 'certificate-front' : 'certificate-back'}`} style={`--certificate-index:${index}`} type="button" data-certificate data-certificate-value={card.value} aria-pressed="false" aria-label={`Выдвинуть: ${card.label.toLowerCase()}`}><span class="certificate-art" data-loading-media><img src={`/reference/${card.image}.webp`} width="900" height="1422" alt={card.label} loading="lazy" /></span></button>)}
     </div>

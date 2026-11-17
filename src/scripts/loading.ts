@@ -13,8 +13,8 @@ function stateFor(host:HTMLElement){let state=states.get(host);if(!state){state=
 /** One visual owner for pending components; existing components retain success/error semantics. */
 export function setLoading(host:HTMLElement,busy:boolean){stateFor(host).manual=busy;renderLoading(host);}
 function renderLoading(host:HTMLElement){
- const state=stateFor(host),busy=state.manual||state.media;if(state.busy===busy)return;
- state.busy=busy;host.setAttribute('aria-busy',String(busy));clearTimeout(state.showTimer);
+ const state=stateFor(host),busy=state.manual||state.media;host.setAttribute('aria-busy',String(busy));if(state.busy===busy)return;
+ state.busy=busy;clearTimeout(state.showTimer);
  if(!busy){clearTimeout(state.timeout);state.timeout=undefined;if(state.layer)state.layer.hidden=true;return;}
  state.showTimer=setTimeout(()=>{
   if(!state.busy||!host.isConnected)return;

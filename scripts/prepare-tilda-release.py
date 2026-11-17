@@ -58,10 +58,12 @@ def asset_key(path,body,build):
     return CONFIG['prefix']+version+'/'+path
 def split_shared_chrome(soup):
     shared={}
-    for key,selector in [('header','.site-header,#mobile-menu'),('footer','footer.footer')]:
+    for key,selector in [('header','a.skip,.site-header,#mobile-menu'),('footer','footer.footer')]:
         nodes=soup.select(selector)
-        assert len(nodes)==(2 if key=='header'else 1),'Missing or duplicate shared '+key
+        assert len(nodes)==(3 if key=='header'else 1),'Missing or duplicate shared '+key
         for node in nodes:
+            # Tilda already supplies the outer header/footer landmarks.
+            if node.name in ('header','footer'):node.name='div'
             for link in node.select('a[href^="#"]'):link['href']='/'+link['href']
         shared[key]='\n'.join(str(node.extract())for node in nodes)
     # In Tilda, #allrecords owns the booking canvas; keep no nested standalone owner.
@@ -128,6 +130,10 @@ def main():
         protect_embedded_css(soup)
     # Keep the approved canonical icons/fonts available to source checks and CI.
     for directory in ['brand','fonts']:include(directory+'/')
+    # The previous sharing artwork remains an approved export alongside the current badge.
+    seo_assets=json.loads((ROOT/'content/seo-assets.json').read_text(encoding='utf-8'))
+    for role in ['social','legacySocial']:
+        if role in seo_assets:include(seo_assets[role]['path'].removeprefix('public/'))
     # Include the native renderer/host contract, not only resource bytes.
     prepared={}
     for path in sorted(assets):

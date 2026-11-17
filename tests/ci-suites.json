@@ -18,6 +18,14 @@
     "artifacts"
   ],
   "runtime": [
+    "67service-disclosure.test.mjs",
+    "67hero-video-playback.test.mjs",
+    "67slide-feedback.test.mjs",
+    "67dock-material.test.mjs",
+    "67works-composition.test.mjs",
+    "67modal-capability.test.mjs",
+    "67content-navigation.test.mjs",
+    "67browser-theme.test.mjs",
     "66booking-fallback.test.mjs",
     "66seo-assets.test.mjs",
     "66interaction.test.mjs",
@@ -29,7 +37,15 @@
     "design-surfaces.test.mjs",
     "design.test.mjs",
     "editorial.test.mjs",
-    "feedback.test.mjs",
+    {
+      "file": "feedback.test.mjs",
+      "localCases": [
+        {
+          "name": "preserved original feedback assets remain byte-identical in the local provenance archive",
+          "reason": "The four retired original WAVs stay in the local provenance archive and their previous immutable release. Current playback files remain covered by the runtime hash, onset, duration and distinction checks."
+        }
+      ]
+    },
     "gesture-math.test.mjs",
     "interaction-intent.test.mjs",
     "iteration12.test.mjs",

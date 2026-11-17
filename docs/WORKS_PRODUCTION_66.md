@@ -98,6 +98,22 @@ Caption имеет естественный SSR-резерв. Уникальны
 
 Артефакт — `artifacts/iteration66/works-selector-audit/production5d-readback.json`. Браузер не запускался по mutex root/canvas; повтор CORE после исправления harness выполняет root отдельно. Предыдущие 25 PASS/2 strict-mode FAIL не переименовывались в новый успешный прогон.
 
+## Реальная публичная HTTPS-галерея после публикации
+
+После явного PUBLICATION END основного агента выполнен ограниченный прогон `https://soyuz.hair/` с настоящими Cloud-ресурсами. Новая неизменяемая папка доказательств — `artifacts/iteration66/works-public/public5d-b/`. **12 групп PASS, pageerror 0, HTTP errors 0, неизменные восемь product/data-хешей.** Все browser/context/CDP закрыты, слот передан Header-владельцу для публичного меню.
+
+- Четыре свежих контекста получили HTTP200 и `Content-Encoding:gzip`; decoded HTML 579955 байт, SHA256 `7ffe9b3d81bf706ded0b4144fe4d74524a546c5843b5d5a8d87bcbcf5da8ce18` одинаков во всех четырёх. JS/CSS release refs — только `5d36176754bbdd000991`. Content-Length браузеру не предоставлен; размер gzip 102128 байт в этом прогоне независимо не измерялся.
+- На ПК пройден один полный круг 47 уникальных фото без повторов до возврата. Каждый выбранный responsive-кадр реально декодирован с Cloud; currentSrc сравнивался с точными URLs подготовленного Tilda draft, а названия, мастера и доступные имена — с общим SSOT.
+- Проверены все шесть мастерских фильтров, их реальные количества, первые/последние кадры и отсутствие посторонних мастеров среди видимых фото.
+- В light/dark системных темах проверены автоматический выбор темы, keyboard focus, немедленная клавиатурная смена и центрированный inner press .97 с неподвижным outer bbox. Border отсутствует, внутренняя поверхность прозрачна, у img нет второго radius.
+- На 390 px настоящие CDP touch20 px сохранили прежний кадр, touch100 px выбрали ровно один. Фотографии не открывают original URL/dialog.
+
+Запросы, HTML, JS, изображения и providers не подменялись и не блокировались. Cookie-согласие не выдавалось, initial banner оставлен в исходном состоянии. В network есть одно наблюдение Hero MP4 `net::ERR_ABORTED`; это не gallery photo, harness не прерывал запрос. Все 47 portfolio photo завершили декодирование, других own request failures не было. API-вызовы физического вибромотора/звук в этом публичном прогоне не измерялись.
+
+Первый `public5d-a` остановился до круга на ошибочном ожидании harness, что URL медиа обязан содержать release5d. Фактические медиа корректно используют content-addressed `/releases/assets/<hash>/media/works/`. Проверка заменена точным соответствием подготовленному draft. Папка a не переиспользовалась и не объявлялась успешной; результат b — отдельный свежий прогон. Product source и факты не менялись.
+
+Основное доказательство — `works-public/public5d-b/verification.json` (`complete:true`); визуально просмотрены `pc-real-cloud.png`, `compact-real-cloud.png`, `dark-press.png`. Яркий внешний контур на focus-снимке — проверенный keyboard outline, а не постоянная рамка. Это actual HTTPS-доставка и функциональная проверка галереи в Chrome на Windows; она не заменяет физический Safari/Android или полевые CWV.
+
 ## Сохранённая проверка 24 фото до пользовательских вложений и touch-уточнения
 
 Команда: `python -X utf8 tests/iteration66-works-tabs.py --label verified24-a`.

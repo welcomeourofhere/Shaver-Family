@@ -1,11 +1,15 @@
 /* Mobile actions use safe-area insets; dialog geometry belongs to the shared surface. */
-.mobile-nav { display: none; }
+.mobile-nav { display: contents; }
+.dock-toolbar,.dock-shell { display:none; }
 .mobile-nav-anchor { display:contents; }
 .mobile-action-short { display:none; }
 body { padding-bottom: var(--mobile-nav-space,0px); }
 .promo-dialog,.category-dialog { width: var(--size-440); }
 .promo-dialog { --promo-hover-bg:color-mix(in srgb,var(--blue) 8%,var(--surface)); --promo-hover-fg:var(--blue); --promo-line:var(--blue); }
+.promo-dialog .dialog-head { flex-direction:row-reverse;flex-wrap:wrap; }
+.promo-dialog .dialog-head h2 { order:1;flex:1 1 min-content;min-width:0;overflow-wrap:break-word; }
 .promo-dialog p { font-size: var(--control-font); margin-bottom: var(--size-20); }
+.promo-dialog .promo-note { margin:var(--size-16) 0 0;font-size:var(--size-14); }
 .promo-dialog .promo-code { width: 100%; color: var(--blue); border-color: var(--blue); }
 .promo-dialog .surface-content > .btn { width: 100%; margin-top: var(--size-16); }
 .dock-categories { display: grid; gap: var(--size-8); }
@@ -15,16 +19,20 @@ body { padding-bottom: var(--mobile-nav-space,0px); }
   .mobile-action-full { display:none; }
   .mobile-action-short { display:inline; }
   body { padding-bottom: calc(var(--mobile-nav-space,0px) + var(--safe-bottom)); }
-  .mobile-nav { position: fixed; z-index: 90; isolation: isolate; left:0; right:0; margin-inline:auto; bottom: calc(var(--dock-bottom) + var(--safe-bottom)); display:block; width:min(calc(var(--content-max) + var(--size-16)),calc(100% - var(--size-8))); padding:var(--size-8); padding-inline:max(var(--size-8),calc(var(--safe-left) - var(--size-4) + var(--size-8))) max(var(--size-8),calc(var(--safe-right) - var(--size-4) + var(--size-8))); border-radius:var(--radius-card); color:var(--paper); transform:translateY(0); transition:transform var(--motion-ui) var(--ease-out),opacity var(--motion-ui) var(--ease-out); }
+  .mobile-nav { --dock-control-font:var(--size-14);--dock-pad:var(--size-8);--dock-hit:var(--size-56);--dock-frame-width:min(calc(var(--content-max) + var(--size-16)),calc(100% - var(--size-8)));--dock-width:var(--dock-frame-width);position: fixed; z-index: 90; isolation: isolate; left:0; right:0; margin-inline:auto; bottom: calc(var(--dock-bottom) + var(--safe-bottom)); display:block; width:var(--dock-width); padding:var(--dock-pad); padding-inline:max(var(--dock-pad),calc(var(--safe-left) - var(--size-4) + var(--dock-pad))) max(var(--dock-pad),calc(var(--safe-right) - var(--size-4) + var(--dock-pad))); border-radius:var(--radius-pill); color:var(--paper); transform:translateY(0); transition:transform var(--motion-ui) var(--ease-out),opacity var(--motion-ui) var(--ease-out); }
+  .mobile-nav[data-section="top"][data-condensed="false"]:not([data-expanded="true"]) { --dock-control-font:var(--size-14); }
+  .mobile-nav[data-condensed="true"] { --dock-control-font:var(--size-13);--dock-pad:var(--size-6);--dock-hit:var(--size-44);--dock-width:min(var(--dock-frame-width),max(calc(var(--dock-frame-width) * var(--dock-condensed-ratio)),var(--dock-min-width,0px))); }
+  .mobile-nav[data-stacked="true"] { --dock-pad:var(--size-12); }
+  .mobile-nav[data-expanded="true"] { --dock-control-font:var(--size-14);--dock-pad:var(--size-8);--dock-hit:var(--size-48);--dock-width:var(--dock-frame-width);border-radius:var(--radius-card); }
   .mobile-nav[data-suppressed="true"] { opacity: 0; transform: translateY(calc(100% + var(--size-24))); pointer-events: none; }
-  .dock-menu,.dock-action { display: flex; align-items: center; justify-content: center; gap: var(--size-8); min-width: 0; min-height: var(--size-48); height: 100%; padding: var(--size-12); border-radius: var(--radius-control); font: 600 var(--size-13)/1 var(--font-body); white-space: nowrap; }
-  .dock-menu { padding: 0; background: transparent; }
+  .dock-menu,.dock-action { --dock-control-bg:var(--dock-primary-bg,var(--dock-red-panel-primary-bg));--dock-control-fg:var(--dock-primary-fg,var(--dock-red-panel-primary-fg));--dock-control-hover-bg:var(--dock-primary-active-bg,var(--dock-red-panel-primary-active-bg));--dock-control-hover-fg:var(--dock-primary-active-fg,var(--dock-red-panel-primary-active-fg));position:relative;isolation:isolate;display: flex; align-items: center; justify-content: center; gap: var(--size-8); min-width: 0; min-height: var(--dock-hit); height: 100%; padding: var(--size-12); border-radius: var(--radius-pill); background:transparent;color:var(--dock-control-fg);font: 600 var(--dock-control-font)/1 var(--font-body); white-space: nowrap; }
+  .dock-menu { --dock-control-bg:var(--dock-menu-bg,var(--dock-secondary-bg,var(--dock-red-panel-secondary-bg)));--dock-control-fg:var(--dock-menu-fg,var(--dock-secondary-fg,var(--dock-red-panel-secondary-fg)));--dock-control-hover-bg:var(--dock-secondary-active-bg,var(--dock-red-panel-secondary-active-bg));--dock-control-hover-fg:var(--dock-secondary-active-fg,var(--dock-red-panel-secondary-active-fg));padding:0; }
+  .dock-skin { position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--dock-control-bg);pointer-events:none; }
   .dock-menu .ui-icon { width: var(--size-24); height: var(--size-24); }
   .dock-action > span { display: block; white-space: nowrap; }
-  .dock-secondary { background: var(--paper); color: var(--ink); }
-  .mobile-nav-book { background: var(--yellow); color: var(--ink); }
-  .mobile-nav button:focus-visible { background: var(--blue); color: var(--paper); }
-  .mobile-nav :focus-visible { outline-color: var(--paper); outline-offset: var(--size-2); }
+  .dock-secondary { --dock-control-bg:var(--dock-secondary-bg,var(--dock-red-panel-secondary-bg));--dock-control-fg:var(--dock-secondary-fg,var(--dock-red-panel-secondary-fg));--dock-control-hover-bg:var(--dock-secondary-active-bg,var(--dock-red-panel-secondary-active-bg));--dock-control-hover-fg:var(--dock-secondary-active-fg,var(--dock-red-panel-secondary-active-fg)); }
+  .mobile-nav :is(.dock-menu,.dock-action):focus-visible { --dock-control-bg:var(--dock-control-hover-bg);color:var(--dock-control-hover-fg); }
+  .mobile-nav :focus-visible { outline-color:var(--dock-focus,var(--focus-ring)); outline-offset: var(--size-2); }
 }
 
 /* A zero-area fixed anchor keeps the painted panel out of Safari's fixed-layer
@@ -32,9 +40,9 @@ body { padding-bottom: var(--mobile-nav-space,0px); }
 @supports (-webkit-touch-callout:none) {
  @media (max-width:960px) {
   .mobile-nav-anchor { display:block; position:fixed; z-index:90; left:0; bottom:0; width:0; height:0; pointer-events:none; }
-  .mobile-nav-anchor .mobile-nav { --dock-frame-width:min(calc(var(--content-max) + var(--size-16)),calc(100vw - var(--size-8))); position:absolute; left:calc((100vw - var(--dock-frame-width)) / 2); right:auto; width:var(--dock-frame-width); margin-inline:0; pointer-events:auto; }
+  .mobile-nav-anchor .mobile-nav { --dock-frame-width:min(calc(var(--content-max) + var(--size-16)),calc(100vw - var(--size-8))); position:absolute; left:calc((100vw - var(--dock-width)) / 2); right:auto; width:var(--dock-width); margin-inline:0; pointer-events:auto; }
   .mobile-nav-anchor .mobile-nav[data-suppressed="true"] { pointer-events:none; }
  }
 }
 
-@media (max-width:960px) and (hover:hover) and (pointer:fine) { .mobile-nav button:hover { background:var(--blue);color:var(--paper); } }
+@media (max-width:960px) and (hover:hover) and (pointer:fine) { .mobile-nav :is(.dock-menu,.dock-action):hover { --dock-control-bg:var(--dock-control-hover-bg);color:var(--dock-control-hover-fg); } }

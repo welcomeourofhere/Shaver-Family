@@ -7,19 +7,36 @@ import '../styles/mobile-nav.css';
 import '../styles/dock-surface.css';
 import {dockActions} from '../scripts/dock-actions';
 import {bookingURLs} from '../scripts/booking-url';
+import {contactMapRoute} from '../content/contact-map';
+import offers from '../../content/offers.json';
+import {analyticsConsentKey,analyticsNoticeVersion,consentLifetime,readAnalyticsConsent,publicAnalyticsHost} from '../scripts/analytics';
 const bookingHref=bookingURLs(site.bookingUrl)!.publicUrl;
 const {homeHref=''}=Astro.props;
 const initialActions=dockActions(homeHref?'article':'top');
+const firstVisit=offers.offers.find(offer=>offer.id==='first-visit')!;
+// Resolve the existing choice before the panel is parsed, including delayed modules.
+const cookieBootstrap=`(()=>{const analyticsNoticeVersion=${JSON.stringify(analyticsNoticeVersion)},consentLifetime=${consentLifetime},readAnalyticsConsent=${readAnalyticsConsent.toString()},publicAnalyticsHost=${publicAnalyticsHost.toString()};let needed=true;try{const raw=localStorage.getItem(${JSON.stringify(analyticsConsentKey)});needed=!readAnalyticsConsent(raw)&&!(raw===null&&localStorage.getItem('soyuz.analytics.v1')==='denied');}catch{}document.documentElement.dataset.cookiePrompt=String(publicAnalyticsHost(location.hostname)&&needed);})();`;
 ---
+<script is:inline set:html={cookieBootstrap} />
 <div class="mobile-nav-anchor" data-mobile-nav-anchor>
-<nav class="mobile-nav" aria-label="Действия в текущем разделе" data-mobile-nav data-home-href={homeHref} data-action-count={initialActions.length}>
+<nav class="mobile-nav" aria-label="Панель сайта" data-mobile-nav data-home-href={homeHref} data-section={homeHref?'article':'top'} data-condensed="false" data-floating-tone="red" data-selection-surface="red" data-action-count={initialActions.length}>
   <span class="dock-shell" aria-hidden="true"></span>
+  <aside class="analytics-choice" data-selection-surface="blue" data-analytics-prompt role="region" aria-labelledby="analytics-choice-title">
+    <button class="icon-btn analytics-choice-close" type="button" data-analytics-choice="denied" aria-label="Продолжить без аналитики"><Icon name="close" /></button>
+    <h2 id="analytics-choice-title">Cookie и статистика</h2>
+    <p>С вашего согласия Яндекс Метрика и Google Analytics собирают статистику посещений. Google получает данные за пределами России. <a href="/privacy-policy/">Подробнее</a></p>
+    <div class="analytics-choice-actions">
+      <button class="btn btn-yellow" type="button" data-analytics-choice="granted">Разрешить</button>
+      <button class="btn btn-cream" type="button" data-analytics-settings aria-haspopup="dialog" aria-controls="cookie-settings" aria-label="Настроить cookie и аналитику">Настройки</button>
+    </div>
+  </aside>
   <div class="dock-toolbar">
-    <button class="dock-menu" type="button" data-open-menu aria-label="Разделы сайта" aria-controls="mobile-menu" aria-haspopup="dialog" aria-expanded="false"><span class="dock-menu-icon"><Icon name="menu" /></span><span class="dock-close-icon"><Icon name="close" /></span></button>
+    <button class="dock-menu" type="button" data-open-menu aria-label="Разделы сайта" aria-controls="mobile-menu" aria-haspopup="dialog" aria-expanded="false"><span class="dock-menu-icon"><Icon name="menu" /></span><span class="dock-close-icon"><Icon name="close" /></span><span class="dock-skin" aria-hidden="true"></span></button>
     {[0,1,2].map((index)=>{
       const item=initialActions[index],primary=index===initialActions.length-1;
-      return <button class:list={['dock-action',{'mobile-nav-book':primary,'dock-secondary':!primary}]} type="button" data-dock-slot={index} data-action={item?.action} data-display-index={index} data-dock-primary={primary||undefined} data-dock-secondary={!primary||undefined} hidden={!item}><span>{item?.label}</span><span class="dock-arrow dock-arrow-left"><Icon name="left" /></span><span class="dock-arrow dock-arrow-right"><Icon name="right" /></span></button>;
+      return <button class:list={['dock-action',{'mobile-nav-book':primary,'dock-secondary':!primary}]} type="button" data-dock-slot={index} data-action={item?.action} data-display-index={index} data-dock-primary={primary||undefined} data-dock-secondary={!primary||undefined} hidden={!item}><span>{item?.label}</span><span class="dock-arrow dock-arrow-left"><Icon name="left" /></span><span class="dock-arrow dock-arrow-right"><Icon name="right" /></span><span class="dock-skin" aria-hidden="true"></span></button>;
     })}
+    <a class="dock-action dock-secondary" href={contactMapRoute} target="_blank" rel="noopener noreferrer" data-dock-slot="route" data-dock-map-route hidden><span>Маршрут</span><span class="dock-skin" aria-hidden="true"></span></a>
   </div>
   <span class="sr-only" data-dock-status role="status" aria-live="polite"></span>
 </nav>
@@ -30,8 +47,9 @@ const initialActions=dockActions(homeHref?'article':'top');
 </MaterialSurface></dialog>}
 <dialog id="promo-dialog" class="promo-dialog" aria-labelledby="promo-title" data-promo>
  <MaterialSurface>
- <div class="dialog-head"><h2 id="promo-title">Первый визит<br/>за полцены</h2><button class="icon-btn" type="button" data-dismiss aria-label="Закрыть"><Icon name="close"/></button></div>
- <p>Скидка {site.firstVisitPercent}% на первый визит по промокоду.</p><button class="promo-code" type="button" data-copy-promo data-promo={site.promo} aria-label={`Скопировать промокод ${site.promo}`}>{site.promo}</button>
+ <div class="dialog-head"><h2 id="promo-title">Первый визит<br/>со скидкой {site.firstVisitPercent}%</h2><button class="icon-btn" type="button" data-dismiss aria-label="Закрыть"><Icon name="close"/></button></div>
+ <p>{firstVisit.description}</p><button class="promo-code" type="button" data-copy-promo data-promo={site.promo} aria-label={`Скопировать промокод ${site.promo}`}>{site.promo}</button>
+ {firstVisit.note&&<p class="promo-note">{firstVisit.note}</p>}
  <a class="btn" href={bookingHref} data-booking aria-haspopup="dialog" aria-controls="booking-drawer" data-context={`Первый визит −${site.firstVisitPercent}%, промокод ${site.promo}`} aria-label="Записаться со скидкой"><span class="mobile-action-full">Записаться со скидкой</span><span class="mobile-action-short">Записаться</span></a>
  </MaterialSurface>
 </dialog>

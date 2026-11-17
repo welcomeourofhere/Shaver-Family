@@ -1,7 +1,7 @@
 import {numberToken as n,reducedMotion} from './motion';
 import {offerSlot,offerDealFrame,wrapOfferPhase as wrap} from './offer-loop';
 import {spring,drawerSpringCSS} from '../config/spring';
-import {requestFeedback} from './feedback';
+import {requestFeedback,beginSlideFeedback,type SlideFeedback} from './feedback';
 import {enableHorizontalSwipe} from './horizontal-swipe';
 import {observeRail,connectRailControls,enableRailCardSelection,nativeRail} from './rail-selection';
 import {enableRailMouseDrag} from './native-rail-drag';
@@ -13,9 +13,21 @@ for(const section of document.querySelectorAll<HTMLElement>('[data-offers]')){
   const cards=[...rail.querySelectorAll<HTMLElement>('[data-offer-id]')];
   const position=section.querySelector<HTMLElement>('[data-of-position]')!;
   const controller=new AbortController(),{signal}=controller;
+  const posterWindow=()=>{
+    const reach=compact.matches?1:Math.ceil(rail.clientWidth/cards[0].clientWidth);
+    cards.forEach((card,index)=>{
+      const distance=compact.matches?Math.abs(index-selected):Math.min(wrap(index-selected,cards.length),wrap(selected-index,cards.length));
+      if(distance>reach)return;
+      const image=card.querySelector<HTMLImageElement>('img[data-offer-src]');if(!image)return;
+      image.srcset=image.dataset.offerSrcset!;image.src=image.dataset.offerSrc!;
+      delete image.dataset.offerSrc;delete image.dataset.offerSrcset;
+    });
+  };
   const compact=matchMedia('(max-width:960px)');
   let selected=0,stride=1,width=1,frameWidth=0,onScreen=true,revision=0,animations:Animation[]=[];
   let dragPoses:Pose[]|null=null,dragProgress=0,dragOrigin=0;
+   let slideGesture:SlideFeedback|null=null;
+   const finishGesture=(cancelled=false)=>{if(cancelled)slideGesture?.cancel();else slideGesture?.finish();slideGesture=null;};
   let cancelSwipe=()=>{};
   const readDealTokens=()=>({scale:n('--offer-fold-scale'),depth:n('--offer-fold-depth'),arrival:n('--offer-arrival-spring'),phi:n('--golden-ratio')});
   let dealTokens=readDealTokens();
@@ -36,6 +48,7 @@ for(const section of document.querySelectorAll<HTMLElement>('[data-offers]')){
   function cancel(){animations.forEach(a=>a.cancel());animations=[];}
   function showSelection(index:number){
     selected=index;section.dataset.offerIndex=String(index);position.textContent=`${index+1} / ${cards.length}`;
+    posterWindow();
     cards.forEach((card,i)=>card.dataset.offerActive=String(i===index));
     section.querySelector<HTMLButtonElement>('[data-of-prev]')!.disabled=compact.matches&&index===0;
     section.querySelector<HTMLButtonElement>('[data-of-next]')!.disabled=compact.matches&&index===cards.length-1;
@@ -60,7 +73,7 @@ for(const section of document.querySelectorAll<HTMLElement>('[data-offers]')){
     }
     if(focused&&focused!==document.activeElement)focused.focus({preventScroll:true});
   }
-  function select(index:number,direction:number,animate=true,event?:Event){
+   function select(index:number,direction:number,animate=true,event?:Event,fromGesture=false){
     cancelSwipe();
     const next=compact.matches?Math.max(0,Math.min(cards.length-1,index)):wrap(index,cards.length);
     if(compact.matches){
@@ -68,7 +81,7 @@ for(const section of document.querySelectorAll<HTMLElement>('[data-offers]')){
       nativeRail(rail).goTo(next,!animate||reducedMotion.matches);return;
     }
     if(next===selected)return;
-    if(event)requestFeedback('select',event);
+     if(event&&!fromGesture)requestFeedback('select',event);
     dealTokens=readDealTokens();
     const previous=selected,progress=dragPoses?dragProgress:0,poses=snapshot();
     const turn=++revision;cancel();dragPoses=null;showSelection(next);
@@ -113,7 +126,8 @@ for(const section of document.querySelectorAll<HTMLElement>('[data-offers]')){
     if(r.right>bounds.right+1)select(cards.indexOf(card),1,false);
   },{signal});
   cancelSwipe=enableHorizontalSwipe(rail,(direction,event)=>select(selected+direction,direction,true,event),{signal,enabled:()=>!compact.matches,motion:{
-    start(){
+    start(event){
+      finishGesture(true);slideGesture=beginSlideFeedback(selected,event);
       dealTokens=readDealTokens();
       dragPoses=snapshot();dragProgress=0;dragOrigin=0;
       ++revision;cancel();section.dataset.offersMoving='true';
@@ -124,7 +138,7 @@ for(const section of document.querySelectorAll<HTMLElement>('[data-offers]')){
       let travel=dx-dragOrigin;
       while(Math.abs(travel)>=unit){
         const direction=travel<0?1:-1;
-        showSelection(wrap(selected+direction,cards.length));rest();dragPoses=snapshot();
+        showSelection(wrap(selected+direction,cards.length));slideGesture?.cross(selected);rest();dragPoses=snapshot();
         dragOrigin-=direction*unit;travel=dx-dragOrigin;
         section.dataset.offersMoving='true';
       }
@@ -135,8 +149,8 @@ for(const section of document.querySelectorAll<HTMLElement>('[data-offers]')){
         card.style.zIndex=String(step.folded?0:cards.length-step.slot.offset);
       });
     },
-    release(dx,velocity,event){const direction=swipeDirection(dx-dragOrigin,velocity,stride*.5);if(direction)select(selected+direction,direction,true,event);else cancelDrag();},
-    cancel:()=>cancelDrag(),
+    release(dx,velocity,event){const direction=swipeDirection(dx-dragOrigin,velocity,stride*.5);if(direction){slideGesture?.cross(wrap(selected+direction,cards.length));select(selected+direction,direction,true,event,true);}else cancelDrag();finishGesture();},
+    cancel:()=>{finishGesture(true);cancelDrag();},
   }});
   function cancelDrag(){
       if(!dragPoses)return;dragPoses=null;

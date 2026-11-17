@@ -3,6 +3,7 @@ import { orderDeck } from "./deck-order";
 import {enableHorizontalSwipe} from './horizontal-swipe';
 import {setLoading} from './loading';
 import {requestFeedback} from './feedback';
+import {animateServiceDisclosure} from './service-disclosure';
 for (const deck of document.querySelectorAll<HTMLElement>(
   "[data-service-deck]",
 )) {
@@ -21,6 +22,10 @@ for (const deck of document.querySelectorAll<HTMLElement>(
   for(const panel of panels){
     const stage=panel.querySelector<HTMLElement>('.sd-photo')!;
     let photoRevision=0;
+    const disclosures=new Map<HTMLDetailsElement,ReturnType<typeof animateServiceDisclosure>>();
+    const settleDisclosures=()=>{for(const stop of disclosures.values())stop?.();disclosures.clear();};
+    reduced.addEventListener('change',()=>{if(reduced.matches)settleDisclosures();});
+    document.addEventListener('astro:before-swap',settleDisclosures,{once:true});
     panel.addEventListener('click',event=>{
       const summary=(event.target as Element).closest('summary');
       // One open row keeps the disclosure affordance visible without growing the card.
@@ -46,7 +51,11 @@ for (const deck of document.querySelectorAll<HTMLElement>(
         }));
       }).catch(()=>{/* Keep the decoded photograph when a replacement is unavailable. */}).finally(()=>{if(turn===photoRevision)setLoading(stage,false);});
     };
-    panel.addEventListener('toggle',event=>{if(event.target instanceof HTMLDetailsElement&&event.target.open)syncPhoto(event.target)},true);
+    panel.addEventListener('toggle',event=>{
+      if(!(event.target instanceof HTMLDetailsElement))return;
+      const row=event.target;disclosures.get(row)?.();disclosures.delete(row);
+      if(row.open){syncPhoto(row);disclosures.set(row,animateServiceDisclosure(row,reduced.matches,n('--motion-context')));}
+    },true);
     compact.addEventListener('change',()=>{const row=panel.querySelector<HTMLDetailsElement>('.sd-service[open]');if(row)syncPhoto(row)});
   }
   function settle() {

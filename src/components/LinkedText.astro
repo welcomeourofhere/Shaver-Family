@@ -1,0 +1,6 @@
+---
+import {inlineLinks} from '../content/inline-links';
+interface Props {text:string;}
+const {text}=Astro.props;
+---
+{inlineLinks(text).map(part=>part.href?<a href={part.href} target={part.href.startsWith('http')?'_blank':undefined} rel={part.href.startsWith('http')?'noopener noreferrer':undefined}>{part.text}</a>:part.text)}

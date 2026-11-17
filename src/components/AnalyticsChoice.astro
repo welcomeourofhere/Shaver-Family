@@ -5,14 +5,6 @@ import operator from '../../content/legal/operator.json';
 import '../styles/analytics-choice.css';
 import '../styles/faq.css';
 ---
-<aside class="analytics-choice" data-selection-surface="blue" data-analytics-prompt hidden role="region" aria-labelledby="analytics-choice-title">
- <h2 id="analytics-choice-title">Cookie и статистика</h2>
- <p>С вашего согласия Яндекс Метрика и Google Analytics собирают статистику посещений. Google получает данные за пределами России. <a href="/privacy-policy/">Подробнее</a></p>
- <div class="analytics-choice-actions">
-  <button class="btn btn-yellow" type="button" data-analytics-choice="granted">Разрешить</button>
-  <button class="btn btn-cream" type="button" data-analytics-settings aria-haspopup="dialog" aria-controls="cookie-settings" aria-label="Настроить cookie и аналитику">Настройки</button>
- </div>
-</aside>
 <dialog id="cookie-settings" class="cookie-settings" aria-labelledby="cookie-settings-title" aria-describedby="cookie-settings-intro">
  <MaterialSurface>
   <div class="dialog-head"><h2 id="cookie-settings-title" aria-label="Настройки cookie"><span class="cookie-title-wide">Настройки cookie</span><span class="cookie-title-short" aria-hidden="true">Куки</span></h2><button class="icon-btn" type="button" data-dismiss aria-label="Закрыть настройки cookie"><Icon name="close" /></button></div>

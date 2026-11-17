@@ -1,7 +1,9 @@
-.works { container-type:inline-size; --works-card-width:clamp(var(--size-300),32cqi,var(--size-440)); --works-edge-depth:var(--works-available-depth); --works-fade-end:min(calc(var(--works-edge-depth) + .5),max(.5,calc(var(--works-total) / 2))); --works-step:calc((100cqi - var(--works-card-width) * (1.2 - var(--works-edge-depth) * .15) - var(--size-64)) / max(1,calc(var(--works-edge-depth) * 2))); }
+/* Reserve the rotated outer portraits independently from the central photo size. */
+.works { container-type:inline-size; --works-card-width:clamp(var(--size-300),32cqi,var(--size-440)); --works-neighbor-limit:4; --works-edge-depth:min(var(--works-neighbor-limit),var(--works-available-depth)); --works-fade-end:min(calc(var(--works-edge-depth) + .5),max(.5,calc(var(--works-total) / 2))); --works-step:calc((100cqi - var(--works-card-width) * (1.2 - var(--works-edge-depth) * .15) - var(--size-32) * max(2,calc(var(--works-edge-depth) - 1))) / max(1,calc(var(--works-edge-depth) * 2))); }
 .works-fan { position:relative; isolation:isolate; block-size:calc(var(--works-card-width) * 4 / 3 + var(--size-96)); perspective:calc(var(--size-800) * 2); transform-style:preserve-3d; overflow:visible; touch-action:pan-y pinch-zoom; cursor:grab; }
 .work-card { position:absolute; inset-block-start:calc(50% - var(--works-card-width) * .05); inset-inline-start:50%; inline-size:var(--works-card-width); aspect-ratio:3/4; padding:0; border:0; border-radius:var(--radius-card); background:transparent; transform:translate3d(calc(-50% + clamp(calc(var(--works-edge-depth) * -1),var(--work-offset),var(--works-edge-depth)) * var(--works-step)),calc(-50% + min(var(--work-distance),5) * 6%),calc(min(var(--work-distance),5) * var(--size-32) * -1)) rotateY(calc(clamp(calc(var(--works-edge-depth) * -1),var(--work-offset),var(--works-edge-depth)) * var(--angle-4) * -1)) rotateZ(calc(clamp(calc(var(--works-edge-depth) * -1),var(--work-offset),var(--works-edge-depth)) * var(--angle-4) * .5 + var(--work-tilt) * var(--angle-1) * min(var(--work-distance),1) * .5)) scale(calc(1 - min(var(--work-distance),5) * .075)); opacity:clamp(0,calc((var(--works-fade-end) - var(--work-distance)) / max(.5,calc(var(--works-fade-end) - var(--works-edge-depth)))),1); z-index:calc(10 - var(--work-distance)); backface-visibility:hidden; cursor:pointer; -webkit-user-drag:none; }
 .work-card-surface { display:block; inline-size:100%; block-size:100%; border-radius:inherit; background:transparent; box-shadow:var(--shadow-card); }
+.work-card-surface:not([aria-busy="false"]) { background:var(--work-placeholder); }
 .work-card img { display:block; inline-size:100%; block-size:100%; object-fit:cover; }
 .work-card[data-work-visible="false"] { display:none; pointer-events:none; }
 .works-fan.is-dragging,.works-fan.is-dragging * { cursor:grabbing; user-select:none; }
@@ -18,12 +20,29 @@
 .works-controls .icon-btn { flex:none; }
 :root:not(.js) .works-controls,:root:not(.js) .works-master-tabs { display:none; }
 @media(max-width:960px) {
- .works { --works-card-width:clamp(var(--size-238),72cqi,var(--size-400)); --works-edge-depth:min(2,var(--works-available-depth)); --works-step:calc((100cqi - var(--works-card-width) * (1.2 - var(--works-edge-depth) * .15) - var(--size-32)) / max(1,calc(var(--works-edge-depth) * 2))); }
+ .works { --works-card-width:clamp(var(--size-238),72cqi,var(--size-400)); --works-step:calc((100cqi - var(--works-card-width) * (1.2 - var(--works-edge-depth) * .15) - var(--size-32) * max(1,calc(var(--works-edge-depth) - 1))) / max(1,calc(var(--works-edge-depth) * 2))); }
  .work-card { inset-block-start:calc(50% - var(--works-card-width) * .04); }
- .work-card[data-work-distance="3"],.work-card[data-work-distance="4"] { display:none; pointer-events:none; }
- .works-caption { min-block-size:var(--size-84); }
+ .works-caption { min-block-size:var(--size-64); }
+ .works-controls { margin-block-start:var(--size-8); }
+}
+@media(max-width:1100px) {
+ .works { --works-neighbor-limit:3; }
+ .work-card[data-work-distance="4"] { display:none; pointer-events:none; }
+}
+@media(max-width:800px) {
+ .works { --works-neighbor-limit:2; }
+ .work-card[data-work-distance="3"] { display:none; pointer-events:none; }
+}
+@media(max-width:600px) {
+ /* The 3:4 rotated neighbour reaches the shell edge; the current card keeps its hit area. */
+ .works { --works-neighbor-limit:1; --works-neighbor-scale:.86; --works-neighbor-angle:var(--angle-4); --works-neighbor-width-factor:1.090572682; --works-step:calc((100cqi - var(--works-card-width) * var(--works-neighbor-scale) * var(--works-neighbor-width-factor)) / 2); }
+ .works-fan { block-size:calc(var(--works-card-width) * 4 / 3 + var(--size-48)); }
+ .work-card { inset-block-start:50%; transform:translate(calc(-50% + clamp(-1,var(--work-offset),1) * var(--works-step)),calc(-50% + min(var(--work-distance),1) * 4%)) rotateZ(calc(clamp(-1,var(--work-offset),1) * var(--works-neighbor-angle))) scale(calc(1 - min(var(--work-distance),1) * (1 - var(--works-neighbor-scale)))); }
+ .work-card[data-work-distance="2"] { display:none; pointer-events:none; }
 }
 @media(max-width:420px) {
- .works { --works-card-width:clamp(var(--size-238),80cqi,var(--size-360)); --works-edge-depth:min(1,var(--works-available-depth)); }
- .work-card[data-work-distance="2"] { display:none; pointer-events:none; }
+ .works { --works-card-width:clamp(var(--size-238),80cqi,var(--size-360)); --works-neighbor-scale:.82; --works-neighbor-angle:calc(var(--angle-1) * 3); --works-neighbor-width-factor:1.068410810; }
+}
+@media(max-width:360px) {
+ .works { --works-neighbor-scale:.78; --works-neighbor-angle:calc(var(--angle-1) * 2); --works-neighbor-width-factor:1.045923489; }
 }

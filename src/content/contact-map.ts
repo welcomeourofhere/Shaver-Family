@@ -1,8 +1,8 @@
-// Preview-only map point, read from the public business widget on 2026-11-09.
-// The live site and its existing map are unchanged until a concept is selected.
+// Verified business point, read from the public Yandex business widget on 2026-11-09.
+// The business widget and its external route share this verified location.
 export const contactMap={
  longitude:49.669973,latitude:58.588674,
- bounds:[49.6666,58.5871,49.6734,58.5903],
  source:'https://yandex.ru/maps/org/soyuz/116019915414/',
 } as const;
-export const contactMapEmbed=`https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(contactMap.bounds.join(','))}&layer=mapnik&marker=${encodeURIComponent(`${contactMap.latitude},${contactMap.longitude}`)}`;
+export const contactMapEmbed=`https://yandex.ru/map-widget/v1/?ll=${encodeURIComponent(`${contactMap.longitude},${contactMap.latitude}`)}&mode=search&oid=116019915414&ol=biz&z=17`;
+export const contactMapRoute=`https://yandex.ru/maps/?rtext=~${encodeURIComponent(`${contactMap.latitude},${contactMap.longitude}`)}`;

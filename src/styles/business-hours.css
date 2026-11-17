@@ -8,3 +8,4 @@
 .business-hours-detail { min-width:0;max-width:100%;font-weight:400;overflow-wrap:normal; }
 .business-hours-detail:empty { display:none; }
 .business-hours-detail:not(:empty)::before { content:"•\00a0"; }
+@media (max-width:960px) { .business-hours-status { white-space:normal; } }

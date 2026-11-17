@@ -1,56 +1,103 @@
 {
-  "version": 1,
+  "version": 2,
   "generator": "scripts/prepare-social-preview.py",
-  "generatorSha256": "c800603a8d47e92adee01de77a861c44899399cb828269994f6844f2363a76a1",
-  "method": "Native Chromium HTML/CSS screenshot; no photo pixels edited",
-  "browserVersion": "157.0.8103.52",
-  "composition": "golden ratio from design.json; original logo and actual interior",
+  "generatorSha256": "77da8f6732f527f25015793c10d2e0e5b7a905975447ad444ff5efb553cd5e8d",
+  "method": "Native ready-made square PNG unchanged; ready SVG with off-canvas export preview removed",
   "sources": [
     {
-      "path": "public/brand/logo-paper.svg",
-      "sha256": "cb1bbf56f874433460d2dc50bbdb5a342f3e2e1b3bdd6e0339df68b9ad1e58ab"
+      "path": "content/seo.json",
+      "sha256": "0b1d7a57f2c4c656b17c2172aa6a8025fcfd81fc5afb78a659ee33d5c6e7cdf1"
     },
     {
       "path": "public/brand/favicon-red.svg",
       "sha256": "b73c1eee7a861e8b4c9944bee4f9b54bd8f7a5882f6601779ef3157c6c8af72c"
-    },
-    {
-      "path": "public/media/hero/soyuz-intro-poster.webp",
-      "sha256": "5bcb2fad484c89f17eee0193d2f920cf41d99ddb516572fc778891e4d2a7f858"
-    },
-    {
-      "path": "public/fonts/Molot-UI.ttf",
-      "sha256": "e704751806a0016bf2e50d7c00a9ebe00d771e1b6b6c446cc679335d6c95cd91"
-    },
-    {
-      "path": "public/fonts/Manrope-Medium-UI.woff2",
-      "sha256": "decdd45c2250c55b7089d2aa05464ff0450545631884122bf6009c46eb1ff0c2"
-    },
-    {
-      "path": "content/site.json",
-      "sha256": "a867a3c7f99b8150c9a8120b1cd59afab71ab9521c197fda9578b7846d567c6f"
-    },
-    {
-      "path": "content/seo.json",
-      "sha256": "bdc6ce469cc85ba3638d892f12024a30e53cac92bce2f04cf369454b885d5f05"
-    },
-    {
-      "path": "deploy/production.json",
-      "sha256": "4dbeb5fd994c363b7e25f26f19ebf893685daea89fabbfdcebc751cbbd86d7ae"
     }
   ],
-  "designInputs": {
-    "source": "src/config/design.json",
-    "red": "#c42f2a",
-    "paper": "#f6e8d3",
-    "goldenRatio": 1.61803398875
-  },
   "social": {
-    "path": "public/media/og/soyuz-home.png",
-    "width": 1200,
-    "height": 630,
-    "bytes": 369638,
-    "sha256": "d849a963205ce3633dd098fddb690bb01634bea01277560918f2e01e26c8ee95"
+    "path": "public/media/og/soyuz-square.png",
+    "bytes": 38052,
+    "sha256": "48906358d132f81940749497ff81a03b17cc4c62a2b0ef4bd2b89144f5c5e738",
+    "width": 1000,
+    "height": 1000
+  },
+  "logo": {
+    "path": "public/brand/logo-square-512.png",
+    "bytes": 27540,
+    "sha256": "9d37b6d2bdc74121184807eb4261792ed5165a6ed2ab657f76172582887a259d",
+    "width": 512,
+    "height": 512
+  },
+  "squareLogo": {
+    "schemaVersion": 1,
+    "generator": "scripts/prepare-square-logo.py",
+    "generatorSha256": "417d2abe480c35b5543c562975181b7fae918737125e140bcc7a96524b770f38",
+    "sources": [
+      {
+        "path": "J:/Brandbooks/brand book СОЮЗ Барбершоп 2025/01_Логотип/Векторные файлы/Варианты логотипов/Логотип красный (квадрат).svg",
+        "bytes": 214280,
+        "sha256": "6efb3830e369b37d0d34c4c86a39df4441ce7af9b5d17198532cfbe676843941"
+      },
+      {
+        "path": "J:/Brandbooks/brand book СОЮЗ Барбершоп 2025/01_Логотип/Растровые файлы/Логотип красный (квадрат).png",
+        "bytes": 38052,
+        "sha256": "48906358d132f81940749497ff81a03b17cc4c62a2b0ef4bd2b89144f5c5e738"
+      },
+      {
+        "path": "J:/Brandbooks/brand book СОЮЗ Барбершоп 2025/01_Логотип/Растровые файлы/Логотип красный (круг).png",
+        "bytes": 62240,
+        "sha256": "fc706affe04c6c2a9c5ce15604245b6a589e9981dfaac9c4a3d2ecebf5d9e05e"
+      }
+    ],
+    "method": "Native brandbook square SVG/PNG; no AI, drawing, font replacement, geometry change or circular crop",
+    "svgCleanup": {
+      "removedImages": 1,
+      "removedExternalDoctype": 1,
+      "imageReason": "Off-canvas Corel preview under empty clipPath id1",
+      "allRemainingXmlIdentical": true,
+      "fontDependencies": 0
+    },
+    "raster": {
+      "native1000BytesUnchanged": true,
+      "logoROIIdenticalToApprovedCircleOnRed": [
+        100,
+        300,
+        900,
+        760
+      ],
+      "circleComparisonMaxChannelDelta": 1,
+      "opaqueSquareRedCorners": true,
+      "derivatives": "Pillow Lanczos downscale; no colour grading or sharpening"
+    },
+    "files": [
+      {
+        "path": "public/brand/logo-square.svg",
+        "bytes": 15300,
+        "sha256": "64f2a181805f09e3a3a4b663205034f08ba2b4c276fd8f95f985b6407338930a",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "path": "public/media/og/soyuz-square.png",
+        "bytes": 38052,
+        "sha256": "48906358d132f81940749497ff81a03b17cc4c62a2b0ef4bd2b89144f5c5e738",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "path": "public/brand/logo-square-512.png",
+        "bytes": 27540,
+        "sha256": "9d37b6d2bdc74121184807eb4261792ed5165a6ed2ab657f76172582887a259d",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "path": "public/brand/logo-square-192.png",
+        "bytes": 11169,
+        "sha256": "2d689d3ae1761c6f1139dbcc27cc0f4b603a0026be44395ec55007bc83fff9f8",
+        "width": 192,
+        "height": 192
+      }
+    ]
   },
   "favicon": {
     "originalGeometry": "Native square downscaling of the complete standard circle, woman in O and yellow BARBERSHOP preserved; no geometry, margins, positions or source colors changed",
@@ -103,63 +150,114 @@
       "fontDependencies": 0
     }
   },
-  "textGeometry": {
-    "canvas": {
-      "width": 1200,
-      "height": 630,
-      "background": "rgb(196, 47, 42)",
-      "columns": [
-        741.640625,
-        458.359375
-      ],
-      "photoTop": 0
+  "legacySocial": {
+    "method": "Native Chromium HTML/CSS screenshot; no photo pixels edited",
+    "browserVersion": "157.0.8103.52",
+    "composition": "golden ratio from design.json; original logo and actual interior",
+    "designInputs": {
+      "source": "src/config/design.json",
+      "red": "#c42f2a",
+      "paper": "#f6e8d3",
+      "goldenRatio": 1.61803398875
     },
-    "text": [
+    "textGeometry": {
+      "canvas": {
+        "width": 1200,
+        "height": 630,
+        "background": "rgb(196, 47, 42)",
+        "columns": [
+          741.640625,
+          458.359375
+        ],
+        "photoTop": 0
+      },
+      "text": [
+        {
+          "text": "Стригут и бреют",
+          "x": 56,
+          "right": 660.8125,
+          "top": 232,
+          "bottom": 301.109375,
+          "parentRight": 660.8125,
+          "overflow": false
+        },
+        {
+          "text": "прекрасные дамы",
+          "x": 56,
+          "right": 660.8125,
+          "top": 301.109375,
+          "bottom": 370.21875,
+          "parentRight": 660.8125,
+          "overflow": false
+        },
+        {
+          "text": "Мужские стрижки · борода · СПА",
+          "x": 56,
+          "right": 471.4375,
+          "top": 390.21875,
+          "bottom": 426.21875,
+          "parentRight": 741.640625,
+          "overflow": false
+        },
+        {
+          "text": "Киров, ул. Владимирская, 132",
+          "x": 56,
+          "right": 412.234375,
+          "top": 506,
+          "bottom": 542,
+          "parentRight": 412.234375,
+          "overflow": false
+        },
+        {
+          "text": "soyuz.hair",
+          "x": 56,
+          "right": 412.234375,
+          "top": 542,
+          "bottom": 578,
+          "parentRight": 412.234375,
+          "overflow": false
+        }
+      ]
+    },
+    "path": "public/media/og/soyuz-home.png",
+    "width": 1200,
+    "height": 630,
+    "bytes": 369638,
+    "sha256": "d849a963205ce3633dd098fddb690bb01634bea01277560918f2e01e26c8ee95",
+    "sourceSnapshot": [
       {
-        "text": "Стригут и бреют",
-        "x": 56,
-        "right": 660.8125,
-        "top": 232,
-        "bottom": 301.109375,
-        "parentRight": 660.8125,
-        "overflow": false
+        "path": "public/brand/logo-paper.svg",
+        "sha256": "cb1bbf56f874433460d2dc50bbdb5a342f3e2e1b3bdd6e0339df68b9ad1e58ab"
       },
       {
-        "text": "прекрасные дамы",
-        "x": 56,
-        "right": 660.8125,
-        "top": 301.109375,
-        "bottom": 370.21875,
-        "parentRight": 660.8125,
-        "overflow": false
+        "path": "public/brand/favicon-red.svg",
+        "sha256": "b73c1eee7a861e8b4c9944bee4f9b54bd8f7a5882f6601779ef3157c6c8af72c"
       },
       {
-        "text": "Мужские стрижки · борода · СПА",
-        "x": 56,
-        "right": 471.4375,
-        "top": 390.21875,
-        "bottom": 426.21875,
-        "parentRight": 741.640625,
-        "overflow": false
+        "path": "public/media/hero/soyuz-intro-poster.webp",
+        "sha256": "5bcb2fad484c89f17eee0193d2f920cf41d99ddb516572fc778891e4d2a7f858"
       },
       {
-        "text": "Киров, ул. Владимирская, 132",
-        "x": 56,
-        "right": 412.234375,
-        "top": 506,
-        "bottom": 542,
-        "parentRight": 412.234375,
-        "overflow": false
+        "path": "public/fonts/Molot-UI.ttf",
+        "sha256": "e704751806a0016bf2e50d7c00a9ebe00d771e1b6b6c446cc679335d6c95cd91"
       },
       {
-        "text": "soyuz.hair",
-        "x": 56,
-        "right": 412.234375,
-        "top": 542,
-        "bottom": 578,
-        "parentRight": 412.234375,
-        "overflow": false
+        "path": "public/fonts/Manrope-Medium-UI.woff2",
+        "sha256": "decdd45c2250c55b7089d2aa05464ff0450545631884122bf6009c46eb1ff0c2"
+      },
+      {
+        "path": "content/site.json",
+        "sha256": "a867a3c7f99b8150c9a8120b1cd59afab71ab9521c197fda9578b7846d567c6f"
+      },
+      {
+        "path": "content/seo.json",
+        "sha256": "bdc6ce469cc85ba3638d892f12024a30e53cac92bce2f04cf369454b885d5f05"
+      },
+      {
+        "path": "deploy/production.json",
+        "sha256": "4dbeb5fd994c363b7e25f26f19ebf893685daea89fabbfdcebc751cbbd86d7ae"
       }
-    ]
+    ],
+    "rendererSha256": "c800603a8d47e92adee01de77a861c44899399cb828269994f6844f2363a76a1"
   }
 }

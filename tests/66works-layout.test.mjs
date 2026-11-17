@@ -37,7 +37,7 @@ test('touch travel uses the actual portrait width instead of the densely overlap
 });
 
 test('filtered fan depths fit the real photo count and each stable photo key keeps its small individual tilt',()=>{
- for(let total=0;total<=12;total++)for(const limit of [1,2,4]){
+ for(let total=0;total<=12;total++)for(const limit of [1,2,3,4]){
   const depth=workDepth(total,limit);assert.ok(depth>=0&&depth<=limit);if(total)assert.ok(depth*2+1<=total);
  }
  const ids=['review-01-1','review-02-1','review-03-1','review-04-1'];

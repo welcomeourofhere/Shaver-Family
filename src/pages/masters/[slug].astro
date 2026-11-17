@@ -4,6 +4,7 @@ import MasterStory from '../../components/MasterStory.astro';
 import {masterStories,type MasterStory as Story} from '../../content/master-articles';
 import team from '../../../content/team.json';
 import {bookingURLs} from '../../scripts/booking-url';
+import PageBack from '../../components/PageBack.astro';
 export function getStaticPaths() {
   return masterStories.map(article=>({params:{slug:article.slug},props:{article}}));
 }
@@ -13,8 +14,8 @@ const master=team.masters.find(item=>item.id===article.masterId)!;
 const articleData={'@context':'https://schema.org','@type':'Article',headline:article.title,description:article.description,author:{'@type':'Organization',name:'Барбершоп СОЮЗ'},about:{'@type':'Person',name:master.name}};
 ---
 <SiteFrame title={`${article.title} — Барбершоп СОЮЗ, Киров`} description={article.description} image={article.media[article.cover].variants.at(-1)!.url} imageAlt={article.media[article.cover].alt} articleData={articleData}>
-    <main class="shell story-page" id="main">
-      <div id="top"><a class="text-btn story-back" href="/#masters" aria-label="К мастерам СОЮЗа"><span class="mobile-action-full">← К мастерам СОЮЗа</span><span class="mobile-action-short">К мастерам</span></a></div>
+    <main class="shell story-page" id="main" tabindex="-1">
+      <div id="top"><PageBack fallback="/#masters" /></div>
       <MasterStory article={article} />
       <div class="story-actions"><a class="btn" href={bookingURLs(master.bookingUrl)!.publicUrl} data-booking aria-haspopup="dialog" aria-controls="booking-drawer" data-booking-url={master.bookingUrl} data-master={master.id} data-context={`Запись к мастеру: ${master.name}`} aria-label={`Записаться к ${master.bookingNameDative || master.name}`} data-personal-booking-short={`К ${master.bookingNameDative || master.name}`}>Записаться к {master.bookingNameDative || master.name}</a><a class="text-btn" href="/#masters">Все мастера</a></div>
     </main>

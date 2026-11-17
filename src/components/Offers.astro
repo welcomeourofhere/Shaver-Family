@@ -22,13 +22,14 @@ const colorStyle = (index: number) => {
 };
 const posterById = Object.fromEntries(posters.images.map(image => [image.id, image]));
 const imageURL = (variant: {url: string; sha256: string}) => `${variant.url}?v=${variant.sha256.slice(0, 12)}`;
+const blankPoster='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/%3E';
 ---
 
 <section class="section of-section" id="offers" aria-labelledby="offers-title" data-offers>
   <div class="shell of-layout">
     <div class="of-intro">
       <Headline class="section-title of-heading" id="offers-title" name="offers" aside />
-      <div class="of-controls" aria-label="Перелистывание акций">
+      <div class="of-controls" role="group" aria-label="Перелистывание акций">
         <button class="icon-btn of-arrow" type="button" data-ui-kind="selection" data-feedback="manual" data-of-prev aria-controls="offers-rail" aria-label="Предыдущая акция"><Icon name="left" /></button>
         <p class="of-position" data-of-position aria-live="polite" aria-atomic="true">1 / {offers.length}</p>
         <button class="icon-btn of-arrow" type="button" data-ui-kind="selection" data-feedback="manual" data-of-next aria-controls="offers-rail" aria-label="Следующая акция"><Icon name="right" /></button>
@@ -44,12 +45,11 @@ const imageURL = (variant: {url: string; sha256: string}) => `${variant.url}?v=$
         data-offer-tone={tones[index]} data-selection-surface={tones[index]}
         id={`offer-${offer.id}`}
         data-offer-id={offer.id}
-        role="group"
         aria-roledescription="карточка акции"
         aria-label={`${index + 1} из ${offers.length}: ${offer.title}`}
       >
         {offer.note&&<div class="of-note"><InfoTip label={`Важно об акции «${offer.title.replace(/^Акция:\s*/u,'')}»`} text={offer.note} compact /></div>}
-        <div class="of-photo photo-frame" data-loading-media aria-hidden="true"><img class="photo-image" src={imageURL(posterById[offer.id].variants[0])} srcset={posterById[offer.id].variants.map(variant => `${imageURL(variant)} ${variant.width}w`).join(', ')} sizes="(max-width:540px) calc(100vw - 40px), 350px" width={posterById[offer.id].variants[1].width} height={posterById[offer.id].variants[1].height} alt="" loading="lazy" decoding="async" /></div>
+        <div class="of-photo photo-frame" data-loading-media aria-hidden="true"><img class="photo-image" src={index<2?imageURL(posterById[offer.id].variants[0]):blankPoster} srcset={index<2?posterById[offer.id].variants.map(variant => `${imageURL(variant)} ${variant.width}w`).join(', '):undefined} data-offer-src={index>=2?imageURL(posterById[offer.id].variants[0]):undefined} data-offer-srcset={index>=2?posterById[offer.id].variants.map(variant => `${imageURL(variant)} ${variant.width}w`).join(', '):undefined} sizes="(max-width:540px) calc(100vw - 40px), 350px" width={posterById[offer.id].variants[1].width} height={posterById[offer.id].variants[1].height} alt="" loading="lazy" decoding="async" />{index>=2&&<noscript><img class="photo-image" src={imageURL(posterById[offer.id].variants[0])} srcset={posterById[offer.id].variants.map(variant => `${imageURL(variant)} ${variant.width}w`).join(', ')} sizes="(max-width:540px) calc(100vw - 40px), 350px" width={posterById[offer.id].variants[1].width} height={posterById[offer.id].variants[1].height} alt="" loading="lazy" /></noscript>}</div>
         <div class="of-card-copy">
         <h3 class="of-title" id={`offer-title-${offer.id}`}>{offer.titleLines ? offer.titleLines.map((line, index) => <span>{line}{index < offer.titleLines.length - 1 ? ' ' : ''}</span>) : offer.title}</h3>
         <p class="of-summary">{offer.summary}</p>

@@ -18,7 +18,7 @@ const bookingHref=bookingURLs(site.bookingUrl)!.publicUrl;
   <div class="hero-scene" role="region" aria-roledescription="карусель" aria-label="Публикации СОЮЗа во ВКонтакте" data-news-state="pending" data-news-feed={site.newsFeedUrl} data-news-fallback="/data/news.json">
     <div class="hero-brand"><picture><source media="(max-width:960px)" srcset="/brand/logo-paper.svg" /><img src="/brand/logo-light.svg" width="160" height="78" alt="СОЮЗ Барбершоп" /></picture></div>
     <div class="hero-media">
-    <div class="hero-rail" id="hero-news-rail" tabindex="0" aria-label="Публикации ВК. Стрелки влево и вправо — сменить слайд, пробел — пауза и продолжение">
+    <div class="hero-rail" id="hero-news-rail" role="group" tabindex="0" aria-label="Публикации ВК. Стрелки влево и вправо — сменить слайд, пробел — пауза и продолжение">
       <article class="hero-slide photo-frame" data-loading-media data-hero-active="true">
         <video class="hero-video" data-video-src={heroMedia.playback.url} poster="/media/hero/soyuz-intro-poster.webp" preload="none" muted loop playsinline aria-label="Атмосфера барбершопа СОЮЗ" />
       </article>

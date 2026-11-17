@@ -1,0 +1,8 @@
+---
+import Icon from './Icon.astro';
+interface Props {fallback?:string;}
+const {fallback='/'}=Astro.props;
+---
+<a class="btn btn-cream page-back" href={fallback} data-page-back data-feedback="manual"><Icon name="left" /><span>Назад</span></a>
+<style>.page-back{inline-size:max-content;margin-block-end:var(--size-20)}</style>
+<script>import '../scripts/page-back';</script>

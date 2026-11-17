@@ -2,6 +2,10 @@
 let locked=false;
 export const pageScrollY=()=>locked?document.body.scrollTop:scrollY;
 export const modalScrollLocked=()=>locked;
+export function modalDialogs(root:ParentNode=document):HTMLDialogElement[]{
+ const native=typeof CSS!=='undefined'&&typeof CSS.supports==='function'&&CSS.supports('selector(dialog:modal)');
+ return [...root.querySelectorAll<HTMLDialogElement>(native?'dialog:modal':'dialog[open]')].filter(dialog=>native||dialog.getAttribute('aria-modal')!=='false'&&dialog.dataset.layout!=='docked');
+}
 if(typeof document!=='undefined'){
 const body=document.body;
 function restorePageScroll(){
@@ -12,7 +16,7 @@ function restorePageScroll(){
  locked=false;
 }
 function syncModalScroll(){
- const modal=document.querySelector('dialog:modal');
+ const modal=modalDialogs()[0];
  if(modal&&!locked){
   const left=scrollX,top=scrollY;
   locked=true;
