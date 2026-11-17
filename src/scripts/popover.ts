@@ -24,7 +24,8 @@ export function popover(panel:HTMLElement,anchor:HTMLElement):Popup{
   if(native){panel.showPopover();return;}
   const style=getComputedStyle(panel),colors=inherited.map(key=>[key,style.getPropertyValue(key).trim()]);
   for(const [key,value]of colors)if(value){saved.set(key,panel.style.getPropertyValue(key));panel.style.setProperty(key,value)}
-  const dialog=anchor.closest('dialog[open]')??[...document.querySelectorAll('dialog[open]')].at(-1);
+  const dialogs=document.querySelectorAll('dialog[open]');
+  const dialog=anchor.closest('dialog[open]')??dialogs[dialogs.length-1];
   (dialog??document.body).append(panel);panel.setAttribute('data-popover-open','');
   if(automatic)document.addEventListener('pointerdown',outside,true);
   panel.dispatchEvent(new Event('toggle'));

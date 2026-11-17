@@ -5,6 +5,21 @@ import { visibleOfferRange } from "../src/scripts/offer-range.ts";
 import design from '../src/config/design.json' with { type: 'json' };
 import site from '../content/site.json' with { type: 'json' };
 
+test('deferred offer images keep valid placeholder URLs and sizes with their future srcset',()=>{
+ const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
+ const tags=[...html.matchAll(/<img\b[^>]*\sdata-offer-src="[^"]+"[^>]*>/g)].map(match=>match[0]);
+ assert.equal(tags.length,9);
+ for(const tag of tags){
+  const source=tag.match(/\ssrc="([^"]*)"/)?.[1];
+  assert.ok(source?.startsWith('data:image/svg+xml,'));
+  assert.doesNotMatch(source,/[\s"<>]|&quot;/);
+  assert.match(decodeURIComponent(source.slice('data:image/svg+xml,'.length)),/^<svg\s/);
+  assert.doesNotMatch(tag,/\ssizes=/);
+  assert.match(tag,/\sdata-offer-sizes=/);
+  assert.match(tag,/\sdata-offer-srcset=/);
+ }
+});
+
 test('fixed offer surfaces use brand colors without repeating cyclic neighbors', () => {
   const {base} = design.offerThemes;
   assert.equal(base.length, 11);

@@ -8,7 +8,8 @@ export function enableSheetDismiss(dialog:HTMLElement,close=()=>closeDialog(dial
   dialog.addEventListener('pointerdown',event=>{
     const target=event.target as Element;
     if(!compact.matches||drag||closing||!event.isPrimary||event.button!==0||target.closest('button,a,input,select')||!target.closest('.menu-grip,.dialog-head'))return;
-    const offset=parseFloat(getComputedStyle(dialog).translate.split(' ').at(-1)||'0')||0;
+    const translate=getComputedStyle(dialog).translate.split(' ');
+    const offset=parseFloat(translate[translate.length-1]||'0')||0;
     rebound?.cancel();dialog.style.translate=`0 ${offset}px`;
     drag={id:event.pointerId,start:event.clientY-offset,time:performance.now(),distance:offset,limit:dialog.offsetHeight*.35};
     dialog.setPointerCapture(event.pointerId);

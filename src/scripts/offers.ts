@@ -19,8 +19,8 @@ for(const section of document.querySelectorAll<HTMLElement>('[data-offers]')){
       const distance=compact.matches?Math.abs(index-selected):Math.min(wrap(index-selected,cards.length),wrap(selected-index,cards.length));
       if(distance>reach)return;
       const image=card.querySelector<HTMLImageElement>('img[data-offer-src]');if(!image)return;
-      image.srcset=image.dataset.offerSrcset!;image.src=image.dataset.offerSrc!;
-      delete image.dataset.offerSrc;delete image.dataset.offerSrcset;
+      image.sizes=image.dataset.offerSizes!;image.srcset=image.dataset.offerSrcset!;image.src=image.dataset.offerSrc!;
+      delete image.dataset.offerSrc;delete image.dataset.offerSrcset;delete image.dataset.offerSizes;
     });
   };
   const compact=matchMedia('(max-width:960px)');

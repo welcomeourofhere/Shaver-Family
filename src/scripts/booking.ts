@@ -341,7 +341,7 @@ document.addEventListener("keydown", (event) => {
       getComputedStyle(element).visibility !== "hidden",
   );
   const first = controls[0],
-    last = controls.at(-1);
+    last = controls[controls.length-1];
   if (
     event.shiftKey &&
     (document.activeElement === first || document.activeElement === drawer)

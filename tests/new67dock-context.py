@@ -16,6 +16,7 @@ parser.add_argument('--origin',required=True)
 parser.add_argument('--engine',choices=['chromium','firefox','webkit'],required=True)
 parser.add_argument('--channel',choices=['chrome','msedge'],default='chrome',help='Installed Chromium browser; ignored for other engines')
 parser.add_argument('--scope',choices=['full','motion'],default='full')
+parser.add_argument('--without-array-at',action='store_true',help='Exercise the existing owners when Array.prototype.at is unavailable')
 parser.add_argument('--label',required=True)
 args=parser.parse_args();assert re.fullmatch(r'[\w-]+',args.label)
 OUT=ROOT/'tmp/planning/iteration67/dock-context'/args.label;OUT.mkdir(parents=True,exist_ok=False)
@@ -46,6 +47,7 @@ with sync_playwright()as p:
  browser=getattr(p,args.engine).launch(**({'channel':args.channel,'args':['--mute-audio']}if args.engine=='chromium'else{}));report['browserVersion']=browser.version
  def fresh(theme='light',width=390,motion='no-preference'):
   context=browser.new_context(viewport={'width':width,'height':900},color_scheme=theme,reduced_motion=motion)
+  if args.without_array_at:context.add_init_script('delete Array.prototype.at')
   context.add_init_script("""if(top===window){try{const now=Date.now();localStorage.setItem('soyuz.analytics.v2',JSON.stringify({version:2,notice:'2026-11-16',updatedAt:now,expiresAt:now+180*86400000,metrika:false,ga4:false}));localStorage.setItem('soyuz_feedback_enabled','false');localStorage.setItem('soyuz_theme',%s);window.__dockFixtureStorage={ok:true}}catch(error){window.__dockFixtureStorage={ok:false,error:String(error)}}}"""%json.dumps(theme))
   def route(r):
    if urlsplit(r.request.url).netloc==host:r.continue_()

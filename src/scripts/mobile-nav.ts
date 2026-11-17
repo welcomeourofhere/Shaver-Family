@@ -154,7 +154,7 @@ if(dock) {
       const r=element.getBoundingClientRect();
       return r.top<=point&&r.bottom>point&&(!element.matches('#welcome-offer,#cashback')||r.width>innerWidth*.7);
     });
-    if(!article&&present.length)next=present.at(-1)!.id;
+    if(!article&&present.length)next=present[present.length-1].id;
     if(!article&&pageScrollY()+innerHeight>=document.documentElement.scrollHeight-numberToken('--size-24'))next='footer';
     if(next!==section){section=next;render();}else surface.setCondensed(condensed());
   }
