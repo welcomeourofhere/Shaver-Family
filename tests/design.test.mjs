@@ -50,6 +50,8 @@ test("layout and motion have one canonical source and use the measured SF contra
     "--portrait-position",
     "--mobile-nav-space",
   ]);
+  for (const match of JSON.stringify(design).matchAll(/var\((--size-\d+)/g))
+    assert.ok(names.has(match[1]), `design config: missing primitive ${match[1]}`);
   // Component-local values must have an actual declaration, not an unchecked allowlist.
   for (const folder of ["components", "scripts", "styles"])
     for (const file of readdirSync(
