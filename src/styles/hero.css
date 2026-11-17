@@ -336,7 +336,9 @@
 .first-actions [data-short-label] .hero-book-short { display:inline; }
 @media (max-width:960px) {
   .hero.shell { --hero-brand-width:clamp(var(--size-120),32vw,var(--size-160)); --hero-brand-top:max(var(--size-56),calc(var(--safe-top) + var(--size-32))); position:relative; display:grid; grid-template-columns:minmax(0,1fr); gap:0; width:100%; max-width:none; margin-top:0; padding:0; }
-  .hero-lead { grid-area:1 / 1; position:relative; z-index:5; min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end; padding:calc(var(--hero-brand-top) + var(--hero-brand-width) * .486 + var(--size-32)) max(var(--size-20),var(--safe-right)) calc(var(--dock-live-height,var(--dock-height)) + var(--dock-bottom) + var(--size-36) + var(--safe-bottom)) max(var(--size-20),var(--safe-left)); pointer-events:none; }
+  .hero-lead { --hero-dock-height:var(--dock-live-height,var(--dock-height)); grid-area:1 / 1; position:relative; z-index:5; min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end; padding:calc(var(--hero-brand-top) + var(--hero-brand-width) * .486 + var(--size-32)) max(var(--size-20),var(--safe-right)) calc(var(--hero-dock-height) + var(--dock-bottom) + var(--size-36) + var(--safe-bottom)) max(var(--size-20),var(--safe-left)); pointer-events:none; }
+  /* Consent overlays the first screen; its transient height must not move the caption. */
+  :root[data-cookie-prompt="true"] .hero-lead { --hero-dock-height:var(--dock-height); }
   .hero .hero-heading { position: static; margin: 0; color: var(--paper); font-size:var(--headline-size); line-height:1.08; text-align:center; text-wrap:balance; }
   .hero-heading .hero-heading-desktop { display: none; }
   .hero-heading .hero-heading-mobile { display: block; }

@@ -177,3 +177,10 @@ iteration37-swipes.mjs продолжает быть общим touch-набор
 
 
 Проход59 — `python tests/iteration59-browser.py` (QA_ENGINE=chromium/firefox/webkit, QA_URL) и `python tests/iteration59-responsive.py` (QA_URL).98Node/12Python. Проверяются интервью Дарьи, часы, FAQ и многошаговый ПК-drag с возвратом/отменой. Ограничение качества публичного источника ВК описано в docs/ITERATION_59.md и не считается PASS полноразмерных оригиналов.
+
+
+### Проход68: первый визит
+
+`python -X utf8 tests/new68initial-layout.py --fixture tmp/frozen68-j/native --label unique-label --engine webkit` проверяет геометрию перед/после запуска compiled-модулей, cookie X и фокус на320/390/600 в обеих темах. Доставка — явно обозначенная public-host fixture, entry-gate не переписывает ESM dependencies; это не измерение производительности/публичного HTTPS. Engine также chromium/firefox; `--single` — один диагностический случай. Артефакты не перезаписываются.
+
+`python -X utf8 tests/new68public-load.py --label unique-public-label` выполняет девять настоящих HTTPS-загрузок текущего published build из `deploy/tilda-pages.json` (3 профиля ×3 образца), фиксирует trace/network/LCP/CLS без форм и аккаунтов. Выполнять без параллельных браузеров/сборок. `python -X utf8 scripts/analyze-public-load.py --before path/results.json --after path/results.json --output new-analysis.json` проверяет одинаковые профили/версии браузера и вычисляет явно обозначенный FCP→10000ms timespan TBT; окно не заменяет Lighthouse TTI или полевой INP.

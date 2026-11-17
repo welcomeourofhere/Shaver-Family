@@ -10,7 +10,15 @@
 
 **Spec:** `docs/RELEASE_SPEC_64.md`.
 
-**Текущий срез E:** 16.11.2026, опубликован выпуск65 E `945ad6ddd3e70d5cc3c4`, manifest SHA256 `e9af475c845d1adebf868b28361b745811612b78bfb3901161a50605dbf1dabb`. Через официальный MCP опубликованы13/13 страниц, shared перед content; после публикации13/13 HEAD/code прочитаны с точным совпадением. Cloud421/421 проверен, root registry указываетE. NativeE18 прошёл с прозрачными body/#allrecords/#t-header/#t-footer и тремя footer-pixel проверками в каждом случае. ActualE18/18 technical HTTPS GREEN; Header3/3 сохранил gap8px, radius20px, фон#252525 и8px status-dot. После добавленного владельцем исключения Happ/Xray основной https://soyuz.hair также прошёл18/18 усиленных canvas/footercorner cases в3движках, обе темы и390/961/1440px; HTTP12/12PASS,177currentresources. Доказательства: HOST_CANVAS_65D.md и tmp/planning/iteration65/host-canvas/E-main-public/. Финальные sourceE commit/Actions и локальный Git adoption ожидаются; remote пока509fed9…/Actions43800396980success.
+17.11.2026. Публичный выпуск **I `935b93ae952b78c8d373`**: 13 публикаций shared-first и точный readback, 583 Cloud-ресурса; public HTTP13 (11 HTML + robots/sitemap), canvas18/18, настоящий SDK transport, карта и маршрут подтверждены в указанной области. Источник `70e295f84703833fc90ff78a9aa35f9e8e7695d7`, Actions **44014378421 SUCCESS**; документация/локальный Git `679cc790772f42f58742f1db9f251d2798479b55`. Точные артефакты и ограничения — [RELEASE_67.md](../../RELEASE_67.md).
+
+Кандидат **J `6654da5cca6b9b5117b5`** исправляет скачок Hero при первом cookie-уведомлении и размещает HTML единственной панели раньше содержимого. Он собран чисто (183 Node, Astro142/0/0/0, runtime/release, 16 Python-наборов/93 проверки), Cloud583 проверен; оставшаяся QA/source/CI и публикация ещё не завершены. Действующий реестр публикации сохраняет I. Полный аудит требований и открытые внешние пункты — [GOAL_COMPLETION_AUDIT_68.md](../../GOAL_COMPLETION_AUDIT_68.md), ход — [ITERATION_68.md](../../ITERATION_68.md).
+
+Старые незакрытые строки actualE/sourceE ниже относятся к этапу65 и заменены подтверждённой приёмкой I, а не повторно открытыми дефектами. Получение Google sitemap, доступная отправка Яндексу, кабинетная ingestion и полевая индексация остаются отдельными открытыми частями. Физические телефоны исключены владельцем.
+
+## История этапа65
+
+**Срез этапа65 E:** 16.11.2026, опубликован выпуск65 E `945ad6ddd3e70d5cc3c4`, manifest SHA256 `e9af475c845d1adebf868b28361b745811612b78bfb3901161a50605dbf1dabb`. Через официальный MCP опубликованы13/13 страниц, shared перед content; после публикации13/13 HEAD/code прочитаны с точным совпадением. Cloud421/421 проверен, root registry указываетE. NativeE18 прошёл с прозрачными body/#allrecords/#t-header/#t-footer и тремя footer-pixel проверками в каждом случае. ActualE18/18 technical HTTPS GREEN; Header3/3 сохранил gap8px, radius20px, фон#252525 и8px status-dot. После добавленного владельцем исключения Happ/Xray основной https://soyuz.hair также прошёл18/18 усиленных canvas/footercorner cases в3движках, обе темы и390/961/1440px; HTTP12/12PASS,177currentresources. Доказательства: HOST_CANVAS_65D.md и tmp/planning/iteration65/host-canvas/E-main-public/. Финальные sourceE commit/Actions и локальный Git adoption ожидаются; remote пока509fed9…/Actions43800396980success.
 
 D `d4040c957966781f777c` исправил opaque body/#allrecords, но его18/18 actual canvas и Header3/3 не покрыли внешние светлые углы native#t-footer в тёмной теме. Этот дефект найден финальным просмотром; D остаётся ограниченной историей, а не итоговой host-приёмкой. E расширяет единственный HOST_CSS reset на body/#allrecords/#t-header/#t-footer. Все421 compiled inputs совпадают сD;13body точно совпадают после замены build-prefix,13HEAD отличаются только расширенным reset. C37native jobs, SDK transport и24benchmark samples сохраняют исходную область и не называются новыми измерениямиE.
 
@@ -49,7 +57,7 @@ D `d4040c957966781f777c` исправил opaque body/#allrecords, но его18
 - [x] Проверить валидныйHTTPS,домен,основныеHEAD/canonical/robots/sitemap,отдельныесчётчикибезnativeдублей.
 - [x] Проверить actual technical HTTP для11маршрутов иunknown404, currentEasset closure,Twitter/lang/alt/canonical:12casesPASS.
 - [x] СохранитьD actual body-canvas18/Header3 как bounded history: внешнийt-footer не покрыт, найденfooter-дефект.
-- [ ] Завершить actualE18 на опубликованномtechnical HTTPS; основнойHTTPS израбочей сети этим не подменять.
+- [x] **Заменено подтверждённым выпуском I:** Завершить actualE18 на опубликованномtechnical HTTPS; основнойHTTPS израбочей сети этим не подменять. См. текущий срез68 и RELEASE_67.
 
 ### 2. Замечания владельца65
 
@@ -87,7 +95,7 @@ D `d4040c957966781f777c` исправил opaque body/#allrecords, но его18
 - [x] Закрыть CRLF actual-byte metadata: canonical UTF-8 LF exporter, byte assertions и actual package helper; D package9Python/46PASS.
 - [x] ДляD выполнить условный coldCI ownership35/7/9,source384,release4.421compiled sourceSHA/client inputsC=D,13bodysemantic совпадают с учётомuuid/prefix; повторныйAstro/build дляhost-only delta не запускался.
 - [x] Подготовить byte-faithful Git attrs и точный canonicalsource whitelist, не нормализуяSVG/оригиналы и не добавляяlocaljunk.
-- [ ] Зафиксировать окончательный sourceE на codex/soyuz-release, получить новыйactualActions и подключить локальныйGit к точному remote snapshot без checkout/измененияworktree. Прежнийrun не доказывает будущийcommit.
+- [x] **Заменено подтверждённым выпуском I:** Зафиксировать окончательный sourceE на codex/soyuz-release, получить новыйactualActions и подключить локальныйGit к точному remote snapshot без checkout/измененияworktree. Прежнийrun не доказывает будущийcommit. См. текущий срез68 и RELEASE_67.
 
 ### 4. Выпуск и публичная приёмка
 
@@ -113,7 +121,7 @@ D `d4040c957966781f777c` исправил opaque body/#allrecords, но его18
 - [ ] Закрыть внешнее получениеGoogle sitemap/доступную отправкуЯндекса без подменыобходаиндексацией.
 - [x] Владелец самостоятельно добавил сайт в исключения Happ/Xray. После этого основной HTTPS прошёл HTTP12/12 и18/18 browser canvas/footercorner cases в3движках. Агент не менял VPN, DNS или проверку сертификата. Прежний timeout сохранён как история маршрута, а не текущий отказ сайта.
 - [x] Актуализировать текущиеPROGRESS,RELEASE_TRACKER,CIplan,этотплан иtilda-import/checks под опубликованныйE с явнымиpending иDкакboundedhistory. Историческиеevidence не переписывать.
-- [ ] После actualE18 иfinalsourceEcommit записать последние результаты вCURRENTdocs. Текущийremote509/старыйActions не объявлять финальным; nativeE18 не выдавать заactualE.
+- [x] **Заменено подтверждённым выпуском I:** После actualE18 иfinalsourceEcommit записать последние результаты вCURRENTdocs. Текущийremote509/старыйActions не объявлять финальным; nativeE18 не выдавать заactualE. См. текущий срез68 и RELEASE_67.
 
 ### 5. Условие завершения
 

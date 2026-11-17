@@ -1,4 +1,12 @@
-# Реестр релиза СОЮЗа, проход65
+# Реестр релиза СОЮЗа — текущее состояние68
+
+17.11.2026. Публичный выпуск **I `935b93ae952b78c8d373`**: 13 публикаций shared-first и точный readback, 583 Cloud-ресурса; public HTTP13 (11 HTML + robots/sitemap), canvas18/18, настоящий SDK transport, карта и маршрут подтверждены в указанной области. Источник `70e295f84703833fc90ff78a9aa35f9e8e7695d7`, Actions **44014378421 SUCCESS**; документация/локальный Git `679cc790772f42f58742f1db9f251d2798479b55`. Точные артефакты и ограничения — [RELEASE_67.md](RELEASE_67.md).
+
+Кандидат **J `6654da5cca6b9b5117b5`** исправляет скачок Hero при первом cookie-уведомлении и размещает HTML единственной панели раньше содержимого. Он собран чисто (183 Node, Astro142/0/0/0, runtime/release, 16 Python-наборов/93 проверки), Cloud583 проверен; оставшаяся QA/source/CI и публикация ещё не завершены. Действующий реестр публикации сохраняет I. Полный аудит требований и открытые внешние пункты — [GOAL_COMPLETION_AUDIT_68.md](GOAL_COMPLETION_AUDIT_68.md), ход — [ITERATION_68.md](ITERATION_68.md).
+
+Старые незакрытые строки actualE/sourceE ниже относятся к этапу65 и заменены подтверждённой приёмкой I, а не повторно открытыми дефектами. Получение Google sitemap, доступная отправка Яндексу, кабинетная ingestion и полевая индексация остаются отдельными открытыми частями. Физические телефоны исключены владельцем.
+
+## История этапа65 — сохранённые результаты
 
 16.11.2026, опубликован выпуск65 E `945ad6ddd3e70d5cc3c4`, manifest SHA256 `e9af475c845d1adebf868b28361b745811612b78bfb3901161a50605dbf1dabb`. Через официальный MCP опубликованы13/13 страниц, shared перед content; после публикации13/13 HEAD/code прочитаны с точным совпадением. Cloud421/421 проверен, root registry указываетE. NativeE18 прошёл с прозрачными body/#allrecords/#t-header/#t-footer и тремя footer-pixel проверками в каждом случае. ActualE18/18GREEN на опубликованном technical HTTPS в Chromium/Firefox/WebKit ×390/961/1440 ×2темы: все4wrapper alpha0 и3footerpixels каждогоcase корректны. ActualHeader3/3: gap8px,bg#252525,radius20px,dot8px. Root лично просмотрел dark390Chromium и1440WebKit footer: светлые края устранены. HTTPactualE12/12PASS,177currentresources,metadata/alt/canonical. Финальные sourceE commit/Actions и локальный Git adoption ожидаются; remote пока509fed9…/Actions43800396980success.
 
