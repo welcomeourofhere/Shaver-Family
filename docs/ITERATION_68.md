@@ -55,3 +55,9 @@
 `tmp/planning/iteration68/functional-j-entry/results.json` завершён exit0: initial36, cookie20Chrome/20Firefox/22WindowsWebKit, trusted early-wheel interruption, dock вChrome/WebKit (20 секционных/тематических палитр и17 функциональных случаев в каждом, проверка реальной деформации/отмены), latest8, device-switch21 и Hero/feedback14. Собственных JS-ошибок нет, source hash в соответствующих harness не изменялся, браузеры закрыты. Область — compiled native/public-host fixtures; настоящий SDK/provider и конечный HTTPS будут проверены отдельно. Исходные failed gate/hung-font диагностики сохранены.
 
 Воспроизводимый публичный профиль теперь в `tests/new68public-load.py`; он использует тот же Chrome/profile/trace-код, что исходная серия I. Изменена только глубина ROOT для постоянного расположения файла. Сборочный продукт J от этой миграции QA не меняется. Публикация по-прежнему ожидает isolated source/actual CI и публичные checks.
+
+## Окончательная публичная приёмка J
+
+Опубликован J; точные13readback/583assets/CI и публичные результаты, валидный повтор9/9 и отрицательная серияA сохранены в RELEASE_68 и artifacts/iteration68/release-j-verification.json. Обнаружены открытые P1TBT/desktop paint; ни цель, ни общее ускорение не объявлены достигнутыми. Новый QA-измеритель требует page-clock≥10000 и ненулевые FCP/LCP, не меняя product-пакет J.
+
+Журнал Google Sheets синхронизирован одним6-request batch: текущие3вкладки, SYNC-010встроке11, прежние SYNC-001…009/исходные4вкладки/статусы/validation/формат сохранены и перечитаны. Независимая проверка Dot не присвоена. Native-визуальный просмотр таблицы недоступен; проверены CellData и штатный autoResize только новой строки. Receipt .local/release68/sheets-final-j.json.

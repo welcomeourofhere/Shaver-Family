@@ -48,9 +48,10 @@ with sync_playwright()as pw:
     row={'profile':profile,'run':run,'browser':browser.version,'traceEnabled':True,'fieldData':False,'physicalDevice':False,'deliveryStubbed':False,'ownErrors':errors}
     try:
      d.send('Tracing.start',{'categories':'devtools.timeline,loading,blink.user_timing','transferMode':'ReportEvents'});begin=time.monotonic();response=page.goto('https://soyuz.hair/',wait_until='commit',timeout=45000);assert response.status==200
-     page.wait_for_timeout(max(0,10000-(time.monotonic()-begin)*1000))
+     page.wait_for_timeout(max(0,10000-(time.monotonic()-begin)*1000));page.wait_for_function('performance.now()>=10000',timeout=2000)
      state=page.evaluate("""()=>({now:performance.now(),timeOrigin:performance.timeOrigin,probe:loadProbe,paints:performance.getEntriesByType('paint').map(e=>({name:e.name,time:e.startTime})),navigation:performance.getEntriesByType('navigation').map(e=>({ttfb:e.responseStart,responseEnd:e.responseEnd,dcl:e.domContentLoadedEventEnd,load:e.loadEventEnd,transfer:e.transferSize,encoded:e.encodedBodySize,decoded:e.decodedBodySize})),styles:[...document.querySelectorAll('link[rel=stylesheet]')].map(e=>({url:e.href,media:e.media})),fonts:document.fonts.status,news:document.querySelector('.hero-scene')?.dataset.newsState,cookie:document.documentElement.dataset.cookiePrompt,builds:[...new Set([...document.scripts].map(s=>s.src.match(/Soyuz\\/releases\\/([a-f0-9]{20})/)).filter(Boolean).map(m=>m[1]))],resources:performance.getEntriesByType('resource').map(e=>({url:e.name,start:e.startTime,responseStart:e.responseStart,end:e.responseEnd,transfer:e.transferSize,encoded:e.encodedBodySize,decoded:e.decodedBodySize,type:e.initiatorType}))})""")
-     assert state['builds']==[BUILD],state['builds'];row.update(state=scrub(state),lcpMs=state['probe']['lcp'][-1]['time']if state['probe']['lcp']else None,cls=cls(state['probe']['shifts']))
+     assert state['builds']==[BUILD],state['builds'];lcp=[e for e in state['probe']['lcp']if e['time']<=10000];row.update(state=scrub(state),lcpMs=lcp[-1]['time']if lcp else None,cls=cls([e for e in state['probe']['shifts']if e['time']<=10000]),measurementWindowEndMs=10000)
+     assert row['lcpMs']is not None and any(e['name']=='first-contentful-paint'and e['time']<=10000 for e in state['paints']),'No FCP/LCP in the fixed 10s window; sample is incomplete'
      if run==1:page.screenshot(path=str(OUT/(profile['name']+'.png')))
     except Exception as e:row['failure']=str(e)
     finally:
