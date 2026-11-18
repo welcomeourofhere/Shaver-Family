@@ -1,0 +1,43 @@
+{
+  "profile": "webp-v1",
+  "source": "https://sun9-54.userapi.com/s/v1/ig2/Y6o0X3Y6T2lw2Wol337H8A6ez_6FTz_C2vg9bkpGThqWKRAUe3yaBzHPilMBcLK__y-h0s7apsoMNAe6j2-I0YWd.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1086x1448&from=bu&cs=1086x0",
+  "selected_source": "https://sun9-54.userapi.com/s/v1/ig2/Y6o0X3Y6T2lw2Wol337H8A6ez_6FTz_C2vg9bkpGThqWKRAUe3yaBzHPilMBcLK__y-h0s7apsoMNAe6j2-I0YWd.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1086x1448&from=bu&cs=1086x0",
+  "cropped": false,
+  "variants": [
+    {
+      "url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-061d718156c3fa04054d.webp",
+      "path": "data/media/news-061d718156c3fa04054d.webp",
+      "width": 160,
+      "height": 214,
+      "bytes": 9996
+    },
+    {
+      "url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-db930c95ac96eedb1ab3.webp",
+      "path": "data/media/news-db930c95ac96eedb1ab3.webp",
+      "width": 320,
+      "height": 427,
+      "bytes": 28696
+    },
+    {
+      "url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-5f3a87b510b4bf9c2dce.webp",
+      "path": "data/media/news-5f3a87b510b4bf9c2dce.webp",
+      "width": 640,
+      "height": 853,
+      "bytes": 85752
+    },
+    {
+      "url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-a57ff9f2096e5b28a7a8.webp",
+      "path": "data/media/news-a57ff9f2096e5b28a7a8.webp",
+      "width": 960,
+      "height": 1280,
+      "bytes": 155278
+    },
+    {
+      "url": "https://welcomeourofhere.github.io/Shaver-Family/data/media/news-d321811fdd08d0f8fd1b.webp",
+      "path": "data/media/news-d321811fdd08d0f8fd1b.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 186564
+    }
+  ]
+}
