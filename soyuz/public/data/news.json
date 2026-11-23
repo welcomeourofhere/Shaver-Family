@@ -2,7 +2,7 @@
   "version": 1,
   "groupId": -210007626,
   "groupUrl": "https://vk.ru/soyuz_kirov",
-  "generatedAt": "2026-11-22T14:34:13.205294+03:00",
+  "generatedAt": "2026-11-23T15:58:42.825629+03:00",
   "source": "official-vk-api",
   "items": [
     {
@@ -175,7 +175,7 @@
           }
         ],
         "sourceSha256": "58af3b2f6a5485b999bb5072f47ee4272771e679b6b25f46927bce4f9c7e452d",
-        "sourceKey": "41b3a97e0e871688c46022b1bdcb89053e96bbc78f434fb802025c9be7495cd9",
+        "sourceKey": "716e5d1eab62a6e01f3ebd4c56f0996c483c349c9f631f67c3a632a4f1b067cf",
         "sourceWidth": 1920,
         "sourceHeight": 2560
       }
